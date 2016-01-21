@@ -50,11 +50,11 @@ Futbol::Application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", sessions: "devise/sessions"} 
   
   # override devise url snippet
-  #devise_scope do
+  devise_scope :user do
 
-  #  get ':id' => 'users#show'
+    get ':id' => 'users#show'
 
-  #end  
+  end  
   
   # se non metto questo non mi funziona l'inserimento dei bookmarks come nested resources
   resources :bookmarks#, :only => [:create, :edit, :update]

@@ -20,9 +20,6 @@ gem 'gravtastic'
 gem 'omniauth-facebook'
 gem 'koala'
 
-# SEO
-gem 'friendly_id'
-
 # Monitor App
 gem 'newrelic_rpm'
 
@@ -77,6 +74,9 @@ end
 
   #tag system
   gem 'acts-as-taggable-on'
+
+  # SEO
+  gem 'friendly_id'
 
   group :development do
 

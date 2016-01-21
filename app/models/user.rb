@@ -1,8 +1,4 @@
 class User < ActiveRecord::Base
-  
-  # SEO User url profile
-  extend FriendlyId
-  friendly_id :username
 
   attr_accessible :login
   
@@ -25,7 +21,7 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model. Add also :username after add a column for the Devise Model
   attr_accessible :email, :username, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
-  
+
   validates :email, :presence => true, :email => true
 
   # DM system methods
@@ -52,6 +48,10 @@ class User < ActiveRecord::Base
   has_many :followers, :through => :reverse_following_relationships, :source => :follower
   # end snippet for relationship among users
 
+  # SEO User url profile
+  extend FriendlyId
+  friendly_id :username
+  
   after_create :add_user_to_mailchimp
   before_destroy :remove_user_from_mailchimp
  
