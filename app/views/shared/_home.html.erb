@@ -1,0 +1,47 @@
+<table class="table">
+
+        <tr>
+          <th> Sitios de los FEEDs</th>
+          <th> Etiquetas</th>
+          <th> Usuarios que siguen este Feed</th>
+          <th> Actualizacion </th>
+          <th></th>
+        </tr>
+      
+      <% @last_feeds_paginate.each do |feed| %>
+        
+        <tr>
+          <td> <%= link_to feed.title, user_feed_path(feed.user, feed) %> </td>
+          <td>
+
+            <% a = feed.tags.count %>
+            <% b = 0 %>
+          
+          <% feed.tags.each do |tag| %>
+          
+              <% b = b+1 %>
+					
+                <%= link_to tag.name, tagged_feed_url(:tag => tag.name) %> 
+          
+              <% if b != a  %>, <% end %>
+
+			     <% end %>
+		  </td>
+          <td> <%= Feed.where(:rssurl => feed.rssurl).count %> </td>
+
+          <td> <%= time_ago_in_words(feed.updated_at) %> </td>
+
+              <% if current_user.feeds.where(:rssurl => feed.rssurl).exists? %>
+
+                  <td> Tambien tu tienes este Feed </td>
+              
+              <% else %>
+
+              <td> <%= link_to '<i class="fa fa-plus"></i> Agrega'.html_safe, new_user_feed_path(current_user, :rssurl => feed.rssurl) %> </td>
+          
+
+              <% end %>
+
+         </tr>
+  	<% end %>
+  </table>

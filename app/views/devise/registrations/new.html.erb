@@ -1,0 +1,79 @@
+<%= render 'layouts/navigation_landing_page' %>
+<%= render 'shared/navigation_left_aux' %>
+
+<div id="main-content">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12 col-sm-12 text-center">
+  <div id="mainWrap">
+  <div id="loggit">       
+
+<h1><i class="fa fa-lock"></i> Registrate </h1>
+<h3>Por favor <strong>Inserta tus parametros </strong> </h3>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:id => "logForm", :class => "form-horizontal center"}) do |f| %>
+  <%= devise_error_messages! %>
+
+          <div class="form-group">
+            <div class="col-xs-12">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+ 
+            <%= f.text_field :username, :class => "form-control input-lg", id: "color", placeholder: "Username", autocomplete: "off" %>
+
+              </div>
+            </div>
+          </div>
+
+        <div class="form-group">
+            <div class="col-xs-12">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-envelope fa-fw"></i></span>
+ 
+  <%= f.email_field :email, :class => "form-control input-lg", id: "color", placeholder: "Correo", autocomplete: "off" %>
+
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-xs-12">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+  
+    <%= f.password_field :password, :class => "form-control input-lg", id: "color", placeholder: "Contraseña", autocomplete: "off" %>
+              </div>
+            </div>
+          </div>
+
+  <div class="form-group">
+            <div class="col-xs-12">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+    <%= f.password_field :password_confirmation, :class => "form-control input-lg", id: "color", placeholder: "Confirma Contraseña", autocomplete: "off" %></div>
+            </div>
+          </div>
+  <div class="form-group formSubmit">
+            <div class="col-sm-7">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" autocomplete="off"> Estoy de acuerdo con los Terminos y Condiciones
+                </label>
+              </div>
+            </div>
+
+  <div class="col-sm-5 submitWrap">
+              
+                <%= f.submit "Sign up", :class=> "btn btn-primary btn-md" %></div>
+      </div>    
+          <div class="form-group formNotice">
+            <div class="col-xs-12">
+              <p class="hasAccount text-center"> Tiene ya una cuenta? <%= link_to 'Ingresar', new_session_path(resource_name), :class => "link" %></p>
+            </div>
+          </div>
+  <% end %> 
+        </div>
+       </div> <!-- end mainWrap -->
+      </div> <!-- end col-md-12 col-sm-12 text-center -->
+    </div> <!-- end row --> 
+  </div> <!-- end content-fluid --> 
+</div> <!-- end .main-content -->

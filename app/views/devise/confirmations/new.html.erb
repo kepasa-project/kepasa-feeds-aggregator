@@ -1,0 +1,32 @@
+<%= render 'layouts/navigation_landing_page' %>
+
+
+<div id="main-content">
+	<div class="container-fluid">
+  		<div class="row">
+    		<div class="col-md-12 col-sm-12">
+    			<div id="mainWrap">
+
+			<h2>Vuelva a enviar instrucciones de confirmación</h2>
+
+			<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+			<%= devise_error_messages! %>
+			
+			
+
+			<div><%= f.label :correo %><br />
+			<%= f.email_field :email, :style => "background-color:gray", :placeholder => "Inserta tu correo", autofocus: true %></div>
+			<br/>
+			<%= f.submit "Reinvia", :class => "btn btn-success btn-sm" %>
+		
+	
+			<% end %>
+            <br/>
+			<%= render "shared/links_espanol"%>
+
+			<%#= render "devise/shared/links" %>
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>

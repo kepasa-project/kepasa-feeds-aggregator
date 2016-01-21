@@ -1,0 +1,41 @@
+<header>
+<div class="container">
+	<%= rss_icon %>
+				<div class="row">
+					<div class="span4">
+						<!-- Logo. Use class "color" to add color to the text. -->
+   						<%= link_to image_tag('logo.rid.png'), main_app.root_path %>
+							<% if user_signed_in? %>
+							<p class="meta">Hey!!! <%= current_user.email %></p>
+ 							<% end %>
+					</div>
+					<div class="span4">
+
+					</div>
+					<div class="span2 offset2">
+	  
+						<!-- Search form -->
+						<%= image_tag 'facebook-logo-icon.50x49.jpg' %>
+						<%= image_tag 'twitter-logo-icon.50x49.jpg' %>
+						
+						<% unless user_signed_in? %>
+						
+						<div class="hlinks">
+							<!-- Login and Register link -->
+							<span class="lr"><%= link_to "Ingresar", new_user_session_path %>
+							or <%= link_to "Registrate", new_user_registration_path %></span>
+						</div>
+						
+						<% else %>
+						
+						<div class="hlinks">
+						<%= link_to 'Perfil', main_app.edit_user_registration_path %> - 
+						<%= link_to "Log Out", main_app.destroy_user_session_path, method: :delete %>
+						</div>
+						
+						<% end %>
+
+					</div>
+				</div>
+</div>
+</header>

@@ -1,0 +1,24 @@
+<%= form_for(@newspaper) do |f| %>
+ <p>
+   Subject:<br />
+   <%#= f.hidden_field :user_id, :value => current_user.id.to_i %>
+ </p>
+
+ <p>
+ <%= @newspapers.inspect %>
+ </p>
+ 
+ <p>
+ <%= f.collection_select(:page_id, @newspapers, :id, :title, {:prompt => 'Listas Periodicos'}) %> <br />
+ </p>
+ 
+ <p>
+   Priority: <br />
+   <%#= text_field_tag "newspaper_id", Newspaper.last.id %>   
+   <%#= select_tag "newspaper_id", options_from_collection_for_select(@newspapers, "id", "title") %>
+   <%#= collection_select :newspaper_id, :id, Newspaper.all, :id, :title %> 
+</p>
+  <p>
+ 	<%= f.submit 'Agrega', :class => "btn btn-primary"%>
+  </p>
+<% end %>

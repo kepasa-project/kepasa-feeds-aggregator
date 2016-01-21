@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Tienes una nueva respuesta: <%= @subject %></h1>
+    <p>
+      Acaba de recibir una respuesta en una conversación en Kepasa:
+    </p>
+    <blockquote>
+      <p>
+        <%= raw @message.body %>
+      </p>
+    </blockquote>
+    <p>
+      Haz click <%= link_to 'aqui', root_url %> y checa tu bandeja de entrada en <%= link_to 'Kepasa.co', "http://www.kepasa.co" %> para mayor informaciones.
+    </p>
+  </body>
+</html>

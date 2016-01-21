@@ -1,0 +1,11 @@
+<%= form_for(@friendship) do |f| %>
+
+<p> Escoge un Periodico </p>
+
+<%= f.hidden_field :page_id, :value => params[:page_id] %> 
+<%= f.collection_select(:newspaper_id, @newspapers, :id, :title, {:prompt => 'Listas Periodicos'}) %> <br />
+
+<div class="form-actions">
+<%= f.submit 'Agrega', :class => "btn btn-primary"%>
+</div>
+<% end %>

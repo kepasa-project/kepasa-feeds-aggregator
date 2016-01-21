@@ -1,0 +1,63 @@
+<% if user_signed_in? %>
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+	 <div class="row">
+      <div class="span9 offset3">
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+ 
+      <!-- Be sure to leave the brand out there if you want it shown -->
+      <!--<a class="brand" href="#">Project name</a>-->
+ 
+      <!-- Everything you want hidden at 940px or less, place within here -->
+      <div class="nav-collapse collapse">
+        <!-- .nav, .navbar-search, .navbar-form, etc -->
+		<ul class="nav">
+		 <% if url_for == root_path %>
+		  <li class="active">
+		<% else %>
+		  <li>
+		<% end %> 
+		  <%= link_to 'Primera Pagina', root_path %></li>
+		
+		<% if url_for ==  user_bookmarks_path(@user) %>
+		 <li class="active"> 	
+		<% else %>
+		  <li>
+		<% end %>
+		  <%= link_to 'Bookmark', user_bookmarks_path(@user) %></li>
+
+		  <% if url_for == edit_user_registration_path %>
+		  <li class="active">
+		  <% else %>
+		  <li>
+		  <% end %>
+		  <%= link_to 'Perfil', edit_user_registration_path %></li>
+		  
+		<% if url_for == monologue_path %>
+		  <li class="active">
+		  <% else %>
+		  <li>
+		  <% end %>
+		  <%= link_to 'Blog', monologue_path %></li>
+		
+		</ul>
+		<ul class="nav pull-right"> <li>
+		<form class="navbar-form pull-left">
+  <input type="text" placeholder="Busqua las ultimas noticias">
+  <button type="submit" class="btn"><i class="icon-search"></i></button>
+</form></li>
+      </div>
+
+      </div>
+     </div>
+    </div>
+  </div>
+</div>
+
+<% end %>

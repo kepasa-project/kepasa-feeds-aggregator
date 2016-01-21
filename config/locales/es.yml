@@ -1,0 +1,8 @@
+es:
+
+  mailboxer:
+    message_mailer:
+      subject_new: "Tienes un nuevo mensaje en kepasa.co: %{subject}"
+      subject_reply: "Tienes una nueva respuesta en kepasa.co: %{subject}"
+    notification_mailer:
+      subject: "Nueva notificación en kepasa.co: %{subject}"

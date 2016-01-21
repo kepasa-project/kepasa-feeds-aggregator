@@ -1,0 +1,32 @@
+/**
+ * application-front-end.css
+ *
+ *= require 'bootstrap.min.css'
+ *= require 'bootstrap-social.css'
+ *= require 'landing-page/animate/animate.css'
+ *= require 'landing-page/font-awesome.min.css.erb'
+ *= require 'landing-page/owl-carousel/owl.carousel.css'
+ *= require 'landing-page/owl-carousel/owl.theme.css'
+ *= require 'landing-page/magnific-popup/magnific-popup.css'
+ *= require 'landing-page/automatic-news-scrolling.css'
+ *= require 'login.css'
+ *= require 'front-end.css'
+ *= require_self
+ */
+
+
+@font-face {
+  font-family: 'FontAwesome';
+  src: font-url('/fonts/fontawesome-webfont.eot?v=4.1.0');
+  src: font-url('/assetsfonts/fontawesome-webfont.eot?#iefix&v=4.1.0') format('embedded-opentype'), font-url('/fonts/fontawesome-webfont.woff?v=4.1.0') format('woff'), font-url('/fonts/fontawesome-webfont.ttf?v=4.1.0') format('truetype'), font-url('/fonts/fontawesome-webfont.svg?v=4.1.0#fontawesomeregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+#tag_cloud {
+  width: 400px;
+  line-height: 1.6em;
+  .s { font-size: 0.8em; }
+  .m { font-size: 1.2em; }
+  .l { font-size: 1.8em; }
+}

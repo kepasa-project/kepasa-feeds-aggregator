@@ -1,0 +1,11 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  hello: "Hello world"
+  mailboxer:
+    message_mailer:
+      subject_new: "Tienes un nuevo mensaje en kepasa.co: %{subject}"
+      subject_reply: "Tienes una nueva respuesta en kepasa.co: %{subject}"
+    notification_mailer:
+      subject: "Nueva notificación en kepasa.co: %{subject}"

@@ -1,0 +1,23 @@
+<%= form_for(@relationship) do |f| %>
+  <% if @relationship.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@relationship.errors.count, "error") %> prohibited this newspaper from being saved:</h2>
+
+      <ul>
+      <% @relationship.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+  <%= f.fields_for :id do |newspapers_fields| %>
+    <%= newspapers_fields.label :Periodico %><br />
+    <%= newspapers_fields.collection_select(:id, Newspaper.order(:title), :id, :title, {:prompt => true}) %>
+  <% end %>  
+</div>
+  <div class="actions">
+    <%= f.submit 'Insert Noticias', :class => 'btn-primary' %>
+  </div>
+<% end %>

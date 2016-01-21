@@ -1,0 +1,4 @@
+module FeedEntryHelper
+
+
+end

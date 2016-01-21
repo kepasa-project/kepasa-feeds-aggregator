@@ -1,0 +1,22 @@
+<nav class="navbar navbar-fixed-top visible-lg" role="navigation">
+		<div class="container">	
+			  <ul class="nav navbar-nav navbar-right">
+				<%# if url_for == monologue_path %>
+				<!-- <li><b><%#= link_to 'Blog', monologue_path %></b></li> -->
+				<%# else %>
+				<!-- <li><%#= link_to 'Blog', monologue_path %></li> -->
+				<%# end %>
+				<% if url_for == main_app.new_user_session_path %>
+				<li><b><%= link_to 'Ingresar', main_app.new_user_session_path, :class => "link" %></b></li>
+				<%else%>
+				<li><%= link_to 'Ingresar', main_app.new_user_session_path, :class => "link" %></li>
+				<%end%>
+				<% if url_for == main_app.new_user_registration_path %>
+				<li><b><%= link_to 'Registrarse', main_app.new_user_registration_path, :class => "link" %></b></li>
+				<% else %>
+				<li><%= link_to 'Registrarse', main_app.new_user_registration_path, :class => "link" %></li>
+				<%end%>
+				<!-- <li><a href="#">Idioma</a></li> -->
+			  </ul>
+		</div><!-- /.container -->
+</nav>

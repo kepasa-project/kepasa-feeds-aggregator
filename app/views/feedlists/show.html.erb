@@ -1,0 +1,55 @@
+<%#= session[:omniauth] %>
+<div class="container">
+    <!-- main page content. the place to put widgets in. usually consists of .row > .col-md-* > .widget.  -->
+    <main id="content" class="content" role="main">
+
+      <div class="row">
+        <div class="col-md-12 col-xs-12">
+
+<p id="notice"><%= notice %></p>
+
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+          <h3 class="panel-title"> <%= @feedlist.feed.title %> </h3>
+      </div>
+        <div class="panel-body">
+
+         
+            <p>
+            <b> Titulo: <%= @feedlist.name %> </b>
+          </p> 
+
+          <p>
+            <%= sanitize(@feedlist.summary.truncate(225)) %>
+          </p>
+          <p class="feedlist">
+            Haz click <u><%= link_to "aquí", @feedlist.url %></u> para leer el articulo origen 
+             <%# unless user_signed_in? %>
+              <!-- o guarda el articulo en <u> <%#= link_to 'Kepasa.co', root_url %> </u> via <%#= link_to "#{image_tag('btn-facebook-connect-rid.png')}".html_safe, user_omniauth_authorize_path(:facebook, :id => @feedlist.id) %> <br />
+            <%# end %> <br /> -->
+            </p> 
+  
+          <p class="feedlist">
+
+            <% if @feedlist.published_at.nil? %>
+                                 <%= time_ago_in_words(@feedlist.created_at) %>
+                           <% else %>
+                                  <%= time_ago_in_words(@feedlist.published_at) %>
+  
+            <% end %>
+  
+          </p>
+
+        </div>
+
+        
+        <%#= link_to 'Edit', edit_feedlist_path(@feedlist) %>
+        <%#= link_to 'Back', feedlists_path %>
+      
+      </div> <!-- ./panel close -->
+
+     </div>
+    </div>
+
+  </main>
+</div>

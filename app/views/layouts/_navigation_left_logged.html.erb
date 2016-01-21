@@ -1,0 +1,63 @@
+<% @pages = current_user.pages %>
+
+<nav id="sidebar" class="sidebar" role="navigation">
+    <!-- need this .js class to initiate slimscroll -->
+    <div class="js-sidebar-content">
+        <header class="logo hidden-xs">
+            <%= link_to "#{image_tag("logo.rid.24x28.png")}".html_safe, root_path %>
+        </header>
+        <!-- seems like lots of recent admin template have this feature of user info in the sidebar.
+             looks good, so adding it and enhancing with notifications -->
+        <div class="sidebar-status visible-xs">
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <div class="input-group input-group-no-border">
+                        <span class="input-group-addon">
+                            <i class="fa fa-search"></i>
+                        </span>
+                        <input type="text" size="15">
+                    </div>
+                </div>
+            </form>
+            <!-- #notifications-dropdown-menu goes here when screen collapsed to xs or sm -->
+        </div>
+        <!-- main notification links are placed inside of .sidebar-nav -->
+      
+        <ul class="sidebar-nav">
+    
+         <li class="active">
+
+                       <!-- an example of nested submenu. basic bootstrap collapse component -->
+               <%= link_to '<span class="icon"><i class="fa fa-desktop"></i></span>Panel Inicial'.html_safe, root_path %>
+            </li>
+  
+         <li>
+       
+                <%= link_to '<span class="icon"><i class="fa fa-bookmark"></i></span>Marcadores'.html_safe, user_bookmarks_path(current_user.id) %>
+            </li>
+         <li>
+                <%= link_to '<span class="icon"><i class="fa fa-user"></i></span>Mi Cuenta'.html_safe, edit_user_registration_path %>
+         </li>
+         <li>
+                <%= link_to '<span class="icon"><i class="fa fa-users"></i></span>Usuarios'.html_safe, users_path %>
+         </li>
+        </ul>
+        <!-- every .sidebar-nav may have a title -->
+        <%#= render 'layouts/crea_pagina'%>
+        <h5 class="sidebar-nav-title">Inserta Noticia <%= link_to '<i class="glyphicon glyphicon-plus"></i>'.html_safe, new_user_feed_path(current_user), :class => "action-link" %></h5>
+        <!-- some styled links in sidebar. ready to use as links to email folders, projects, groups, etc -->
+        <h5 class="sidebar-nav-title"> Ultimos tuyos Feeds </h5>
+        <ul class="sidebar-labels">
+            <% feeds = Feed.where(:user_id => current_user.id) %>
+            <% feeds.each do |f| %>
+     <% if url_for == user_feed_path(current_user, f.id) %>
+     <li>
+     <% else %>
+         <li>
+         <% end %> 
+     <%= link_to f.title.titleize, user_feed_path(current_user, f.id) %> <span class="label label-danger"><%= f.feedlists.size %></span>
+     </li>
+     <% end %>
+        </ul>
+    </div>
+</nav>

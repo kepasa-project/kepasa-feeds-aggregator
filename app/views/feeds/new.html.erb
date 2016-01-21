@@ -1,0 +1,41 @@
+<div class="container">
+    <!-- main page content. the place to put widgets in. usually consists of .row > .col-md-* > .widget.  -->
+    <main id="content" class="content" role="main">
+        <ol class="breadcrumb">
+            <li>Tu eres aqui</li>
+            <li class="active">Crear Nuevo Feed </li>
+        </ol>
+      <div class="row">
+		    <div class="col-md-8 col-md-offset-2 text-center">
+           <style>
+            body{
+                overflow-x: visible;
+            }
+        </style>
+        
+        <!-- <h2>Edit <%#= resource_name.to_s.humanize %></h2> -->
+
+                <section class="widget">
+                    <header>
+                        <h4>
+                            Quiere agregar nueva noticias?
+                           
+                        </h4>
+                    </header>
+<div class="widget-body">
+
+
+  <%= render 'layouts/notification' %>
+  
+<%= render 'form' %>
+
+</div> <!-- close widget-body -->
+</section> <!-- close section -->
+		  </div>
+	   </div>
+    </div>
+  </main>
+</div>
+
+
+

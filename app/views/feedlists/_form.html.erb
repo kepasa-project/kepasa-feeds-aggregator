@@ -1,0 +1,49 @@
+<%= form_for(@feedlist) do |f| %>
+  <% if @feedlist.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@feedlist.errors.count, "error") %> prohibited this feedlist from being saved:</h2>
+
+      <ul>
+      <% @feedlist.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :rssurl %><br />
+    <%= f.text_field :rssurl %>
+  </div>
+  <div class="field">
+    <%= f.label :guid %><br />
+    <%= f.text_field :guid %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :published_at %><br />
+    <%= f.text_field :published_at %>
+  </div>
+  <div class="field">
+    <%= f.label :summary %><br />
+    <%= f.text_area :summary %>
+  </div>
+  <div class="field">
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
+  </div>
+  <div class="field">
+    <%= f.label :image %><br />
+    <%= f.text_field :image %>
+  </div>
+  <div class="field">
+    <%= f.label :feed_id %><br />
+    <%= f.number_field :feed_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

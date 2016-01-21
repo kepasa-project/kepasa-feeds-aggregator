@@ -1,0 +1,30 @@
+<div class="content-wrap">
+<main id="content" class="content" role="main">
+        <ol class="breadcrumb">
+            <li>YOU ARE HERE</li>
+            <li class="active">Bookmarks</li>
+        </ol>
+
+ 
+<div class="row">
+	<div class="large-12 columns">
+		<h3> Bookmarks list </h3>
+    <% @usertags.each do |bookmark| %> 
+    <p>
+    <%= link_to bookmark.title, bookmark.url %> <br />
+    <%=  bookmark.url %> 
+    </p>
+    <% end %>
+    
+    <%= link_to "My Bookmarks", user_bookmarks_path(current_user) %>
+    </div>
+</div>
+
+<div class="row">
+   <div class="col-lg-12 text-center">
+   <%= paginate @bookmarks %> 
+   </div>
+</div>
+
+</main>
+</div>

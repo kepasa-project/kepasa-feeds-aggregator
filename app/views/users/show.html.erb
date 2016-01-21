@@ -1,0 +1,132 @@
+<% if user_signed_in? %>
+
+<div class="container">
+    <!-- main page content. the place to put widgets in. usually consists of .row > .col-md-* > .widget.  -->
+    <main id="content" class="content" role="main">
+
+        <ol class="breadcrumb">
+            <li>Tu eres aqui</li>
+            <li class="active"> Usuarios </li>
+            <li class="active"> <%= @user.username %> </li>
+        </ol>
+        <div class="row">
+            <div class="col-md-8">
+            <section class="widget">
+             
+                            <%= image_tag @user.gravatar_url(:size => 120) %> <br />
+                            
+                            <%= @user.username %>'s feeds list news: <br />
+
+                            <% unless current_user == @user %>
+                            
+                            <%= render 'follow_form' if signed_in? %>
+                            
+                            <% end %> <br>
+
+                            <% @last_news = [] %>
+                            
+                            <% @feed_items.each do |feed| %>
+
+                                        <% ordered_feedlists = feed.feedlists.order('id ASC') %>
+
+                                        <% last_news = ordered_feedlists.last %>
+
+                                        <% if last_news.published_at.nil? %>
+                                                <% data = last_news.created_at %>
+                                                <% last_news.update_attributes(:published_at => data) %>
+                                        <% end %>
+
+                                        <% @last_news << last_news  %>
+
+                            <% end %>
+                 
+                            ELEMENTI DA ORDINARE <%= @last_news.count %>
+
+                            <p> PAGINATE </p>
+                            
+                            <% @news_paginated = Kaminari.paginate_array(@last_news.sort_by { |obj| obj.published_at }.reverse).page(params[:page]).per(5) %>
+                            
+                            <% @news_paginated.each do |feedlist| %>
+
+                            <% if feedlist.image.nil? %>
+
+                            <a class="image-link" href="#"> <%= image_tag('no-imagen.png') %>
+                            
+                            <% else %>
+                            
+                            <a class="image-link" href="#"> <img src="<%= feedlist.image %>" width="70" height="50">
+                            
+                            <% end %>    
+
+                            <%= link_to feedlist.name, feedlist_path(feedlist.id) %> <br />
+
+                            Feed de <%= link_to feedlist.feed.user.username, user_path(feedlist.feed.user) %> | Noticia de <%= link_to feedlist.feed.title, user_feed_path(feedlist.feed.user, feedlist.feed) %> | <%= link_to '<i class="fa fa-bookmark"></i>'.html_safe, new_user_bookmark_path([current_user, @bookmark], :url => feedlist.url, :title => feedlist.name) %> 
+                                <% if feedlist.feed.user == current_user %>
+                                | <%= link_to '<i class="fa fa-times"></i>'.html_safe, feedlist_path(feedlist), method: :delete, data: { confirm: 'Estas seguro que quiere borrar esta noticia junto con los comentarios' } %> 
+                                <% end %>
+                                | Comentarios (0) <br /> <br />     
+
+                                <% if feedlist.published_at.nil? %>
+                                    <%= time_ago_in_words(feedlist.created_at) %> <br /> <br />
+                                    <% else %>
+                                    <%#= time_ago_in_words(notizia.published_at.to_date.to_formatted_s(:long)) %> 
+                                    <%= time_ago_in_words(feedlist.published_at) %> <br /> <br />
+
+                                    <% end %>
+
+                            <% end %>
+
+                            <%= paginate @news_paginated %> 
+                            
+                            
+
+            </section>   
+            </div>
+            <div class="col-md-4">
+                <section class="widget">
+                   
+                             <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                    Usuario: <%= render 'shared/user_info' %> <br />
+                                    Feeds: <%= link_to @user.feeds.count, user_feeds_path(@user) %> <br >
+                                    <%= render 'shared/stats' %>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <p> Ultimos Feeds </p>
+                                        <ul>
+                                    <% @user.feeds.order("created_at DESC").limit(5).each do |feed| %>
+                                        <li> <%= link_to feed.title, user_feed_path(@user, feed) %>
+                                            (<%= feed.feedlists.count %>)
+                                         </li>
+                                    <% end %>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                   </section>
+            </div>
+        </div>
+ 
+   
+
+    
+    </main>
+</div>
+<!-- The Loader. Is shown when pjax happens -->
+<div class="loader-wrap hiding hide">
+    <i class="fa fa-circle-o-notch fa-spin-fast"></i>
+</div>
+
+
+<% else %>
+
+<%= render 'layouts/navigation_landing_page' %>
+<%= render 'shared/navigation_left' %>
+<%= render 'shared/landing_page' %>
+
+<% end %>

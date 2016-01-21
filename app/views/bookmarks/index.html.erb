@@ -1,0 +1,47 @@
+<div class="container">
+<main id="content" class="content" role="main">
+        <ol class="breadcrumb">
+            <li>YOU ARE HERE</li>
+            <li class="active">Bookmarks</li>
+        </ol>
+
+<div class="row">
+  <div class="col-lg-12">
+    <h2>Listing bookmarks</h2>
+  </div>
+</div>
+ 
+<div class="row">
+   <div class="col-lg-2">
+   Tags: <br />
+   <%= render 'tags' %>
+   </div>
+   <div class="col-lg-10">
+   <% @bookmarks.each do |bookmark| %>
+
+   <%= bookmark.title %><br />
+   <%= link_to bookmark.url, bookmark.url %><br />
+   Tags: <%= bookmark.tag_list %><br />
+   <%= link_to 'Edit', edit_user_bookmark_path(bookmark.user, bookmark) %>|
+   <%= link_to 'Destroy', [bookmark.user, bookmark], confirm: 'Are you sure?', method: :delete %><br /><br />
+   <% end %>
+   </div>
+</div>
+<!-- questo deve essere centrato -->
+<div class="row">
+   <div class="col-lg-12 text-center">
+   <%= paginate @bookmarks %> 
+   </div>
+</div>
+
+<div class="row">
+   <div class="col-lg-12">
+
+   <%= link_to 'Do you want add a New Bookmark?', new_user_bookmark_path(@user), :class => "button small" %>
+
+   </div>
+</div>
+
+
+    </main>
+  </div>

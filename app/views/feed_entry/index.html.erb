@@ -1,0 +1,110 @@
+<% if user_signed_in? %>
+<div class="container">
+    <!-- main page content. the place to put widgets in. usually consists of .row > .col-md-* > .widget.  -->
+    <main id="content" class="content" role="main">
+        <!-- jquery ui sortable chrome overflow-x fix. when set to hidden does not behaves as expected. resetting back
+             just for this page.
+             http://bugs.jqueryui.com/ticket/9588 -->
+        <style>
+            body{
+                overflow-x: visible;
+            }
+        /* codice per la responsivita del video youtube */
+            .videoWrapper {
+                position: relative;
+                padding-bottom: 56.25%; /* 16:9 */
+                padding-top: 25px;
+                height: 0;
+            }
+                
+            .videoWrapper iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+        
+            
+
+        </style>
+        <ol class="breadcrumb">
+            <li>Tu eres aqui</li>
+            <li class="active">Panel Inicial</li>
+            <li>
+                <% @users.each do |user| %>
+                    <% if user.username == current_user.username %>
+                        <%= user.username %>
+                    <% end %>
+                <% end %>
+                <% if user_session %>
+                    <%= "ciao" %>
+                <% end %>
+            </li>
+
+        </ol>
+        <div class="row">
+            <div class="col-lg-12 text-center">
+
+                <%= render 'shared/home' %>
+                
+                <%= paginate @last_feeds_paginate %>
+                
+
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <section class="widget">
+                    <header>
+                        <h4>Tutorial Video &nbsp;</h4>
+                    </header>
+                    <div class="widget-body">
+                        <div class="videoWrapper">
+
+                           
+                                <iframe width="420" height="315" src="//www.youtube.com/embed/TMQTQOgOwkc" frameborder="0" allowfullscreen></iframe>
+                         
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-md-8">
+                <section class="widget">
+                    <header>
+                        <h4>KEPASA.co las ultimas noticias en linea &nbsp;<span class="label label-danger fw-normal">version ALPHA</span></h4>
+                    </header>
+                    <div class="widget-body">
+                      <p>
+                         Hola! soy <a href="http:">@Astr0surf3r</a> y desarrolle <strong>Kepasa</strong> porque todos los demás agregadores RSS FEED no me gustaban y la otra por entranarme en el desarrollo de aplicaciones con Ruby On Rails.
+                        </p>
+                        <p>La idea principal es hacer un programa totalmente gratuito para los usuarios. Por ahora el sitio está en versión BETA es decir que es una primera versión y podría haber algunos errores y disfunciones. En caso de algún problema con el sitio, por favor póngase en contacto con nosotros escribiendo a <a href="mailto:info@kepasa.co">info@kepasa.co</a> o contactanos con <a href="https://www.facebook.com/kepasa.ahora">Facebook</a> o <a href="https://www.twitter.com/kepasa_">Twitter</a>, muchas gracias de antemano!</p>
+                        <p>Saludos a todos!</p>
+                        <p>
+                            <b>Astr0</b>
+                        </p>                
+                    </div>
+                </section>
+            </div>
+        </div>
+ 
+     </div>   
+     
+    </main>
+</div>
+<!-- The Loader. Is shown when pjax happens -->
+<div class="loader-wrap hiding hide">
+    <i class="fa fa-circle-o-notch fa-spin-fast"></i>
+</div>
+
+
+<% else %>
+
+<%= render 'layouts/navigation_landing_page' %>
+<%= render 'shared/navigation_left' %>
+<%= render 'shared/landing_page' %>
+
+<% end %>
+
+

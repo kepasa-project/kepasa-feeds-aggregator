@@ -1,0 +1,35 @@
+<h1>Listing newspapers</h1>
+
+<table>
+  <tr>
+    <th>Rssurl</th>
+    <th>Guid</th>
+    <th>Name</th>
+    <th>Published at</th>
+    <th>Summary</th>
+    <th>Url</th>
+    <th>Image</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @newspapers.each do |newspaper| %>
+  <tr>
+    <td><%= newspaper.rssurl %></td>
+    <td><%= newspaper.guid %></td>
+    <td><%= newspaper.name %></td>
+    <td><%= newspaper.published_at %></td>
+    <td><%= newspaper.summary %></td>
+    <td><%= newspaper.url %></td>
+    <td><%= newspaper.image %></td>
+    <td><%= link_to 'Show', newspaper %></td>
+    <td><%= link_to 'Edit', edit_newspaper_path(newspaper) %></td>
+    <td><%= link_to 'Destroy', newspaper, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Newspaper', new_newspaper_path %>

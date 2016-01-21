@@ -1,0 +1,59 @@
+<% if user_signed_in? %>
+
+<div class="content-wrap">
+    <!-- main page content. the place to put widgets in. usually consists of .row > .col-md-* > .widget.  -->
+    <main id="content" class="content" role="main">
+
+        <ol class="breadcrumb">
+            <li>Tu eres aqui</li>
+            <li class="active"> Usuarios </li>
+            <li class="active"> <%= @user.username %> </li>
+        </ol>
+        <div class="row">
+            <div class="col-md-8">
+            <section class="widget">
+              <% unless @users.empty? %>
+                            <ul class="list-unlisted">
+                              <% @users.each do |user| %>
+                                <li><%#= link_to gravatar_for(user, :size => 30), user %></li>
+                                <li><%= link_to user.username, user %></li>
+                              <% end %>
+                            </ul>
+                        <% else %>
+                            <strong>Ningun Usuario Encontrado!</strong>
+                        <% end %>
+                                 
+       
+            </section>   
+            </div>
+            <div class="col-md-4">
+                <section class="widget">
+                   
+                            
+                            <strong>Username</strong> <%= @user.username %><br />
+                            <strong>URL</strong> <%= link_to user_path(@user), @user %><br />
+                            <strong>Feeds</strong> <%= @user.feeds.count %> <br />
+                            <%= render 'shared/stats' %>
+                            
+                   </section>
+            </div>
+        </div>
+ 
+   
+
+    
+    </main>
+</div>
+<!-- The Loader. Is shown when pjax happens -->
+<div class="loader-wrap hiding hide">
+    <i class="fa fa-circle-o-notch fa-spin-fast"></i>
+</div>
+
+
+<% else %>
+
+<%= render 'layouts/navigation_landing_page' %>
+<%= render 'shared/navigation_left' %>
+<%= render 'shared/landing_page' %>
+
+<% end %>

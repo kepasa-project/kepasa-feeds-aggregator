@@ -1,0 +1,2 @@
+module FeedlistsHelper
+end

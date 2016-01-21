@@ -1,0 +1,33 @@
+<div class="container">
+    <!-- main page content. the place to put widgets in. usually consists of .row > .col-md-* > .widget.  -->
+
+        <ol class="breadcrumb hidden-sm hidden-xs">
+            <li>Tu eres aqui</li>
+            <li class="active">Crear Nuevo Feed </li>
+            <li> <%= link_to 'Actualiza', {:controller => 'feedlists', :action => 'actualiza', :id => @feed.id} %></li>
+            <li> <%= @feed.rssurl %></li>
+            <li><%= link_to '<i class="fa fa-trash-o fa-fw"></i>'.html_safe, @page, method: :delete, data: { confirm: 'Estas seguro que quiere borrar esto Feed' } %> </li>
+        </ol>
+        <!-- <h2>Edit <%#= resource_name.to_s.humanize %></h2> -->
+        <ol class="breadcrumb visible-sm visible-xs">
+            <li> <%= link_to 'Actualiza', {:controller => 'feedlists', :action => 'actualiza', :id => @feed.id} %></li>
+            <li><%= link_to '<i class="fa fa-trash-o fa-fw"></i>'.html_safe, @page, method: :delete, data: { confirm: 'Estas seguro que quiere borrar este Feed' } %></li>
+        </ol>
+
+        <section class="widget">
+        
+                    <header>
+                        <h4>
+                            <p id="notice"><%= notice %></p>
+                        </h4>
+                    </header>
+
+
+				<%= render 'shared/elenco_feedlist_desktop' %>
+
+
+        </section> <!-- close section -->
+
+    </div>
+
+</div>

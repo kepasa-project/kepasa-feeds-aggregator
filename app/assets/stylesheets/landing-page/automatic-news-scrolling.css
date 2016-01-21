@@ -1,0 +1,16 @@
+.vticker ul{
+	padding: 0;
+	
+}
+.vticker li{
+	list-style: none;
+	border-bottom: 1px solid white;
+	padding: 10px;
+}
+
+/* il colore dei link delle news */
+.vticker a{
+
+	color:#fff;
+
+}

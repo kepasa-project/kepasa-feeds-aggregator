@@ -1,0 +1,28 @@
+<div class="well sidebar-nav">
+   <ul class="nav nav-list">
+     <li class="nav-header">Secciones</li>
+     <li><%= link_to '<i class="icon-plus"></i> Crea'.html_safe, new_page_path %></li>
+     <% @pages.each do |pagina| %>
+     <% if url_for == page_path(pagina.url) %>
+     <li class="active">
+     <% else %>
+		 <li>
+		 <% end %> 
+     <%= link_to pagina.title.titleize, page_path(pagina.url) %>
+     </li>
+     <% end %>
+	<li class="nav-header">SUSCRIPCIÓN</li>
+	<li><%= link_to '<i class="icon-plus"></i> Crea'.html_safe, new_user_feed_path(current_user) %></li>
+	<% @feeds.each do |f| %>
+     <% if url_for == user_feed_path(@user, f.id) %>
+     <li class="active">
+     <% else %>
+		 <li>
+		 <% end %> 
+     <%# doc = Nokogiri::XML(open(f.rssurl)) %>
+     <%# channel_title = doc.at_xpath('rss/channel/title').inner_text %>
+     <%= link_to f.title.titleize, user_feed_path(@user, f.id) %> <%= f.feedlists.size %>
+     </li>
+     <% end %>
+     <ul>
+ </div><!--/.well -->

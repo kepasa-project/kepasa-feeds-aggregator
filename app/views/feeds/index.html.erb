@@ -1,0 +1,60 @@
+<div class="container">
+    <!-- main page content. the place to put widgets in. usually consists of .row > .col-md-* > .widget.  -->
+    <main id="content" class="content" role="main">
+      <ol class="breadcrumb">
+            <li>Tu eres aqui</li>
+            <li class="active"> Los FEED RSS de <%= @user.username %> </li>
+        </ol>
+        <div class="row">
+              <div class="col-lg-12">
+                  <table class="table">
+                    <tr>
+                      <th>Nombre del Feed</th>
+                      <th>Etiquetas</th>
+                      <th>Noticias</th>
+                      <th>Actualizacion</th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+
+                  <% @feeds.order('updated_at DESC').each do |feed| %>
+                    <tr>
+                      <td> <%= link_to feed.title, user_feed_path(current_user, feed) %> </td>
+                      <td> 
+                        <% feed.tags.each do |tag| %>
+                          <%= link_to tag.name, tagged_feed_url(:tag => tag.name) %>
+                        <% end %>             
+                      </td>
+                      <td> <%= feed.feedlists.count %> </td>
+                      <td> <%= time_ago_in_words(feed.updated_at) %></td>
+                      <td> <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_user_feed_path(current_user, feed) %> </td>
+                      <% if  @user == current_user %>
+                      <td> <%= link_to '<i class="fa fa-trash-o fa-fw"></i>'.html_safe, user_feed_path(current_user, feed), method: :delete, data: { confirm: 'Estas seguro que quiere borrar esto Feed' } %> </td>
+                      <% else %>
+
+                          <% unless feed.user.nil? %>
+
+                              <td> Tambien tu tienes este Feed </td>
+                          
+                          <% else %>
+
+                          <td> <%= link_to '<i class="fa fa-plus"></i> Agrega'.html_safe, new_user_feed_path(current_user, :rssurl => feed.rssurl) %> </td>
+                      
+
+                          <% end %>
+
+                      <% end %>
+
+                    </tr>
+                  <% end %>
+                  </table>
+              </div>
+        </div>
+        <div class="row">
+           <div class="col-lg-12 text-center">
+            <%= paginate @feeds %> 
+           </div>
+        </div>
+<br />
+</main>
+</div>

@@ -1,0 +1,60 @@
+<div class="row">
+	<div class="col-lg-12">
+
+	<p class="search-results-count"><h4><%= @feed.title %> es un FEED seguido da <%= link_to @feed.user.username, user_path(@feed.user) %></h4></p>
+
+    <% @feedlists.order('published_at DESC').limit(5).each do |notizia| %>
+	 <section class="search-result-item">
+	    
+    <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-2">
+                                
+                                <% if notizia.image.nil? %>
+
+                                    <a class="image-link" href="#"> <%= image_tag('no-imagen.png') %>
+                                    
+                                    <% else %>
+                                    
+                                    <a class="image-link" href="#"> <img src="<%= notizia.image %>" width="70" height="50">
+                                    
+                                <% end %>
+                                
+                                </div>
+                                <div class="col-sm-8">
+                                    <h4 class="search-result-item-heading">
+        								<%= link_to notizia.name, feedlist_path(notizia.id) %>
+        						 	</h4>
+        						 	<p class="info">
+                                        <% if notizia.published_at.nil? %>
+                                        <%= time_ago_in_words(notizia.created_at) %>
+                                        <% else %>
+
+                                        <%= time_ago_in_words(notizia.published_at) %>
+
+                                        <%= link_to '<i class="fa fa-bookmark"></i>'.html_safe, new_user_bookmark_path([current_user, @bookmark], :url => notizia.url, :title => notizia.name) %> 
+                                        <% end %>
+                                    </p>
+                                    <p class="description">
+                                        <%#= notizia.summary.truncate(255).html_safe %> 
+                                    </p>
+                                 </div>
+        						<div class="col-sm-2 text-align-center">
+                                    <%#= link_to 'Visiona Más', feedlists_path(notizia), :class => "btn btn-primary btn-info btn-sm" %> <br />
+                                    <%= link_to 'Articulo Origen >>', notizia.url, :class => "btn btn-primary btn-info btn-sm" %>
+        						</div>
+                            </div>
+     </div>
+    
+    </section>
+                    <% end %>
+       </div>
+    </div>
+
+
+
+ <div class="row">
+   <div class="col-lg-12 text-center">
+   <%= paginate @feedlists %> 
+   </div>
+</div>

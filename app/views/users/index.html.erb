@@ -1,0 +1,74 @@
+<% if user_signed_in? %>
+
+<div class="container">
+    <!-- main page content. the place to put widgets in. usually consists of .row > .col-md-* > .widget.  -->
+    <main id="content" class="content" role="main">
+        <!-- jquery ui sortable chrome overflow-x fix. when set to hidden does not behaves as expected. resetting back
+             just for this page.
+             http://bugs.jqueryui.com/ticket/9588 -->
+        <style>
+            body{
+                overflow-x: visible;
+            }
+        /* codice per la responsivita del video youtube */
+            .videoWrapper {
+                position: relative;
+                padding-bottom: 56.25%; /* 16:9 */
+                padding-top: 25px;
+                height: 0;
+            }
+                
+            .videoWrapper iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+        
+            
+
+        </style>
+        <ol class="breadcrumb">
+            <li>Tu eres aqui</li>
+            <li class="active"> Usuarios </li>
+        </ol>
+        <div class="row">
+            <div class="col-md-12 ">
+
+                    <ul class="list-group">
+
+                    <% @users.each do |user| %>
+
+                    <li class="list-group-item"> <%= image_tag user.gravatar_url, :alt => user.username %> <%= link_to user.username, users_path + "/" + user.id.to_s %> | Seguidores: <%= user.followers.count %>| Sigue: <%= user.following.count %> | Feeds: <%= link_to user.feeds.count, user_feeds_path(user) %> |Comentarios: (0)| Fecha de Iscripcion: <%= user.created_at.strftime("%d/%m/%Y")%> </li>
+                    
+                    <% end %>
+                </ul>
+
+            </div>
+        </div>
+       
+                <div class="row">
+                <div class="col-lg-12 text-center">
+                <%= paginate @users %> 
+                </div>
+                </div>
+    
+    </main>
+</div>
+
+
+
+<!-- The Loader. Is shown when pjax happens -->
+<div class="loader-wrap hiding hide">
+    <i class="fa fa-circle-o-notch fa-spin-fast"></i>
+</div>
+
+
+<% else %>
+
+<%= render 'layouts/navigation_landing_page' %>
+<%= render 'shared/navigation_left' %>
+<%= render 'shared/landing_page' %>
+
+<% end %>

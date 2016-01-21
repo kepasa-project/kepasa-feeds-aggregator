@@ -1,0 +1,10 @@
+Tienes un nuevo mensaje: <%= @subject %>
+===============================================
+
+      Acaba de recibir un mensaje en tu cuenta de Kepasa:
+
+-----------------------------------------------
+<%= @message.body.html_safe? ? @message.body : strip_tags(@message.body) %>
+-----------------------------------------------
+
+Haz click <%= link_to 'aqui', root_url %> y checa tu bandeja de entrada en <%= link_to 'Kepasa.co', "http://www.kepasa.co" %> para mayor informaciones.

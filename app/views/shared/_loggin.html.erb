@@ -1,0 +1,67 @@
+
+<div id="main-content">
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12 col-sm-12 text-center">
+			<%= render 'layouts/notification' %>
+		<div id="mainWrap">
+		<div id="loggit">
+
+			<h1><i class="fa fa-lock"></i> Ingresar </h1>
+<h3>Por favor <strong>Inserta tus parametros </strong> </h3>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:id => "logForm", :class => "form-horizontal center"}) do |f| %>
+  <div class="form-group">
+		<div class="col-xs-12">
+			<div class="input-group">
+				<span class="input-group-addon"><i class="fa fa-envelope fa-fw"></i></span>
+  <%= f.text_field :login, :class => "form-control input-lg", id: "color", placeholder: "Correo", autocomplete: "off", autofocus: true %>
+            </div>
+		</div>
+  </div>
+  <div class="form-group">
+		<div class="col-xs-12">
+			<div class="input-group">
+				<span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+    <%= f.password_field :password, :class => "form-control input-lg", id: "color", placeholder: "Contraseña", autocomplete: "off" %>
+			</div>
+		</div>
+  </div>
+  <div class="form-group formSubmit">
+		<div class="col-sm-7">
+			<div class="checkbox">
+  <% if devise_mapping.rememberable? -%>
+    <%= f.check_box :remember_me, :checked => true %> <%= f.label :mantenme_conectado %>
+  <% end -%>
+			</div>
+  		</div>
+	<div class="col-sm-5 submitWrap">
+<%= f.submit "Iniciar sesión", class: "btn btn-primary btn-md" %>
+
+    </div>
+	</div>
+	<div class="form-group formNotice">
+		
+		<%= render "shared/links_espanol"%>
+		
+	</div>
+
+	<% end %>
+  
+
+
+
+
+
+
+	
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	
+</div> <!-- end .main-content -->
+

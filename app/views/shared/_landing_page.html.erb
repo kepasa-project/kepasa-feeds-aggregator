@@ -1,0 +1,204 @@
+
+<div id="main-content">
+	<!-- Inicio -->
+	<div id="inicio" class="fullSection">
+		<div class="container-fluid">
+		
+		<%= render 'layouts/notification' %>
+		
+			<div class="section-heading">
+				<h3>Checa el video y Registrate para leer las ultima noticias</h3>
+			</div>
+			
+
+			<div class="modal-body">	
+
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4">
+                                </div>
+	                                <div class="col-lg-4 col-md-4 col-xs-12">
+	                                							
+									<!-- 16:9 aspect ratio -->
+									<div class="embed-responsive embed-responsive-16by9">
+									  <iframe class="embed-responsive-item" src="//www.youtube.com/embed/TMQTQOgOwkc"></iframe>
+									</div>
+									<br>
+									<p class="home">En este video te explicamo como funciona <b>KEPASA</b>. </p>												 							 
+					 				</div>
+                                <div class="col-lg-4 col-md-4">
+                                </div>
+                            </div>
+
+			</div>
+			<!-- ./modal-body -->
+			<br/>
+			<div class="row">									
+					<div class="col-md-4 col-sm-4 col-lg-4 text-center">
+						 
+					</div>
+					<div class="col-md-4 col-sm-4 col-lg-4 text-center">
+						
+					</div>
+					<div class="col-md-4 col-sm-4 col-lg-4 text-center">
+						
+					</div>
+			</div>	
+	
+		</div>	
+	</div>
+	<!-- ./Inicio -->
+		
+	<!-- Slider -->	
+	<div id="slider" class="fullSection">
+		<div class="container-fluid">
+			
+			<!-- fullscreen-slider -->
+			<div id="fullscreen-slider" class="carousel slide wow bounceIn showdelay4" data-ride="carousel">
+				<!-- Indicators -->
+				  <ol class="carousel-indicators">
+					<li data-target="#fullscreen-slider" data-slide-to="0" class="active"></li>
+					<li data-target="#fullscreen-slider" data-slide-to="1"></li>
+					<li data-target="#fullscreen-slider" data-slide-to="2"></li>
+				  </ol>
+
+			  <!-- Wrapper for slides -->
+			  <div class="carousel-inner">
+				<div class="item active">
+					<div class="slider-caption"> 
+						<i class="fa fa-rss"></i>
+						<h2>Bienvenido!</h2>
+						<p class="home"><b>KEPASA</b> es un <b>agregador de noticias</b> o <b>lector de RSS</b>. Es un software para suscribirse a fuentes de noticias en formatos RSS, Atom y otros derivados de XML como RDF/XML. Con <b>KEPASA</b> puede estar actualizado a las ultimas notizias de sitios</p>								
+							<div class="page-scroll">
+							
+							</div>
+					</div>						
+				</div>
+				<div class="item">
+					<div class="slider-caption"> 
+						<i class="fa fa-life-ring"></i>
+						<h2>Sobre Kepasa.co</h2>
+						<p class="home"><b>KEPASA</b> te permite en una forma muy sencilla para que puedas recibir, directamente en cualquier dispositivo (computadora, tableta, smartphone, etc.) conectado en internet información actualizada sobre tus páginas web favoritas, sin necesidad de que tengas que visitarlas una a una.</p>								
+						<a href="#" class="btn btn-custom btn-lg" data-toggle="modal" data-target="#slider-modal">Aprender Más</a>	
+					</div>
+				</div>
+				<div class="item">
+					<div class="slider-caption"> 
+						<i class="fa fa-video-camera"></i>
+						<h2>Video Tutorial</h2>
+						<p class="home">Vea el video a través del cual mostramos cómo ser fácil de usar archivos RSS con <b>KEPASA</b>.</p>								
+						<a href="#" class="btn btn-custom btn-lg" data-toggle="modal" data-target="#video-modal">Aprender Más</a>	
+					</div>
+				</div>
+			  </div>
+
+			  <!-- Controls -->
+			  <a class="left carousel-control" href="#fullscreen-slider" role="button" data-slide="prev">
+					<!-- <span class="glyphicon glyphicon-chevron-left"></span> -->
+					<span class="fa fa-chevron-left"></span>
+			  </a>
+			  <a class="right carousel-control" href="#fullscreen-slider" role="button" data-slide="next">
+					<!-- <span class="glyphicon glyphicon-chevron-right"></span> -->
+					<span class="fa fa-chevron-right"></span>
+			  </a>
+			</div>
+			<!-- fullscreen-slider -->
+			
+			<!-- slider-modal -->					
+			<div class="modal fade" id="slider-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+				<div class="modal-content">
+				  <div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					<h2 class="modal-title" id="myModalLabel1">RSS sigla de Really Simple Syndication</h2>
+				  </div>
+				  <div class="modal-body">								
+						<p class="home"><%= image_tag 'img1.png', :class => "img-responsive pull-left", :alt => ""%><b>RSS</b> se utiliza para difundir información actualizada frecuentemente a usuarios que se han suscrito a la fuente de contenidos. En el archivo RSS simplemente están los datos de las novedades del sitio, como el título, fecha de publicación o la descripción. El programa o agregador (en este caso <b>KEPASA</b>) que lea el RSS será encargado de darle estilo o apariencia a los datos que se incluyan en el archivo y presentarlos de una manera atractiva al usuario y de fácil lectura. 					
+						Registrandote en <b>KEPASA</b> tiene la posibilida de tener en un sitio solo todas la noticias. Además <b>KEPASA</b></p> te da un ahorro en tiempo en la lectura de información y noticias, ya que sólo con abrirlo el usuario registrado podrá ver cuáles son las últimas actualizaciones y noticias que han publicado las diferentes páginas web a las que está suscrito. </p>												 	
+						<hr>
+						<p class="home"><%= image_tag 'img2.png', :class => "img-responsive pull-right", :alt => ""%>Entonces si has encontrado blogs interesantes, y ha comenzado a visitarlos regularmente para leer los nuevos artículos, chequa el logo RSS en el sitio (similares a las imagenes que estas viendo en esta pagina) se puede ahorrar mucho tiempo asegurándose de que las actualizaciones vienen a ti. En <b>KEPASA</b> es de hecho posible saber cuando un sitio se actualiza sin la necesidad de ir al mismo sitio. El archivo que lee <b>KEPASA</b> del sitio fuente se llama <b>feed</b> que es generado automáticamente. 					
+						Con <b>KEPASA</b> puede dar un vistazo sobres sitios que se han actualizado y leer un resumen de los articolos actualizados. Puede entender fácilmente que con este sistema se puede seguir y estar actualizado en muchas cosas, seleccionar sólo lo que nos interesa, ahorrando mucho tiempo! </p>												 							 
+				 </div>
+				</div>
+			  </div>
+			</div>
+			<!-- ./slider-modal -->
+			
+			<!-- video-modal -->					
+			<div class="modal fade" id="video-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+			  <div class="modal-dialog modal-lg">
+				<div class="modal-content">
+				  <div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					<h2 class="modal-title" id="myModalLabel2">Slider Details</h2>
+				  </div>
+				  <div class="modal-body">								
+						<!-- 16:9 aspect ratio -->
+						<div class="embed-responsive embed-responsive-16by9">
+						  <iframe class="embed-responsive-item" src="//www.youtube.com/embed/TMQTQOgOwkc"></iframe>
+						</div>
+						<br>
+						<p class="home">En este video te explicamo como funciona <b>KEPASA</b>. </p>												 							 
+				 </div>
+				</div>
+			  </div>
+			</div>
+			<!-- ./video-modal -->
+			
+		</div>
+		
+	</div>	
+	<!-- ./Slider -->
+	
+	<!-- Red Sociales -->
+	<div id="red-sociales" class="fullSection">
+		<div class="container-fluid">
+		
+			<div class="section-heading">
+				<h2>Contáctanos</h2>
+			</div>
+			
+			<div class="row">						
+				<div class="col-md-4 col-sm-4">
+					<div class="icon-box text-center wow fadeInLeft showdelay2">
+						<a href="https://www.facebook.com/kepasa.ahora" class="link"><i class="fa fa-facebook"></i></a>
+						<h1>Facebook</h1>
+					</div>
+				</div>						
+				<div class="col-md-4 col-sm-4">
+					<div class="icon-box text-center wow fadeInUp showdelay2">
+						<a href="https://www.twitter.com/kepasa_" class="link"><i class="fa fa-twitter"></i></a>
+						<h1>Twitter</h1>
+					</div>
+				</div>					
+				<div class="col-md-4 col-sm-4">
+					<div class="icon-box text-center wow fadeInRight showdelay2">
+						
+						<a href="https://www.facebook.com/kepasa.ahora" class="link"><i class="fa fa-youtube"></i></a>
+						<h1>You-Tube</h1>
+					</div>
+				</div>						
+			</div>
+			<!-- first ./row -->
+			
+			<div class="row">						
+				<div class="col-md-12 col-sm-12 text-center">
+					
+					<div class="icon-box text-center wow fadeInRight showdelay2">
+					<i class="fa fa-envelope"></i> 
+					<h1>Para contactarnos haz click <u><a href="mailto:info@kepasa.co" class="link">aquí</a></u> </h1>
+				</div>
+				</div>						
+			</div>
+
+			<!-- second ./row -->
+
+			</div>
+				
+	</div>
+	<!-- ./Red Sociales -->
+			
+
+
+
+</div>
+<!-- ./ main-content -->
