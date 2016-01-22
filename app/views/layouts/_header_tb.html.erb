@@ -24,7 +24,7 @@
         <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to '<i class="fa fa-home"></i> Home'.html_safe, user_path(current_user) %> </li>
+        <li><%= link_to '<i class="fa fa-home"></i> Home'.html_safe, "/" + current_user.username %> </li>
 				        <li><%= link_to '<i class="fa fa-bookmark"></i> Marcadores'.html_safe, user_bookmarks_path(current_user.id) %></li>
          				<li><%= link_to '<i class="fa fa-users"></i> Usuarios'.html_safe, users_path %></li>
         <li class="dropdown">
