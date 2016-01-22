@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @feed_items = @user.feed
 
     # snippet added to update current user rss feeds 
-    @feeds_current_user = current_user.feeds
+    @feeds_current_user = @user.feeds
 
     @feeds_current_user.find_each(:batch_size => 200) do |feed|
 
