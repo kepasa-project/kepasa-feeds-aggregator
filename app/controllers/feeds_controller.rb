@@ -36,6 +36,8 @@ class FeedsController < ApplicationController
   end
 
   def show
+    #User.find_by_username()
+
     @user = User.find(params[:user_id])
     @feeds = @user.feeds
     @feed = Feed.find(params[:id])
@@ -53,7 +55,7 @@ class FeedsController < ApplicationController
   def new
 
     @user = current_user
-    @feed = Feed.new(:user_id => params[:user_id], :rssurl => params[:rssurl])
+    @feed = Feed.new(:user_id => @user.id, :rssurl => params[:rssurl])
     
     respond_with(@feed)
   end

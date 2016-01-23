@@ -57,11 +57,6 @@ Futbol::Application.routes.draw do
     get ':id' => 'users#show'
     
   end
-
-  devise_scope :users do
-
-    
-  end  
   
   # se non metto questo non mi funziona l'inserimento dei bookmarks come nested resources
   resources :bookmarks#, :only => [:create, :edit, :update]

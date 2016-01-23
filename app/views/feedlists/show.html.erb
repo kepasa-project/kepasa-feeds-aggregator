@@ -20,7 +20,13 @@
           </p> 
 
           <p>
-            <%= sanitize(@feedlist.summary.truncate(225)) %>
+
+            <% unless @feedlist.summary.nil? %>
+
+            <%= sanitize(@feedlist.summary) %>
+            
+            <% end %>
+          
           </p>
           <p class="feedlist">
             Haz click <u><%= link_to "aquí", @feedlist.url %></u> para leer el articulo origen 

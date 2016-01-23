@@ -57,7 +57,7 @@ class FeedlistsController < ApplicationController
    Feedjira::Feed.add_common_feed_entry_element("media:thumbnail", :value => :url, :as => :media_thumbnail_url)
    Feedjira::Feed.add_common_feed_entry_element("enclosure", :value => :url, :as => :media_thumbnail_url)
    
-   @user = current_user
+   @user = User.find(params[:user_id])
    @feed = Feed.find(params[:id])
 
    feed = Feedjira::Feed.fetch_and_parse(@feed.rssurl)
