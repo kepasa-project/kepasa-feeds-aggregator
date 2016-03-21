@@ -23,7 +23,7 @@ class NoticiasElpaisWorker
 
         feed = Feedjira::Feed.fetch_and_parse(@feed.rssurl)
         
-        if feed.is_a?(Fixnum) #HTTP fetch results is not an error (i.e. not a 200 or 3XX)
+        unless feed.is_a?(Fixnum) #HTTP fetch results is not an error (i.e. not a 200 or 3XX)
 
           feed.entries.each do |entry|  
 
