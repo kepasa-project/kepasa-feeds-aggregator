@@ -23,6 +23,8 @@ class NoticiasElpaisWorker
 
         feed = Feedjira::Feed.fetch_and_parse(@feed.rssurl)
         
+        if feed.is_a?(Fixnum) #HTTP fetch results is not an error (i.e. not a 200 or 3XX)
+
           feed.entries.each do |entry|  
 
               if entry.published.nil?
@@ -49,6 +51,22 @@ class NoticiasElpaisWorker
                     )
               end
           end 
+
+          else #HTTP fetch results is an error (i.e. not a 200 or 3XX)
+
+                    Feedlist.create!(
+                      :rssurl       => @feed.rssurl,
+                      :name         => "No  Title, Remote Feed Error",
+                      :summary      => "No  Summary, Remote Feed Error",
+                      :url          => "No  Url, Remote Feed Error",    
+                      :published_at => Time.now,
+                      :guid         => "No  Guid, Remote Feed Error",
+                      :image        => "No  Guid, Remote Feed Error",
+                      :feed_id      => @feed.id
+                    )
+
+
+        end #End HTTP fetch status
 
 #=end
     end # end perfom method
