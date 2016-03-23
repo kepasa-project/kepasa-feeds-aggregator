@@ -54,17 +54,19 @@ class NoticiasElpaisWorker
 
           else #HTTP fetch results is an error (i.e. not a 200 or 3XX)
 
+                unless Feedlist.where(:feed_id => @feed.id).exists? :guid => entry.id
+
                     Feedlist.create!(
                       :rssurl       => @feed.rssurl,
-                      :name         => "No  Title, Remote Feed Error",
-                      :summary      => "No  Summary, Remote Feed Error",
-                      :url          => "No  Url, Remote Feed Error",    
-                      :published_at => Time.now,
-                      :guid         => "No  Guid, Remote Feed Error",
-                      :image        => "No  Guid, Remote Feed Error",
+                      :name         => entry.title,
+                      :summary      => entry.summary,
+                      :url          => entry.url,    
+                      :published_at => @datafeedlist,
+                      :guid         => entry.id,
+                      :image        => entry.media_thumbnail_url,
                       :feed_id      => @feed.id
                     )
-
+                  end
 
         end #End HTTP fetch status
 
