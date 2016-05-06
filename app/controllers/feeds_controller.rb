@@ -72,7 +72,8 @@ class FeedsController < ApplicationController
             
           # in the following line add like User Agent Firefox to fix the error: OpenURI::HTTPError: 403 Forbidden  
           doc = Nokogiri::XML(open(@feed.rssurl, 'User-Agent' => 'firefox')) 
-          @feed.title = doc.at_xpath('/rss/channel/title').inner_text
+          #@feed.title = doc.at_xpath('/rss/channel/title').inner_text
+          @feed.title = doc.xpath('/rss/channel/title').inner_text
 
                     if @feed.save
                     

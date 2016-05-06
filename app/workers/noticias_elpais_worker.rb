@@ -52,6 +52,7 @@ class NoticiasElpaisWorker
               end
           end 
 
+=begin
           else #HTTP fetch results is an error (i.e. not a 200 or 3XX)
 
                 unless Feedlist.where(:feed_id => @feed.id).exists? :guid => entry.id
@@ -67,9 +68,8 @@ class NoticiasElpaisWorker
                       :feed_id      => @feed.id
                     )
                   end
-
-        end #End HTTP fetch status
-
+=end
+        end #End IF HTTP fetch status
 #=end
     end # end perfom method
 
