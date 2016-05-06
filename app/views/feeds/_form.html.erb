@@ -15,17 +15,28 @@
         <div class="alert alert-<%= key %>"><%= value %></div>
       <% end %>
 
+  <% unless params[:controller] == 'edit' %>
+
+      <div class="field">
+        <%= f.label :titulo %> <br />
+        <%= f.text_field :title %>
+      </div> <br />
+
+  <% end %>
+
   <div class="field">
     <%= f.label :inserta_direccion_rss %><br />
     <%= f.text_field :rssurl, required: true, disabled: (params[:action] == 'edit') %>
-  </div>
-<div class="field">
+  </div> <br />
+
+  <div class="field">
     <%= f.hidden_field :user_id, :value => current_user.id %>
   </div>
+
   <div class="field">
   <%= f.label :tag_list, "Etiquetas (separatas por commas)" %><br />
   <%= f.text_field :tag_list, required: true %>
-</div>
+</div> 
   
 <div class="form-actions">
     <%#= f.submit 'Insertar Nueva Noticias', class: "btn btn-info btn-rounded"%>
