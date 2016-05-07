@@ -15,7 +15,7 @@
         <div class="alert alert-<%= key %>"><%= value %></div>
       <% end %>
 
-  <% unless params[:controller] == 'edit' %>
+  <% if params[:action] == 'edit' %>
 
       <div class="field">
         <%= f.label :titulo %> <br />

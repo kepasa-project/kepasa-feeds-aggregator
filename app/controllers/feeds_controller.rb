@@ -37,7 +37,7 @@ class FeedsController < ApplicationController
 
   def show
     #User.find_by_username()
-
+    auxvar = 'ciao'
     @user = User.find(params[:user_id])
     @feeds = @user.feeds
     @feed = Feed.find(params[:id])
