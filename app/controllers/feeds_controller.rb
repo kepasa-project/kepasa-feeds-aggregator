@@ -1,5 +1,5 @@
 class FeedsController < ApplicationController
-  before_filter :set_feed, only: [:show, :edit, :update, :destroy]
+  before_action :set_feed, only: [:show, :edit, :update, :destroy]
    
   respond_to :html, :xml, :json
   

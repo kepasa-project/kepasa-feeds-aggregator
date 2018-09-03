@@ -5,7 +5,7 @@ ActiveAdmin.setup do |config|
   # Set the title that is displayed on the main layout
   # for each of the active admin pages.
   #
-  config.site_title = "Futbol"
+  config.site_title = "Kepasa"
 
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
@@ -138,7 +138,7 @@ ActiveAdmin.setup do |config|
   # You can add before, after and around filters to all of your
   # Active Admin resources and pages from here.
   #
-  # config.before_filter :do_something_awesome
+  # config.before_action :do_something_awesome
   
   
   # == Setting a Favicon

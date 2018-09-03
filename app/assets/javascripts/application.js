@@ -11,8 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //
-//= require jquery
-//= require jquery_ujs
+//= require rails-ujs
 //= require turbolinks
 //= require bootstrap
 //= require feed_entry

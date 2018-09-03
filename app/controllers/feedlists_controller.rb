@@ -1,8 +1,8 @@
 class FeedlistsController < ApplicationController
 
-  before_filter :set_feedlist, only: [:show, :edit, :update, :destroy]
+  before_action :set_feedlist, only: [:show, :edit, :update, :destroy]
 
-  before_filter :authenticate_user!, except: [:show]
+  before_action :authenticate_user!, except: [:show]
 
   respond_to :html, :xml, :json
 

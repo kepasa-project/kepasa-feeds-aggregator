@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 #=begin
 
   APP_DOMAIN = 'www.kepasa.co'
-  before_filter :ensure_domain
+  before_action :ensure_domain
 
   def ensure_domain
       unless request.env['HTTP_HOST'] == APP_DOMAIN || Rails.env.development?
