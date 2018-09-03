@@ -1,4 +1,4 @@
-class CreateFeedEntries < ActiveRecord::Migration
+class CreateFeedEntries < ActiveRecord::Migration[5.1][5.1]
   def change
     create_table :feed_entries do |t|
       t.string :name

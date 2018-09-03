@@ -2,7 +2,7 @@
 
 ### A social feeds RSS aggregator network to share the last news with your fellows
 
-do you want install [Kepasa.co] (http://www.kepasa.co) and use it in dev mode follow these steps (in dev and production as DB use [Postgresql] (http://www.postgresguide.com/))
+do you want install [Kepasa.co] (http://www.kepasa.co) and use it in dev mode follow these steps (recommend using in dev and production as DB [Postgresql] (http://www.postgresguide.com/))
 
 ```sh
 $ git clone https://github.com/kepasa-project/kepasa-feeds-aggregator.git

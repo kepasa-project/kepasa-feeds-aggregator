@@ -1,4 +1,4 @@
-class AddRssurlToNews < ActiveRecord::Migration
+class AddRssurlToNews < ActiveRecord::Migration[5.1]
   def change
     add_column :news, :rssurl, :string
   end

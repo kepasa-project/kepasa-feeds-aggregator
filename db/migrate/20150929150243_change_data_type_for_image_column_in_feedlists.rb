@@ -1,4 +1,4 @@
-class ChangeDataTypeForImageColumnInFeedlists < ActiveRecord::Migration
+class ChangeDataTypeForImageColumnInFeedlists < ActiveRecord::Migration[5.1]
   def self.up
     change_table :feedlists do |t|
       t.change :image, :text

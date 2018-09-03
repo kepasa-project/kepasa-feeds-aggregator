@@ -1,4 +1,4 @@
-class CreateNewspapers < ActiveRecord::Migration
+class CreateNewspapers < ActiveRecord::Migration[5.1]
   def change
     create_table :newspapers do |t|
       t.string :rssurl

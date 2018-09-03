@@ -1,4 +1,4 @@
-class AddTitleToFeeds < ActiveRecord::Migration
+class AddTitleToFeeds < ActiveRecord::Migration[5.1]
   def change
     add_column :feeds, :title, :string
   end

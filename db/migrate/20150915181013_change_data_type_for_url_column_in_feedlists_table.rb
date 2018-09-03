@@ -1,4 +1,4 @@
-class ChangeDataTypeForUrlColumnInFeedlistsTable < ActiveRecord::Migration
+class ChangeDataTypeForUrlColumnInFeedlistsTable < ActiveRecord::Migration[5.1]
   def self.up
     change_table :feedlists do |t|
       t.change :url, :text

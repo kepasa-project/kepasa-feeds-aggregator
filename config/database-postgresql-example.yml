@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: submit-here-username-db
+  password: submit-here-username-password-db
+
+development:
+  <<: *default
+  host: localhost
+  database: database_dev
+
+test:
+  <<: *default
+  host: localhost
+  database: database_test
+
+production:
+  <<: *default
+  host: localhost
+  database: database_pro

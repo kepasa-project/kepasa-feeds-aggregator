@@ -1,4 +1,4 @@
-class RemoveGuidAndNameAndPublishedAtAndSummaryAndUrlAndImageFromNewspapers < ActiveRecord::Migration
+class RemoveGuidAndNameAndPublishedAtAndSummaryAndUrlAndImageFromNewspapers < ActiveRecord::Migration[5.1]
   def up
     remove_column :newspapers, :guid
     remove_column :newspapers, :name

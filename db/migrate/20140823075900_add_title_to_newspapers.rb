@@ -1,4 +1,4 @@
-class AddTitleToNewspapers < ActiveRecord::Migration
+class AddTitleToNewspapers < ActiveRecord::Migration[5.1]
   def change
     add_column :newspapers, :title, :string
   end

@@ -1,4 +1,4 @@
-class RemoveGuidAndNameAndPublishedAtAndSummaryAndUrlAndImageFromFeeds < ActiveRecord::Migration
+class RemoveGuidAndNameAndPublishedAtAndSummaryAndUrlAndImageFromFeeds < ActiveRecord::Migration[5.1]
   def up
     remove_column :feeds, :guid
     remove_column :feeds, :name

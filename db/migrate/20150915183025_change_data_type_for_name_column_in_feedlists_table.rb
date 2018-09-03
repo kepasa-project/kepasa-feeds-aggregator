@@ -1,4 +1,4 @@
-class ChangeDataTypeForNameColumnInFeedlistsTable < ActiveRecord::Migration
+class ChangeDataTypeForNameColumnInFeedlistsTable < ActiveRecord::Migration[5.1]
   def self.up
     change_table :feedlists do |t|
       t.change :name, :text

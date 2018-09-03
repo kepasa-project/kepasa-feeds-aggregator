@@ -1,4 +1,4 @@
-class CreateFeedlists < ActiveRecord::Migration
+class CreateFeedlists < ActiveRecord::Migration[5.1]
   def change
     create_table :feedlists do |t|
       t.string :rssurl
