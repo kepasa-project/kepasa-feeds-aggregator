@@ -2,7 +2,7 @@ class Feedlist < ActiveRecord::Base
   
   paginates_per 5
   
-  attr_accessible :feed_id, :guid, :image, :name, :published_at, :rssurl, :summary, :url, :content
+  #attr_accessible :feed_id, :guid, :image, :name, :published_at, :rssurl, :summary, :url, :content
   
   belongs_to :feed, :touch => true
   

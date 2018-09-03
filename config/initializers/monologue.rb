@@ -1,9 +1,38 @@
-Monologue.sidebar              = ["latest_posts", "latest_tweets"]   # this will add the latests posts and latests tweets in the right sidebar.
-Monologue.show_rss_icon        = true # will show the RSS icon (with link) in the header)
-Monologue.disqus_shortname     = "kepasa"
-Monologue.facebook_url         = "https://www.facebook.com/jipiboilycom" # if set, this will enable Facebook icon and link it to your Facebook page.
-Monologue.google_plus_account_url = "https://plus.google.com/115273180419164295760/posts" # if set, this will enable Google+ icon and link it to that URL.
-Monologue.linkedin_url         = "http://www.linkedin.com/in/jipiboily" # if set, will enable Linked In icon and link to this URL.
-Monologue.github_username      = "http://github.com/jipiboily"  # if set, will enable Github icon and link to this URL.
-Monologue.gauge_analytics_site_id = "your-gaug.es-id-here" # add your [Gaug.es](http://get.gaug.es/) id here to enable it.
-Monologue.facebook_logo           = 'logo.png'  # used in the open graph protocol to display an image when a post is liked
+Monologue.config do |config|
+  config.site_name = "My blog"
+  config.site_subtitle = "my own place online"
+  config.site_url = "http://www.kepasa.co"
+
+  config.meta_description = "This is my blog about..."
+  config.meta_keyword = "music, fun"
+
+  config.admin_force_ssl = false
+  config.posts_per_page = 10
+  config.preview_size = 1000
+
+  config.disqus_shortname = "my_disqus_shortname"
+
+  # LOCALE
+  config.twitter_locale = "en" # "fr"
+  config.facebook_like_locale = "en_US" # "fr_CA"
+  config.google_plusone_locale = "en"
+
+  # config.layout               = "layouts/application"
+
+  # ANALYTICS
+  # config.gauge_analytics_site_id = "YOUR COGE FROM GAUG.ES"
+  # config.google_analytics_id = "YOUR GA CODE"
+
+  config.sidebar = ["latest_posts", "latest_tweets", "categories", "tag_cloud"]
+
+
+  #SOCIAL
+  config.twitter_username = "myhandle"
+  config.facebook_url = "https://www.facebook.com/myhandle"
+  config.facebook_logo = 'logo.png'
+  config.google_plus_account_url = "https://plus.google.com/u/1/.../posts"
+  config.linkedin_url = "http://www.linkedin.com/in/myhandle"
+  config.github_username = "myhandle"
+  config.show_rss_icon = true
+
+end

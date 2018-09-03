@@ -13,6 +13,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require turbolinks
 //= require bootstrap
 //= require feed_entry
 //= require logged-page/jquery-pjax/jquery.pjax

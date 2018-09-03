@@ -3,7 +3,7 @@ class Feed < ActiveRecord::Base
   #require 'Feedjira'
   paginates_per 5
 
-  attr_accessible :guid, :image, :name, :published_at, :rssurl, :summary, :url, :user_id, :title, :tag_list
+  #attr_accessible :guid, :image, :name, :published_at, :rssurl, :summary, :url, :user_id, :title, :tag_list
   
   acts_as_taggable_on :tags
   

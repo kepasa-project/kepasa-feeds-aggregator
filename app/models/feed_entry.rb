@@ -1,5 +1,5 @@
 class FeedEntry < ActiveRecord::Base
-  attr_accessible :guid, :name, :published_at, :summary, :url, :image
+  #attr_accessible :guid, :name, :published_at, :summary, :url, :image
   
   def self.update_from_feed(feed_url)
     feed = Feedjira::Feed.fetch_and_parse(feed_url)

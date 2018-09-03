@@ -1,9 +1,8 @@
 source 'https://rubygems.org'
-#
-gem 'rails', '3.2.18'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'rails', '4.2.0'
 
 gem 'feedjira'
 gem 'nokogiri'
@@ -11,6 +10,8 @@ gem 'nokogiri'
 
 # Gems used only for assets and not required
 # in production environments by default.
+
+gem 'pg', '~> 0.20'
 
 # auth and avatar system
 gem 'devise'
@@ -21,7 +22,7 @@ gem 'omniauth-facebook'
 gem 'koala'
 
 # Monitor App
-gem 'newrelic_rpm'
+# gem 'newrelic_rpm'
 
 # asynchronous jobs
 gem 'whenever', :require => false
@@ -40,36 +41,29 @@ gem 'mailboxer'
 #gem 'rbtrace'
 gem 'rbtrace', git: 'https://github.com/tmm1/rbtrace', branch: 'master'
 
+gem 'inherited_resources'
 # admin control panel
 gem 'activeadmin'
-gem 'kaminari', '~> 0.13.0'
-gem "meta_search", '>= 1.1.0.pre'
+gem 'kaminari'
+
+#gem "meta_search", '>= 1.1.0.pre'
 
 #gem 'sass-rails', '~> 3.2.3'
 
 # Blog
-gem "monologue"
+ gem "monologue"
 
-group :assets do
-  #gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  #gem 'bootstrap-sass', '~> 2.3.2.1'
-  #gem 'therubyracer'
-
-  # here there was the bootstrap-gem
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
+ # front-end setting
+  gem 'compass-rails', github: 'compass/compass-rails'
+  gem 'sass-rails'
   gem 'uglifier', '>= 1.0.3'
-end
-
- # twitter bootstrap setting
-  gem 'compass-rails', '1.1.7'
-  gem 'sass-rails', '3.2.6'
+  gem 'coffee-rails'
+  gem 'therubyracer', platforms: :ruby
   gem 'bootstrap-sass', '~> 3.2.0'
 
-  
   gem 'jquery-rails'
+  gem 'turbolinks'
+
   gem 'jquery-ui-rails'
 
   #tag system
@@ -80,13 +74,14 @@ end
 
   group :development do
 
-    gem 'sqlite3'
-    
+    #gem 'sqlite3'
+    gem 'thin'
+    gem 'web-console', '~> 2.0'
+  
   end
 
   group :production do
 
-    gem 'pg'
     gem 'json', '~> 1.8.1'  
 
   end
@@ -95,7 +90,11 @@ end
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
-# gem 'jbuilder'
+gem 'jbuilder'
+gem 'sdoc', '~> 0.4.0', group: :doc
+
+# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+gem 'spring'
 
 # Use unicorn as the app server
 

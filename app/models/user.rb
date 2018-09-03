@@ -1,10 +1,10 @@
 class User < ActiveRecord::Base
 
-  attr_accessible :login
+  #attr_accessible :login
   
   paginates_per 5
 
-  default_scope :order => 'users.created_at DESC'
+  #default_scope :order => 'users.created_at DESC'
 
   # added these 2 lines to add the Gravatar in the app
   include Gravtastic
@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable, :omniauth_providers => [:facebook], :authentication_keys => [:login]
 
   # Setup accessible (or protected) attributes for your model. Add also :username after add a column for the Devise Model
-  attr_accessible :email, :username, :password, :password_confirmation, :remember_me
+  # attr_accessible :email, :username, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
 
   validates :email, :presence => true, :email => true

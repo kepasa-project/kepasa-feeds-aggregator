@@ -1,6 +1,6 @@
 class Page < ActiveRecord::Base
 
-  attr_accessible :url, :user_id, :title
+  #attr_accessible :url, :user_id, :title
   
   validates :title, :presence => { :message => "El Nombre de la Seccion no puede ser vacio" }
   

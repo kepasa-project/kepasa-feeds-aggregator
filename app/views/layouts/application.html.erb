@@ -6,18 +6,12 @@
   
   <% if user_signed_in? %>
 
-  <%= stylesheet_link_tag "application", :media => "all" %>
-  <!-- common libraries. required for every page-->
+  	<%= stylesheet_link_tag    'application', media: 'all' %>
 
-<!-- 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
--->
   <% else %>
 
-  <%= stylesheet_link_tag "application-front-end", :media => "all" %>
+  	<%= stylesheet_link_tag "application-front-end", :media => "all" %>
   
-
   <% end %>
   
  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,800" rel="stylesheet" type="text/css">	
@@ -33,41 +27,35 @@
 
   <%= csrf_meta_tags %>
   <%= yield :head %>
+  
 </head>
 
 
 <% if user_signed_in? %>
 
-<body>
+	<body>
 
-<%#= render 'layouts/navigation_logged' unless @nav %>
-<%= render 'layouts/header_tb' unless @nav %>
-<%#= render 'layouts/header_new' unless @nav %>
-<%#= render 'layouts/navigation_left_logged' unless @nav %>
-<%#= render 'layouts/navigation_topbar_logged' unless @nav %>
+	<%#= render 'layouts/navigation_logged' unless @nav %>
+	<%= render 'layouts/header_tb' unless @nav %>
+	<%#= render 'layouts/header_new' unless @nav %>
+	<%#= render 'layouts/navigation_left_logged' unless @nav %>
+	<%#= render 'layouts/navigation_topbar_logged' unless @nav %>
 
 <% else %>
 
-<body data-spy="scroll" data-target=".navbar-custom" class="nopadd">
+	<body data-spy="scroll" data-target=".navbar-custom" class="nopadd">
 
-<div class="preloader">
-			<div class="loader-item">
-				<%= image_tag 'loading.gif', :alt => 'loader' %>
-		</div>
-</div>
+	<div class="preloader">
+				<div class="loader-item">
+					<%= image_tag 'loading.gif', :alt => 'loader' %>
+			</div>
+	</div>
 
-<!-- pattern -->
-	<div id="bg_pattern"></div>
-	<!-- ./pattern -->
-<%= render 'layouts/navigation' unless @nav %>
+		<div id="bg_pattern"></div>
+
+		<%= render 'layouts/navigation' unless @nav %>
 
 <% end %>
-
-<%#= render 'layouts/navigation_with_search' %>
-<%#= render 'layouts/notification' %>
-
-<!-- la linea seguente da inserire solo per il footer iniziale -->
-<!-- <div id="wrap"> -->
 
 <%= yield %>
 
@@ -75,26 +63,28 @@
 
 <% if user_signed_in? %>
 
-<%= javascript_include_tag "application" %>
+	<%= javascript_include_tag 'application' %>
 
 <% else %>
 
-<%= javascript_include_tag "application-front-end" %>
+	<%= javascript_include_tag "application-front-end" %>
 
-<script type="text/javascript">
-				$(document).ready(function() {
+	<script type="text/javascript">
 
-					$('.formNotice span').click(function() {
-						$("#logForm").toggle();
-						$("#regForm").toggle();
+					$(document).ready(function() {
+
+						$('.formNotice span').click(function() {
+							$("#logForm").toggle();
+							$("#regForm").toggle();
+						});
+
+
 					});
-
-
-				});
-</script>
+	</script>
 
 <% end %>  
 
-<%= render 'layouts/stats' %>
+<%#= render 'layouts/stats' %>
+
 </body>
 </html>

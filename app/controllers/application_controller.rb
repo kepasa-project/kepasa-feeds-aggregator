@@ -1,8 +1,9 @@
 class ApplicationController < ActionController::Base
 
 
-  protect_from_forgery  :except => :create 
-
+  #protect_from_forgery  :except => :create 
+  protect_from_forgery with: :exception
+  
 #=begin
 
   APP_DOMAIN = 'www.kepasa.co'

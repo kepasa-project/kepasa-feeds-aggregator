@@ -17,15 +17,17 @@ Vagrantfile
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
+/db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
-/log/*.log
+/log/*
+!/log/.keep
 /tmp
 
 # assets pipeline
 #/public/assets
 
-#Pagine personali
+#personal pages
 /app/views/pages/*
 
 # Ignore application configuration

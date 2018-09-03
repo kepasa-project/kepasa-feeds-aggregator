@@ -2,7 +2,7 @@ class New < ActiveRecord::Base
   
   #require 'Feedjira'
   
-  attr_accessible :guid, :image, :name, :newspaper_id, :published_at, :summary, :url, :rssurl
+  #attr_accessible :guid, :image, :name, :newspaper_id, :published_at, :summary, :url, :rssurl
   
   belongs_to :newspaper
   

@@ -1,5 +1,5 @@
 class Newspaper < ActiveRecord::Base
-  attr_accessible :rssurl, :title, :position, :page_id
+  #attr_accessible :rssurl, :title, :position, :page_id
   
   validates :title, :presence => true
   validates :rssurl, :presence => true
