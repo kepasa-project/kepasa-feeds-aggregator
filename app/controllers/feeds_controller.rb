@@ -1,7 +1,8 @@
 class FeedsController < ApplicationController
+
   before_action :set_feed, only: [:show, :edit, :update, :destroy]
    
-  respond_to :html, :xml, :json
+  #respond_to :html, :xml, :json
   
   require 'nokogiri'
   require 'open-uri'
@@ -28,20 +29,20 @@ class FeedsController < ApplicationController
   end
   
   def index
-
-    @user = User.find(params[:user_id])
-    #@feeds = Feed.all
-    @feeds = @user.feeds.page(params[:page])
-    respond_with(@user, @feeds)
+    @user = current_user
+    @feeds = current_user.feeds.page(params[:page])
+  
   end
 
   def show
     #User.find_by_username()
     auxvar = 'ciao'
-    @user = User.find(params[:user_id])
-    @feeds = @user.feeds
+    #@user = User.find(params[:user_id])
+    
+    @feeds = current_user.feeds
     @feed = Feed.find(params[:id])
     @feedlists = @feed.feedlists.page(params[:page])
+
 
 =begin
     @feedlists.each do |feedlist|
@@ -49,7 +50,7 @@ class FeedsController < ApplicationController
       Feedlist.update_from_feed(feedlist.rssurl)
     end
 =end
-    respond_with(@feed)
+   #respond_with(@feed)
   end
 
   def new
@@ -57,16 +58,16 @@ class FeedsController < ApplicationController
     @user = current_user
     @feed = Feed.new(:user_id => @user.id, :rssurl => params[:rssurl])
     
-    respond_with(@feed)
+    #respond_with(@feed)
   end
 
   def edit
   end
 
   def create
-    #@user = User.find(params[:user_id])
+
     @user = current_user
-    @feed = Feed.new(params[:feed])
+    @feed = Feed.new(feed_params)
 
           if @feed.valid?    
             
@@ -112,7 +113,7 @@ class FeedsController < ApplicationController
                         end
                       end 
                     
-                    redirect_to user_feeds_path(current_user)
+                    redirect_to root_path
 
                     else
 
@@ -142,6 +143,11 @@ class FeedsController < ApplicationController
   end
 
   private
+
+    def feed_params
+      params.require(:feed).permit(:rssurl, :tag_list, :user_id)
+    end
+
     def set_feed
       @feed = Feed.find(params[:id])
     end

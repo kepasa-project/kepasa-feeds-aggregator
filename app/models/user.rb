@@ -52,8 +52,8 @@ class User < ActiveRecord::Base
   extend FriendlyId
   friendly_id :username
   
-  after_create :add_user_to_mailchimp
-  before_destroy :remove_user_from_mailchimp
+  #after_create :add_user_to_mailchimp
+  #before_destroy :remove_user_from_mailchimp
  
   # [A.] snippet to login using username or email according the Devise best practice
   def login=(login)
