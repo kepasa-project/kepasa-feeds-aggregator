@@ -13,12 +13,13 @@ class FeedlistsController < ApplicationController
   end
 
   def show
-     @user = current_user
+    
+    @user = current_user
     #@feedlist = Feedlist.find(params[:id])
     unless user_signed_in?
       cookies[:omniauth] = feedlist_url(@feedlist)
     end
-    respond_with(@feedlist)
+
   end
 
   def new
