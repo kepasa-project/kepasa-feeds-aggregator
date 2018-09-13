@@ -4,8 +4,6 @@ class FeedlistsController < ApplicationController
 
   before_action :authenticate_user!, except: [:show]
 
-  respond_to :html, :xml, :json
-
   def index
 
     @feed = Feed.find(params[:feed_id])
@@ -57,7 +55,9 @@ class FeedlistsController < ApplicationController
    Feedjira::Feed.add_common_feed_entry_element("media:thumbnail", :value => :url, :as => :media_thumbnail_url)
    Feedjira::Feed.add_common_feed_entry_element("enclosure", :value => :url, :as => :media_thumbnail_url)
    
-   @user = User.find(params[:user_id])
+   #@user = User.find(params[:user_id])
+   @user = current_user
+   
    @feed = Feed.find(params[:id])
 
    feed = Feedjira::Feed.fetch_and_parse(@feed.rssurl)

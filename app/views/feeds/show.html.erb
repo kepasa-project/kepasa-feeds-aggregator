@@ -10,6 +10,7 @@
             <li><%= link_to '<i class="fa fa-trash-o fa-fw"></i>'.html_safe, @page, method: :delete, data: { confirm: 'Estas seguro que quiere borrar esto Feed' } %> </li>
         </ol>
         <!-- <h2>Edit <%#= resource_name.to_s.humanize %></h2> -->
+        <%= @feed.inspect %>
         <ol class="breadcrumb visible-sm visible-xs">
             <li> <%= link_to 'Actualiza', {:controller => 'feedlists', :action => 'actualiza', :id => @feed.id} %></li>
 

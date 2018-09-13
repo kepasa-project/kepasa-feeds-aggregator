@@ -43,6 +43,8 @@ Rails.application.routes.draw do
 
   get 'tagged_feed/:tag', to: 'feeds#tagged_feed', as: :tagged_feed
 
+  get "/feeds" => "feedlists#actualiza", via: [:get, :post]
+  
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", sessions: "devise/sessions"} 
   
   resources :users, :only => [:index]
@@ -99,7 +101,7 @@ Rails.application.routes.draw do
 
   ActiveAdmin.routes(self)
   
-  get "/feeds" => "feedlists#actualiza", via: [:get, :post]
+  
   
   resources :following_relationships, :only => [:create, :destroy]
 
