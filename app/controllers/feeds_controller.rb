@@ -131,8 +131,8 @@ class FeedsController < ApplicationController
 
   def update
     @user = current_user
-    flash[:notice] = 'Feed was successfully updated.' if @feed.update_attributes(params[:feed])
-    respond_with(@user, @feed)
+    flash[:notice] = 'Feed was successfully updated.' if @feed.update(feed_params)
+    redirect_to user_feed_path(@user, @feed)
   end
 
   def destroy
@@ -145,7 +145,7 @@ class FeedsController < ApplicationController
   private
 
     def feed_params
-      params.require(:feed).permit(:rssurl, :tag_list, :user_id)
+      params.require(:feed).permit(:rssurl, :title, :tag_list, :user_id)
     end
 
     def set_feed

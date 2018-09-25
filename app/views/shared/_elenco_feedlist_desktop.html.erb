@@ -36,7 +36,7 @@
                                         <% end %>
                                     </p>
                                     <p class="description">
-                                        <%= notizia.summary.truncate(255).html_safe %> 
+                                        <%= notizia.summary.nil? ? "NO summary" : notizia.summary.truncate(255).html_safe %> 
                                     </p>
                                  </div>
         						<div class="col-sm-2 text-align-center">
