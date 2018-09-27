@@ -46,3 +46,27 @@ append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bund
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
+namespace :rails do
+  desc "Open the rails console"
+  task :console do
+    on roles(:app) do
+      rails_env = fetch(:rails_env, 'production')
+      execute_interactively "$HOME/.rbenv/bin/rbenv exec bundle exec rails console #{rails_env}"
+    end
+  end
+
+  desc "Open the rails dbconsole"
+  task :dbconsole do
+    on roles(:app) do
+      rails_env = fetch(:rails_env, 'production')
+      execute_interactively "$HOME/.rbenv/bin/rbenv exec bundle exec rails dbconsole #{rails_env}"
+    end
+  end
+
+  def execute_interactively(command)
+  	host = ENV['WEB_IP_ADDRESS']
+    user = ENV['WEB_USER']
+    port = fetch(:port) || ENV['WEB_SSH_PORT']
+    exec "ssh -l #{user} #{host} -p #{port} -t 'cd #{deploy_to}/current && #{command}'"
+  end
+end
