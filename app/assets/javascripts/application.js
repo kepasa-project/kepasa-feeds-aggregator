@@ -10,10 +10,10 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//
+//= require jquery
+//= require bootstrap-sprockets
 //= require rails-ujs
 //= require turbolinks
-//= require bootstrap
 //= require feed_entry
 //= require logged-page/jquery-pjax/jquery.pjax
 //= require logged-page/jQuery-slimScroll/jquery.slimscroll.min
@@ -23,8 +23,3 @@
 //= require logged-page/js/settings
 //= require logged-page/js/app
 //= require logged-page/js/grid
-
-
-
-
-
