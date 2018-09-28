@@ -31,8 +31,6 @@ Rails.application.routes.draw do
       post :mark_as_read
     end
   end
-
-  #mount Monologue::Engine, at: '/blog' 
   
   # access to the jobs in the queue domainapp/sidekiq
   mount Sidekiq::Web, at:'/sidekiq'
@@ -55,10 +53,9 @@ Rails.application.routes.draw do
     get ':id' => 'users#show'
     
   end
-  
-  # se non metto questo non mi funziona l'inserimento dei bookmarks come nested resources
-  resources :bookmarks#, :only => [:create, :edit, :update]
 
+  resources :bookmarks
+  
   resources :users do
     resources :bookmarks
   end
@@ -100,8 +97,6 @@ Rails.application.routes.draw do
   root :to => "feed_entry#index"
 
   ActiveAdmin.routes(self)
-  
-  
   
   resources :following_relationships, :only => [:create, :destroy]
 
