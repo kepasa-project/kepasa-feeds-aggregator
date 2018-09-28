@@ -47,6 +47,7 @@ gem 'mailboxer'
 gem 'rbtrace', git: 'https://github.com/tmm1/rbtrace', branch: 'master'
 
 gem 'inherited_resources'
+
 # admin control panel
 gem 'activeadmin'
 gem 'kaminari'
@@ -98,6 +99,14 @@ gem 'kaminari'
     gem 'spring'
     gem 'spring-watcher-listen', '~> 2.0.0'
 
+    # capistrano env gem
+    gem 'capistrano', '~> 3.7', '>= 3.7.1'
+    gem 'capistrano-figaro'
+    gem 'capistrano-rails', '~> 1.2'
+    gem 'capistrano-passenger', '~> 0.2.0'
+    gem 'capistrano-rbenv', '~> 2.1'
+    gem 'capistrano-rails-db'
+
   end
 
   group :production do
@@ -113,9 +122,6 @@ gem 'kaminari'
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
-
-# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring'
 
 # Use unicorn as the app server
 
