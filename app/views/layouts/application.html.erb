@@ -6,13 +6,26 @@
   
   <% if user_signed_in? %>
 
-  	<%= stylesheet_link_tag    'application', media: 'all' %>
-  	<%= javascript_include_tag 'application' %>
+  	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  	<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
   <% else %>
 
-  	<%= stylesheet_link_tag "application-front-end", :media => "all" %>
-	<%= javascript_include_tag "application-front-end" %>
+  	<%= stylesheet_link_tag "application-front-end", media: 'all', 'data-turbolinks-track': 'reload' %> %>
+	<%= javascript_include_tag "application-front-end", 'data-turbolinks-track': 'reload' %>
+
+	<script type="text/javascript">
+
+					$(document).ready(function() {
+
+						$('.formNotice span').click(function() {
+							$("#logForm").toggle();
+							$("#regForm").toggle();
+						});
+
+
+					});
+	</script>
 
   <% end %>
   
@@ -71,6 +84,7 @@
 
 	<%#= javascript_include_tag "application-front-end" %>
 
+	<!-- 
 	<script type="text/javascript">
 
 					$(document).ready(function() {
@@ -83,7 +97,8 @@
 
 					});
 	</script>
-
+	-->
+	
 <% end %>  
 
 <%#= render 'layouts/stats' %>
