@@ -14,6 +14,7 @@
                 <button class="header-btn"> Download FREE!</button>
             </a>
             <div class="header-right">
+
                 <a class="navbar-item" href="#team">The Team</a>
                 <a class="navbar-item" href="#pricing">Pricing</a>
                 <a class="navbar-item" href="#features">Features</a>
@@ -133,7 +134,7 @@
             </div>
         </div>
     </div>
-</div><!--white-section-text-section--->
+</div><!--white-section-text-section-->
 
 
 <!-- Pricing
@@ -160,7 +161,7 @@
                         </a>
                     </div>
                 </div>
-            </div><!--basic-plan--->
+            </div><!--basic-plan-->
         </div><!--col-->
 
         <div class="col-sm-4">
@@ -180,7 +181,7 @@
                         </a>
                     </div>
                 </div>
-            </div><!--pro-plan--->
+            </div><!--pro-plan-->
         </div><!--col-->
 
         <div class="col-sm-4">
@@ -201,7 +202,7 @@
                         </a>
                     </div>
                 </div>
-            </div><!--pro-plan--->
+            </div><!--pro-plan-->
         </div><!--col-->
 
     </div>  <!--pricing-table-->
@@ -219,16 +220,23 @@
 
         <div class="col-sm-4 team-member">
             <!-- <img src="assets/images/cto.png"> -->
-            <%= image_tag "cto.png" %>
+            <%= image_tag "ceo.png" %>
             <div class="team-member-text">
                 <h4 class="team-member-position light">CTO</h4>
                 <h5 class="bold">Johnny B Good</h5>
                 <p class="light">The brains behind the whole operation</p>
-                <a href="http://www.twitter.com"><img class="team-social-icon" src="assets/images/team-twitter.svg"></a>
-                <a href="http://www.facebook.com"><img class="team-social-icon"
-                                                       src="assets/images/team-facebook.svg"></a>
-                <a href="https://plus.google.com/"><img class="team-social-icon"
-                                                        src="assets/images/team-google.svg"></a>
+                <a href="http://www.twitter.com">
+                <!-- <img class="team-social-icon" src="assets/images/team-twitter.svg"> -->
+                <%= image_tag "team-twitter.svg", class: "team-social-icon" %>
+                </a>
+                <a href="http://www.facebook.com">
+                <!-- <img class="team-social-icon" src="assets/images/team-facebook.svg"> -->
+                <%= image_tag "team-facebook.svg", class: "team-social-icon" %>
+                </a>
+                <a href="https://plus.google.com/">
+                <!-- <img class="team-social-icon" src="assets/images/team-google.svg"> -->
+                <%= image_tag "team-google.svg", class: "team-social-icon" %>
+                </a>
             </div>
         </div>
 
@@ -239,11 +247,18 @@
                 <h4 class="team-member-position light">CEO</h4>
                 <h5 class="bold">Roll Over Beethoven</h5>
                 <p class="light">The one that puts it all together </p>
-                <a href="http://www.twitter.com"><img class="team-social-icon" src="assets/images/team-twitter.svg"></a>
-                <a href="http://www.facebook.com"><img class="team-social-icon"
-                                                       src="assets/images/team-facebook.svg"></a>
-                <a href="https://plus.google.com/"><img class="team-social-icon"
-                                                        src="assets/images/team-google.svg"></a>
+                <a href="http://www.twitter.com">
+                <!-- <img class="team-social-icon" src="assets/images/team-twitter.svg"> -->
+                <%= image_tag "team-twitter.svg", class: "team-social-icon" %>
+                </a>
+                <a href="http://www.facebook.com">
+                <!-- <img class="team-social-icon" src="assets/images/team-facebook.svg"> -->
+                <%= image_tag "team-facebook.svg", class: "team-social-icon" %>
+                </a>
+                <a href="https://plus.google.com/">
+                <!-- <img class="team-social-icon" src="assets/images/team-google.svg"> -->
+                <%= image_tag "team-google.svg", class: "team-social-icon" %>
+                </a>
             </div>
         </div>
 
@@ -254,19 +269,26 @@
                 <h4 class="team-member-position light">CFO</h4>
                 <h5 class="bold">Chuck Berry</h5>
                 <p class="light">The guy with his hand on the wallet</p>
-                <a href="http://www.twitter.com"><img class="team-social-icon" src="assets/images/team-twitter.svg"></a>
-                <a href="http://www.facebook.com"><img class="team-social-icon"
-                                                       src="assets/images/team-facebook.svg"></a>
-                <a href="https://plus.google.com/"><img class="team-social-icon"
-                                                        src="assets/images/team-google.svg"></a>
+                <a href="http://www.twitter.com">
+                <!-- <img class="team-social-icon" src="assets/images/team-twitter.svg"> -->
+                <%= image_tag "team-twitter.svg", class: "team-social-icon" %>
+                </a>
+                <a href="http://www.facebook.com">
+                <!-- <img class="team-social-icon" src="assets/images/team-facebook.svg"> -->
+                <%= image_tag "team-facebook.svg", class: "team-social-icon" %>
+                </a>
+                <a href="https://plus.google.com/">
+                <!-- <img class="team-social-icon" src="assets/images/team-google.svg"> -->
+                <%= image_tag "team-google.svg", class: "team-social-icon" %>
+                </a>
             </div>
 
         </div>
-        <! -- .row -->
+        <!-- .row -->
 
-    </div> <!--team-container--->
+    </div> <!--team-container-->
 
-</div> <!--team-section--->
+</div> <!--team-section-->
 
 <!-- Email-Section
   ================================================== -->
@@ -315,10 +337,17 @@
 
             <div class="col-sm-2">
                 <div class="social-links">
-                    <a href="https://twitter.com/webscopeapp"> <img class="social-link"
-                                                                    src="assets/images/twitter.svg"/> </a>
-                    <a href="https://www.facebook.com/webscopeapp/?ref=aymt_homepage_panel"> <img
-                            src="assets/images/facebook.svg"/> </a>
+                    <a href="https://twitter.com/webscopeapp"> 
+                        
+                        <!-- <img class="social-link" src="assets/images/twitter.svg"/> -->
+                        <%= image_tag "twitter.svg", class: "social-link" %>
+                    </a>
+                    <a href="https://www.facebook.com/webscopeapp/?ref=aymt_homepage_panel"> 
+                    
+                        <!-- <img src="assets/images/facebook.svg"/> -->
+                        <%= image_tag "facebook.svg", class: "social-link" %>
+
+                    </a>
                 </div>
                 <!--social-links-->
             </div>

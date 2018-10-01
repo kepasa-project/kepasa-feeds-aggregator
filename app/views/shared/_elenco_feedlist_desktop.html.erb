@@ -12,11 +12,11 @@
                                 
                                 <% if notizia.image.nil? %>
 
-                                    <a class="image-link" href="#"> <%= image_tag('no-imagen.png') %>
+                                    <a href="#"> <%= image_tag('no-imagen.png') %>
                                     
                                     <% else %>
                                     
-                                    <a class="image-link" href="#"> <img src="<%= notizia.image %>" width="70" height="50">
+                                    <a href="#"> <img src="<%= notizia.image %>" width="70" height="50">
                                     
                                 <% end %>
                                 

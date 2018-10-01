@@ -5,7 +5,7 @@ body {
 }
 
 .header-right {
-    display: none;
+    /*display: none;*/
 }
 
 .navbar-item {
@@ -104,11 +104,11 @@ body {
 }
 
 .ipad {
-    display: none;
+    /*display: none;*/
 }
 
 .ipad-screen {
-    display: none;
+    /*display: none;*/
 }
 
 .hero-btn {

@@ -1,18 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Kepasa.co, agregador de RSS </title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kepasa.co</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
   
-  <% if user_signed_in? %>
-
-  	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  	<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-  <% else %>
-
-  	<%= stylesheet_link_tag "application-front-end", media: 'all', 'data-turbolinks-track': 'reload' %>
-	<%= javascript_include_tag "application-front-end", 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag "application", media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag "application", 'data-turbolinks-track': 'reload' %>
 
 	<script type="text/javascript">
 
@@ -26,83 +19,24 @@
 
 					});
 	</script>
-
-  <% end %>
   
  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,800" rel="stylesheet" type="text/css">	
-<style>
-
-     .ciao li {
-
-	  list-style: none; 
-	}
-
-
-</style>
 
   <%= csrf_meta_tags %>
-  <%= yield :head %>
+  <%#= yield :head %>
   
 </head>
+<body>
 
+	<% if user_signed_in? %>
 
-<% if user_signed_in? %>
+		<%= render 'layouts/header_tb' unless @nav %>
 
-	<body>
-
-	<%#= render 'layouts/navigation_logged' unless @nav %>
-	<%= render 'layouts/header_tb' unless @nav %>
-	<%#= render 'layouts/header_new' unless @nav %>
-	<%#= render 'layouts/navigation_left_logged' unless @nav %>
-	<%#= render 'layouts/navigation_topbar_logged' unless @nav %>
-
-<% else %>
+	<% end %>
 	
-	<body>
-	<!-- <body data-spy="scroll" data-target=".navbar-custom" class="nopadd"> 
-
-	<div class="preloader">
-				<div class="loader-item">
-					<%#= image_tag 'loading.gif', :alt => 'loader' %>
-			</div>
-	</div>
-
-		<div id="bg_pattern"></div>
+	<%= yield %>
 	
-	-->
-		<%#= render 'layouts/navigation' unless @nav %>
-
-		<%#= render 'layouts/home_landing' unless @nav %>
-
-<% end %>
-
-<%= yield %>
-
-<%= render 'layouts/footer' %>
-
-<% if user_signed_in? %>
-
-	<%#= javascript_include_tag 'application' %>
-
-<% else %>
-
-	<%#= javascript_include_tag "application-front-end" %>
-
-	
-	<script type="text/javascript">
-
-					$(document).ready(function() {
-
-						$('.formNotice span').click(function() {
-							$("#logForm").toggle();
-							$("#regForm").toggle();
-						});
-
-
-					});
-	</script>
-
-<% end %>  
+	<%= render 'layouts/footer' %>
 
 <%= render 'layouts/stats' %>
 
