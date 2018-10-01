@@ -11,7 +11,7 @@
 
   <% else %>
 
-  	<%= stylesheet_link_tag "application-front-end", media: 'all', 'data-turbolinks-track': 'reload' %> %>
+  	<%= stylesheet_link_tag "application-front-end", media: 'all', 'data-turbolinks-track': 'reload' %>
 	<%= javascript_include_tag "application-front-end", 'data-turbolinks-track': 'reload' %>
 
 	<script type="text/javascript">
@@ -57,18 +57,22 @@
 	<%#= render 'layouts/navigation_topbar_logged' unless @nav %>
 
 <% else %>
-
-	<body data-spy="scroll" data-target=".navbar-custom" class="nopadd">
+	
+	<body>
+	<!-- <body data-spy="scroll" data-target=".navbar-custom" class="nopadd"> 
 
 	<div class="preloader">
 				<div class="loader-item">
-					<%= image_tag 'loading.gif', :alt => 'loader' %>
+					<%#= image_tag 'loading.gif', :alt => 'loader' %>
 			</div>
 	</div>
 
 		<div id="bg_pattern"></div>
+	
+	-->
+		<%#= render 'layouts/navigation' unless @nav %>
 
-		<%= render 'layouts/navigation' unless @nav %>
+		<%#= render 'layouts/home_landing' unless @nav %>
 
 <% end %>
 
@@ -84,7 +88,7 @@
 
 	<%#= javascript_include_tag "application-front-end" %>
 
-	<!-- 
+	
 	<script type="text/javascript">
 
 					$(document).ready(function() {
@@ -97,11 +101,10 @@
 
 					});
 	</script>
-	-->
-	
+
 <% end %>  
 
-<%#= render 'layouts/stats' %>
+<%= render 'layouts/stats' %>
 
 </body>
 </html>

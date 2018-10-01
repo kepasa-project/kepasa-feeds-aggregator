@@ -1,14 +1,4 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require landing-page/jquery.easy-ticker.min
-//= require landing-page/jquery.easing.1.3
-//= require landing-page/wow.min
-//= require landing-page/jquery.backstretch.min
-//= require landing-page/owl-carousel/owl.carousel
-//= require landing-page/magnific-popup/jquery.magnific-popup
-//= require landing-page/waypoints/waypoints
-//= require landing-page/counterup/jquery.counterup
-//= require landing-page/countdown/jquery.countdown.min
-//= require landing-page/uitotop/jquery.ui.totop.min
-//= require landing-page/main
+//= require landing-page/script

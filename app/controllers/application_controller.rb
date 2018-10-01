@@ -8,9 +8,9 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def ensure_domain
-      unless request.env['HTTP_HOST'] == APP_DOMAIN || Rails.env.development?
-        redirect_to "http://#{APP_DOMAIN}", :status => 301
-      end
+      #unless request.env['HTTP_HOST'] == APP_DOMAIN || Rails.env.development?
+      #  redirect_to "http://#{APP_DOMAIN}", :status => 301
+      #end
   end
 
   # begin handle Error snippet if no Record is Found!
