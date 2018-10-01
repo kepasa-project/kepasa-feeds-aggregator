@@ -11,15 +11,8 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery_ujs
 //= require bootstrap-sprockets
 //= require rails-ujs
 //= require turbolinks
-//= require feed_entry
-//= require logged-page/jquery-pjax/jquery.pjax
-//= require logged-page/jQuery-slimScroll/jquery.slimscroll.min
-//= require logged-page/widgster/widgster
-//= require logged-page/pace.js/pace.min
-//= require logged-page/jquery-touchswipe/jquery.touchSwipe
-//= require logged-page/js/settings
-//= require logged-page/js/app
-//= require logged-page/js/grid
+//= require landing-page/script

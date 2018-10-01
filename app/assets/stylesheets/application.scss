@@ -8,39 +8,9 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require 'bookmarks.css.scss'
- *= require 'landing-page/animate/animate.css'
- *= require 'landing-page/font-awesome.min.css'
- *= require 'landing-page/owl-carousel/owl.carousel.css'
- *= require 'landing-page/owl-carousel/owl.theme.css'
- *= require 'landing-page/magnific-popup/magnific-popup.css'
- *= require 'login.css'
- *= require 'landing-page/automatic-news-scrolling.css'
- *= require 'logged-pages/application.min.css'
- *= require_self
 */
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
-input[type="email"] {
-  display: block;
-  margin: 0;
-  width: 100%;
-  font-family: sans-serif;
-  font-size: 18px;
-  appearance: none;
-  box-shadow: none;
-  border-radius: none;
-  background-color : #d1d1d1;
-}
-
-/* 
-* DM styles
-*/
-.messages {
-  max-height: 400px;
-  overflow-y: auto;
-  margin-bottom: 1em;
-  margin-top: 1em;
-}
+@import "landing-page/responsive";
+@import "landing-page/style";

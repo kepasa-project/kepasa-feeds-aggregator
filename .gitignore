@@ -30,7 +30,7 @@ Vagrantfile
 .byebug_history
 
 # assets pipeline
-#/public/assets
+/public/assets
 
 #personal pages
 /app/views/pages/*
