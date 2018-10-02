@@ -11,12 +11,17 @@
             <a class="navbar-brand logo" href="#"> <%= image_tag "logo.40px.png", class: "logo" %>
             <!-- <img class="logo" src="assets/images/logo.svg"/> --> </a> 
             <!--<a href="https://themewagon.com/themes/project-app-showasing-onepage-bootstrap-template-free/"> -->
-                <button class="header-btn"> Try Now !</button> 
+            
+            <%#= link_to "Try Now", new_user_registration_path, class: "header-btn" %>'
+
+            <%= button_to "Try Now", new_user_registration_path, class: "header-btn", :method => :get %>
+                <!-- <button class="header-btn"> Try Now !</button> -->
             <!-- </a> -->
             <div class="header-right">
 
                 <a class="navbar-item" href="#team">The Project</a>
                 <a class="navbar-item" href="#team">Donation</a>
+                <a class="navbar-item" href="#team">Login</a>
                 <a class="navbar-item" href="#team">The Team</a>
                 <a class="navbar-item" href="#pricing">Pricing</a>
                 <a class="navbar-item" href="#features">Features</a>

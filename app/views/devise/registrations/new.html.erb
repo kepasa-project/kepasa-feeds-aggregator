@@ -221,18 +221,38 @@
             <!-- <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" /> -->
             <div align="center"><%= image_tag "logo.40px.png" %> </div>
             <h3 align="center">Sign up for Kepasa</h3>
-            <p align="center">Already have an account? <%= link_to "Sign in", "#" %> </p>
-            <form class="form-signin">
+            <p align="center">Already have an account? <%= link_to "Sign in", new_user_session_path %> </p>
+            <!--<form class="form-signin">-->
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:id => "logForm", :class => "form-signin"}) do |f| %>
+                
                 <span id="reauth-email" class="reauth-email"></span>
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                <div id="remember" class="checkbox">
-                    <label>
-                        <input type="checkbox" value="remember-me"> Remember me
-                    </label>
-                </div>
-                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
-            </form><!-- /form -->
+                <%= devise_error_messages! %>
+
+
+                <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus> -->
+
+                <%= f.text_field :username, id: "inputEmail", :class => "form-control", placeholder: "Username", required: true, autofocus: true %>
+
+                <!-- <input type="password" id="inputPassword" class="form-control" placeholder="Password" required> -->
+
+                <%= f.email_field :email, id: "inputEmail", :class => "form-control", placeholder: "Email address", autocomplete: "off" %>
+
+                <%= f.password_field :password, id: "inputPassword", :class => "form-control", placeholder: "Password", autocomplete: "off" %>
+
+                <%= f.password_field :password_confirmation, id: "inputPassword", :class => "form-control", placeholder: "Confirm Password", autocomplete: "off" %>
+                
+                  <div id="remember" class="checkbox">
+                      <label>
+                          <input type="checkbox" value="remember-me"> I agree terms and conditions
+                      </label>
+                  </div>
+
+                  <%= f.submit "Sign up", :class=> "btn btn-lg btn-primary btn-block btn-signin" %>
+
+                  <% end %> <br />
+                <!-- <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button> -->
+            <!-- </form> --> <!-- /form -->
+
             <a href="#" class="forgot-password">
                 Forgot the password?
             </a>
