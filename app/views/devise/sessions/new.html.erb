@@ -174,7 +174,8 @@
             <p align="center">Don't have an account? <%= link_to "Sign Up", new_user_registration_path %> </p>
             <!-- <form class="form-signin"> -->
             <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "form-signin") do |f| %>
-                <span id="reauth-email" class="reauth-email"></span>
+        
+                <%= devise_error_messages! %>
                 <%= f.email_field :email, id: "inputEmail", placeholder: "Email address", class: "form-control", required: true, autofocus: true %> <br />
                 <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus> -->
                 <%= f.password_field :password, id: "inputPassword", placeholder: "Password", class: "form-control", required: true, autocomplete: "off" %>

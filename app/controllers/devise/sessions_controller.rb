@@ -18,18 +18,6 @@ class Devise::SessionsController < DeviseController
     sign_in(resource_name, resource)
     yield resource if block_given?
     respond_with resource, location: after_sign_in_path_for(resource)
-
-    # snippet added to update current user rss feeds 
-    @feeds_current_user = current_user.feeds
-
-    @feeds_current_user.find_each(:batch_size => 200) do |feed|
-
-        NoticiasElpaisWorker.perform_async(feed.id.to_i)
-
-        #sleep 5
-
-    end
-    # end snippet 
     
   end
 

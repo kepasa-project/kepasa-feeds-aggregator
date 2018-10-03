@@ -24,12 +24,17 @@ class ApplicationController < ActionController::Base
   end
   # end error snippet
   
-  protected
+  private
 
   def configure_permitted_parameters
       attributes = [:username, :email, :password, :password_confirmation]
       devise_parameter_sanitizer.permit(:sign_up, keys: attributes)
       devise_parameter_sanitizer.permit(:account_update, keys: attributes)
+  end
+
+  # Overwriting the sign_out redirect path method
+  def after_sign_out_path_for(resource_or_scope)
+    root_path
   end
 
 end
