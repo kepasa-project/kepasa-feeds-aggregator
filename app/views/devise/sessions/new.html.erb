@@ -176,7 +176,7 @@
             <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "form-signin") do |f| %>
         
                 <%= devise_error_messages! %>
-                <%= f.email_field :email, id: "inputEmail", placeholder: "Email address", class: "form-control", required: true, autofocus: true %> <br />
+                <%= f.text_field :login, id: "inputEmail", placeholder: "Email address or Username", class: "form-control", required: true, autofocus: true %> <br />
                 <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus> -->
                 <%= f.password_field :password, id: "inputPassword", placeholder: "Password", class: "form-control", required: true, autocomplete: "off" %>
                 <!-- <input type="password" id="inputPassword" class="form-control" placeholder="Password" required> -->
