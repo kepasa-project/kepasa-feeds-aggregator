@@ -40,6 +40,14 @@ What is missing in Kepasa.co?
 - notification system
 - DM system
 
+# Donation
+
+if you want support the project can you send a donation to the follow bitcoin address:
+
+1Hc5voXY8Kk59eQX7LyhJyfUKsQo5HEmu2
+
+thank you
+
 # License
 
 MIT LICENSE, see the LICENSE file for further information
