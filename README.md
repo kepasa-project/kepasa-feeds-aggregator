@@ -42,9 +42,11 @@ What is missing in Kepasa.co?
 
 # Donation
 
-if you want support the project can you send a donation to the follow bitcoin address:
+if you want to support the project you can send a donation to any of the following cryptocurrencies addresses:
 
-1Hc5voXY8Kk59eQX7LyhJyfUKsQo5HEmu2
+BITCOIN: 1ET3io4sXiDJ5GuGmF9UcYw6uHRxMUvfSD
+ETHER: 0x33BCA6E4dfd6D650D9d1347c4fA375fe98A3C264
+BITCOIN CASH: qq4hj20vyrgsm48tapvawtwssjst2mkn25rry0t0z8
 
 thank you
 
