@@ -1,4 +1,3 @@
-
 <!-- Navigation
     ================================================== -->
 <div class="hero-background">
@@ -6,9 +5,9 @@
         <!-- <img class="strips" src="assets/images/strips.png"> -->
         <%= image_tag "strips.png", class: "strips" %>
     </div>
-    <div class="container">
+    <div class="container hero">
         <div class="header-container header">
-            <a class="navbar-brand logo" href="#"> <%= image_tag "logo.40px.png", class: "logo" %>
+            <a class="navbar-brand logo" href="#"> <%#= image_tag "logo.40px.png", class: "logo" %>
             <!-- <img class="logo" src="assets/images/logo.svg"/> --> </a> 
             <!--<a href="https://themewagon.com/themes/project-app-showasing-onepage-bootstrap-template-free/"> -->
             
@@ -20,11 +19,8 @@
             <div class="header-right">
 
                 <a class="navbar-item" href="#team">The Project</a>
-                <a class="navbar-item" href="#team">Donation</a>
-                <a class="navbar-item" href="/users/sign_in">Login</a>
-                <a class="navbar-item" href="#team">The Team</a>
                 <a class="navbar-item" href="#pricing">Pricing</a>
-                <a class="navbar-item" href="#features">Features</a>
+                <a class="navbar-item" href="/users/sign_in">Login</a>
 
             </div>
         </div>
@@ -37,15 +33,16 @@
         <div class="hero row">
             <div class="hero-right col-sm-6 col-sm-6">
                 <h1 class="header-headline bold"> Kepasa.co <br></h1>
-                <h4 class="header-running-text light"> read and share your feeds</h4>
-                <a href="https://themewagon.com/themes/project-app-showasing-onepage-bootstrap-template-free/">
-                    <button class="hero-btn"> Get Started Free! </button>
+                <h4 class="header-running-text light"> Read and Share your FEEDS</h4>
+                <h4 class="header-running-text light"> an Open Source Project</h4>
+                <a href="https://github.com/kepasa-project/kepasa-feeds-aggregator/">
+                    <button class="hero-btn"> Download </button>
                 </a>
             </div><!--hero-left-->
 
             <div class="col-sm-6 col-sm-6 ipad">
                 <!-- <img class="ipad-screen img-responsive" src="/assets/images/screen.png"/> -->
-                <%= image_tag "screen.png", class: "ipad-screen img-responsive" %>
+                <%= image_tag "logged-pages.png", class: "ipad-screen img-responsive" %>
             </div>
 
             <div>
@@ -60,131 +57,11 @@
 </div><!--hero-background-->
 
 
-<!-- Features
-  ================================================== -->
-
-<div id="features" class="features-section">
-
-    <div class="features-container row">
-
-        <h2 class="features-headline light">FEATURES</h2>
-
-        <div class="col-sm-4 feature">
-
-            <div class="feature-icon feature-no-display">
-                <!-- <img class="feature-img" src="assets/images/responsive.svg"> -->
-                <%= image_tag "responsive.svg", class: "feature-img" %>
-            </div>
-            <h5 class="feature-head-text feature-no-display"> FULLY RESPONSIVE </h5>
-            <p class="feature-subtext light feature-no-display"> Looks amazing on any
-                device: smartphone, tablet, laptop and desktop.</p>
-        </div>
-
-        <div class="col-sm-4 feature">
-            <div class="feature-icon feature-no-display feature-display-mid">
-                
-                <!-- <img class="feature-img" src="assets/images/customizable.svg"> -->
-                <%= image_tag "customizable.svg", class: "feature-img" %>
-
-            </div>
-            <h5 class="feature-head-text feature-no-display feature-display-mid"> CUSTOMIZABLE </h5>
-            <p class="feature-subtext light feature-no-display feature-display-mid"> Change the colors, pictures or any
-                of the sections
-                to suit your needs.</p>
-        </div>
-
-        <div class="col-sm-4 feature">
-            <div class="feature-icon feature-no-display feature-display-last">
-
-                
-                <!-- <img class="bullet-img" src="assets/images/design.svg"> -->
-                <%= image_tag "design.svg", class: "bullet-img" %>
-
-            </div>
-            <h5 class="feature-head-text feature-no-display feature-display-last"> SLICK AND BEAUTIFUL DESIGN </h5>
-            <p class="feature-subtext light feature-no-display feature-display-last"> Trendy and fresh design, fits any
-                website.</p>
-        </div>
-    </div> <!--features-container-->
-</div> <!--features-section-->
-
-<!-- Pricing
-  ================================================== -->
-<div id="pricing" class="pricing-background">
-
-    <h2 class="pricing-section-header light text-center">CHOOSE YOUR PRICING PLAN</h2>
-    <h4 class=" pricing-section-sub text-center light">Pick any of our super affordable pricing plans</h4>
-
-    <div class="pricing-table row">
-        <div class="col-sm-4">
-            <div class="plan">
-                <h3 class="plan-title light">BASIC</h3>
-                <h4 class="plan-cost bold">15</h4>
-                <h5 class="monthly">per month</h5>
-                <ul class="plan-features">
-                    <li>Up to 7 Projects</li>
-                    <li>2 Additional Developers</li>
-                </ul>
-                <div class="plan-price-div text-center">
-                    <div class="choose-plan-div">
-                        <a class="plan-btn light" href="#">
-                            Get Started
-                        </a>
-                    </div>
-                </div>
-            </div><!--basic-plan-->
-        </div><!--col-->
-
-        <div class="col-sm-4">
-            <div class="mid-plan">
-                <h3 class="plan-title light">AGENCY</h3>
-                <h4 class="plan-cost bold">55</h4>
-                <h5 class="monthly">per month</h5>
-                <ul class="plan-features">
-                    <li>Up to 25 Projects</li>
-                    <li>2 Additional Developers</li>
-                    <li>Unlimited Support</li>
-                </ul>
-                <div class="plan-price-div text-center">
-                    <div class="choose-plan-div">
-                        <a class="plan-btn light" href="#">
-                            Get Started
-                        </a>
-                    </div>
-                </div>
-            </div><!--pro-plan-->
-        </div><!--col-->
-
-        <div class="col-sm-4">
-            <div class="plan">
-                <h3 class="plan-title light">PRO</h3>
-                <h4 class="plan-cost bold">75</h4>
-                <h5 class="monthly">per month</h5>
-                <ul class="plan-features">
-                    <li>Up to 25 Projects</li>
-                    <li>2 Additional Developers</li>
-                    <li>Unlimited Support</li>
-                    <li>1.5GB Disk Space</li>
-                </ul>
-                <div class="plan-price-div text-center">
-                    <div class="choose-plan-div">
-                        <a class="plan-btn light" href="#">
-                            Get Started
-                        </a>
-                    </div>
-                </div>
-            </div><!--pro-plan-->
-        </div><!--col-->
-
-    </div>  <!--pricing-table-->
-
-</div><!--pricing-background-->
-
 <!-- Team
   ================================================== -->
 
 <div id="team" class="team">
-    <h2 class="team-section-header light text-center">THE TEAM</h2>
+    <h2 class="team-section-header light text-center">THE PROJECT</h2>
 
     <div class="team-container row">
 
@@ -261,6 +138,58 @@
 
 </div> <!--team-section-->
 
+<!-- Pricing
+  ================================================== -->
+<div id="pricing" class="pricing-background">
+
+    <h2 class="pricing-section-header light text-center">CHOOSE YOUR PRICING PLAN</h2>
+    <h4 class=" pricing-section-sub text-center light">Pick any of our super affordable pricing plans</h4>
+
+    <div class="pricing-table row">
+        <div class="col-sm-6">
+            <div class="plan">
+                <h3 class="plan-title light">BASIC</h3>
+                <h4 class="plan-free bold">FREE</h4>
+                <h5 class="monthly">per month</h5>
+                <ul class="plan-features">
+                    <li>Up to 7 Projects</li>
+                    <li>2 Additional Developers</li>
+                </ul>
+                <div class="plan-price-div text-center">
+                    <div class="choose-plan-div">
+                        <a class="plan-btn light" href="#">
+                            Get Started
+                        </a>
+                    </div>
+                </div>
+            </div><!--basic-plan-->
+        </div><!--col-->
+
+        <div class="col-sm-6">
+            <div class="plan">
+                <h3 class="plan-title light">PRO</h3>
+                <h4 class="plan-cost bold">5</h4>
+                <h5 class="monthly">per month</h5>
+                <ul class="plan-features">
+                    <li>Up to 25 Projects</li>
+                    <li>2 Additional Developers</li>
+                    <li>Unlimited Support</li>
+                    <li>1.5GB Disk Space</li>
+                </ul>
+                <div class="plan-price-div text-center">
+                    <div class="choose-plan-div">
+                        <a class="plan-btn light" href="#">
+                            Get Started
+                        </a>
+                    </div>
+                </div>
+            </div><!--pro-plan-->
+        </div><!--col-->
+
+    </div>  <!--pricing-table-->
+
+</div><!--pricing-background-->
+
 <!-- Email-Section
   ================================================== -->
 
@@ -316,6 +245,12 @@
                     
                         <!-- <img src="assets/images/facebook.svg"/> -->
                         <%= image_tag "facebook.svg", class: "social-link" %>
+
+                    </a>
+                    <a href="https://github.com/kepasa-project/kepasa-feeds-aggregator/"> 
+                    
+                        <!-- <img src="assets/images/facebook.svg"/> -->
+                        <%= image_tag "GitHub-Mark-32px.png", class: "social-link" %>
 
                     </a>
                 </div>

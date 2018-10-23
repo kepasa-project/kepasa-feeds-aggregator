@@ -74,7 +74,7 @@ body {
 .hero {
     position: relative;
     z-index: 999;
-    padding-bottom: 60px;
+    padding-bottom: 230px;
 }
 
 .mouse {
@@ -332,6 +332,10 @@ ul {
 }
 
 .plan-cost {
+    font-size: 45px;
+}
+
+.plan-free {
     font-size: 45px;
 }
 
