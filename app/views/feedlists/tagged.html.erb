@@ -2,10 +2,14 @@
 <div class="row">
 	<div class="col-lg-12">
 	
-    <ol class="breadcrumb">
-        <li>Tu eres aqui</li>
-        <li class="active">All My News</li>
-        <li><%= current_user.username %></li>
+	<ol class="breadcrumb">
+            <li>Tu eres aqui</li>
+            <li class="active">All My News</li>
+            <li>
+                
+                    TAG: <%= params[:tag] %>
+               
+            </li>
     </ol>
 
     <% @feedlists.find_each(:batch_size => 100) do |notizia| %>
@@ -48,11 +52,7 @@
                                     Feed: <%= link_to notizia.feed.title, user_feed_path(current_user, notizia.feed) %>
                                     </p>
                                     <p align="left">
-                                    Etiquetas:
-                                    <%  notizia.feed.tags.each do |tag| %>
-                                        <%= link_to tag.name, tagged_feedlist_path(tag: tag.name) %>
-                                    <% end %>
-                                    <%#=  notizia.feed.tags.pluck(:name).join(", ") %>
+                                    Etiquetas: <%=  notizia.feed.tags.pluck(:name).join(", ") %>
                                     </p>
                                  </div>
         						<div class="col-sm-2 text-align-center">

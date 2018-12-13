@@ -96,6 +96,14 @@ class FeedlistsController < ApplicationController
    redirect_to([@user, @feed])
   end
 
+  def tagged
+
+    list_feed_id = Feed.tagged_with(params[:tag]).pluck(:id)
+
+    @feedlists = Feedlist.where(feed_id: list_feed_id).order("published_at DESC").page(params[:page])
+  
+  end
+
   private
     def set_feedlist
       @feedlist = Feedlist.find(params[:id])
