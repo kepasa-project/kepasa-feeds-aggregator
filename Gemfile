@@ -123,6 +123,8 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 
+gem "font-awesome-rails"
+
 # Use unicorn as the app server
 
 #gem 'unicorn'

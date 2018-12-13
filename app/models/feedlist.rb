@@ -5,7 +5,8 @@ class Feedlist < ActiveRecord::Base
   #attr_accessible :feed_id, :guid, :image, :name, :published_at, :rssurl, :summary, :url, :content
   
   belongs_to :feed, :touch => true
-  
+  belongs_to :user
+
   #default_scope :order => 'published_at ASC'
 
   def self.usuario(user, rssurl)

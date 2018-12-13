@@ -6,10 +6,12 @@ class FeedlistsController < ApplicationController
 
   def index
 
-    @feed = Feed.find(params[:feed_id])
-    @feedlists = @feed.feedlists.order("published_at ASC")
+    #@feed = Feed.find(params[:feed_id])
+    #@feedlists = @feed.feedlists.order("published_at ASC")
     #@feedlists = Feedlist.all
-    respond_with(@feedlists)
+    #respond_with(@feedlists)
+    @feedlists = current_user.feedlists.order("published_at DESC").page(params[:page])
+
   end
 
   def show
@@ -85,7 +87,8 @@ class FeedlistsController < ApplicationController
               :published_at => @datafeedlist,
               :guid         => entry.id,
               :image        => entry.media_thumbnail_url,
-              :feed_id      => @feed.id
+              :feed_id      => @feed.id,
+              :user_id      => @user.id
             )
       end
     end 

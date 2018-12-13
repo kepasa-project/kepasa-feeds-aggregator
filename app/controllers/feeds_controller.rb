@@ -108,7 +108,8 @@ class FeedsController < ApplicationController
                                 :published_at => @datafeedlist,
                                 :guid         => entry.id,
                                 :image        => entry.media_thumbnail_url,
-                                :feed_id      => @feed.id
+                                :feed_id      => @feed.id,
+                                :user_id      => @user.id
                               )
                         end
                       end 
@@ -133,6 +134,14 @@ class FeedsController < ApplicationController
     @user = current_user
     flash[:notice] = 'Feed was successfully updated.' if @feed.update(feed_params)
     redirect_to user_feed_path(@user, @feed)
+  end
+
+  def update_all_feeds
+
+    #UpdatefeedsWorker.perform_async(current_user.id)
+    UpdateAllFeedsJob.perform_later(current_user)
+    redirect_to root_path
+
   end
 
   def destroy

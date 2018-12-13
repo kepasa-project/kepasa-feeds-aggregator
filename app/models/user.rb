@@ -30,6 +30,8 @@ class User < ActiveRecord::Base
   has_many :bookmarks, :dependent => :destroy
   
   has_many :feeds
+  has_many :feedlists
+
   has_many :pages, :dependent => :destroy
   
   has_many :relationships

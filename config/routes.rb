@@ -2,6 +2,9 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
   
+  # access to the jobs in the queue domainapp/sidekiq
+  mount Sidekiq::Web, at:'/sidekiq'
+
   resources :feedlists
 
   resources :conversations, only: [:index, :show, :destroy]
@@ -31,9 +34,6 @@ Rails.application.routes.draw do
       post :mark_as_read
     end
   end
-  
-  # access to the jobs in the queue domainapp/sidekiq
-  mount Sidekiq::Web, at:'/sidekiq'
 
   get 'tags/:tag', to: 'bookmarks#tagged', as: :tag
   
@@ -42,6 +42,8 @@ Rails.application.routes.draw do
   get 'tagged_feed/:tag', to: 'feeds#tagged_feed', as: :tagged_feed
 
   get "/feeds" => "feedlists#actualiza", via: [:get, :post]
+
+  post "/update_all_feeds" => "feeds#update_all_feeds"
   
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", sessions: "devise/sessions"} 
   

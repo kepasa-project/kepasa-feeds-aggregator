@@ -17,29 +17,29 @@
 
   <% if params[:action] == 'edit' %>
 
-      <div class="field">
+      <div class="form-group">
         <%= f.label :titulo %> <br />
         <%= f.text_field :title %>
       </div> <br />
 
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :inserta_direccion_rss %><br />
     <%= f.text_field :rssurl, required: true, disabled: (params[:action] == 'edit') %>
   </div> <br />
 
-  <div class="field">
+  <div class="form-group">
     <%= f.hidden_field :user_id, :value => current_user.id %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
   <%= f.label :tag_list, "Etiquetas (separatas por commas)" %><br />
   <%= f.text_field :tag_list, required: true %>
 </div> 
   
-<div class="form-actions">
-    <%#= f.submit 'Insertar Nueva Noticias', class: "btn btn-info btn-rounded"%>
+<div class="form-group">
+    
     <%= f.submit @feed.new_record? ? 'Insertar Nuevo Feed' : 'Actualiza Feed', class: "btn btn-info btn-rounded"%>
   </div>
 <% end %>
