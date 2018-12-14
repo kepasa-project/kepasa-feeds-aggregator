@@ -10,7 +10,7 @@ class FeedlistsController < ApplicationController
     #@feedlists = @feed.feedlists.order("published_at ASC")
     #@feedlists = Feedlist.all
     #respond_with(@feedlists)
-    @feedlists = current_user.feedlists.order("published_at DESC").page(params[:page])
+    @feedlists = current_user.feedlists.page(params[:page])
 
   end
 
@@ -98,7 +98,7 @@ class FeedlistsController < ApplicationController
 
   def tagged
 
-    list_feed_id = Feed.tagged_with(params[:tag]).pluck(:id)
+    list_feed_id = current_user.feeds.tagged_with(params[:tag]).pluck(:id)
 
     @feedlists = Feedlist.where(feed_id: list_feed_id).order("published_at DESC").page(params[:page])
   

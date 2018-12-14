@@ -32,7 +32,9 @@
         						 	</h4>
         						 	<p class="info">
                                         <% if notizia.published_at.nil? %>
+
                                         <%= time_ago_in_words(notizia.created_at) %>
+                                        
                                         <% else %>
 
                                         <%= time_ago_in_words(notizia.published_at) %>
