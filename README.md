@@ -40,6 +40,16 @@ What is missing in Kepasa.co?
 - notification system
 - DM system
 
+# Donation
+
+if you want to support the project you can send a donation to any of the following cryptocurrencies addresses:
+
+```sh
+BITCOIN: 1ET3io4sXiDJ5GuGmF9UcYw6uHRxMUvfSD
+ETHER: 0x33BCA6E4dfd6D650D9d1347c4fA375fe98A3C264
+BITCOIN CASH: qq4hj20vyrgsm48tapvawtwssjst2mkn25rry0t0z8
+```
+
 # License
 
 MIT LICENSE, see the LICENSE file for further information
@@ -51,6 +61,3 @@ The Kepasa logo designed by [José Luis Arraño] (https://www.facebook.com/josel
 ciao!
 
 [@Astr0surf3r] (https://twitter.com/Astr0surf3r)
-
-
-

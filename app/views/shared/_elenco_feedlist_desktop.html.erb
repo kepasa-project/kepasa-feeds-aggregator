@@ -23,7 +23,7 @@
                                 </div>
                                 <div class="col-sm-8">
                                     <h4 class="search-result-item-heading">
-        								<%= link_to notizia.name, feedlist_path(notizia.id) %>
+        								<%= link_to notizia.name.html_safe, feedlist_path(notizia.id) %>
         						 	</h4>
         						 	<p class="info">
                                         <% if notizia.published_at.nil? %>
