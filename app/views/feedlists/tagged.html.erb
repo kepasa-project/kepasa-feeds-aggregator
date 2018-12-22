@@ -12,7 +12,7 @@
             </li>
     </ol>
 
-    <% @feedlists.find_each(:batch_size => 100) do |notizia| %>
+    <% @feedlists.each do |notizia| %>
 	 <section class="search-result-item">
 	    
     <div class="container-fluid">
@@ -57,7 +57,7 @@
                                  </div>
         						<div class="col-sm-2 text-align-center">
                                     <%#= link_to 'Visiona Más', feedlists_path(notizia), :class => "btn btn-primary btn-info btn-sm" %> <br />
-                                    <%= link_to 'Articulo Origen >>', notizia.url, :class => "btn btn-primary btn-info btn-sm" %>
+                                    <%= link_to 'Articulo Origen >>', notizia.url, :class => "btn btn-primary btn-info btn-sm", target: "_blank" %>
         						</div>
                             </div>
      </div>

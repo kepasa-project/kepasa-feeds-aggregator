@@ -17,14 +17,14 @@
 
       <ul class="nav navbar-nav">
         <li><%= link_to '<i class="fa fa-plus"></i> Agrega FEED'.html_safe, new_user_feed_path(current_user), :class => "action-link" %> </li>
+        <li><%= link_to '<i class="fa fa-rss"></i> Mis News'.html_safe, feedlists_path, :class => "action-link" %></li>
         <li><%= link_to '<i class="fa fa-rss-square"></i> Mis FEEDS'.html_safe, user_feeds_path(current_user), :class => "action-link" %></li>
-        <li><%= link_to '<i class="fa fa-rss-square"></i> Mis News'.html_safe, feedlists_path, :class => "action-link" %></li>
       </ul>
-      <form class="navbar-form navbar-left">
+      <form class="navbar-form navbar-left" action="<%= search_feedlist_path %>" method="get">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+          <input type="text" name="term" class="form-control" placeholder="Palabra Clave" required="true">
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-default">Busqua</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to '<i class="fa fa-home"></i> Home'.html_safe, root_path, :class => "action-link" %> </li>

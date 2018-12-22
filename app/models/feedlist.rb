@@ -15,6 +15,14 @@ class Feedlist < ActiveRecord::Base
 
   end
   
+  def self.search(search)
+    if search
+      self.where('name ILIKE ? OR summary ILIKE ?', "%#{search}%", "%#{search}%").order("created_at DESC")
+    else
+      self.all
+    end
+  end
+  
   def self.update_from_feed(feed_url)
     
     Feedjira::Feed.add_common_feed_entry_element("media:thumbnail", :value => :url, :as => :media_thumbnail_url)

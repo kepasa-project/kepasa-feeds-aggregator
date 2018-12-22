@@ -45,6 +45,8 @@ Rails.application.routes.draw do
 
   get "/tagged_feedlist" => "feedlists#tagged", as: :tagged_feedlist
 
+  get "/search_feedlist" => "feedlists#search", as: :search_feedlist
+
   post "/update_all_feeds" => "feeds#update_all_feeds"
   
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", sessions: "devise/sessions"} 

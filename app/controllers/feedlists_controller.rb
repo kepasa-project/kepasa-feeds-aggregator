@@ -10,7 +10,7 @@ class FeedlistsController < ApplicationController
     #@feedlists = @feed.feedlists.order("published_at ASC")
     #@feedlists = Feedlist.all
     #respond_with(@feedlists)
-    @feedlists = current_user.feedlists.page(params[:page])
+    @feedlists = current_user.feedlists.order("created_at DESC").page(params[:page])
 
   end
 
@@ -100,8 +100,14 @@ class FeedlistsController < ApplicationController
 
     list_feed_id = current_user.feeds.tagged_with(params[:tag]).pluck(:id)
 
-    @feedlists = Feedlist.where(feed_id: list_feed_id).order("published_at DESC").page(params[:page])
+    @feedlists = Feedlist.where(feed_id: list_feed_id).order("created_at DESC").page(params[:page])
   
+  end
+
+  def search
+
+    @feedlists = current_user.feedlists.search(params[:term]).page(params[:page])
+
   end
 
   private

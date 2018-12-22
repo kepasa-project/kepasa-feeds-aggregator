@@ -38,10 +38,16 @@
                                     <p class="description">
                                         <%= notizia.summary.nil? ? "NO summary" : notizia.summary.truncate(255).html_safe %> 
                                     </p>
+                                    <p>
+                                    Etiquetas:
+                                    <%  notizia.feed.tags.each do |tag| %>
+                                        <%= link_to tag.name, tagged_feedlist_path(tag: tag.name) %>
+                                    <% end %>
+                                    </p>
                                  </div>
         						<div class="col-sm-2 text-align-center">
                                     <%#= link_to 'Visiona Más', feedlists_path(notizia), :class => "btn btn-primary btn-info btn-sm" %> <br />
-                                    <%= link_to 'Articulo Origen >>', notizia.url, :class => "btn btn-primary btn-info btn-sm" %>
+                                    <%= link_to 'Articulo Origen >>', notizia.url, :class => "btn btn-primary btn-info btn-sm", target: "_blank" %>
         						</div>
                             </div>
      </div>
