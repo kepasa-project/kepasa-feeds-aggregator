@@ -125,6 +125,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem "font-awesome-rails"
 
+gem "foreman"
 # Use unicorn as the app server
 
 #gem 'unicorn'
