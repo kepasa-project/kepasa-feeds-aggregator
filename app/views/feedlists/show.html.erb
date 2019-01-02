@@ -14,22 +14,26 @@
       </div>
         <div class="panel-body">
 
-         
-            <p>
-            <b> Titulo: <%= @feedlist.name %> </b>
+          <p>
+            <b> <%= I18n.t("feedlist.title")%>: <%= @feedlist.name %> </b>
           </p> 
 
           <p>
 
-            <% unless @feedlist.summary.nil? %>
+            <% if @feedlist.content.nil? %>
 
-            <%= sanitize(@feedlist.summary) %>
+              <%= sanitize(@feedlist.summary) if !@feedlist.summary.nil? %>
             
+            <% else %>
+
+              <%= sanitize(@feedlist.content) %>
+
             <% end %>
           
           </p>
           <p class="feedlist">
-            Haz click <u><%= link_to "aquí", @feedlist.url, target: "_blank" %></u> para leer el articulo origen 
+            <%= I18n.t("feedlist.click") %> <%= link_to I18n.t("feedlist.here"), @feedlist.url, target: "_blank" %> <%= I18n.t("feedlist.read_original_article") %>
+            
              <%# unless user_signed_in? %>
               <!-- o guarda el articulo en <u> <%#= link_to 'Kepasa.co', root_url %> </u> via <%#= link_to "#{image_tag('btn-facebook-connect-rid.png')}".html_safe, user_omniauth_authorize_path(:facebook, :id => @feedlist.id) %> <br />
             <%# end %> <br /> -->
@@ -46,6 +50,7 @@
   
           </p>
 
+          <%= render 'shared/info_share', notizia: @feedlist %>
         </div>
 
         

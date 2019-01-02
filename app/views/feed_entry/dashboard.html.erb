@@ -1,0 +1,125 @@
+<style>
+.css1 { font-size: 1.0em; }
+.css2 { font-size: 1.2em; }
+.css3 { font-size: 1.4em; }
+.css4 { font-size: 1.6em; }
+</style>
+<div class="container">
+	<div class="row">
+		<div class="col-lg-6">
+			<div class="panel bg-success">
+				<div class="panel-heading">
+
+					<h2 class="panel-title"> <%= I18n.t("dashboard.all_my_feeds") %> - <%= current_user.feeds.size %></h2>
+	
+					<!-- <div class="heading-elements">
+						 <i class="fa fa-rss-square fa-3x"></i>
+                	</div> -->
+				</div>
+				<div class="panel-body">
+						<p> <%= I18n.t("dashboard.last_feeds") %> </p>
+                    	<table class="table table-hover">
+	                    	<thead>
+	                    		<tr>
+	                    			<th></th>
+	                    			<th><%= I18n.t("dashboard.feed_title") %> </th>
+	                    			<th><%= I18n.t("dashboard.feed_tags") %></th>
+	                    			<th><%= I18n.t("dashboard.feed_date") %></th>
+	                    		</tr>
+	                    	</thead>
+	                    	<tbody>
+	                    		<% @feeds.each do |feed| %>
+	                    		<tr>
+	                    			<td> </td>
+	                    			<td><%= link_to feed.title, user_feed_path(current_user, feed) %></td>
+	                    			<td><%= feed.tags.join(" ") %></td>
+	                    			<td><%= time_ago_in_words(feed.created_at) %></td>
+	                    		</tr>
+	                    		<% end %>
+	                    	</tbody>
+                    	</table>
+                    
+				</div>
+			</div>
+
+		</div>
+		<div class="col-lg-6">
+			
+		<h1> TAG CLOUD </h1>
+			
+			<% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+  				<%= link_to tag.name, tagged_feedlist_path(tag: tag.name), :class => css_class %>
+			<% end %>
+
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-6">
+
+		<div class="panel bg-success">
+				<div class="panel-heading">
+					<h2 class="panel-title"><%= I18n.t("dashboard.all_my_news") %> - <%= current_user.feedlists.size %></h2>
+					<!-- <div class="heading-elements">
+						<i class="fa fa-rss fa-3x"></i>
+                	</div> -->
+				</div>
+
+				<div class="panel-body">
+						<p> <%= I18n.t("dashboard.last_feedlists") %> </p>
+
+                        <table class="table table-hover">
+	                    	<thead>
+	                    		<tr>
+	                    			<th><%= I18n.t("dashboard.feedlist_title") %> </th>
+	                    			<th><%= I18n.t("dashboard.feed_feedlist") %></th>
+	                    			<th><%= I18n.t("dashboard.feedlist_tags") %></th>
+	                    			<th><%= I18n.t("dashboard.feedlist_date") %></th>
+	                    		</tr>
+	                    	</thead>
+	                    	<tbody>
+	                    		<% @feedlists.each do |feedlist| %>
+	                    		<tr>
+	                    			<td><%= link_to feedlist.feed.title, user_feed_path(current_user, feedlist.feed) %></td>
+	                    			<td> <%= link_to feedlist.name.truncate(35), feedlist_path(feedlist) %> </td>
+	                    			<td><%= feedlist.feed.tags.join(" ") %></td>
+	                    			<td><%= time_ago_in_words(feedlist.created_at) %></td>
+	                    		</tr>
+	                    		<% end %>
+	                    	</tbody>
+                    	</table>
+                    		
+
+				</div>
+			</div>
+
+		</div>
+		<div class="col-lg-6">
+			<div class="panel bg-success">
+				<div class="panel-heading">
+
+					<h2 class="panel-title"> <%= I18n.t("dashboard.all_my_bookmarks") %> - <%= current_user.bookmarks.size %></h2>
+	
+					<!-- <div class="heading-elements">
+						 <i class="fa fa-rss-square fa-3x"></i>
+                	</div> -->
+				</div>
+				<div class="panel-body">
+						<p> <%= I18n.t("dashboard.last_bookmarks") %> </p>
+                    	<ol>
+                    		<% @bookmarks.each do |feed| %>
+
+                    			<li><%= link_to feed.title, user_feed_path(current_user, feed) %> </li>
+
+                    		<% end %>
+                    	</ol>
+         
+                    
+				</div>
+			</div>
+		
+		</div>
+	</div>
+
+
+</div>

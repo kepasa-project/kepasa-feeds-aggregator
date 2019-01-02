@@ -21,7 +21,7 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :inserta_direccion_rss %><br />
+    <%= I18n.t("feed.insert") %><br />
     <%= f.text_field :rssurl, required: true, disabled: (params[:action] == 'edit') %>
   </div> <br />
 
@@ -30,12 +30,12 @@
   </div>
 
   <div class="form-group">
-  <%= f.label :tag_list, "Etiquetas (separatas por commas)" %><br />
+  <%= I18n.t("feed.tags_list") %><br />
   <%= f.text_field :tag_list, required: true %>
 </div> 
   
 <div class="form-group">
     
-    <%= f.submit @feed.new_record? ? 'Insertar Nuevo Feed' : 'Actualiza Feed', class: "btn btn-info btn-rounded"%>
+    <%= f.submit @feed.new_record? ? "#{I18n.t("feed.insert_button")}" : "#{I18n.t("feed.update_button")}", class: "btn btn-info btn-rounded"%>
   </div>
 <% end %>

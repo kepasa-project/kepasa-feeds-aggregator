@@ -2,10 +2,88 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
   mailboxer:
     message_mailer:
       subject_new: "Tienes un nuevo mensaje en kepasa.co: %{subject}"
       subject_reply: "Tienes una nueva respuesta en kepasa.co: %{subject}"
     notification_mailer:
       subject: "Nueva notificación en kepasa.co: %{subject}"
+
+  footer:
+    slogan: "Kepasa Ⓒ the last Feeds!"
+    project: "an open source project "
+    download: "download"
+
+  header:
+    add_feed: "Add Feed"
+    news: "My News"
+    feeds: "My Feeds"
+    keywords: "Keywords"
+    search: "Search"
+    home: "Home"
+    dashboard: "Dashboard"
+    update: "Update"
+    hi: "Hi"
+    profile: "My Profile"
+    bookmarks: "My Bookmarks"
+    sign_out: "Sign Out"
+
+  home:
+    feed_titles: "Feeds Titles"
+    tags: "Tags"
+    updated: "Updated"
+
+  feed:
+    you_are_here: "You Are Here"
+    show_news_of_follow_feed: "News of the Follow Feed"
+    rss_feeds: "RSS Feeds of "
+    feed_title: "Feed Title"
+    feed_follow_by: "is a FEED followed by"
+    tags: "Tags"
+    news: "News"
+    update: "Update"
+    updated: "Updated"
+    edit: "Edit Feed"
+    delete: "Delete Feed"
+    delete_message: "Are you sure you want delete this FEED?"
+    label_form: "Do you want add a new FEED RSS?"
+    insert: "Submit here your FEED RSS"
+    tags_list: "Add here your tags (separated by a comma)"
+    insert_button: "Submit your new FEED"
+    update_button: "Update your FEED"
+    create_new_feed: "Create a new FEED"
+
+  feedlist:
+    you_are_here: "You Are Here"
+    all_my_news: "All my News"
+    searched_terms: "Searched Terms"
+    add_to_bookmarks: "Add to Your Bookmarks"
+    share: "Share"
+    share_via_twitter: "Share via Twitter"
+    share_via_facebook: "Share via Facebook"
+    share_via_email: "Share via Email"
+    visited: "Visited"
+    source: "Source >>"
+    click: "Click"
+    here: "here"
+    read_original_article: "to read the original article"
+    title: "Title"
+
+  dashboard:
+    all_my_feeds: "All my Feeds"
+    all_my_news: "All my News"
+    last_feeds: "Last 5 Feeds added"
+    last_feedlists: "Last 5 News retrieved"
+    all_my_bookmarks: "All my Bookmarks"
+    last_bookmarks: "Last Bookmarks"
+    feed_title: "Title"
+    feed_tags: "Tags"
+    feed_date: "Date"
+    feed_feedlist: "Feed"
+    feedlist_title: "Title"
+    feedlist_tags: "Tags"
+    feedlist_date: "Date"
+
+  bookmark:
+    you_are_here: "You Are Here"
+    create_new_bookmark: "Create a New Bookmark"

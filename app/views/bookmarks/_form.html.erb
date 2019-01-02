@@ -11,19 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :url %><br />
     <%= f.text_field :url %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :tags  %><br />
     <%= f.text_field :tag_list %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.hidden_field :user_id, :value => current_user.id %>
   </div>
   <div class="form-actions">

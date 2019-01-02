@@ -2,8 +2,8 @@
     <!-- main page content. the place to put widgets in. usually consists of .row > .col-md-* > .widget.  -->
     <main id="content" class="content" role="main">
         <ol class="breadcrumb">
-            <li>Tu eres aqui</li>
-            <li class="active">Crear Nuevo Feed </li>
+            <li><%= I18n.t("feed.you_are_here") %></li>
+            <li class="active"><%= I18n.t("feed.create_new_feed") %></li>
         </ol>
       <div class="row">
 		    <div class="col-md-8 col-md-offset-2 text-center">
@@ -18,7 +18,7 @@
                 <section class="widget">
                     <header>
                         <h4>
-                            Quiere agregar nueva noticias?
+                            <%= I18n.t("feed.label_form") %>
                            
                         </h4>
                     </header>

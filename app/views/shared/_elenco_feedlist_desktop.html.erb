@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="col-lg-12">
 
-	<p class="search-results-count"><h4><%= @feed.title %> es un FEED seguido da <%= link_to @feed.user.username, user_path(@feed.user) %></h4></p>
+	<p class="search-results-count"><h4><%= @feed.title %> <%= I18n.t("feed.feed_follow_by") %> <%= link_to @feed.user.username, user_path(@feed.user) %></h4></p>
 
     <% @feedlists.order('published_at DESC').limit(5).each do |notizia| %>
 	 <section class="search-result-item">
@@ -32,22 +32,21 @@
 
                                         <%= time_ago_in_words(notizia.published_at) %>
 
-                                        <%= link_to '<i class="fa fa-bookmark"></i>'.html_safe, new_user_bookmark_path([current_user, @bookmark], :url => notizia.url, :title => notizia.name) %> 
                                         <% end %>
                                     </p>
                                     <p class="description">
                                         <%= notizia.summary.nil? ? "NO summary" : notizia.summary.truncate(255).html_safe %> 
                                     </p>
                                     <p>
-                                    Etiquetas:
-                                    <%  notizia.feed.tags.each do |tag| %>
-                                        <%= link_to tag.name, tagged_feedlist_path(tag: tag.name) %>
-                                    <% end %>
+                                    
+                                    <%= render 'shared/info_share', notizia: notizia %>
+
                                     </p>
                                  </div>
         						<div class="col-sm-2 text-align-center">
-                                    <%#= link_to 'Visiona Más', feedlists_path(notizia), :class => "btn btn-primary btn-info btn-sm" %> <br />
-                                    <%= link_to 'Articulo Origen >>', notizia.url, :class => "btn btn-primary btn-info btn-sm", target: "_blank" %>
+                                    
+                                    <%= render 'shared/info_click', notizia: notizia %>
+
         						</div>
                             </div>
      </div>

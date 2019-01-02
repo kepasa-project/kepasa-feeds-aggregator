@@ -7,6 +7,10 @@ class FeedsController < ApplicationController
   require 'nokogiri'
   require 'open-uri'
   
+  def tag_cloud
+    @tags = Feed.tag_counts_on(:tags)
+  end
+
   def tagged_feed
 
     @user = current_user
@@ -43,14 +47,6 @@ class FeedsController < ApplicationController
     @feed = Feed.find(params[:id])
     @feedlists = @feed.feedlists.page(params[:page])
 
-
-=begin
-    @feedlists.each do |feedlist|
-      Feedlist.usuario(@user.id, @feed.rssurl)
-      Feedlist.update_from_feed(feedlist.rssurl)
-    end
-=end
-   #respond_with(@feed)
   end
 
   def new
@@ -108,6 +104,7 @@ class FeedsController < ApplicationController
                                 :published_at => @datafeedlist,
                                 :guid         => entry.id,
                                 :image        => entry.media_thumbnail_url,
+                                :content      => entry.content,
                                 :feed_id      => @feed.id,
                                 :user_id      => @user.id
                               )

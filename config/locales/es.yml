@@ -1,4 +1,18 @@
 es:
+  datetime:
+    distance_in_words:
+      less_than_x_minutes:
+        one: "menos de un minuto"
+        other: "menos de %{count} minuto"
+      x_minutes:
+        one: "1 minuto"
+        other: "%{count} minutos"
+      about_x_hours:
+        one: "cerca 1 hora"
+        other: "cerca %{count} horas"
+      x_days:
+        one: "1 dias"
+        other: "%{count} dias"
 
   mailboxer:
     message_mailer:
@@ -6,3 +20,81 @@ es:
       subject_reply: "Tienes una nueva respuesta en kepasa.co: %{subject}"
     notification_mailer:
       subject: "Nueva notificación en kepasa.co: %{subject}"
+
+  footer:
+    slogan: "Kepasa Ⓒ las ultimas noticias en linea"
+    project: "desarrollado por "
+    download: "download"
+
+  header:
+    add_feed: "Agrega Feed"
+    news: "Mis Noticias"
+    feeds: "Mis Feeds"
+    keywords: "Palabras Claves"
+    search: "Busca"
+    home: "Home"
+    dashboard: "Dashboard"
+    update: "Actualiza"
+    hi: "Hola"
+    profile: "Mi Perfil"
+    bookmarks: "Mis Marcadores"
+    sign_out: "Cerrar Sesion"
+
+  home:
+    feed_titles: "Titulo FEED"
+    tags: "Etiquetas"
+    updated: "Actualizado"
+
+  feed:
+    you_are_here: "Tu Eres Aqui"
+    show_news_of_follow_feed: "Noticias del siguientes EED"
+    rss_feeds: "Feed RSS de "
+    feed_title: "Titulo FEED"
+    feed_follow_by: "is a FEED followed by"
+    tags: "Etiquetas"
+    news: "Noticias"
+    updated: "Actualizado"
+    edit: "Modificar Feed"
+    delete: "Borrar Feed"
+    delete_message: "Esta seguro que quieres borrar este FEED?"
+    label_form: "Quieres agregar un nuevo FEED RSS?"
+    insert: "Inserta aqui el tuyo FEED RSS"
+    tags_list: "Agrega aqui a tus etiquetas (separados por comas)"
+    insert_button: "Inserta tus FEED"
+    update_button: "Actualiza tus FEED"
+    create_new_feed: "Crea un nuevo FEED"
+
+  feedlist:
+    you_are_here: "Tu eres aqui"
+    all_my_news: "Todas mis noticias"
+    searched_terms: "Terminos Buscados"
+    add_to_bookmarks: "Agregas a tus Marcadores"
+    share: "Comparte"
+    share_via_twitter: "Comparte via Twitter"
+    share_via_facebook: "Comparte via Facebook"
+    share_via_email: "Comparte via Email"
+    visited: "Visitados"
+    source: "Origen >>"
+    click: "Click"
+    here: "aqui"
+    read_original_article: "lee el articulo origen"
+    title: "Titulo"
+
+  dashboard:
+    all_my_feeds: "Todos mis Feeds"
+    all_my_news: "Todos mis noticias"
+    last_feeds: "Ultimas 5 Feeds agregados"
+    last_feedlists: "Ultimas 5 Noticias jaladas"
+    all_my_bookmarks: "Todos mis Marcadores"
+    last_bookmarks: "Mis ultimos 5 Marcadores"
+    feed_title: "Titulo"
+    feed_tags: "Etiquetas"
+    feed_date: "Fecha"
+    feed_feedlist: "Feed"
+    feedlist_title: "Titulo"
+    feedlist_tags: "Etiquetas"
+    feedlist_date: "Fecha"
+
+  bookmark:
+    you_are_here: "Tu eres aqui"
+    create_new_bookmark: "Crea un nuevo Marcador"

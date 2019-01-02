@@ -3,9 +3,8 @@
 	<div class="col-lg-12">
 	
     <ol class="breadcrumb">
-        <li>Tu eres aqui</li>
-        <li class="active">All My News</li>
-        <li><%= current_user.username %></li>
+        <li> <%= I18n.t("feedlist.you_are_here") %> </li>
+        <li class="active"><%= I18n.t("feedlist.all_my_news") %></li>
     </ol>
 
     <% @feedlists.each do |notizia| %>
@@ -39,7 +38,6 @@
 
                                         <%= time_ago_in_words(notizia.published_at) %>
 
-                                        <%= link_to '<i class="fa fa-bookmark"></i>'.html_safe, new_user_bookmark_path([current_user, @bookmark], :url => notizia.url, :title => notizia.name) %> 
                                         <% end %>
                                     </p>
                                     <p class="description">
@@ -49,17 +47,10 @@
 
                                     Feed: <%= link_to notizia.feed.title, user_feed_path(current_user, notizia.feed) %>
                                     </p>
-                                    <p align="left">
-                                    Etiquetas:
-                                    <%  notizia.feed.tags.each do |tag| %>
-                                        <%= link_to tag.name, tagged_feedlist_path(tag: tag.name) %>
-                                    <% end %>
-                                    <%#=  notizia.feed.tags.pluck(:name).join(", ") %>
-                                    </p>
+                                    <%= render 'shared/info_share', notizia: notizia %>
                                  </div>
-        						<div class="col-sm-2 text-align-center">
-                                    <%#= link_to 'Visiona Más', feedlists_path(notizia), :class => "btn btn-primary btn-info btn-sm" %> <br />
-                                    <%= link_to 'Articulo Origen >>', notizia.url, :class => "btn btn-primary btn-info btn-sm", target: "_blank" %>
+        						<div class="col-sm-2">
+                                    <%= render 'shared/info_click', notizia: notizia %>
         						</div>
                             </div>
      </div>

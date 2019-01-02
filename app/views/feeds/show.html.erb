@@ -2,19 +2,17 @@
     <!-- main page content. the place to put widgets in. usually consists of .row > .col-md-* > .widget.  -->
 
         <ol class="breadcrumb hidden-sm hidden-xs">
-            <li>Tu eres aqui</li>
-            <li class="active">Crear Nuevo Feed </li>
-            <li> <%= link_to 'Actualiza', {:controller => 'feedlists', :action => 'actualiza', :id => @feed.id} %></li>
-            <li> <%= @feed.rssurl %></li>
+            <li><%= I18n.t("feed.you_are_here") %></li>
+            <li class="active">  <%= I18n.t("feed.show_news_of_follow_feed") %>: <%= @feed.rssurl %> </li>
+            <li> <%= link_to I18n.t("feed.update"), {:controller => 'feedlists', :action => 'actualiza', :id => @feed.id} %></li>
             <li> <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_user_feed_path(@feed) %> </li>
-            <li><%= link_to '<i class="fa fa-trash-o fa-fw"></i>'.html_safe, @page, method: :delete, data: { confirm: 'Estas seguro que quiere borrar esto Feed' } %> </li>
+            <li><%= link_to '<i class="fa fa-trash-o fa-fw"></i>'.html_safe, @page, method: :delete, data: { confirm: "#{I18n.t('feed.delete_message')}" } %> </li>
         </ol>
         <!-- <h2>Edit <%#= resource_name.to_s.humanize %></h2> -->
-        <%= @feed.inspect %>
         <ol class="breadcrumb visible-sm visible-xs">
-            <li> <%= link_to 'Actualiza', {:controller => 'feedlists', :action => 'actualiza', :id => @feed.id} %></li>
+            <li> <%= link_to I18n.t("feed.update"), {:controller => 'feedlists', :action => 'actualiza', :id => @feed.id} %></li>
 
-            <li><%= link_to '<i class="fa fa-trash-o fa-fw"></i>'.html_safe, @page, method: :delete, data: { confirm: 'Estas seguro que quiere borrar este Feed' } %></li>
+            <li><%= link_to '<i class="fa fa-trash-o fa-fw"></i>'.html_safe, @page, method: :delete, data: { confirm: "#{I18n.t('feed.delete_message')}" } %></li>
         </ol>
 
         <section class="widget">
