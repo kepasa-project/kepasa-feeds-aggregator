@@ -7,6 +7,9 @@ PRO_WEBAPP_PATH:
 WEB_IP_ADDRESS:
 WEB_USER:
 WEB_SSH_PORT:
-DOMAIN:
+DOMAIN: www.kepasa.mx
+EMAIL_ADDRESS: reader@kepasa.mx
+GMAIL_USERNAME: your_google_email@gmail.com
+GMAIL_PASSWORD: your_google_password
 
 SECRET_KEY_BASE: 

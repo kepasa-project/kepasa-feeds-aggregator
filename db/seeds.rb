@@ -6,4 +6,6 @@
 #   cities = City.create({{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create({name: 'Emanuel', city: cities.first)
   
-user = User.create(username: 'Reader', email: 'reader@kepasa.mx', password: 'password')
+user = User.create(username: 'Reader', email: 'reader@kepasa.mx', password: 'password', password_confirmation: 'password')
+
+feed = Feed.create(rssurl: 'https://www.wired.com/feed/category/science/latest/rss', title: 'Science Tech', tag_list: 'science', user_id: 1)

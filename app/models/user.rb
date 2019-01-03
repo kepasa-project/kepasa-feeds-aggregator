@@ -1,6 +1,4 @@
 class User < ActiveRecord::Base
-
-  #attr_accessible :login
   
   paginates_per 5
 
@@ -15,17 +13,16 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   # adding :authentication_keys => [:login] to login using username or email
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable, :omniauth_providers => [:facebook], :authentication_keys => [:login]
+  
+  # USE EMAIL IN PRODUCTION
+  #devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable, :omniauth_providers => [:facebook], :authentication_keys => [:login]
+
+  # NO EMAIL IN DEV
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :omniauthable, :omniauth_providers => [:facebook], :authentication_keys => [:login]
 
   # Setup accessible (or protected) attributes for your model. Add also :username after add a column for the Devise Model
-  # attr_accessible :email, :username, :password, :password_confirmation, :remember_me
-  # attr_accessible :title, :body
 
-  validates :email, :presence => true, :email => true
-
-  # DM system methods
-  acts_as_messageable
+  validates :email, :presence => true
 
   has_many :bookmarks, :dependent => :destroy
   
