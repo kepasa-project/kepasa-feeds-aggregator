@@ -137,7 +137,7 @@ class FeedsController < ApplicationController
 
     #UpdatefeedsWorker.perform_async(current_user.id)
     UpdateAllFeedsJob.perform_later(current_user)
-    redirect_to root_path
+    redirect_to("/#{I18n.locale}/" + root_path)
 
   end
 
