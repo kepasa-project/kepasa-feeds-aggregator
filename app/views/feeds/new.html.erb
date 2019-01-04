@@ -7,13 +7,13 @@
         </ol>
       <div class="row">
 		    <div class="col-md-8 col-md-offset-2 text-center">
-           <style>
-            body{
-                overflow-x: visible;
-            }
-        </style>
+                <style>
+                body{
+                    overflow-x: visible;
+                }
+                </style>
         
-        <!-- <h2>Edit <%#= resource_name.to_s.humanize %></h2> -->
+                <!-- <h2>Edit <%#= resource_name.to_s.humanize %></h2> -->
 
                 <section class="widget">
                     <header>
@@ -22,15 +22,14 @@
                            
                         </h4>
                     </header>
-<div class="widget-body">
+                <div class="widget-body">
 
+                    <%= render 'layouts/notification' %>
+                  
+                    <%= render 'form' %>
 
-  <%= render 'layouts/notification' %>
-  
-<%= render 'form' %>
-
-</div> <!-- close widget-body -->
-</section> <!-- close section -->
+                </div> <!-- close widget-body -->
+                </section> <!-- close section -->
 		  </div>
 	   </div>
     </div>

@@ -42,6 +42,7 @@ class UpdatefeedskWorker
                       :url          => entry.url,    
                       :published_at => @datafeedlist,
                       :guid         => entry.id,
+                      :content      => entry.content,
                       :image        => entry.media_thumbnail_url,
                       :feed_id      => @feed.id
                     )

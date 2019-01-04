@@ -29,7 +29,8 @@
                                     <h4 class="search-result-item-heading">
         								<%= link_to notizia.name, feedlist_path(notizia.id) %>
         						 	</h4>
-        						 	<p class="info">
+
+                                    <p class="info">
                                         <% if notizia.published_at.nil? %>
 
                                         <%= time_ago_in_words(notizia.created_at) %>
@@ -40,13 +41,23 @@
 
                                         <% end %>
                                     </p>
-                                    <p class="description">
-                                        <%= notizia.summary.nil? ? "NO summary" : notizia.summary.html_safe %> 
-                                    </p>
-                                    <p>
+
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+
+                                                <p class="description">
+                                                    <%= notizia.summary.nil? ? "NO summary" : notizia.summary.html_safe %> 
+                                                </p>
+
+                                            </div>
+                                        </div>
+                                    </div> <br />
+                                    <p align="left">
 
                                     Feed: <%= link_to notizia.feed.title, user_feed_path(current_user, notizia.feed) %>
                                     </p>
+
                                     <%= render 'shared/info_share', notizia: notizia %>
                                  </div>
         						<div class="col-sm-2">

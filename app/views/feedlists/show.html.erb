@@ -22,11 +22,11 @@
 
             <% if @feedlist.content.nil? %>
 
-              <%= sanitize(@feedlist.summary) if !@feedlist.summary.nil? %>
+              <%= simple_format(@feedlist.summary) if !@feedlist.summary.nil? %>
             
             <% else %>
 
-              <%= sanitize(@feedlist.content) %>
+              <%= simple_format(@feedlist.content) %>
 
             <% end %>
           
