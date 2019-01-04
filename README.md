@@ -2,28 +2,34 @@
 
 ### A social feeds RSS aggregator network to share the last news with your fellows
 
-do you want install [Kepasa.co] (http://www.kepasa.co) and use it in dev mode follow these steps (recommend using in dev and production as DB [Postgresql] (http://www.postgresguide.com/))
+do you want install [Kepasa.co] (http://www.kepasa.co) and use it in dev mode follow these steps (recommend using in dev and production [Postgresql] (http://www.postgresguide.com/))
+
+before to install the web app in your local machine install the 
+
+- Ruby version (2.4.1)
+- Redis Server  
+
+To install Ruby in a Unix-Like Machine (Ubuntu) you can use [RVM] (https://rvm.io/rvm/install)
+To install Ruby in a Windows or MAC OSX Machine you can use [Rails Installer] (https://rvm.io/rvm/install)
+
+to install [redis server] (http://redis.io/download)
+
+When you have installed all this stuff 
 
 ```sh
 $ git clone https://github.com/kepasa-project/kepasa-feeds-aggregator.git
 $ cd kepasa-feeds-aggregator
+$ cd .
+```
+
+```sh
+$ gem install bundler --no-rdoc --no-ri
 $ bundle
 $ rake db:setup
 ```
 
-before to launch the web app you have to launch 
-
-- a redis server 
-- sidekiq 
-- crontab 
-
-to install [redis server] (http://redis.io/download)
-
 ```sh
-$ redis-server
-$ bundle exec sidekiq
-$ whenever --update-crontab 
-$ rails s
+$ foreman start
 ```
 
 What you can do with Kepasa.co?
@@ -36,9 +42,6 @@ What you can do with Kepasa.co?
 What is missing in Kepasa.co?
 
 - a TDD system
-- a setting User system (hide my own feed RSS, can set if I can receive email when somebody follow me)
-- notification system
-- DM system
 
 # Donation
 
