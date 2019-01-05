@@ -23,7 +23,7 @@ $ cd .
 ```
 
 ```sh
-In the kepasa-feeds-aggregator/config/ you have rename
+In the kepasa-feeds-aggregator/config/ directory you have to rename
 
 application-example.yml	
 database-sqlite3-example.yml (if you want use sqlite)
