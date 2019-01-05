@@ -39,6 +39,7 @@ after that launch the follow command
 
 $ bundle
 $ rake db:setup (this create the database and tables)
+$ rake db:seed (this create the first USER and the first FEED)
 ```
 
 ```sh
@@ -49,6 +50,16 @@ $ rake db:setup
 
 ```sh
 $ foreman start
+```
+
+```sh
+If everything is ok you can go to localhost:5200 click in 'Login' and insert the following parameters
+
+email: 'reader@kepasa.mx'
+password: 'password'
+
+and now you are in in your local copy of KEPASA
+
 ```
 
 What you can do with Kepasa.co?
