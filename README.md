@@ -23,6 +23,25 @@ $ cd .
 ```
 
 ```sh
+In the kepasa-feeds-aggregator/config/ you have rename
+
+application-example.yml	
+database-sqlite3-example.yml (if you want use sqlite)
+secrets-example.yml
+
+with
+
+application.yml	
+database.yml
+secrets.yml
+
+after that launch the follow command
+
+$ bundle
+$ rake db:setup (this create the database and tables)
+```
+
+```sh
 $ gem install bundler --no-rdoc --no-ri
 $ bundle
 $ rake db:setup
