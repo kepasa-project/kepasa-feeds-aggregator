@@ -65,14 +65,14 @@ class FeedsController < ApplicationController
     @user = current_user
     @feed = Feed.new(feed_params)
 
-          if @feed.valid?    
+          if @feed.valid? && Feedjira::Feed.fetch_and_parse(@feed.rssurl) != nil
             
           # in the following line add like User Agent Firefox to fix the error: OpenURI::HTTPError: 403 Forbidden  
           doc = Nokogiri::XML(open(@feed.rssurl, 'User-Agent' => 'firefox')) 
           #@feed.title = doc.at_xpath('/rss/channel/title').inner_text
           @feed.title = doc.xpath('/rss/channel/title').inner_text
 
-                    if @feed.save
+                    if @feed.save 
                     
                      Feedjira::Feed.add_common_feed_entry_element("media:thumbnail", :value => :url, :as => :media_thumbnail_url)
                      Feedjira::Feed.add_common_feed_entry_element("enclosure", :value => :url, :as => :media_thumbnail_url)
@@ -121,7 +121,8 @@ class FeedsController < ApplicationController
 
             else
 
-              redirect_to new_user_feed_path, :alert => "No puede dejar vacio el campo o insertar un feed ya presente o poner un feed incorrecto!"
+              #redirect_to new_user_feed_path, :alert => "No puedes insertar un feed ya presente o poner un feed incorrecto!"
+              redirect_to new_user_feed_path, :alert => t(:feed_message_error)
 
             end # close if @feed.valid?
         

@@ -21,6 +21,8 @@ es:
     notification_mailer:
       subject: "Nueva notificación en kepasa.co: %{subject}"
 
+  feed_message_error: "No puedes insertar un feed ya presente o poner un feed incorrecto!"
+
   footer:
     slogan: "Kepasa Ⓒ las ultimas noticias en linea"
     project: "desarrollado por "

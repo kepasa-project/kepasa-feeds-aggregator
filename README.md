@@ -7,6 +7,7 @@ do you want install [Kepasa.co] (http://www.kepasa.co) and use it in dev mode fo
 before to install the web app in your local machine install the 
 
 - Ruby version (2.4.1)
+- Rails version ()
 - Redis Server  
 
 To install Ruby in a Unix-Like Machine (Ubuntu) you can use [RVM] (https://rvm.io/rvm/install)
@@ -35,7 +36,7 @@ application.yml
 database.yml
 secrets.yml
 
-after that launch the follow command
+after that launch the follow commands
 
 $ bundle
 $ rake db:setup (this create the database and tables)

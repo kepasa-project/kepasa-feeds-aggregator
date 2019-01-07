@@ -39,9 +39,6 @@ gem 'slim'
 gem 'figaro'
 gem 'gibbon'
 
-# DM system
-gem 'mailboxer'
-
 # DEBUG RUBY
 #gem 'rbtrace'
 gem 'rbtrace', git: 'https://github.com/tmm1/rbtrace', branch: 'master'
@@ -126,8 +123,8 @@ gem 'jbuilder', '~> 2.5'
 gem "font-awesome-rails"
 
 gem "foreman"
-# Use unicorn as the app server
 
+# Use unicorn as the app server
 #gem 'unicorn'
 
 # Deploy with Capistrano

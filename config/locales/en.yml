@@ -9,6 +9,8 @@ en:
     notification_mailer:
       subject: "Nueva notificación en kepasa.co: %{subject}"
 
+  feed_message_error: "You cannot insert a feed already present or put an incorrect feed!"
+
   footer:
     slogan: "Kepasa Ⓒ the last Feeds!"
     project: "an open source project "
