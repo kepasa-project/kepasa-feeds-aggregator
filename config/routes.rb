@@ -2,6 +2,8 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
   
+  resources :recommended_feeds
+  resources :categories
   # access to the jobs in the queue domainapp/sidekiq
   mount Sidekiq::Web, at:'/sidekiq'
 

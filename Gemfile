@@ -43,7 +43,7 @@ gem 'gibbon'
 #gem 'rbtrace'
 gem 'rbtrace', git: 'https://github.com/tmm1/rbtrace', branch: 'master'
 
-gem 'inherited_resources'
+#gem 'inherited_resources'
 
 # admin control panel
 gem 'activeadmin'
@@ -123,6 +123,8 @@ gem 'jbuilder', '~> 2.5'
 gem "font-awesome-rails"
 
 gem "foreman"
+
+gem 'carrierwave', '~> 1.0'
 
 # Use unicorn as the app server
 #gem 'unicorn'
