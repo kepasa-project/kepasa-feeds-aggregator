@@ -2,18 +2,20 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
   
-  resources :recommended_feeds
-  resources :categories
+  mount RailsAdmin::Engine => '/kadmin', as: 'rails_admin'
   # access to the jobs in the queue domainapp/sidekiq
   mount Sidekiq::Web, at:'/sidekiq'
 
-  scope module: 'admin' do
+  scope '(:locale)', :locale => /en|es/ do
 
-    get 'admin/dashboard', to: "dashboard#index", as: :admin_dashboard_path
+  namespace :admin do
+
+    get '/dashboard', to: "dashboard#index", as: :admin_dashboard_path
+
+    resources :recommended_feeds
+    resources :categories
 
   end
-
-  scope '(:locale)', :locale => /en|es/ do
 
   root :to => "feed_entry#index"
   get '/dashboard', to: "feed_entry#dashboard"

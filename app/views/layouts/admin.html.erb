@@ -1,0 +1,23 @@
+<% # app/views/layouts/admin.html.erb %>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin Interface</title>
+    <%= csrf_meta_tags %>
+
+    <% # Optionally use admin-specific assets here instead of the normal application assets %>
+    <%#= stylesheet_link_tag    'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%#= javascript_include_tag 'admin', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <header>
+    <h1>Welcome Admin User</h1>
+  </header>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>

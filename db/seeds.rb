@@ -8,4 +8,12 @@
   
 user = User.create(username: 'Reader', email: 'reader@kepasa.mx', password: 'password', password_confirmation: 'password')
 
+puts 'Created the First User'
+
 feed = Feed.create(rssurl: 'https://www.wired.com/feed/category/science/latest/rss', title: 'Science Tech', tag_list: 'science', user_id: 1)
+
+puts 'Created the First Feed'
+
+puts 'Adding Categories'
+
+

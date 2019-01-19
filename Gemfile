@@ -43,10 +43,9 @@ gem 'gibbon'
 #gem 'rbtrace'
 gem 'rbtrace', git: 'https://github.com/tmm1/rbtrace', branch: 'master'
 
-#gem 'inherited_resources'
-
 # admin control panel
-gem 'activeadmin'
+# gem 'activeadmin'
+gem 'rails_admin', '~> 1.3'
 gem 'kaminari'
 
 #gem "meta_search", '>= 1.1.0.pre'

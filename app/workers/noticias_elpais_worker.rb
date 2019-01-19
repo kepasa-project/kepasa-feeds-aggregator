@@ -3,7 +3,8 @@ class NoticiasElpaisWorker
   include Sidekiq::Worker
   
   sidekiq_options :queue => :critical
-
+  sidekiq_options :retry => false #when fail don't repeat
+  
     def perform(feed_id)
 
     #Feedlist.usuario(@user.id, @feed_update.rssurl)

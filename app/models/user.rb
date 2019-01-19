@@ -29,24 +29,6 @@ class User < ActiveRecord::Base
   has_many :feeds
   has_many :feedlists
 
-  has_many :pages, :dependent => :destroy
-  
-  has_many :relationships
-  has_many :newspapers, through: :relationships
-
-  # begin snippet for relationship among users
-  has_many :following_relationships, :foreign_key => "follower_id",
-                                      :dependent => :destroy
-  
-  has_many :following, :through => :following_relationships, :source => :followed
-  
-  has_many :reverse_following_relationships, :foreign_key => "followed_id",
-                                             :class_name => "FollowingRelationship",
-                                             :dependent => :destroy
-  
-  has_many :followers, :through => :reverse_following_relationships, :source => :follower
-  # end snippet for relationship among users
-
   # SEO User url profile
   extend FriendlyId
   friendly_id :username
@@ -105,30 +87,6 @@ class User < ActiveRecord::Base
     rescue Koala::Facebook::APIError => e
     logger.info e.to_s
     nil
-  end
-  
-  def following?(followed)
-        following_relationships.find_by_followed_id(followed)
-  end
-
-  def follow!(followed)
-        
-        @relationship = following_relationships.create!(:followed_id => followed.id)
-        
-  end
-  
-  def unfollow!(followed)
-        
-        @relationship = following_relationships.find_by_followed_id(followed)
-        @relationship.destroy
-        
-  end
-
-  def feed
-        # la seguente riga evita il problema di SQL Iniection
-        #Question.where("user_id = ?", id)
-        Feed.from_users_followed_by(self)
-        
   end
   
   def mailboxer_email(object)
