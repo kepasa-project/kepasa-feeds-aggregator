@@ -39,6 +39,18 @@ RailsAdmin.config do |config|
     # history_show
   end
 
+  config.model Feed do
+
+    edit do
+      field :rssurl
+      field :title
+      field :tags do
+        orderable true
+      end
+    end
+
+  end
+
 #=begin
   config.model Category do
 
@@ -55,11 +67,22 @@ RailsAdmin.config do |config|
 #=end
   
   config.model RecommendedFeed do
+
+    edit do
+      field :rssurl
+      field :title
+      field :categories
+      field :tags do
+        orderable true
+      end
+    end
+
     list do
       field :id
       field :rssurl
       field :title
       field :categories
+      field :tags
     end
   end
   

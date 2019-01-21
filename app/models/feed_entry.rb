@@ -9,6 +9,7 @@ class FeedEntry < ActiveRecord::Base
           :name         => entry.title,
           :summary      => entry.summary,
           :url          => entry.url,
+          :content      => entry.content,
           :published_at => entry.published,
           :guid         => entry.id,
           :image        => entry.media_thumbnail_url

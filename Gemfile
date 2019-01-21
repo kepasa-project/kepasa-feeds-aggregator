@@ -46,6 +46,7 @@ gem 'rbtrace', git: 'https://github.com/tmm1/rbtrace', branch: 'master'
 # admin control panel
 # gem 'activeadmin'
 gem 'rails_admin', '~> 1.3'
+#gem 'rails_admin_tag_list', git: 'https://github.com/kryzhovnik/rails_admin_tag_list.git', branch: 'master'
 gem 'kaminari'
 
 #gem "meta_search", '>= 1.1.0.pre'
