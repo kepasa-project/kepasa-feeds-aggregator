@@ -41,3 +41,6 @@ Vagrantfile
 /config/secrets.yml
 /config/newrelic.yml
 /config/initializers/sidekiq.rb
+
+# your personal feeds
+/lib/personal_feeds.txt

@@ -1,7 +1,0 @@
-https://www.lastampa.it/rss.xml/|Home Page - La Stampa|homepage|homepage|italiano
-https://www.cryptominando.it/feed/|CriptoMinando|criptomonete|tecnologia|italiano
-https://www.criptomonete-italia.com/feed/|Cripto Monete Italia|criptomonete|tecnologia|italiano
-https://nextgenerationcurrency.com/feed/|Next Generation Currency|criptomonete|tecnologia|italiano
-https://www.bitcoin-italia.org/feed/|Bitcoin Foundation Italia|criptomonete|tecnologia|italiano
-https://www.bitcoin-italia.org/feed/|Bitcoin Foundation Italia|criptomonete|tecnologia|italiano
-https://cryptoitalia.org/feed/|Crypto Italia|criptomonete|tecnologia|italiano
