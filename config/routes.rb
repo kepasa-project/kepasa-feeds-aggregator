@@ -6,17 +6,20 @@ Rails.application.routes.draw do
   # access to the jobs in the queue domainapp/sidekiq
   mount Sidekiq::Web, at:'/sidekiq'
 
+  resources :categories do
+    resources :recommended_feeds
+  end
+
   scope '(:locale)', :locale => /en|es/ do
 
+  #maybe we have to delete the follow?
   namespace :admin do
 
     get '/dashboard', to: "dashboard#index", as: :admin_dashboard_path
 
-    resources :recommended_feeds
-    resources :categories
-
   end
-
+  # end snippet to delete
+  
   root :to => "feed_entry#index"
   get '/dashboard', to: "feed_entry#dashboard"
   
@@ -65,5 +68,5 @@ Rails.application.routes.draw do
      end
   end
 
-  end # close i18N scope 
+  end # close I18n scope 
 end

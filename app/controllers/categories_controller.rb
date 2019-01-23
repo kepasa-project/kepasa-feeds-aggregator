@@ -1,9 +1,15 @@
-class CategoriesController < InheritedResources::Base
+class CategoriesController < ApplicationController
 
-  private
+	def index
+		@categories = Category.all.where(language: I18n.locale)
+		@language = I18n.locale
+	end
 
-    def category_params
-      params.require(:category).permit(:name, :language, :category_logo, :recommended_feed_ids[])
-    end
+	private
+
+	def category_params
+	  params.require(:category).permit(:name, :language, :category_logo, :recommended_feed_ids[])
+	end
+
 end
 

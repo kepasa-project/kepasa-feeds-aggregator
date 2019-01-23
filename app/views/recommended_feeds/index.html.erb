@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+Category: <%= @category.name %>
+
 <h1>Recommended Feeds</h1>
 
 <table>
@@ -18,9 +20,9 @@
         <td><%= recommended_feed.rssurl %></td>
         <td><%= recommended_feed.title %></td>
         <td><%= recommended_feed.category_id %></td>
-        <td><%= link_to 'Show', recommended_feed %></td>
-        <td><%= link_to 'Edit', edit_recommended_feed_path(recommended_feed) %></td>
-        <td><%= link_to 'Destroy', recommended_feed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%#= link_to 'Show', recommended_feed_path(recommended_feed) %></td>
+        <td><%#= link_to 'Edit', edit_recommended_feed_path(recommended_feed) %></td>
+        <td><%#= link_to 'Destroy', recommended_feed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Recommended Feed', new_recommended_feed_path %>
+<%#= link_to 'New Recommended Feed', new_recommended_feed_path %>
