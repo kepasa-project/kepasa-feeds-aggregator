@@ -6,10 +6,6 @@ Rails.application.routes.draw do
   # access to the jobs in the queue domainapp/sidekiq
   mount Sidekiq::Web, at:'/sidekiq'
 
-  resources :categories do
-    resources :recommended_feeds
-  end
-
   scope '(:locale)', :locale => /en|es/ do
 
   #maybe we have to delete the follow?
@@ -20,9 +16,14 @@ Rails.application.routes.draw do
   end
   # end snippet to delete
   
-  root :to => "feed_entry#index"
-  get '/dashboard', to: "feed_entry#dashboard"
+  resources :categories do
+    resources :recommended_feeds
+  end
   
+  root :to => "feed_entry#index"
+  get "/dashboard", to: "feed_entry#dashboard"
+  get "/content", to: "feed_entry#content"
+
   resources :feedlists
   get "/feeds" => "feedlists#actualiza", via: [:get, :post]
   get "/tagged_feedlist" => "feedlists#tagged", as: :tagged_feedlist

@@ -1,32 +1,60 @@
-<p id="notice"><%= notice %></p>
+<style>
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 180px;
+  height: 140px;
+}
 
-<h1>Categories</h1>
+div.gallery:hover {
+  border: 1px solid #777;
+}
 
-LAnguage <%= @language %>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Language</th>
-      <th>Category logo</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
 
-  <tbody>
-    <% @categories.each do |category| %>
-      <tr>
-        <td><%= category.name %></td>
-        <td><%= category.language %></td>
-        <td><%= category.category_logo %></td>
-        <td><%= link_to 'Show', category_recommended_feeds_path(category) %></td>
-        <td><%#= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%#= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+</style>
 
-<br>
+<div class="container">
 
-<%= link_to 'New Category', new_category_path %>
+
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2 text-center">
+
+      <p id="notice"><%= notice %></p>
+
+      <%= render 'shared/tab_feed' %>
+
+      <h1>Categories</h1>
+
+      LAnguage <%= @language %> <br />
+
+      <% @categories.each do |category| %>
+
+      <div class="gallery">
+        <%= image_tag "#{category.category_logo.url}" %> 
+      <div class="desc"><%= link_to category.name, category_recommended_feeds_path(category) %></div>
+      </div>
+      
+      <% end %>
+
+
+      <br /><br /><br />
+
+      
+
+      <br>
+
+      <%#= link_to 'New Category', new_category_path %>
+
+    </div>
+  </div>
+
+</div> <br />

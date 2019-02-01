@@ -48,6 +48,8 @@ es:
     updated: "Actualizado"
 
   feed:
+    add_your_own_feed: "Agrega tu propio Feed"
+    add_recommended_feed: "Agrega Feed Recomandados"
     you_are_here: "Tu Eres Aqui"
     show_news_of_follow_feed: "Noticias del siguientes EED"
     rss_feeds: "Feed RSS de "

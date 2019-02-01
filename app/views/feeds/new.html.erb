@@ -1,10 +1,13 @@
 <div class="container">
     <!-- main page content. the place to put widgets in. usually consists of .row > .col-md-* > .widget.  -->
     <main id="content" class="content" role="main">
+     <!--
         <ol class="breadcrumb">
-            <li><%= I18n.t("feed.you_are_here") %></li>
-            <li class="active"><%= I18n.t("feed.create_new_feed") %></li>
+            <li><%#= I18n.t("feed.you_are_here") %></li>
+            <li class="active"><%#= I18n.t("feed.create_new_feed") %></li>
         </ol>
+    -->
+
       <div class="row">
 		    <div class="col-md-8 col-md-offset-2 text-center">
                 <style>
@@ -14,6 +17,8 @@
                 </style>
         
                 <!-- <h2>Edit <%#= resource_name.to_s.humanize %></h2> -->
+
+                <%= render 'shared/tab_feed' %>
 
                 <section class="widget">
                     <header>

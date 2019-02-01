@@ -1,0 +1,24 @@
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12 text-center">
+			
+			<ul class="nav nav-tabs">
+				<li <%= "class='active'".html_safe if url_for == "/#{I18n.locale}/users/#{params[:user_id]}/feeds/new" %> > <%= link_to "#{I18n.t("feed.add_your_own_feed")}".html_safe, new_user_feed_path(current_user) %> </li>
+				<li <%= "class='active'".html_safe if url_for == "/#{I18n.locale}/categories/" %> > <%= link_to "#{I18n.t("feed.add_recommended_feed")}".html_safe, categories_path %> </li>
+			</ul>
+
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-6 text-center">
+
+			[Add your Feed]
+		
+		</div>
+		<div class="col-lg-6 text-center">
+
+			[Add Recommended Feed]
+
+		</div>
+	</div>
+</div>

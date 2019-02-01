@@ -59,7 +59,7 @@ RailsAdmin.config do |config|
     edit do
       field :name
       field :language
-      field :category_logo
+      field :category_logo, :carrierwave
       field :recommended_feeds do
         orderable true
       end

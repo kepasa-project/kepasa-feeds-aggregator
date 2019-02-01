@@ -21,6 +21,12 @@ class FeedEntryController < ApplicationController
     
   end
   
+  def content
+
+    
+
+  end
+
   def dashboard
     
     @feeds = current_user.feeds.order("created_at DESC").first(5)

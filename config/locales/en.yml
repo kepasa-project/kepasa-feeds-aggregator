@@ -36,6 +36,8 @@ en:
     updated: "Updated"
 
   feed:
+    add_your_own_feed: "Add your own Feed"
+    add_recommended_feed: "Add Recommended Feed"
     you_are_here: "You Are Here"
     show_news_of_follow_feed: "News of the Follow Feed"
     rss_feeds: "RSS Feeds of "
