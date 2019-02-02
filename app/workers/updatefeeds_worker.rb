@@ -1,6 +1,7 @@
 class UpdatefeedskWorker
 
   include Sidekiq::Worker
+  sidekiq_options :retry => false #when fail don't repeat
   
   def perform(user_id)
 

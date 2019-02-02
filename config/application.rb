@@ -54,5 +54,8 @@ module Kepasa
     # facebook connection
     Koala.config.api_version = 'v2.0'
 
+    # enforce encoding for Feedjira 
+    config.encoding = "utf-8" 
+
   end
 end

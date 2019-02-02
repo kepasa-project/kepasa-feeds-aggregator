@@ -70,10 +70,24 @@ RailsAdmin.config do |config|
   
   config.model RecommendedFeed do
 
+=begin
     edit do
       field :rssurl
-      field :title
-      field :categories
+      field :categories do
+        required true
+      end
+      field :tags do
+        required true
+        orderable true
+      end
+    end
+=end
+    
+    edit do
+      field :rssurl
+      field :categories do
+        orderable true
+      end
       field :tags do
         orderable true
       end

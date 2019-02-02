@@ -126,6 +126,10 @@ gem "foreman"
 
 gem 'carrierwave', '~> 1.0'
 
+# fetch resources from feed
+gem 'link_thumbnailer'
+gem 'httparty', '~> 0.13.7'
+
 # Use unicorn as the app server
 #gem 'unicorn'
 

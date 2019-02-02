@@ -63,7 +63,9 @@ GEM
       public_suffix (>= 2.0.2, < 4.0)
     airbrussh (1.3.1)
       sshkit (>= 1.6.1, != 1.7.0)
+    ansi (1.5.0)
     arel (8.0.0)
+    ast (2.4.0)
     bcrypt (3.1.12)
     bindex (0.5.0)
     bootstrap-sass (3.2.0.2)
@@ -134,6 +136,8 @@ GEM
       responders
       warden (~> 1.2.3)
     erubi (1.8.0)
+    ethon (0.12.0)
+      ffi (>= 1.3.0)
     execjs (2.7.0)
     faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
@@ -163,8 +167,16 @@ GEM
       temple (>= 0.8.0)
       tilt
     hashie (3.6.0)
+    httparty (0.13.7)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
+    image_info (1.1.2)
+      image_size
+      typhoeus
+    image_size (2.0.0)
+    iso8601 (0.9.1)
     jbuilder (2.8.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
@@ -192,6 +204,14 @@ GEM
       addressable
       faraday
       json (>= 1.8)
+    link_thumbnailer (3.3.2)
+      activesupport (>= 3.0)
+      image_info (>= 1.0)
+      json (>= 1.7.7)
+      net-http-persistent (>= 2.9)
+      nokogiri (>= 1.6)
+      rake (>= 0.9)
+      video_info (>= 2.6)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -214,9 +234,12 @@ GEM
     multipart-post (2.0.0)
     mustermann (1.0.3)
     nested_form (0.3.2)
+    net-http-persistent (3.0.0)
+      connection_pool (~> 2.2)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (5.1.0)
+    net_http_timeout_errors (0.3.3)
     newrelic_rpm (5.6.0.349)
     nio4r (2.3.1)
     nokogiri (1.9.1)
@@ -227,6 +250,9 @@ GEM
       multi_json (~> 1.3)
       multi_xml (~> 0.5)
       rack (>= 1.2, < 3)
+    oga (2.15)
+      ast
+      ruby-ll (~> 2.1)
     omniauth (1.9.0)
       hashie (>= 3.4.6, < 3.7.0)
       rack (>= 1.6.2, < 3)
@@ -293,6 +319,9 @@ GEM
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
+    ruby-ll (2.1.2)
+      ansi
+      ast
     ruby_dep (1.5.0)
     rubyzip (1.2.2)
     sass (3.4.25)
@@ -341,10 +370,16 @@ GEM
     turbolinks (5.2.0)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
+    typhoeus (1.3.1)
+      ethon (>= 0.9.0)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     uglifier (4.1.20)
       execjs (>= 0.3.0, < 3)
+    video_info (2.7)
+      iso8601 (~> 0.9.1)
+      net_http_timeout_errors (~> 0.3.0)
+      oga (~> 2.7)
     warden (1.2.8)
       rack (>= 2.0.6)
     web-console (3.5.1)
@@ -385,11 +420,13 @@ DEPENDENCIES
   friendly_id
   gibbon
   gravtastic
+  httparty (~> 0.13.7)
   jbuilder (~> 2.5)
   jquery-ui-rails
   json (~> 1.8.1)
   kaminari
   koala
+  link_thumbnailer
   listen (>= 3.0.5, < 3.2)
   newrelic_rpm
   nokogiri

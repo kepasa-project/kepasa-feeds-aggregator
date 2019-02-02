@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Feed < ActiveRecord::Base
   
   acts_as_taggable_on :tags

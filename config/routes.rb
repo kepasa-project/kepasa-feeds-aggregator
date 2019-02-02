@@ -2,6 +2,10 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
   
+  namespace :admin do
+    resource :recommended_feeds
+  end
+  
   mount RailsAdmin::Engine => '/kadmin', as: 'rails_admin'
   # access to the jobs in the queue domainapp/sidekiq
   mount Sidekiq::Web, at:'/sidekiq'

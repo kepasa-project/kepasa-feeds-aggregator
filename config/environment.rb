@@ -1,4 +1,6 @@
 # Load the rails application
+Encoding.default_external = Encoding::UTF_8 # added for 
+Encoding.default_internal = Encoding::UTF_8 # Feedjira
 require_relative 'application'
 require 'rbtrace'
 
