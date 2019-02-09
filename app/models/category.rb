@@ -7,6 +7,6 @@ class Category < ApplicationRecord
 	#has_many :recommended_feeds
 	has_and_belongs_to_many :recommended_feeds
 
-	validates :category_logo, presence: true
+	#validates :category_logo, presence: true
 	
 end

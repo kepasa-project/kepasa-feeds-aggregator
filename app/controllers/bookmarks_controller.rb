@@ -58,7 +58,7 @@ class BookmarksController < ApplicationController
 
   # POST /bookmarks
   # POST /bookmarks.json
-  def create
+  def createx
     @user = current_user
     @bookmark = Bookmark.new(params[:bookmark])
 

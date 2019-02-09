@@ -26,24 +26,32 @@ if File.exists?("#{Rails.root}/lib/personal_feeds.txt")
 
 end
 =end
+
 #feed = Feed.create(rssurl: 'https://www.wired.com/feed/category/science/latest/rss', title: 'Science Tech', tag_list: 'science', user_id: 1)
+require 'link_thumbnailer'
 
 puts 'Creating ... Categories from a file to populate'
 
-Categories.delete_all
+Category.delete_all
 open("#{Rails.root}/lib/categories.txt") do |category|
 	category.read.each_line do |data|
-  		name, language = data.chomp.split("|")
-    	Category.create!(:name => name, :language => language)
+  		name, image, language = data.chomp.split("|")
+    	image_src = "#{Rails.root}/app/assets/images/categories/#{image}.jpg"
+    	src_file = File.new(image_src)
+    	puts "Created #{name} Category"
+    	category = Category.create(:name => name, :category_logo => src_file, :language => language)
+  		#category.update
   	end
 end
 
 puts 'Creating ... Recommended Feeds from a file to populate'
 
+#=begin
 RecommendedFeed.delete_all
-open("#{Rails.root}/lib/recommended_feeds.txt") do |category|
-	countries.read.each_line do |data|
+open("#{Rails.root}/lib/recommended_feeds.txt") do |recommended_feed|
+	recommended_feed.read.each_line do |data|
   		name, language = data.chomp.split("|")
     	Category.create!(:name => code, :language => language)
   	end
 end
+#=end

@@ -121,9 +121,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 
 gem "font-awesome-rails"
-
 gem "foreman"
-
 gem 'carrierwave', '~> 1.0'
 
 # fetch resources from feed

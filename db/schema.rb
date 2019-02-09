@@ -10,10 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190202222515) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 20190203080000) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -21,7 +18,7 @@ ActiveRecord::Schema.define(version: 20190202222515) do
     t.string "resource_id", null: false
     t.string "resource_type", null: false
     t.string "author_type"
-    t.bigint "author_id"
+    t.integer "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
@@ -64,8 +61,8 @@ ActiveRecord::Schema.define(version: 20190202222515) do
   end
 
   create_table "categories_recommended_feeds", id: false, force: :cascade do |t|
-    t.bigint "category_id", null: false
-    t.bigint "recommended_feed_id", null: false
+    t.integer "category_id", null: false
+    t.integer "recommended_feed_id", null: false
   end
 
   create_table "delayed_jobs", force: :cascade do |t|
@@ -115,6 +112,8 @@ ActiveRecord::Schema.define(version: 20190202222515) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "title"
+    t.string "favicon"
+    t.string "description"
   end
 
   create_table "following_relationships", force: :cascade do |t|
@@ -136,7 +135,7 @@ ActiveRecord::Schema.define(version: 20190202222515) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "mailboxer_conversation_opt_outs", id: :serial, force: :cascade do |t|
+  create_table "mailboxer_conversation_opt_outs", force: :cascade do |t|
     t.string "unsubscriber_type"
     t.integer "unsubscriber_id"
     t.integer "conversation_id"
@@ -144,13 +143,13 @@ ActiveRecord::Schema.define(version: 20190202222515) do
     t.index ["unsubscriber_id", "unsubscriber_type"], name: "index_mailboxer_conversation_opt_outs_on_unsubscriber_id_type"
   end
 
-  create_table "mailboxer_conversations", id: :serial, force: :cascade do |t|
+  create_table "mailboxer_conversations", force: :cascade do |t|
     t.string "subject", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "mailboxer_notifications", id: :serial, force: :cascade do |t|
+  create_table "mailboxer_notifications", force: :cascade do |t|
     t.string "type"
     t.text "body"
     t.string "subject", default: ""
@@ -173,7 +172,7 @@ ActiveRecord::Schema.define(version: 20190202222515) do
     t.index ["type"], name: "index_mailboxer_notifications_on_type"
   end
 
-  create_table "mailboxer_receipts", id: :serial, force: :cascade do |t|
+  create_table "mailboxer_receipts", force: :cascade do |t|
     t.string "receiver_type"
     t.integer "receiver_id"
     t.integer "notification_id", null: false
@@ -245,11 +244,11 @@ ActiveRecord::Schema.define(version: 20190202222515) do
   end
 
   create_table "taggings", force: :cascade do |t|
-    t.bigint "tag_id"
+    t.integer "tag_id"
     t.string "taggable_type"
-    t.bigint "taggable_id"
+    t.integer "taggable_id"
     t.string "tagger_type"
-    t.bigint "tagger_id"
+    t.integer "tagger_id"
     t.string "context", limit: 128
     t.datetime "created_at"
     t.index ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
@@ -291,7 +290,4 @@ ActiveRecord::Schema.define(version: 20190202222515) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
-  add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id", name: "mb_opt_outs_on_conversations_id"
-  add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id", name: "notifications_on_conversation_id"
-  add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id", name: "receipts_on_notification_id"
 end

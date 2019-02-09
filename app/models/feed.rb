@@ -16,10 +16,31 @@ class Feed < ActiveRecord::Base
   validates :tag_list, presence: :true 
 
   # line for the feed on the user show page
-  scope :from_users_followed_by, lambda { |user| followed_by(user) }
+  # scope :from_users_followed_by, lambda { |user| followed_by(user) }
 
+  after_save :add_favicon
   
   private
+
+    def add_favicon
+
+      split_feed = self.rssurl.split("/")
+      link = split_feed[0] + "//" + split_feed[2]
+
+      begin
+    
+      object = LinkThumbnailer.generate(link)
+      self.favicon = object.favicon
+      self.save!
+      
+        rescue LinkThumbnailer::Exceptions => e
+      
+      puts e
+
+      end
+
+
+    end
 
     # Return an SQL condition for users followed by the given user.
     # We include the user's own id as well.

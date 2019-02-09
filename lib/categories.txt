@@ -1,14 +1,10 @@
-Tech|en
-Travel|en
-Movie|en
-Breaking News|en
-scienza|italiano|
-fumetti|italiano|
-viaggi|italiano|
-cinema|italiano|
-tecnología|español
-moda|español
-videojuegs|español
-gastronomía|español
-cine|español
-ciencia|español
+Tech|Tech|en
+Travel|Travel|en
+Movie|Movie|en
+Marketing|Marketing|en
+Science|Science|en
+Tecnología|Tech|es
+Viajes|Travel|es
+Cine|Movie|es
+Marcadotecnia|Marketing|es
+Ciencia|Science|es

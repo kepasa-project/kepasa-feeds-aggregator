@@ -1,4 +1,11 @@
 es:
+  activerecord:
+    models:
+      Bookmark: Marcadores
+    attributes:
+      Bookmark:
+        url: Url
+        title: Titulo
   datetime:
     distance_in_words:
       less_than_x_minutes:

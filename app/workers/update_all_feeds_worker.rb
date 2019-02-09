@@ -1,7 +1,7 @@
 class UpdateAllFeedsWorker
 
 	include Sidekiq::Worker
-  	#sidekiq_options :retry => false #when fail don't repeat
+  	sidekiq_options :retry => false #when fail don't repeat
 
   
 	  def perform(user_id)
@@ -32,6 +32,11 @@ class UpdateAllFeedsWorker
 
 	          feed.entries.each do |entry|  
 
+	          object = LinkThumbnailer.generate(@feed.rssurl)
+
+	          entry.published.nil? ? @datafeedlist = Time.now() : @datafeedlist = entry.published
+	          entry.media_thumbnail_url.nil? ? @imageurl = object.images.first.to_s : @imageurl = entry.media_thumbnail_url
+=begin
 	              if entry.published.nil?
 
 	                @datafeedlist == Time.now()
@@ -41,6 +46,7 @@ class UpdateAllFeedsWorker
 	               @datafeedlist = entry.published
 	              
 	              end
+=end
 
 	              unless Feedlist.where(:feed_id => @feed.id).exists? :guid => entry.id
 
@@ -51,7 +57,8 @@ class UpdateAllFeedsWorker
 	                      :url          => entry.url,    
 	                      :published_at => @datafeedlist,
 	                      :guid         => entry.id,
-	                      :image        => entry.media_thumbnail_url,
+	                      :content 		=> entry.content,
+	                      :image        => @imageurl,
 	                      :feed_id      => @feed.id,
 	                      :user_id      => @user.id
 	                    )

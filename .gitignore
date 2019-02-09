@@ -31,6 +31,7 @@ Vagrantfile
 
 # assets pipeline
 /public/assets/*
+/public/uploads/*
 
 #personal pages
 /app/views/pages/*
