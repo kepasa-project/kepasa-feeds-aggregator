@@ -18,7 +18,7 @@ class Feed < ActiveRecord::Base
   # line for the feed on the user show page
   # scope :from_users_followed_by, lambda { |user| followed_by(user) }
 
-  after_save :add_favicon
+  #after_save :add_favicon
   
   private
 

@@ -1,0 +1,25 @@
+
+                                <% if notizia.image.nil? %>
+
+                                    <a href="#"> <%#= image_tag('no-imagen.png') %> </a>
+                                    
+                                    <% else %>
+                                    
+                                    <a href="#"> <img src="<%= notizia.image %>" width="70" height="50"> </a>
+                                    
+                                <% end %> 
+                                <br /><br />
+                                
+                                <p class="info">
+                                        <% if notizia.published_at.nil? %>
+
+                                        <%= time_ago_in_words(notizia.created_at) %>
+                                        
+                                        <% else %>
+
+                                        <%= time_ago_in_words(notizia.published_at) %>
+
+                                        <% end %>
+                                </p>
+                                <!-- <button type="button" class="btn btn-danger btn-sm">not read</button> --> 
+                                <%= link_to "not read", "#", class: "btn btn-danger btn-sm" %>

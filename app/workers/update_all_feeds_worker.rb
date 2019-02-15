@@ -32,21 +32,10 @@ class UpdateAllFeedsWorker
 
 	          feed.entries.each do |entry|  
 
-	          object = LinkThumbnailer.generate(@feed.rssurl)
+	          #object = LinkThumbnailer.generate(@feed.rssurl)
 
 	          entry.published.nil? ? @datafeedlist = Time.now() : @datafeedlist = entry.published
-	          entry.media_thumbnail_url.nil? ? @imageurl = object.images.first.to_s : @imageurl = entry.media_thumbnail_url
-=begin
-	              if entry.published.nil?
-
-	                @datafeedlist == Time.now()
-
-	               else
-	               
-	               @datafeedlist = entry.published
-	              
-	              end
-=end
+	          #entry.media_thumbnail_url.nil? ? @imageurl = object.images.first.to_s : @imageurl = entry.media_thumbnail_url
 
 	              unless Feedlist.where(:feed_id => @feed.id).exists? :guid => entry.id
 
@@ -58,7 +47,7 @@ class UpdateAllFeedsWorker
 	                      :published_at => @datafeedlist,
 	                      :guid         => entry.id,
 	                      :content 		=> entry.content,
-	                      :image        => @imageurl,
+	                      :image        => entry.media_thumbnail_url,
 	                      :feed_id      => @feed.id,
 	                      :user_id      => @user.id
 	                    )

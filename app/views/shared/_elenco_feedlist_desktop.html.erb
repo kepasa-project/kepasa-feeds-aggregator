@@ -10,30 +10,14 @@
                             <div class="row">
                                 <div class="col-sm-2">
                                 
-                                <% if notizia.image.nil? %>
-
-                                    <a href="#"> <%= image_tag('no-imagen.png') %>
-                                    
-                                    <% else %>
-                                    
-                                    <a href="#"> <img src="<%= notizia.image %>" width="70" height="50">
-                                    
-                                <% end %>
+                                <%= render "shared/left_column", notizia: notizia %> 
                                 
                                 </div>
                                 <div class="col-sm-8">
                                     <h4 class="search-result-item-heading">
         							<%= notizia.name.nil? ? (link_to "no title", feedlist_path(notizia.id)) : (link_to notizia.name.html_safe, feedlist_path(notizia.id)) %>
         						 	</h4>
-        						 	<p class="info">
-                                        <% if notizia.published_at.nil? %>
-                                        <%= time_ago_in_words(notizia.created_at) %>
-                                        <% else %>
-
-                                        <%= time_ago_in_words(notizia.published_at) %>
-
-                                        <% end %>
-                                    </p>
+        						 	
                                     <p class="description">
                                         <%= notizia.summary.nil? ? "NO summary" : notizia.summary.html_safe %> 
                                     </p>

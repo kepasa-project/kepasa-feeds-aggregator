@@ -65,8 +65,9 @@ class FeedsController < ApplicationController
     @user = current_user
     @feed = Feed.new(feed_params)
 
-          if @feed.valid? && Feedjira::Feed.fetch_and_parse(@feed.rssurl) != nil
-            
+          #if @feed.valid? && Feedjira::Feed.fetch_and_parse(@feed.rssurl) != nil
+          if @feed.valid?
+
           # in the following line add like User Agent Firefox to fix the error: OpenURI::HTTPError: 403 Forbidden  
           doc = Nokogiri::XML(open(@feed.rssurl, 'User-Agent' => 'firefox')) 
           #@feed.title = doc.at_xpath('/rss/channel/title').inner_text
@@ -74,44 +75,9 @@ class FeedsController < ApplicationController
 
                     if @feed.save 
                     
-                     Feedjira::Feed.add_common_feed_entry_element("media:thumbnail", :value => :url, :as => :media_thumbnail_url)
-                     Feedjira::Feed.add_common_feed_entry_element("enclosure", :value => :url, :as => :media_thumbnail_url)
-                     
-                     #@user = current_user
-                     #@feed = Feed.find(params[:id])
-
-                     feed = Feedjira::Feed.fetch_and_parse(@feed.rssurl)
-                      
-                      feed.entries.each do |entry|  
-
-                        if entry.published.nil?
-
-                          @datafeedlist == Time.now()
-
-                         else
-                         
-                         @datafeedlist = entry.published
-                        
-                        end
-
-                        unless Feedlist.where(:feed_id => @feed.id).exists? :guid => entry.id
-
-                              Feedlist.create!(
-                                :rssurl       => @feed.rssurl,
-                                :name         => entry.title,
-                                :summary      => entry.summary,
-                                :url          => entry.url,    
-                                :published_at => @datafeedlist,
-                                :guid         => entry.id,
-                                :image        => entry.media_thumbnail_url,
-                                :content      => entry.content,
-                                :feed_id      => @feed.id,
-                                :user_id      => @user.id
-                              )
-                        end
-                      end 
-                    
-                    redirect_to root_path
+                      AddNewFeedWorker.perform_async(@feed.id)            
+                           
+                      redirect_to root_path
 
                     else
 

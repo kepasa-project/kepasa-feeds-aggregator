@@ -15,12 +15,27 @@ class FeedlistsController < ApplicationController
   end
 
   def show
-    
+
+    begin
+
+    @object = LinkThumbnailer.generate(@feedlist.url)
+
+    @img_url = @object.images.last.to_s 
+
+    @url = @feedlist.url
+    @preview = Onebox.preview(@url)
+
+    rescue
+
+     @img_url = @feedlist.image
+      
+    end 
+
     @user = current_user
     #@feedlist = Feedlist.find(params[:id])
-    unless user_signed_in?
-      cookies[:omniauth] = feedlist_url(@feedlist)
-    end
+    #unless user_signed_in?
+    #  cookies[:omniauth] = feedlist_url(@feedlist)
+    #end
 
   end
 
