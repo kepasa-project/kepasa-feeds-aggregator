@@ -81,7 +81,7 @@
 	                    		<% @feedlists.each do |feedlist| %>
 	                    		<tr>
 	                    			<td><%= link_to feedlist.feed.title, user_feed_path(current_user, feedlist.feed) %></td>
-	                    			<td> <%= link_to feedlist.name.truncate(35), feedlist_path(feedlist) %> </td>
+	                    			<td> <%= feedlist.name.nil? ? "-" : (link_to feedlist.name.truncate(35), feedlist_path(feedlist)) %> </td>
 	                    			<td><%= feedlist.feed.tags.join(" ") %></td>
 	                    			<td><%= time_ago_in_words(feedlist.created_at) %></td>
 	                    		</tr>
