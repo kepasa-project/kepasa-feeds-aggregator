@@ -128,6 +128,7 @@ gem 'carrierwave', '~> 1.0'
 gem 'link_thumbnailer'
 gem 'httparty', '~> 0.13.7'
 gem 'onebox'
+gem 'metainspector'
 
 # Use unicorn as the app server
 #gem 'unicorn'

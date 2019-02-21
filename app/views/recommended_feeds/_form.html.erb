@@ -1,4 +1,4 @@
-<%= form_with(model: recommended_feed, local: true) do |form| %>
+<%= form_for(@recommended_feed, local: true) do |form| %>
   <% if recommended_feed.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(recommended_feed.errors.count, "error") %> prohibited this recommended_feed from being saved:</h2>
@@ -11,22 +11,25 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :rssurl %>
     <%= form.text_field :rssurl, id: :recommended_feed_rssurl %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :title %>
     <%= form.text_field :title, id: :recommended_feed_title %>
   </div>
 
-  <div class="field">
-    <%= form.label :category_id %>
-    <%= form.number_field :category_id, id: :recommended_feed_category_id %>
+  <div class="form-group">
+    <%#= form.label :category_id %>
+    <%#= form.number_field :category_id, id: :recommended_feed_category_id %>
+    <%= form.collection_check_boxes :category_ids, Category.all, :id, :name do |b| %>
+        <% b.label(class: "checkbox-inline input_checkbox") {b.check_box(class: "checkbox") + b.text } %>
+    <% end %>
   </div>
 
-  <div class="actions">
+  <div class="form-group">
     <%= form.submit %>
   </div>
 <% end %>

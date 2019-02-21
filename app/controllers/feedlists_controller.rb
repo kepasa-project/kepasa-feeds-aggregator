@@ -6,11 +6,12 @@ class FeedlistsController < ApplicationController
 
   def index
 
-    #@feed = Feed.find(params[:feed_id])
-    #@feedlists = @feed.feedlists.order("published_at ASC")
-    #@feedlists = Feedlist.all
-    #respond_with(@feedlists)
-    @feedlists = current_user.feedlists.order("published_at DESC").page(params[:page])
+    @feedlists = current_user.feedlists.order("published_at DESC").page(params[:page]).per(5)
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
 
   end
 
@@ -18,25 +19,20 @@ class FeedlistsController < ApplicationController
 
     begin
 
-    @object = LinkThumbnailer.generate(@feedlist.url)
+      @object = LinkThumbnailer.generate(@feedlist.url)
 
-    @img_url = @object.images.last.to_s 
-
-    @url = @feedlist.url
-    @preview = Onebox.preview(@url)
+      @img_url = @object.images.last.to_s 
+      @url = @feedlist.url
+      @preview = Onebox.preview(@url)
 
     rescue
 
-     @img_url = @feedlist.image
+      @img_url = @feedlist.image
       
     end 
 
     @user = current_user
-    #@feedlist = Feedlist.find(params[:id])
-    #unless user_signed_in?
-    #  cookies[:omniauth] = feedlist_url(@feedlist)
-    #end
-
+    
   end
 
   def new

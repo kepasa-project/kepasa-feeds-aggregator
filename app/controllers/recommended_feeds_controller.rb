@@ -6,10 +6,14 @@ class RecommendedFeedsController < ApplicationController
 
   end
 
+  def new
+
+    @recommended_feed = RecommendedFeed.new
+  end
 #=begin
 
   def create
-    @recommended_feed = RecommendedFeed.new(params[:recommended_feed])
+    @recommended_feed = RecommendedFeed.new(recommended_feed_params)
   	
   	if @recommended_feed.save
   		

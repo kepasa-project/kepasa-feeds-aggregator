@@ -33,9 +33,10 @@ class UpdateAllFeedsWorker
 	          feed.entries.each do |entry|  
 
 	          #object = LinkThumbnailer.generate(@feed.rssurl)
+	          #page = MetaInspector.new(@feed.rssurl)
 
 	          entry.published.nil? ? @datafeedlist = Time.now() : @datafeedlist = entry.published
-	          #entry.media_thumbnail_url.nil? ? @imageurl = object.images.first.to_s : @imageurl = entry.media_thumbnail_url
+	          #entry.media_thumbnail_url.nil? ? @imageurl = page.images.best : @imageurl = entry.media_thumbnail_url
 
 	              unless Feedlist.where(:feed_id => @feed.id).exists? :guid => entry.id
 

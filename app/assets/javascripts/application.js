@@ -16,3 +16,4 @@
 //= require rails-ujs
 //= require turbolinks
 //= require landing-page/script
+//= require feedlists
