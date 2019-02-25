@@ -1,4 +1,4 @@
-<%= form_for(@recommended_feed, local: true) do |form| %>
+<%= form_for [:admin, @recommended_feed] do |form| %>
   <% if recommended_feed.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(recommended_feed.errors.count, "error") %> prohibited this recommended_feed from being saved:</h2>
@@ -13,12 +13,27 @@
 
   <div class="form-group">
     <%= form.label :rssurl %>
-    <%= form.text_field :rssurl, id: :recommended_feed_rssurl %>
+    <%= form.text_field :rssurl %>
   </div>
 
   <div class="form-group">
     <%= form.label :title %>
-    <%= form.text_field :title, id: :recommended_feed_title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :logo %>
+    <%= form.file_field :logo %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :tag_list %>
+    <%= form.text_field :tag_list %>
   </div>
 
   <div class="form-group">

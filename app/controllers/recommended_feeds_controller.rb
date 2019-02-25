@@ -9,9 +9,10 @@ class RecommendedFeedsController < ApplicationController
   def new
 
     @recommended_feed = RecommendedFeed.new
-  end
-#=begin
 
+  end
+
+#=begin
   def create
     @recommended_feed = RecommendedFeed.new(recommended_feed_params)
   	
@@ -37,13 +38,12 @@ class RecommendedFeedsController < ApplicationController
   		render :new
   	end
   end
-
 #=end
 
   private
 
-    def recommended_feed_params
-      params.require(:recommended_feed).permit(:rssurl, :title, :logo, :descripction, category_ids: [])
-    end
-end
+  def recommended_feed_params
+    params.require(:recommended_feed).permit(:rssurl, :title, :logo, :descripction, category_ids: [])
+  end
 
+end

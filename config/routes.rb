@@ -2,8 +2,6 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
   
-  resource :recommended_feeds
-  
   mount RailsAdmin::Engine => '/kadmin', as: 'rails_admin'
   # access to the jobs in the queue domainapp/sidekiq
   mount Sidekiq::Web, at:'/sidekiq'
@@ -14,13 +12,11 @@ Rails.application.routes.draw do
   namespace :admin do
 
     get '/dashboard', to: "dashboard#index", as: :admin_dashboard_path
+    
+    resources :recommended_feeds
 
   end
   # end snippet to delete
-  
-  resources :categories do
-    resources :recommended_feeds
-  end
   
   root :to => "feed_entry#index"
   get "/dashboard", to: "feed_entry#dashboard"
