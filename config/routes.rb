@@ -17,6 +17,10 @@ Rails.application.routes.draw do
 
   end
   # end snippet to delete
+
+  resources :categories do 
+    resources :recommended_feeds
+  end
   
   root :to => "feed_entry#index"
   get "/dashboard", to: "feed_entry#dashboard"
@@ -44,7 +48,6 @@ Rails.application.routes.draw do
   end
 
   get 'users/sign_in', :to => 'devise/sessions#new', via: [:get, :post]
-
   get 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   get 'auth/failure', to: redirect('/'), via: [:get, :post]
   post 'signout', to: 'sessions#destroy', as: 'signout'

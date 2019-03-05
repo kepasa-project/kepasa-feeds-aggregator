@@ -2,9 +2,10 @@ class UsersController < ApplicationController
   
 	def show
 
-		@user = User.find(params[:id])
-		@title = @user.username
-    @feed_items = @user.feed
+		#@user = User.find(params[:id])
+		@user = current_user
+    @title = @user.username
+    @feed_items = @user.feeds
 
     # snippet added to update current user rss feeds 
     @feeds_current_user = @user.feeds

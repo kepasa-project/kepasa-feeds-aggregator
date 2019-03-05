@@ -1,7 +1,11 @@
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12 text-center">
+
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Category:</strong>
   <%= @category.name %>
 </p>
 
@@ -11,9 +15,32 @@
 </p>
 
 <p>
-  <strong>Category logo:</strong>
-  <%= @category.category_logo %>
+  
+  <%= check_thumbnail(@category) %>
+
+  <!-- <strong>Category logo:</strong> -->
+  <%#= image_tag(@user.avatar_url) if @user.avatar? %>
+  <%#= image_tag(@category.category_logo.url(:thumb)) if @category.category_logo.url(:thumb).nil? %>
+
 </p>
+
+<% @recommended_feeds.each do |rf| %>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-lg-6 text-right">
+			ciao1 <%= link_to rf.title, "#" %>
+		</div>
+		<div class="col-lg-6 text-left">
+			ciao2 <%= link_to rf.title, "#" %>
+		</div>
+	</div>
+</div>
+<% end %>
+
 
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>
+
+</div>
+</div>
+</div>

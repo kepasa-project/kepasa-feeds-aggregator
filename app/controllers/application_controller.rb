@@ -22,6 +22,8 @@ class ApplicationController < ActionController::Base
       end
   end
 
+=begin
+#begin snippet
   # begin handle Error snippet if no Record is Found!
   rescue_from ActiveRecord::RecordNotFound do
     flash[:warning] = 'Resource not found.'
@@ -32,7 +34,9 @@ class ApplicationController < ActionController::Base
     redirect_to request.referer || path
   end
   # end error snippet
-  
+#end snippet
+=end
+
   private
 
   def set_locale

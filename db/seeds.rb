@@ -47,11 +47,11 @@ end
 puts 'Creating ... Recommended Feeds from a file to populate'
 
 #=begin
-RecommendedFeed.delete_all
-open("#{Rails.root}/lib/recommended_feeds.txt") do |recommended_feed|
-	recommended_feed.read.each_line do |data|
-  		name, language = data.chomp.split("|")
-    	Category.create!(:name => code, :language => language)
-  	end
-end
+#RecommendedFeed.delete_all
+#open("#{Rails.root}/lib/recommended_feeds.txt") do |recommended_feed|
+#	recommended_feed.read.each_line do |data|
+#  		name, language = data.chomp.split("|")
+#    	Category.create!(:name => code, :language => language)
+#  	end
+#end
 #=end

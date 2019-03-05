@@ -19,7 +19,26 @@ module RecommendedFeedsHelper
 
 			return object
 
-	end 
+	end
 
+	def check_thumbnail(category)
+
+		@category = category
+
+		begin 
+
+			image_tag(@category.category_logo.url(:thumb)).html_safe
+
+			#puts "brubbolo" 
+
+		rescue  # == "Version thumb doesn't exist!"
+
+			image_tag(@category.category_logo, size: "100x50").html_safe
+			
+			#puts "cIOA"
+		
+		end
+
+	end
 
 end
