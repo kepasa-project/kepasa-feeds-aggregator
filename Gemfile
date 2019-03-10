@@ -84,7 +84,8 @@ gem 'kaminari'
     # Adds support for Capybara system testing and selenium driver
     gem 'capybara', '~> 2.13.0'
     gem 'selenium-webdriver'
-  
+    gem 'rubocop', '~> 0.65.0', require: false
+
   end
 
   group :development do
