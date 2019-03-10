@@ -1,4 +1,4 @@
-class Category < ApplicationRecord
+class Category < ActiveRecord::Base
 
 	mount_uploader :category_logo, CategoryLogoUploader
 

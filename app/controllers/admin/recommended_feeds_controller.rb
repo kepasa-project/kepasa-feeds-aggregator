@@ -1,5 +1,5 @@
 module Admin
-	class RecommendedFeedsController < ApplicationController
+	class RecommendedFeedsController < AdminBaseController
 
 		def index
 			@category = Category.find(params[:category_id])
@@ -14,10 +14,13 @@ module Admin
 		end
 
 		def create
-		    @recommended_feed = RecommendedFeed.new(recommended_feed_params)
-		  	
-		  	if @recommended_feed.save
+		    
+		    #byebug
+		    #@recommended_feed = RecommendedFeed.new(recommended_feed_params)
+		  	@recommended_feed = RecommendedFeed.new(params[:recommended_feed].permit!)
 
+		  	if @recommended_feed.save
+=begin
 		      split_recommended_feed = @recommended_feed.rssurl.split("/")
 
 		      link = split_recommended_feed[0] + "//" + split_recommended_feed[2]
@@ -35,6 +38,8 @@ module Admin
 				      puts e
 
 				    end
+=end
+			redirect_to root_path
 
 		  	else
 		  		render :new
@@ -43,13 +48,13 @@ module Admin
 		
 		private
 
-		def recommended_feed_params
-      		params.require(:recommended_feed).permit(:rssurl, :title, :description, :logo, :category_ids[])
-    	end
-
 		def set_recommended_feed
 			RecommendedFeed.find(params[:id])
 		end
+
+		def recommended_feed_params
+      		params.require(:recommended_feed).permit(:rssurl, :title, :description, :logo, :tag_list, :category_ids[])
+    	end
 
 	end
 end
