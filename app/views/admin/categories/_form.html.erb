@@ -13,18 +13,18 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name, id: :category_name %>
+    <%= form.text_field :name, id: :category_name, required: :true %>
   </div>
 
   <div class="field">
     <%= form.label :language %>
-    <%= form.text_field :language, id: :category_language %>
+    <%= form.text_field :language, id: :category_language, required: :true %>
   </div>
 
   <div class="field">
     <%= form.label :category_logo %>
-    <%= form.file_field :category_logo, id: :category_category_logo %>
-  </div>
+    <%= form.file_field :category_logo, id: :category_category_logo, required: :true %>
+  </div> <br />
 
   <div class="actions">
     <%= form.submit %>

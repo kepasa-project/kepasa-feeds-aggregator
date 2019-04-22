@@ -18,6 +18,10 @@ module Admin
 
 		end
 
+		def show
+			@recommended_feed = RecommendedFeed.find(params[:id])
+		end
+
 		def create
 		    
 		    #byebug

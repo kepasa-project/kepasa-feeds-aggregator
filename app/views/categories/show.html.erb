@@ -27,11 +27,15 @@
 <% @recommended_feeds.each do |rf| %>
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-lg-6 text-right">
-			ciao1 <%= link_to rf.title, "#" %>
-		</div>
-		<div class="col-lg-6 text-left">
-			ciao2 <%= link_to rf.title, "#" %>
+		<div class="col-lg-12 text-center">
+			<% if rf.logo_url(:thumb) %>
+				<p><%= image_tag rf.logo_url(:thumb) %> </p>
+			<% else %>
+				<p>No Logo</p>
+			<% end %>
+			<p>feed address: <%= rf.rssurl %> </p>
+			<p>title: <%= rf.title %> </p>
+			<p>description: <%= rf.description %> </p> 
 		</div>
 	</div>
 </div>

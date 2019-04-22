@@ -2,6 +2,16 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  activerecord:
+    models:
+      recommended_feed:
+    attributes:
+      recommended_feed:
+        logo: "Logo"
+        rssurl: "Feed Address"
+        title: "Title"
+        description: "Description"
+        category: "Category"
   mailboxer:
     message_mailer:
       subject_new: "Tienes un nuevo mensaje en kepasa.co: %{subject}"
@@ -10,7 +20,7 @@ en:
       subject: "Nueva notificación en kepasa.co: %{subject}"
 
   feed_message_error: "You cannot insert a feed already present or put an incorrect feed!"
-  
+
   admin:
     welcome: "Welcome to Control Panel"
     categories: "Categories"

@@ -15,6 +15,7 @@
         <table>
           <thead>
             <tr>
+              <th>ID</th>
               <th>Rssurl</th>
               <th>Title</th>
               <th>Category</th>
@@ -25,6 +26,7 @@
           <tbody>
             <% @recommended_feeds.each do |recommended_feed| %>
               <tr>
+                <td><%= recommended_feed.id %></td>
                 <td>
                 <%= recommended_feed.rssurl %>
                 </td>
