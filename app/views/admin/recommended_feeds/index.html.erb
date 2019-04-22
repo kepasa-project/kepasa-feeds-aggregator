@@ -2,64 +2,46 @@
   <div class="row">
     <div class="col-lg-12">
 
-<p id="notice"><%= notice %></p>
+      <p id="notice"><%= notice %></p>
 
-<h1>Recommended Feeds</h1>
-<h2>Category: <%= @category.name %> </h2>
+      <h1>Recommended Feeds</h1>
 
-</div>
-</div>
-
-<% @recommended_feeds.each do |recommended_feed| %>
+    </div>
+  </div>
 
   <div class="row">
-    <div class="col-lg-12">
-    
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-6">
+      <div class="col-lg-12">
 
-          <img src="<%#= preview(recommended_feed.rssurl).images.first.src.to_s %>" >
+        <table>
+          <thead>
+            <tr>
+              <th>Rssurl</th>
+              <th>Title</th>
+              <th>Category</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
 
-          </div>
-          <div class="col-lg-6">
-              <h3> <%#= preview(recommended_feed.rssurl).title %> </h3> 
-              
-              <h5> <%#= preview(recommended_feed.rssurl).description %> </h5>          
-          </div>
+          <tbody>
+            <% @recommended_feeds.each do |recommended_feed| %>
+              <tr>
+                <td>
+                <%= recommended_feed.rssurl %>
+                </td>
+                <td><%= recommended_feed.title %></td>
+                <td><%= recommended_feed.categories.pluck(:name).join(", ") %></td>
+                <td><%#= link_to 'Show', recommended_feed_path(recommended_feed) %></td>
+                <td><%#= link_to 'Edit', edit_recommended_feed_path(recommended_feed) %></td>
+                <td><%#= link_to 'Destroy', recommended_feed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+
       </div>
   </div>
 
-<% end %>
-
-<table>
-  <thead>
-    <tr>
-      <th>Rssurl</th>
-      <th>Title</th>
-      <th>Category</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @recommended_feeds.each do |recommended_feed| %>
-      <tr>
-        <td><img src="<%#= preview(recommended_feed.rssurl).favicon %>" | <%= recommended_feed.rssurl %></td>
-        <td><%= recommended_feed.title %></td>
-        <td><%= recommended_feed.category_id %></td>
-        <td><%#= link_to 'Show', recommended_feed_path(recommended_feed) %></td>
-        <td><%#= link_to 'Edit', edit_recommended_feed_path(recommended_feed) %></td>
-        <td><%#= link_to 'Destroy', recommended_feed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+  <br>
+</div>
 
 <%#= link_to 'New Recommended Feed', new_recommended_feed_path %>
-
-</div>
-</div>
-</div>

@@ -2,7 +2,6 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
   
-  mount RailsAdmin::Engine => '/kadmin', as: 'rails_admin'
   # access to the jobs in the queue domainapp/sidekiq
   mount Sidekiq::Web, at:'/sidekiq'
 
@@ -11,10 +10,11 @@ Rails.application.routes.draw do
   #maybe we have to delete the follow?
   namespace :admin do
 
-    get '/dashboard', to: "dashboard#index", as: :admin_dashboard_path
+    get '/dashboard', to: "dashboard#index", as: :dashboard
     
     resources :recommended_feeds
-
+    resources :categories
+        
   end
   # end snippet to delete
 

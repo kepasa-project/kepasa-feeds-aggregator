@@ -18,8 +18,10 @@ gem 'pg', '~> 0.20'
 
 gem 'puma', '~> 3.7'
 
-# auth and avatar system
+# auth/authorization + avatar system
 gem 'devise'
+gem 'cancancan'
+gem 'rolify'
 gem 'gravtastic'
 
 # integration with facebook
@@ -45,7 +47,7 @@ gem 'rbtrace', git: 'https://github.com/tmm1/rbtrace', branch: 'master'
 
 # admin control panel
 # gem 'activeadmin'
-gem 'rails_admin', '~> 1.3'
+# gem 'rails_admin', '~> 1.3'
 #gem 'rails_admin_tag_list', git: 'https://github.com/kryzhovnik/rails_admin_tag_list.git', branch: 'master'
 gem 'kaminari'
 
@@ -67,9 +69,10 @@ gem 'kaminari'
   
   # Use CoffeeScript for .coffee assets and views
   gem 'coffee-rails', '~> 4.2'
+  
   # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
   gem 'turbolinks', '~> 5'
-
+  gem 'jquery-rails'
   gem 'jquery-ui-rails'
 
   #tag system
@@ -124,12 +127,16 @@ gem 'jbuilder', '~> 2.5'
 gem "font-awesome-rails"
 gem "foreman"
 gem 'carrierwave', '~> 1.0'
+gem "mini_magick"
 
 # fetch resources from feed
 gem 'link_thumbnailer'
 gem 'httparty', '~> 0.13.7'
 gem 'onebox'
 gem 'metainspector'
+
+#
+gem 'rails-timeago', '~> 2.0'
 
 # Use unicorn as the app server
 #gem 'unicorn'

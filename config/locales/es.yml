@@ -2,10 +2,15 @@ es:
   activerecord:
     models:
       Bookmark: Marcadores
+      Category: Categoria
     attributes:
       Bookmark:
         url: Url
         title: Titulo
+      Category:
+        name: Nombre
+        language: Idioma
+        category_logo: Logo    
   datetime:
     distance_in_words:
       less_than_x_minutes:
@@ -29,7 +34,14 @@ es:
       subject: "Nueva notificación en kepasa.co: %{subject}"
 
   feed_message_error: "No puedes insertar un feed ya presente o poner un feed incorrecto!"
-
+  
+  admin:
+    welcome: "Bienvenidos en el Panel de Control"
+    categories: "Categorias"
+    recommended_feeds: "Feeds Recomandados"
+    new_recommended_feed: "Nuevo Feeds Recomandados"
+    language: "idioma"
+    new_category: "Nueva Categoria"
   footer:
     slogan: "Kepasa Ⓒ las ultimas noticias en linea"
     project: "desarrollado por "

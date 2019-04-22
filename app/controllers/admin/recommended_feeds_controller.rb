@@ -1,9 +1,14 @@
 module Admin
 	class RecommendedFeedsController < AdminBaseController
 
+		layout "admin"
+		
 		def index
-			@category = Category.find(params[:category_id])
-			@recommended_feeds = @category.recommended_feeds
+
+			#@category = Category.find(params[:category_id])
+			#@recommended_feeds = @category.recommended_feeds
+			@recommended_feeds = RecommendedFeed.all
+		
 		end
 
 		def new

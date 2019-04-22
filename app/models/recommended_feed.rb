@@ -3,7 +3,7 @@
 class RecommendedFeed < ActiveRecord::Base
   mount_uploader :logo, LogoUploader
 
-  attr_accessor :tag_list
+  #attr_accessor :tag_list
 
   acts_as_taggable_on :tags
 

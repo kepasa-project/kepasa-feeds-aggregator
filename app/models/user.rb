@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  rolify
   
   paginates_per 5
 

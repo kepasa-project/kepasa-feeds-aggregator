@@ -10,6 +10,14 @@ en:
       subject: "Nueva notificación en kepasa.co: %{subject}"
 
   feed_message_error: "You cannot insert a feed already present or put an incorrect feed!"
+  
+  admin:
+    welcome: "Welcome to Control Panel"
+    categories: "Categories"
+    recommended_feeds: "Recommended Feeds"
+    new_recommended_feed: "New Feed Recommended"
+    language: "language"
+    new_category: "New Category"
 
   footer:
     slogan: "Kepasa Ⓒ the last Feeds!"

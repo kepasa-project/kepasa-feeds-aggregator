@@ -12,50 +12,50 @@
             </li>
     </ol>
 
-    <% @feedlists.each do |notizia| %>
+    <% @feedlists.each do |feedlist| %>
 	 <section class="search-result-item">
 	    
     <div class="container-fluid">
                             <div class="row">
                                 <div class="col-sm-2">
                                 
-                                <% if notizia.image.nil? %>
+                                <% if feedlist.image.nil? %>
 
                                     <a href="#"> <%= image_tag('no-imagen.png') %>
                                     
                                     <% else %>
                                     
-                                    <a href="#"> <img src="<%= notizia.image %>" width="70" height="50">
+                                    <a href="#"> <img src="<%= feedlist.image %>" width="70" height="50">
                                     
                                 <% end %>
                                 
                                 </div>
                                 <div class="col-sm-8">
                                     <h4 class="search-result-item-heading">
-        								<%= link_to notizia.name, feedlist_path(notizia.id) %>
+        								<%= link_to feedlist.name, feedlist_path(feedlist.id) %>
         						 	</h4>
         						 	<p class="info">
-                                        <% if notizia.published_at.nil? %>
-                                        <%= time_ago_in_words(notizia.created_at) %>
+                                        <% if feedlist.published_at.nil? %>
+                                        <%= time_ago_in_words(feedlist.created_at) %>
                                         <% else %>
 
-                                        <%= time_ago_in_words(notizia.published_at) %>
+                                        <%= time_ago_in_words(feedlist.published_at) %>
 
-                                        <%= link_to '<i class="fa fa-bookmark"></i>'.html_safe, new_user_bookmark_path([current_user, @bookmark], :url => notizia.url, :title => notizia.name) %> 
+                                        <%= link_to '<i class="fa fa-bookmark"></i>'.html_safe, new_user_bookmark_path([current_user, @bookmark], :url => feedlist.url, :title => feedlist.name) %> 
                                         <% end %>
                                     </p>
                                     <p class="description">
-                                        <%= notizia.summary.nil? ? "NO summary" : notizia.summary.html_safe %> 
+                                        <%= feedlist.summary.nil? ? "NO summary" : feedlist.summary.html_safe %> 
                                     </p>
                                     <p>
 
-                                    Feed: <%= link_to notizia.feed.title, user_feed_path(current_user, notizia.feed) %>
+                                    Feed: <%= link_to feedlist.feed.title, user_feed_path(current_user, feedlist.feed) %>
                                     </p>
-                                    <%= render 'shared/info_share', notizia: notizia %>
+                                    <%= render 'shared/info_share', feedlist: feedlist %>
                                  </div>
         						<div class="col-sm-2 text-align-center">
 
-                                    <%= render 'shared/info_click', notizia: notizia %>
+                                    <%= render 'shared/info_click', feedlist: feedlist %>
         						
                                 </div>
                             </div>

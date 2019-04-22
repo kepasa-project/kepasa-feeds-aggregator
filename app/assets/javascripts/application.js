@@ -17,3 +17,4 @@
 //= require turbolinks
 //= require landing-page/script
 //= require feedlists
+//= require rails-timeago

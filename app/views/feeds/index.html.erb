@@ -26,7 +26,9 @@
                         <% end %>             
                       </td>
                       <td> <%= feed.feedlists.count %> </td>
-                      <td> <%= time_ago_in_words(feed.updated_at) %></td>
+                      <td> <%#= time_ago_in_words(feed.updated_at) %>
+                        <%= timeago_tag(feed.updated_at) %>
+                      </td>
                       <td> <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_user_feed_path(current_user, feed), title: "#{I18n.t("feed.edit")}" %> </td>
                       <% if  @user == current_user %>
                       <td> <%= link_to '<i class="fa fa-trash-o fa-fw"></i>'.html_safe, user_feed_path(current_user, feed), method: :delete, data: { confirm: "#{I18n.t("feed.delete_message")}" }, title: "#{I18n.t("feed.delete")}" %> </td>

@@ -1,0 +1,161 @@
+
+
+<table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Language</th>
+            <th>Category logo</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @categories.each do |category| %>
+            <tr>
+              <td><%= category.name %></td>
+              <td><%= category.language %></td>
+              <td><%= category.category_logo.file.file %></td>
+              <td><%= link_to 'Show', category_recommended_feeds_path(category) %></td>
+              <td><%#= link_to 'Edit', edit_category_path(category) %></td>
+              <td><%#= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+
+      <% @categories.each do |category| %>
+
+      <div class="gallery">
+        <%= image_tag "#{category.category_logo.url}" %> 
+      <div class="desc"><%= link_to category.name, category_recommended_feeds_path(category) %></div>
+      </div>
+      
+      <% end %>
+
+
+<div class="gallery">
+  <a target="_blank" href="img_5terre.jpg">
+    <img src="img_5terre.jpg" alt="Cinque Terre" width="600" height="400">
+  </a>
+  <div class="desc">Add a description of the image here</div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="img_forest.jpg">
+    <img src="img_forest.jpg" alt="Forest" width="600" height="400">
+  </a>
+  <div class="desc">Add a description of the image here</div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="img_lights.jpg">
+    <img src="img_lights.jpg" alt="Northern Lights" width="600" height="400">
+  </a>
+  <div class="desc">Add a description of the image here</div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="img_mountains.jpg">
+    <img src="img_mountains.jpg" alt="Mountains" width="600" height="400">
+  </a>
+  <div class="desc">Add a description of the image here</div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="img_mountains.jpg">
+    <img src="img_mountains.jpg" alt="Mountains" width="600" height="400">
+  </a>
+  <div class="desc">Add a description of the image here</div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="img_mountains.jpg">
+    <img src="img_mountains.jpg" alt="Mountains" width="600" height="400">
+  </a>
+  <div class="desc">Add a description of the image here</div>
+</div>
+
+    
+
+
+
+
+
+    <br /> <br /><br /><br />
+    
+      <% @categories.each do |category| %>
+
+      <div class="gallery">
+       PRIMO <%= image_tag "#{category.category_logo.url}" %> 
+      <div class="desc"><%= link_to category.name, category_recommended_feeds_path(category) %></div>
+      </div>
+      
+      <% end %>
+    
+    <% @categories.each do |category| %>
+    
+     <%= image_tag "#{category.category_logo.url}", style: "width:100%" %>
+    
+    <% end %>
+
+    <% @categories.each do |category| %>
+      <div class="gallery">
+        <%= image_tag "#{category.category_logo.url}", style: "width:100%" %>
+            <div class="caption">
+              <p><%= link_to category.name, category_recommended_feeds_path(category) %></p>
+            </div>
+      </div>
+    <% end %>
+
+
+<div class="row">
+      <% @categories.each do |category| %>
+              <div class="col-md-4">
+                <div class="thumbnail">
+                  <!-- <a href="#">
+                    <img src="<%= category.category_logo.file.file %>" alt="Lights" style="width:100%"> </a> -->
+                    <%= image_tag "#{category.category_logo.url}", style: "width:100%" %>
+                    <div class="caption">
+                      <p><%= link_to category.name, category_recommended_feeds_path(category) %></p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+      <% end %>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="/w3images/lights.jpg" target="_blank">
+          <img src="/w3images/lights.jpg" alt="Lights" style="width:100%">
+          <div class="caption">
+            <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="/w3images/nature.jpg" target="_blank">
+          <img src="/w3images/nature.jpg" alt="Nature" style="width:100%">
+          <div class="caption">
+            <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="/w3images/fjords.jpg" target="_blank">
+          <img src="/w3images/fjords.jpg" alt="Fjords" style="width:100%">
+          <div class="caption">
+            <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

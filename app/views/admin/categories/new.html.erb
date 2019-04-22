@@ -1,0 +1,13 @@
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12">
+
+<h1><%= I18n.t("admin.new_category") %></h1>
+
+<%= render 'form', form_url: admin_categories_path, category: @category %>
+
+<%= link_to 'Back', categories_path %>
+
+		</div>
+	</div>
+</div>

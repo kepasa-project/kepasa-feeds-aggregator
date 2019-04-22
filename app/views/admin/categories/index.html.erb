@@ -1,0 +1,70 @@
+<style>
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 180px;
+  height: 140px;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+</style>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 text-center">
+
+      <p id="notice"><%= notice %></p>
+
+      <h1><%= I18n.t("admin.categories") %></h1>
+
+      <h4><%= I18n.t("admin.language") + @language.to_s %> </h4>
+
+      <h5> <%= link_to I18n.t("admin.new_category"), new_admin_category_path %> </h5>
+
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-2 text-center">
+    
+    </div>
+    <div class="col-lg-6 col-lg-offset-2 text-center">
+    <!-- <div class="col-md-8 col-md-offset-2 text-center"> -->
+
+      
+      
+
+      <% @categories.each do |category| %>
+
+      <div class="gallery">
+        <%= image_tag "#{category.category_logo.url}" %> 
+      <div class="desc"><%= link_to category.name, category_path(category) %></div>
+      </div>
+      
+      <% end %>
+
+      
+      <br />
+
+      <%#= link_to 'New Category', new_category_path %>
+
+    </div>
+    <div class="col-lg-2 text-center">
+    
+    </div>
+
+  </div>
+
+</div> <br />
