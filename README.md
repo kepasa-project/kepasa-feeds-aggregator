@@ -2,18 +2,18 @@
 
 ### A social feeds RSS aggregator network to share the last news with your fellows
 
-do you want install [Kepasa.co] (http://www.kepasa.co) and use it in dev mode follow these steps (recommend using in dev and production [Postgresql] (http://www.postgresguide.com/))
+do you want install [Kepasa.co](http://www.kepasa.co) and use it in dev mode follow these steps (recommend using in dev and production [Postgresql](http://www.postgresguide.com/))
 
 before to install the web app in your local machine install the 
 
 - Ruby version (2.4.1)
-- Rails version ()
+- Rails version (5.1.0)
 - Redis Server  
 
-To install Ruby in a Unix-Like Machine (Ubuntu) you can use [RVM] (https://rvm.io/rvm/install)
-To install Ruby in a Windows or MAC OSX Machine you can use [Rails Installer] (https://rvm.io/rvm/install)
+To install Ruby in a Unix-Like Machine (Ubuntu) you can use [RVM](https://rvm.io/rvm/install)
+To install Ruby in a Windows or MAC OSX Machine you can use [Rails Installer](https://rvm.io/rvm/install)
 
-to install [redis server] (http://redis.io/download)
+to install [redis server](http://redis.io/download)
 
 When you have installed all this stuff 
 
@@ -36,11 +36,11 @@ application.yml
 database.yml
 secrets.yml
 ```
-## EXAMPLES
+## EXAMPLES .yml files
 
-```sh
 ### application.yml
 
+```sh
 DOMAIN: www.kepasa.mx
 ENAIL_ADDRESS: reader@kepasa.mx
 GMAIL_USERNAME: your_google_email@gmail.com
@@ -50,9 +50,9 @@ SECRET_KEY_BASE: 66a353b3dc7b23582c9da470677bb941ef6bd07a59a576ef3e78a03532a2a0f
 [^1]: YOU CAN CHANGE the SECRET_KEY_BASE launch from the the root app $ rake test
 ```
 
-```sh
 ### database.yml
 
+```sh
 default: &default
   adapter: sqlite3
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -71,9 +71,9 @@ production:
   database: db/production.sqlite3
 ```
 
-```sh
 ### secrets.yml
 
+```sh
 development: <%= ENV["SECRET_KEY_BASE"] %>
 
 test:
@@ -84,7 +84,6 @@ production:
 ```
 
 ```sh
-
 after that launch the follow commands
 
 $ bundle
@@ -139,8 +138,8 @@ MIT LICENSE, see the LICENSE file for further information
 
 # Brand Logo Licence 
 
-The Kepasa logo designed by [José Luis Arraño] (https://www.facebook.com/joseluis.arrano) is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.
+The Kepasa logo designed by [José Luis Arraño](https://www.facebook.com/joseluis.arrano) is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.
 
 ciao!
 
-[@Astr0surf3r] (https://twitter.com/Astr0surf3r)
+[@Astr0surf3r](https://twitter.com/Astr0surf3r)
