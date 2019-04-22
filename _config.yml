@@ -1,5 +1,5 @@
 theme: jekyll-theme-minimal
 title: [KEPASA]
 description: [Open Source Feed Rss Reader]
-logo: ["app/assets/images/logo.40px.png"]
+logo: ["/app/assets/images/logo.40px.png"]
 show_downloads: ["true"]
