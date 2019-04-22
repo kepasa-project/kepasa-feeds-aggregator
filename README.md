@@ -36,18 +36,21 @@ application.yml
 database.yml
 secrets.yml
 ```
-## SO YOU WILL HAVE
+## EXAMPLES
 
+```sh
 ### application.yml
 
 DOMAIN: www.kepasa.mx
 ENAIL_ADDRESS: reader@kepasa.mx
 GMAIL_USERNAME: your_google_email@gmail.com
 GMAIL_PASSWORD: your_google_password
-SECRET_KEY_BASE: 66a353b3dc7b23582c9da470677bb941ef6bd07a59a576ef3e78a03532a2a0f0b7b0b44a910289288bfebf6328dc3754f1d80cfaa10f1f64b6e16bfeafc8989e
+SECRET_KEY_BASE: 66a353b3dc7b23582c9da470677bb941ef6bd07a59a576ef3e78a03532a2a0f0b7b0b44a910289288bfebf6328dc3754f1d80cfaa10f1f64b6e16bfeafc8989e [^1]
 
-YOU CAN CHANGE the SECRET_KEY_BASE launch from the the root app $ rake test
+[^1]: YOU CAN CHANGE the SECRET_KEY_BASE launch from the the root app $ rake test
+```
 
+```sh
 ### database.yml
 
 default: &default
@@ -66,7 +69,9 @@ test:
 production:
   <<: *default
   database: db/production.sqlite3
+```
 
+```sh
 ### secrets.yml
 
 development: <%= ENV["SECRET_KEY_BASE"] %>
@@ -76,6 +81,7 @@ test:
 
 production:
   secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
+```
 
 ```sh
 
