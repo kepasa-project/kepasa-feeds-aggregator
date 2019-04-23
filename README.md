@@ -1,19 +1,18 @@
 # Kepasa-FAOSS: Kepasa-Feed Aggregator Open Source Software 
 
-### A social feeds RSS aggregator network to share the last news with your fellows
+### A FEEDS RSS Aggregator stay tuned for News, Blog
 
-do you want install [Kepasa.co](http://www.kepasa.co) and use it in dev mode follow these steps (recommend using in dev and production [Postgresql](http://www.postgresguide.com/))
+Do you want install [Kepasa.co](http://www.kepasa.co) and use it in dev mode follow these steps (recommend using in dev and production [Postgresql](http://www.postgresguide.com/))
 
 before to install the web app in your local machine install the 
 
 - Ruby version (2.4.1)
 - Rails version (5.1.0)
-- Redis Server  
+- Redis Server (4.0.2)
 
 To install Ruby in a Unix-Like Machine (Ubuntu) you can use [RVM](https://rvm.io/rvm/install)
 To install Ruby in a Windows or MAC OSX Machine you can use [Rails Installer](https://rvm.io/rvm/install)
-
-to install [redis server](http://redis.io/download)
+To install [redis server](http://redis.io/download)
 
 When you have installed all this stuff 
 
