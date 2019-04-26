@@ -1,1 +1,5 @@
+title: "KEPASA"
+description: "An Open Source Feed Aggregator"
 theme: jekyll-theme-minimal
+logo: "app/assets/images/logo.40px.png"
+show_downloads: "true"
