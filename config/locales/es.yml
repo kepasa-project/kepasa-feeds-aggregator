@@ -42,6 +42,8 @@ es:
     new_recommended_feed: "Nuevo Feeds Recomandados"
     language: "idioma"
     new_category: "Nueva Categoria"
+    edit_category: "Modificar Categoria"
+    delete_category: "Borrar Categoria"
   footer:
     slogan: "Kepasa Ⓒ las ultimas noticias en linea"
     project: "desarrollado por "

@@ -28,7 +28,8 @@ en:
     new_recommended_feed: "New Feed Recommended"
     language: "language"
     new_category: "New Category"
-
+    edit_category: "Edit"
+    delete_category: "Delete"
   footer:
     slogan: "Kepasa Ⓒ the last Feeds!"
     project: "an open source project "

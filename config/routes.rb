@@ -12,8 +12,9 @@ Rails.application.routes.draw do
 
     get '/dashboard', to: "dashboard#index", as: :dashboard
     
-    resources :recommended_feeds
     resources :categories
+    resources :recommended_feeds
+    
         
   end
   # end snippet to delete

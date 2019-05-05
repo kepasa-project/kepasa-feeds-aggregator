@@ -3,7 +3,9 @@ module Admin
 
 		layout "admin"
 		
-		before_action :set_category, only: [:show]
+		before_action :authenticate_user!
+
+		before_action :set_category, only: [:show, :edit, :destroy, :update]
 
 		def index
 			@categories = Category.all.where(language: I18n.locale)
@@ -30,6 +32,24 @@ module Admin
 				render :new
 			end
 
+		end
+
+		def edit
+
+		end
+
+		def update
+
+			respond_to do |format|
+				if @category.update(category_params)
+					format.html { redirect_to admin_categories_path, notice: 'Category was successfully updated.'}
+	        		format.json { head :no_content }
+	      		else
+	        		format.html { render action: "edit" }
+	        		format.json { render json: @category.errors, status: :unprocessable_entity }
+	      		end
+			end
+		
 		end
 
 		private

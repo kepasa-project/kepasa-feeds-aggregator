@@ -2,6 +2,8 @@ module Admin
 	class DashboardController < AdminBaseController
 
 		layout "admin"
+		
+		before_action :authenticate_user!
 
 		def index
 

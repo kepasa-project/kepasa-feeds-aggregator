@@ -1,32 +1,37 @@
 <%= form_with(model: category, url: form_url , local: true) do |form| %>
-  <% if category.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
+      <% if category.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
 
-      <ul>
-      <% category.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <ul>
+          <% category.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :category_name, required: :true %>
-  </div>
+      <div class="form-group">
+        <%= form.label :name %> <br />
+        <%= form.text_field :name, id: :category_name, required: :true %>
+      </div>
 
-  <div class="field">
-    <%= form.label :language %>
-    <%= form.text_field :language, id: :category_language, required: :true %>
-  </div>
+      <div class="form-group">
+        <%= form.label :language %> <br />
+        <%#= form.select :language, id: :category_language, required: :true %>
+        <%= form.select(:language, options_for_select(Category.languages)) %>
+      </div>
+      
+      <div class="form-group">
+        <%= form.label :category_logo %>
+        <% if Category.exists?(@category.id) == true %>
+        <%= form.file_field :category_logo, id: :category_category_logo  %>
+        <% else %>
+        <%= form.file_field :category_logo, id: :category_category_logo, required: :true  %>
+        <% end %>
+      </div> <br />
 
-  <div class="field">
-    <%= form.label :category_logo %>
-    <%= form.file_field :category_logo, id: :category_category_logo, required: :true %>
-  </div> <br />
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    <% end %>
