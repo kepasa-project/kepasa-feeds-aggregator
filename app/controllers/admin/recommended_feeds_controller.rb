@@ -3,6 +3,7 @@ module Admin
 
 		layout "admin"
 		
+		before_action :set_recommended_feed, only: [:show, :edit, :show, :update]
 		before_action :authenticate_user!
 
 		def index
@@ -17,6 +18,10 @@ module Admin
 
 			#@category = Category.find(params[:category_id])
 			@recommended_feed = RecommendedFeed.new
+
+		end
+
+		def edit
 
 		end
 
@@ -57,10 +62,24 @@ module Admin
 		  	end
 		end
 		
+		def update
+
+			respond_to do |format|
+				if @recommended_feed.update(params[:recommended_feed].permit!)
+					format.html { redirect_to admin_recommended_feeds_path, notice: 'Category was successfully updated.'}
+	        		format.json { head :no_content }
+	      		else
+	        		format.html { render action: "edit" }
+	        		format.json { render json: @recommended_feed.errors, status: :unprocessable_entity }
+	      		end
+			end
+		
+		end
+
 		private
 
 		def set_recommended_feed
-			RecommendedFeed.find(params[:id])
+			@recommended_feed = RecommendedFeed.find(params[:id])
 		end
 
 		def recommended_feed_params

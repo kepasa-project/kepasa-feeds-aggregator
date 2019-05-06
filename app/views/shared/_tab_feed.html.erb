@@ -1,4 +1,4 @@
 <ul class="nav nav-tabs">
     <li <%= "class='active'".html_safe if url_for == "/#{I18n.locale}/users/#{params[:user_id]}/feeds/new" %> > <%= link_to "#{I18n.t("feed.add_your_own_feed")}".html_safe, new_user_feed_path(current_user) %> </li>
-    <li <%= "class='active'".html_safe if url_for == "/#{I18n.locale}/categories" %> > <%= link_to "#{I18n.t("feed.add_recommended_feed")}".html_safe, categories_path %> </li>
+    <li <%= "class='active'".html_safe if url_for == "/#{I18n.locale}/categories" || url_for == "/#{I18n.locale}/categories/#{params[:id]}" %> > <%= link_to "#{I18n.t("feed.add_recommended_feed")}".html_safe, categories_path %> </li>
 </ul>

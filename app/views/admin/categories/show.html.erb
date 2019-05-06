@@ -5,41 +5,35 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Category:</strong>
-  <%= @category.name %>
+  <h1><%= @category.name %></h1>
+</p>
+
+<p>
+  <%= check_thumbnail(@category) %>
 </p>
 
 <p>
   <strong>Language:</strong>
   <%= @category.language %>
 </p>
-
-<p>
-  
-  <%= check_thumbnail(@category) %>
-
-  <!-- <strong>Category logo:</strong> -->
-  <%#= image_tag(@user.avatar_url) if @user.avatar? %>
-  <%#= image_tag(@category.category_logo.url(:thumb)) if @category.category_logo.url(:thumb).nil? %>
-
-</p>
-
+<%= link_to 'Edit Category', edit_admin_category_path(@category) %> |
+<%= link_to 'All Categories', admin_categories_path %>
+<h3> Recommended Feeds </h3>
 <% @recommended_feeds.each do |rf| %>
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-lg-6 text-right">
-			ciao1 <%= link_to rf.title, "#" %>
+			<p><%= image_tag "#{rf.logo_url(:thumb)}" if rf.logo.present? %> </p>
+			<%= link_to "<i class='fa fa-pencil'></i>".html_safe, edit_admin_recommended_feed_path(rf) %> |
+<%= link_to "<i class='fa fa-remove'></i>".html_safe, admin_recommended_feed_path(rf), method: :delete %>
 		</div>
 		<div class="col-lg-6 text-left">
-			ciao2 <%= link_to rf.title, "#" %>
+			<p><%= link_to rf.title, "#" %></p>
+			<p><%= rf.description %></p>
 		</div>
 	</div>
 </div>
 <% end %>
-
-
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
 
 </div>
 </div>

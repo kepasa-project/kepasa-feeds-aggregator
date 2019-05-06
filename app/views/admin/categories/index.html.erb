@@ -30,12 +30,28 @@ div.desc {
 
       <h1><%= I18n.t("admin.categories") %></h1>
 
-      <h4><%= I18n.t("admin.language") + @language.to_s %> </h4>
+      <h4><%= I18n.t("admin.language") + " " + @language.to_s %> </h4>
 
       <h5> <%= link_to I18n.t("admin.new_category"), new_admin_category_path %> </h5>
 
       </div>
   </div>
+  <div class="row">
+    <% @categories.each do |category| %>
+        <div class="col-lg-4 text-center">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <p><%= image_tag "#{category.category_logo_url(:thumb)}" if category.category_logo.present? %> </p>
+              <h5> <%= link_to category.name, admin_category_path(category) %> </h5>
+              <p align="center"><%= link_to I18n.t("admin.edit_category"), edit_admin_category_path(category) %> | <%= link_to I18n.t("admin.delete_category"), admin_category_path(category), method: :delete, data: {confirm: "Are You Sure?"} %></p>
+              
+            </div>
+          </div>
+        </div>
+      
+    <% end %>
+    </div>
+
   <div class="row">
     <div class="col-lg-2 text-center">
     
@@ -45,23 +61,23 @@ div.desc {
 
       
       
-
-      <% @categories.each do |category| %>
+<!--
+      <%# @categories.each do |category| %>
 
       <div class="gallery">
-        <%= image_tag "#{category.category_logo.url}" %> 
-      <div class="desc"><%= link_to category.name, category_path(category) %>
+        <%#= image_tag "#{category.category_logo.url}" %> 
+      <div class="desc"><%#= link_to category.name, category_path(category) %>
         
-        <p> <%= link_to I18n.t("admin.edit_category"), edit_admin_category_path(category) %> | <%= link_to I18n.t("admin.delete_category"), admin_category_path(category), method: :delete, data: {confirm: "Are You Sure?"} %> </p>
+        <p> <%#= link_to I18n.t("admin.edit_category"), edit_admin_category_path(category) %> | <%#= link_to I18n.t("admin.delete_category"), admin_category_path(category), method: :delete, data: {confirm: "Are You Sure?"} %> </p>
 
       </div>
       </div>
       
-      <% end %>
+      <%# end %>
 
       
       <br />
-
+-->
       <%#= link_to 'New Category', new_category_path %>
 
     </div>

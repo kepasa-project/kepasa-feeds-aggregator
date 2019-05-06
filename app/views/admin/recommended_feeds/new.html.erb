@@ -6,7 +6,7 @@
 
 <%#= render 'form', recommended_feed: @recommended_feed %>
 <%#= render 'form', recommended_feed: @recommended_feed %>
-<%= render "form", form_url: admin_recommended_feeds_path, submit_label: I18n.t("create") %>
+<%= render "form", form_url: admin_recommended_feeds_path, recommended_feed: @recommended_feed, submit_label: I18n.t("create") %>
 <%#= link_to 'Back', recommended_feeds_path %>
 
 		</div>

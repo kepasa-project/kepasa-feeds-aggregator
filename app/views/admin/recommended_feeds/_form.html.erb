@@ -1,6 +1,7 @@
 <%#= form_for [:admin, @recommended_feed] do |form| %>
 <%#= form_for admin_recommended_feeds_path(@recommended_feed) do |form| %>
-<%= form_for @recommended_feed, url: form_url do |form| %>
+<%#= form_for @recommended_feed, url: form_url do |form| %>
+<%= form_with(model: recommended_feed, url: form_url , local: true) do |form| %>
   <% if @recommended_feed.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@recommended_feed.errors.count, "error") %> prohibited this recommended_feed from being saved:</h2>

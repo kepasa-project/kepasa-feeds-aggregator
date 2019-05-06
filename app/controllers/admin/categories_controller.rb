@@ -8,8 +8,11 @@ module Admin
 		before_action :set_category, only: [:show, :edit, :destroy, :update]
 
 		def index
-			@categories = Category.all.where(language: I18n.locale)
-			@language = I18n.locale
+
+			current_language = Category.current_language
+			@categories = Category.all.where(language: current_language)
+			@language = current_language
+			
 		end
 
 		def new

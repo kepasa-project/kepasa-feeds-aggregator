@@ -3,8 +3,9 @@ class CategoriesController < ApplicationController
 	before_action :set_category, only: [:show]
 
 	def index
-		@categories = Category.all.where(language: I18n.locale)
-		@language = I18n.locale
+		current_language = Category.current_language
+		@categories = Category.all.where(language: current_language)
+		@language = current_language
 	end
 
 	def show
