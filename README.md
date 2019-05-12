@@ -85,15 +85,10 @@ production:
 ```sh
 after that launch the follow commands
 
-$ bundle
-$ rake db:setup (this create the database and tables)
-$ rake db:seed (this create the first USER and the first FEED)
-```
-
-```sh
 $ gem install bundler --no-rdoc --no-ri
 $ bundle
 $ rake db:setup
+$ rake db:seed (this create the first USER and the first FEED)
 ```
 
 ```sh
