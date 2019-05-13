@@ -1,12 +1,11 @@
 source 'https://rubygems.org'
 
-git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
-  "https://github.com/#{repo_name}.git"
-end
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+
+ruby '2.5.0'
 
 # Bundle edge Rails instead:
-gem 'rails', '5.1.0'
+gem 'rails', '5.2.0'
 
 gem 'feedjira'
 gem 'nokogiri'
@@ -16,7 +15,7 @@ gem 'nokogiri'
 # in production environments by default.
 gem 'pg', '~> 0.20'
 
-gem 'puma', '~> 3.7'
+gem 'puma', '~> 3.11'
 
 # auth/authorization + avatar system
 gem 'devise'
@@ -65,7 +64,7 @@ gem 'kaminari'
   gem 'bootstrap-sass', '~> 3.2.0'
 
   # See https://github.com/rails/execjs#readme for more supported runtimes
-  # gem 'therubyracer', platforms: :ruby
+  # gem 'mini_racer', platforms: :ruby
   
   # Use CoffeeScript for .coffee assets and views
   gem 'coffee-rails', '~> 4.2'
@@ -85,8 +84,10 @@ gem 'kaminari'
 
     gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
     # Adds support for Capybara system testing and selenium driver
-    gem 'capybara', '~> 2.13.0'
+    gem 'capybara', '>= 2.15', '< 4.0'
     gem 'selenium-webdriver'
+    # Easy installation and use of chromedriver to run system tests with Chrome
+    gem 'chromedriver-helper'
     gem 'rubocop', '~> 0.65.0', require: false
 
   end
@@ -121,13 +122,14 @@ gem 'kaminari'
 
 # To use Jbuilder templates for JSON
 gem 'jbuilder', '~> 2.5'
+
 # Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 3.0'
+# gem 'redis', '~> 4.0'
 
 gem "font-awesome-rails"
 gem "foreman"
 gem 'carrierwave', '~> 1.0'
-gem "mini_magick"
+gem "mini_magick", '~> 4.8'
 
 # fetch resources from feed
 gem 'link_thumbnailer'
@@ -137,6 +139,12 @@ gem 'metainspector'
 
 #
 gem 'rails-timeago', '~> 2.0'
+
+#
+gem "actionview", ">= 5.1.6.2"
+
+# Reduces boot times through caching; required in config/boot.rb
+gem 'bootsnap', '>= 1.1.0', require: false
 
 # Use unicorn as the app server
 #gem 'unicorn'

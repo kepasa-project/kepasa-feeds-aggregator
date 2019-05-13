@@ -1,0 +1,110 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+ph:
+  activerecord:
+    models:
+      recommended_feed:
+    attributes:
+      recommended_feed:
+        logo: "Logo"
+        rssurl: "Feed Address"
+        title: "Titolo"
+        description: "Deskripsiyon"
+        category: "Kategorya"
+  mailboxer:
+    message_mailer:
+      subject_new: "Bagong Paksa sa kepasa.co: %{subject}"
+      subject_reply: "Tugon mula sa kepasa.co: %{subject}"
+    notification_mailer:
+      subject: "Bagong abiso mula sa kepasa.co: %{subject}"
+
+  feed_message_error: "Hindi mo pwede idagdag kapag meron na o maglagay ng maling feed!"
+
+  admin:
+    welcome: "Maligayang pagbabalik sa  Control Panel"
+    categories: "Mga Kategorya"
+    recommended_feeds: "Mga Rekomendasyon na Feeds"
+    new_recommended_feed: "Mga bagong Rekomendasyon na Feeds"
+    language: "Linguahe"
+    new_category: "Bagong Kategorya"
+
+  footer:
+    slogan: "Kepasa Ⓒ Mga Bagong Feeds!"
+    project: "Proyektong Open-Source"
+    download: "download"
+
+  header:
+    add_feed: "Magdagdag ng Feed"
+    news: "Mga Balita ko"
+    feeds: "Mga Feeds ko"
+    keywords: "Pangunahing salita"
+    search: "Hanapin"
+    home: "Home"
+    dashboard: "Dashboard"
+    update: "Pagbabago"
+    hi: "Hi"
+    profile: "Ang Profile ko"
+    bookmarks: "Mga Bookmarks"
+    sign_out: "Sign Out"
+
+  home:
+    feed_titles: "Titolo ng Feeds"
+    tags: "Tags"
+    updated: "Nabago"
+
+  feed:
+    add_your_own_feed: "Idagdag ang iyong Feed"
+    add_recommended_feed: "Idagdag ang nirerekomendang Feed"
+    you_are_here: "Nandito ka"
+    show_news_of_follow_feed: "Mga balita sa inaabangan na Feed"
+    rss_feeds: "RSS Feeds ng "
+    feed_title: "Titolo ng feed"
+    feed_follow_by: "ay FEED na inaabangan ni "
+    tags: "Tags"
+    news: "Mga Balita"
+    update: "Baguhin"
+    updated: "Nabago"
+    edit: "Baguhin ang Feed"
+    delete: "Burahin ang Feed"
+    delete_message: "Gusto mo ba burahin ang FEED na ito?"
+    label_form: "Gusto mo ba magdagdag ng RSS FEED?"
+    insert: "Dito mo ipasa ang RSS FEED "
+    tags_list: "Dito mo idagdag ang tags (gamitin ang comma para paghiwalayin)"
+    insert_button: "Idagdag ang bagong FEED"
+    update_button: "Baguhin ang FEED mo"
+    create_new_feed: "Gumawa ng bagong FEED"
+
+  feedlist:
+    you_are_here: "Nandito ka "
+    all_my_news: "Lahat ng aking mga Balita "
+    searched_terms: "Mga hinanap na Tema"
+    add_to_bookmarks: "Idagdag sa aking Bookmarks"
+    share: "Ipamahagi"
+    share_via_twitter: "Ipamahagi via Twitter"
+    share_via_facebook: "Ipamahagi via Facebook"
+    share_via_email: "Ipamahagi via Email"
+    visited: "Nabisita na"
+    source: "Source >>"
+    click: "Pindutin"
+    here: "dito"
+    read_original_article: "para basahin ang orihinal na articolo"
+    title: "Titolo"
+
+  dashboard:
+    all_my_feeds: "Lahat ng aking Feeds"
+    all_my_news: "lahat ng aking balita"
+    last_feeds: "Huling 5 Feeds na naidagdag"
+    last_feedlists: "Huling 5 Feeds na nakuha"
+    all_my_bookmarks: "Lahat ng aking Bookmarks"
+    last_bookmarks: "Huling Bookmarks"
+    feed_title: "Titolo"
+    feed_tags: "Tags"
+    feed_date: "Petsa"
+    feed_feedlist: "Feed"
+    feedlist_title: "Titolo"
+    feedlist_tags: "Tags"
+    feedlist_date: "Petsa"
+
+  bookmark:
+    you_are_here: "Nandito ka ngayon"
+    create_new_bookmark: "Gumawa ng bagong Bookmark"
