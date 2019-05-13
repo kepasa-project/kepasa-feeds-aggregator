@@ -1,20 +1,13 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create({{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create({name: 'Emanuel', city: cities.first)
+require 'link_thumbnailer'
 
-=begin
-User.delete_all
-user = User.create(username: 'Reader', email: 'reader@kepasa.mx', password: 'password', password_confirmation: 'password')
+User.where(username: 'Reader', email: 'reader@kepasa.mx', encrypted_password: 'password').first_or_create
+Feed.where(rssurl: 'https://www.wired.com/feed/category/science/latest/rss', title: 'Science Tech', tag_list: 'science', user_id: 1).first_or_create
 
-puts 'Created the First User'
+puts 'Created the First User and the First Feed'
 
 if File.exists?("#{Rails.root}/lib/personal_feeds.txt")
 
-	puts 'Creating ... Personal Feeds' 
+	puts 'Creating ... populate Personal Feeds table' 
 
 	Feed.delete_all
 	open("#{Rails.root}/lib/personal_feeds.txt") do |feed|
@@ -25,12 +18,8 @@ if File.exists?("#{Rails.root}/lib/personal_feeds.txt")
 	end
 
 end
-=end
 
-#feed = Feed.create(rssurl: 'https://www.wired.com/feed/category/science/latest/rss', title: 'Science Tech', tag_list: 'science', user_id: 1)
-require 'link_thumbnailer'
-
-puts 'Creating ... Categories from a file to populate'
+puts 'Creating ... populate Categories table'
 
 Category.delete_all
 open("#{Rails.root}/lib/categories.txt") do |category|
@@ -38,20 +27,21 @@ open("#{Rails.root}/lib/categories.txt") do |category|
   		name, image, language = data.chomp.split("|")
     	image_src = "#{Rails.root}/app/assets/images/categories/#{image}.jpg"
     	src_file = File.new(image_src)
-    	puts "Created #{name} Category"
     	category = Category.create(:name => name, :category_logo => src_file, :language => language)
-  		#category.update
+  		puts "Created #{name} Category"
   	end
 end
 
-puts 'Creating ... Recommended Feeds from a file to populate'
+puts 'Creating ... populate Recommended Feeds table'
 
-#=begin
-#RecommendedFeed.delete_all
-#open("#{Rails.root}/lib/recommended_feeds.txt") do |recommended_feed|
-#	recommended_feed.read.each_line do |data|
-#  		name, language = data.chomp.split("|")
-#    	Category.create!(:name => code, :language => language)
-#  	end
-#end
-#=end
+RecommendedFeed.delete_all
+open("#{Rails.root}/lib/recommended_feeds.txt") do |recommended_feed|
+	recommended_feed.read.each_line do |data|
+  		title, image, rssurl, category_name, tag_list = data.chomp.split("|")
+  		category = Category.find_by_name(category_name)
+  		image_src = "#{Rails.root}/app/assets/images/recommended_feeds/#{image}.jpg"
+  		src_file = File.new(image_src)
+  		recommended_feed = RecommendedFeed.create(:rssurl => rssurl, :logo => src_file, :language => language, category_ids: category.id, tag_list: tag_list)
+  		puts "Created #{title} Recommended Feed"    	
+  	end
+end

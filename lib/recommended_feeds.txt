@@ -1,14 +1,4 @@
-ComingSoon.it: Classifica dei 10 film più visti in Italia|https://scenarieconomici.it/feed/|1
-Cripto Monete Italia|https://www.criptomonete-italia.com/feed/|1
-pettegolezzo|italiano|
-tendenze|italiano|
-scienza|italiano|
-fumetti|italiano|
-viaggi|italiano|
-cinema|italiano|
-tecnología|español
-moda|español
-videojuegs|español
-gastronomía|español
-cine|español
-ciencia|español
+Wired|Wired|https://www.wired.com/feed/category/gear/latest/rss|Tech|tech, gear
+TechCrunch|TechCrunch|http://feeds.feedburner.com/TechCrunch/greentech|Tech|tech, green
+PcWorld|PCWorld|https://www.pcworld.com/index.rss|Tech|tech
+The Next Web RSS Feed|NextWeb|feeds.feedburner.com/thenextweb|Tech|tech

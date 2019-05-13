@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.0'
+ruby '2.5.1'
 
 # Bundle edge Rails instead:
 gem 'rails', '5.2.0'
@@ -94,7 +94,7 @@ gem 'kaminari'
 
   group :development do
 
-    gem 'sqlite3'
+    gem 'sqlite3', '~> 1.3.6'
     gem 'web-console', '~> 3.5.1'
     gem 'listen', '>= 3.0.5', '< 3.2'
     # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
