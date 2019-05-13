@@ -6,8 +6,8 @@ Do you want install [Kepasa.co](http://www.kepasa.co) and use it in dev mode fol
 
 before to install the web app in your local machine install the 
 
-- Ruby version (2.4.1)
-- Rails version (5.1.0)
+- Ruby (2.5.1)
+- Rails (5.2.0)
 - Redis Server (4.0.2)
 
 To install Ruby in a Unix-Like Machine (Ubuntu) you can use [RVM](https://rvm.io/rvm/install)
