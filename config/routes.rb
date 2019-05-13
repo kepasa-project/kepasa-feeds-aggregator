@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # access to the jobs in the queue domainapp/sidekiq
   mount Sidekiq::Web, at:'/sidekiq'
 
-  scope '(:locale)', :locale => /en|es/ do
+  scope '(:locale)', :locale => /en|es|it|tl/ do
 
   #maybe we have to delete the follow?
   namespace :admin do

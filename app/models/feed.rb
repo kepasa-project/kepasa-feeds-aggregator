@@ -3,7 +3,7 @@ class Feed < ActiveRecord::Base
   
   acts_as_taggable_on :tags
   
-  belongs_to :user
+  belongs_to :user, required: false
   has_many :feedlists, :dependent => :destroy
   #has_many :relationships
   #has_many :users, through: :relationships
@@ -13,7 +13,7 @@ class Feed < ActiveRecord::Base
   validates :rssurl, presence: :true
   validates :rssurl, :uniqueness => {:scope => :user_id}
   validates :rssurl, url: true
-  validates :tag_list, presence: :true 
+  #validates :tag_list, presence: :true, :allow_blank => true
 
   # line for the feed on the user show page
   # scope :from_users_followed_by, lambda { |user| followed_by(user) }
