@@ -3,7 +3,7 @@ module Admin
 
 		layout "admin"
 		
-		before_action :set_recommended_feed, only: [:show, :edit, :show, :update]
+		before_action :set_recommended_feed, only: [:show, :edit, :update, :destroy]
 		before_action :authenticate_user!
 
 		def index
@@ -62,6 +62,20 @@ module Admin
 		  	end
 		end
 		
+		def destroy
+
+			respond_to do |format|
+				if @recommended_feed.destroy
+					format.html {redirect_to request.referrer, notice: 'Recommended Feed was successfully deleted.'}
+	        		format.json { head :no_content }
+	      		else
+	        		format.html { render action: "edit" }
+	        		format.json { render json: @recommended_feed.errors, status: :unprocessable_entity }
+	      		end
+	    	end
+
+		end
+
 		def update
 
 			respond_to do |format|

@@ -1,0 +1,11 @@
+#pusher_app_id: "2954"
+#pusher_key: "7381a978f7dd7f9a1117"
+#pusher_secret: "abdc3b896a0ffb85d373"
+
+
+PRO_WEBAPP_PATH: /to/path/kepasa
+WEB_IP_ADDRESS: xxx.xxx.xx.x
+WEB_USER: example_user
+WEB_SSH_PORT: 22
+DOMAIN: "www.kepasa.co"
+SECRET_KEY_BASE: "6fa8e6719fc36622ff7f5783ba5af4dc3f9467ecf5d44368b2b27ed95e1fbbbc44a83ef8035ecf1781d199e4b99393d7951b7f13414cfe69c8c747f4f8c03637"
