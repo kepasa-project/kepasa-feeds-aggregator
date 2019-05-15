@@ -28,7 +28,7 @@ $ cd .
 In the kepasa-feeds-aggregator/config/ directory you have to rename
 
 application-example.yml	
-database-sqlite3-example.yml (if you want use sqlite)
+database-sqlite3-example.yml (if you want use **sqlite3**)
 secrets-example.yml
 
 with
@@ -122,13 +122,13 @@ What is missing in ***KEPASA**?
 
 # Contributing
 
- If you want contribute as developer or simply find a bug are welcome on GitHub at [https://github.com/kepasa-project/kepasa-feeds-aggregator](https://github.com/kepasa-project/kepasa-feeds-aggregator) I found a nice how-to link here:\
+ If you want contribute as developer or simply find a bug are welcome on GitHub at [https://github.com/kepasa-project/kepasa-feeds-aggregator](https://github.com/kepasa-project/kepasa-feeds-aggregator) I found a nice how-to here:
 
 https://akrabat.com/the-beginners-guide-to-contributing-to-a-github-project/ 
 
 # Donation
 
-if you want to support the project you can send a donation to any of the following cryptocurrencies addresses:
+if you want support the project you can send a donation to any of the following cryptocurrencies addresses:
 
 ```sh
 BITCOIN: 1ET3io4sXiDJ5GuGmF9UcYw6uHRxMUvfSD
