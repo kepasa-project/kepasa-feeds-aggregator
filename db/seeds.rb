@@ -43,10 +43,11 @@ RecommendedFeed.delete_all
 open("#{Rails.root}/lib/recommended_feeds.txt") do |recommended_feed|
 	recommended_feed.read.each_line do |data|
   		title, image, rssurl, category_name, tag_list = data.chomp.split("|")
-  		category = Category.find_by_name(category_name)
+  		puts "Category found: #{category_name}"
+      category = Category.find_by_name(category_name)
   		image_src = "#{Rails.root}/app/assets/images/recommended_feeds/#{image}.jpg"
   		src_file = File.new(image_src)
-  		recommended_feed = RecommendedFeed.create(:rssurl => rssurl, :logo => src_file, category_ids: category.id)
+  		recommended_feed = RecommendedFeed.create(:title => title, :rssurl => rssurl, :logo => src_file, category_ids: category.id)
   		puts "Created #{title} Recommended Feed"    	
   	end
 end
