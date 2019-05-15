@@ -122,6 +122,12 @@ What is missing in ***KEPASA**?
 
 - a TDD system
 
+# Contributing
+
+ If you want contribute as developer or simply find a bug are welcome on GitHub at [https://github.com/kepasa-project/kepasa-feeds-aggregator](https://github.com/kepasa-project/kepasa-feeds-aggregator) I found a nice how-to link here:\
+
+https://akrabat.com/the-beginners-guide-to-contributing-to-a-github-project/ 
+
 # Donation
 
 if you want to support the project you can send a donation to any of the following cryptocurrencies addresses:
@@ -131,12 +137,6 @@ BITCOIN: 1ET3io4sXiDJ5GuGmF9UcYw6uHRxMUvfSD
 ETHER: 0x33BCA6E4dfd6D650D9d1347c4fA375fe98A3C264
 BITCOIN CASH: qq4hj20vyrgsm48tapvawtwssjst2mkn25rry0t0z8
 ```
-
-# Contributing to the code
-
-If you want contribute as developer a nice how-to link here:\
-
-https://akrabat.com/the-beginners-guide-to-contributing-to-a-github-project/ 
 
 # License
 
