@@ -10,9 +10,9 @@ before to install the web app in your local machine install the
 - **Rails** (5.2.0)
 - **Redis** (4.0.2)
 
-To install **Ruby** in a Unix-Like Machine (e.g.: Ubuntu) you can use [RVM](https://rvm.io/rvm/install)
-If you have a Windows or MAC OSX Machine to install **Ruby** you can use [Rails Installer](https://rvm.io/rvm/install)
-**Rails** (also known as **Ruby On Rails**) is included in the installation of **RVM** or **Rails Installer**
+To install **Ruby** in a Unix-Like Machine (e.g.: Ubuntu) you can use [RVM](https://rvm.io/rvm/install).
+If you have a Windows or MAC OSX Machine to install **Ruby** you can use [Rails Installer](https://rvm.io/rvm/install).
+**Rails** (also known as **Ruby On Rails**) is included in the installation of **RVM** or **Rails Installer**.
 For **Redis** a NoSQL Database click [here](http://redis.io/download)
 
 When you have installed all this stuff
