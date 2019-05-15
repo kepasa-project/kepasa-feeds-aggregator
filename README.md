@@ -15,7 +15,7 @@ If you have a Windows or MAC OSX Machine to install **Ruby** you can use [Rails 
 **Rails** (also known as **Ruby On Rails**) is included in the installation of **RVM** or **Rails Installer**.
 For **Redis** a NoSQL Database click [here](http://redis.io/download)
 
-When you have installed all this stuff
+When you have installed all this stuff from your local machine terminal
 
 ```sh
 $ git clone https://github.com/kepasa-project/kepasa-feeds-aggregator.git
