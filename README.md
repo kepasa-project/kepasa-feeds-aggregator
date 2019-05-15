@@ -1,20 +1,23 @@
-# Kepasa-FAOSS: Kepasa-Feed Aggregator Open Source Software 
+# KEPASA (version ALPHA)
 
-### A FEEDS RSS Aggregator stay tuned for News, Blog
+### A FEEDS RSS Web App Aggregator stay tuned for News, Blog
 
 Do you want install [Kepasa.co](http://www.kepasa.co) and use it in dev mode follow these steps (recommend using in dev and production [Postgresql](http://www.postgresguide.com/))
 
 before to install the web app in your local machine install the 
 
-- Ruby (2.5.1)
-- Rails (5.2.0)
-- Redis Server (4.0.2)
+- **Ruby** (2.5.1)
+- **Rails** (5.2.0)
+- **Redis** (4.0.2)
 
-To install Ruby in a Unix-Like Machine (Ubuntu) you can use [RVM](https://rvm.io/rvm/install)
-To install Ruby in a Windows or MAC OSX Machine you can use [Rails Installer](https://rvm.io/rvm/install)
-To install [redis server](http://redis.io/download)
+```sh
+To install **Ruby** in a Unix-Like Machine (ex: Ubuntu) you can use [RVM](https://rvm.io/rvm/install)
+If you have a Windows or MAC OSX Machine to install **Ruby** you can use [Rails Installer](https://rvm.io/rvm/install)
+**Rails** (also known as **Ruby On Rails**) is included in the installation of **RVM** or **Rails Installer**
+For **Redis** a NoSQL Database click [here](http://redis.io/download)
+```
 
-When you have installed all this stuff 
+When you have installed all this stuff
 
 ```sh
 $ git clone https://github.com/kepasa-project/kepasa-feeds-aggregator.git
@@ -23,6 +26,7 @@ $ cd .
 ```
 
 ```sh
+
 In the kepasa-feeds-aggregator/config/ directory you have to rename
 
 application-example.yml	
@@ -34,8 +38,9 @@ with
 application.yml	
 database.yml
 secrets.yml
+
 ```
-## EXAMPLES .yml files
+## .yml examples files
 
 ### application.yml
 
@@ -88,7 +93,7 @@ after that launch the follow commands
 $ gem install bundler --no-rdoc --no-ri
 $ bundle
 $ rake db:setup
-$ rake db:seed (this create the first USER and the first FEED)
+
 ```
 
 ```sh
@@ -96,23 +101,24 @@ $ foreman start
 ```
 
 ```sh
-If everything is ok you can go to localhost:5200 click in 'Login' and insert the following parameters
+
+If everything it's ok you can go to localhost:3000 click in 'Login' and insert the following parameters
 
 email: 'reader@kepasa.mx'
 password: 'password'
 
-and now you are in in your local copy of KEPASA
+and now you are in in your local copy of **KEPASA**
 
 ```
 
-What you can do with Kepasa.co?
+What you can do with **KEPASA**?
 
 - add your own feed RSS 
 - add your favourite new to your bookmark 
 - follow feed RSS and other user
 - add tags to the feeds
 
-What is missing in Kepasa.co?
+What is missing in ***KEPASA**?
 
 - a TDD system
 
@@ -125,6 +131,12 @@ BITCOIN: 1ET3io4sXiDJ5GuGmF9UcYw6uHRxMUvfSD
 ETHER: 0x33BCA6E4dfd6D650D9d1347c4fA375fe98A3C264
 BITCOIN CASH: qq4hj20vyrgsm48tapvawtwssjst2mkn25rry0t0z8
 ```
+
+# Contributing to the code
+
+If you want contribute as developer a nice how-to link here:\
+
+https://akrabat.com/the-beginners-guide-to-contributing-to-a-github-project/ 
 
 # License
 
