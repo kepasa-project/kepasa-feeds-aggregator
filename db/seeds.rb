@@ -39,6 +39,8 @@ end
 
 puts 'Creating ... populate Recommended Feeds table'
 
+sleep 5
+
 RecommendedFeed.delete_all
 open("#{Rails.root}/lib/recommended_feeds.txt") do |recommended_feed|
 	recommended_feed.read.each_line do |data|
