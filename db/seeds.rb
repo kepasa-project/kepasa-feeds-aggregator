@@ -33,7 +33,7 @@ open("#{Rails.root}/lib/categories.txt") do |category|
     	image_src = "#{Rails.root}/app/assets/images/categories/#{image}.jpg"
     	src_file = File.new(image_src)
     	category = Category.create(:name => name, :category_logo => src_file, :language => language)
-  		puts "Created #{name} Category"
+  		puts "Created #{category.name} Category"
   	end
 end
 
