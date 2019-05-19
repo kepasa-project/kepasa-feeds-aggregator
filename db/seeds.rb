@@ -12,7 +12,7 @@ puts 'Created the First User and the First Feed'
 
 if File.exists?("#{Rails.root}/lib/personal_feeds.txt")
 
-	puts 'Creating ... populate Personal Feeds table' 
+	puts 'Populate Personal Feeds table ...' 
 
 	Feed.delete_all
 	open("#{Rails.root}/lib/personal_feeds.txt") do |feed|
@@ -24,7 +24,7 @@ if File.exists?("#{Rails.root}/lib/personal_feeds.txt")
 
 end
 
-puts 'Creating ... populate Categories table'
+puts 'Populate Categories table ...'
 
 Category.delete_all
 open("#{Rails.root}/lib/categories.txt") do |category|
@@ -37,9 +37,7 @@ open("#{Rails.root}/lib/categories.txt") do |category|
   	end
 end
 
-puts 'Creating ... populate Recommended Feeds table'
-
-sleep 5
+puts 'Populate Recommended Feeds table ...'
 
 RecommendedFeed.delete_all
 open("#{Rails.root}/lib/recommended_feeds.txt") do |recommended_feed|
@@ -50,6 +48,6 @@ open("#{Rails.root}/lib/recommended_feeds.txt") do |recommended_feed|
   		image_src = "#{Rails.root}/app/assets/images/recommended_feeds/#{image}.jpg"
   		src_file = File.new(image_src)
   		recommended_feed = RecommendedFeed.create!(:title => title, :rssurl => rssurl, :logo => src_file, category_ids: category.id)
-  		puts "Created #{title} Recommended Feed"    	
+  		puts "Created #{recommended_feed.title} Recommended Feed"    	
   	end
 end
