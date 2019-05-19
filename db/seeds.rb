@@ -32,7 +32,7 @@ open("#{Rails.root}/lib/categories.txt") do |category|
   		name, image, language = data.chomp.split("|")
     	image_src = "#{Rails.root}/app/assets/images/categories/#{image}.jpg"
     	src_file = File.new(image_src)
-    	category = Category.create(:name => name, :category_logo => src_file, :language => language)
+    	category = Category.create!(:name => name, :category_logo => src_file, :language => language)
   		puts "Created #{category.name} Category"
   	end
 end
@@ -49,7 +49,7 @@ open("#{Rails.root}/lib/recommended_feeds.txt") do |recommended_feed|
       category = Category.find_by_name(category_name)
   		image_src = "#{Rails.root}/app/assets/images/recommended_feeds/#{image}.jpg"
   		src_file = File.new(image_src)
-  		recommended_feed = RecommendedFeed.create(:title => title, :rssurl => rssurl, :logo => src_file, category_ids: category.id)
+  		recommended_feed = RecommendedFeed.create!(:title => title, :rssurl => rssurl, :logo => src_file, category_ids: category.id)
   		puts "Created #{title} Recommended Feed"    	
   	end
 end
