@@ -88,7 +88,9 @@ gem 'kaminari'
     # Easy installation and use of chromedriver to run system tests with Chrome
     gem 'chromedriver-helper'
     gem 'rubocop', '~> 0.65.0', require: false
-
+   #this is for the rspec
+    gem 'rspec-rails' 
+    
   end
 
   group :development do
