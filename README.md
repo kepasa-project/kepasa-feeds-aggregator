@@ -108,7 +108,9 @@ password: 'password'
 and now you are in in your local copy of **KEPASA**
 
 ```
-
+---
+$ gem update --system
+---
 What you can do with **KEPASA**?
 
 - add your own feed RSS 
