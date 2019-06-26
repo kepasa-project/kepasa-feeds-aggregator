@@ -24,7 +24,23 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model. Add also :username after add a column for the Devise Model
 
   validates :email, :presence => true
+ 
+#TDD additional code
+def initialize(last_name, first_name, email)
+  attr_reader :last_name, :first_name, :email
 
+  @last_name = last_name
+  @first_name = first_name
+  @email = email
+end
+
+validates :last_name,presence: true
+validates :first_name, :presence => true
+
+
+
+
+#end TDD 
   has_many :bookmarks, :dependent => :destroy
   
   has_many :feeds
