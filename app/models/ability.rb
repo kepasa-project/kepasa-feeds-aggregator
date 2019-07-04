@@ -1,15 +1,22 @@
 class Ability
   include CanCan::Ability
 
+  attr_accessor :user, :role
   def initialize(user,role)
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)
     #   if user.admin?
+
+    ####for SPEC testing
     
     @user = user
-    @role = 'admin'
-    @has_role = has_role
+    @role = role
+  
+    
+    ####end for Spec testing
+
+
 
     if user.has_role? :admin
       can :manage, :all

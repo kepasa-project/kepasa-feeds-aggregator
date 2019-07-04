@@ -1,25 +1,36 @@
+require './spec/rails_helper.rb'
+require './spec/spec_helper.rb'
+require './app/controllers/test_user.rb'
+#class Card
+#    attr_accessor :rank, :suit
+#    def initialize(rank,suit)
+#        @rank = rank
+#        @suit = suit 
+#    end
+#end
 
-class Card
-    attr_reader :rank, :suit
-    def initialize(rank,suit)
-        @rank = rank
-        @suit = suit 
-    end
-end
 RSpec.describe  Card do
-        before do
-            #puts "Hey, I am doing a test here before its block"
-            #need to have the @ sign to be recognize as instances that can be read on the blocks
+        ###this block works
+        #def card
+        #        Card.new('Ace','Spades')
+        #end
+        ####
 
-            @card = Card.new('Ace','Spades')
-            
-        end
+        let(:card) { Card.new('Ace','Spades') }
 
-        it 'has a rank' do
-            expect(@card.rank).to eq('Ace')
+        it 'has a rank that can be change' do
+            expect(card.rank).to eq('Ace')
+            card.rank = 'Queen'
+            expect(card.rank).to eq('Queen')
         end
         it 'has a suit' do
-            expect(@card.suit).to eq('Spades')
+            expect(card.suit).to eq('Spades')
         end
-  
+        it 'has a custom error message' do
+            comparison = 'Spades'
+            expect(card.suit).to eq(comparison),"Hey, I expected #(comparison) but i got #(card.suit) instead!"
+
+        end
+ 
+        
 end
