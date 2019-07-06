@@ -12,12 +12,10 @@ class Ability
     
     @user = user
     @role = role
-  
-    
     ####end for Spec testing
 
 
-
+    
     if user.has_role? :admin
       can :manage, :all
     else
