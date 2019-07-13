@@ -1,15 +1,15 @@
 require './spec/rails_helper.rb'
 require './spec/spec_helper.rb'
-#require './app/models/ability.rb'
+require './app/models/ability.rb'
 
-class  Ability 
-    attr_accessor  :user, :has_role
-    def initialize (user,has_role)
-        @user = user
-        @has_role = has_role
+#class  Ability 
+    #attr_accessor  :user, :role
+    #def initialize (user,has_role)
+    #    @user = user
+    #    @has_role = has_role
 
-    end
-end
+    #end
+#end
 RSpec.describe Ability do
     let(:user) { Ability.new('kimi','admin') }
 
@@ -20,5 +20,8 @@ RSpec.describe Ability do
         expect(user.has_role).to eq('admin')
      end
  
+#     it 'has to has to be admin ' do
+#        expect(user.has_role?).to be_truthy
+#     end
  
 end

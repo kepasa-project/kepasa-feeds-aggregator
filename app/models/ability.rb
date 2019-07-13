@@ -1,7 +1,8 @@
 class Ability
   include CanCan::Ability
 
-  attr_accessor :user, :role
+  attr_accessor :user, :has_role
+
   def initialize(user,role)
     # Define abilities for the passed in user here. For example:
     #
@@ -12,6 +13,7 @@ class Ability
     
     @user = user
     @role = role
+    
     ####end for Spec testing
 
 
