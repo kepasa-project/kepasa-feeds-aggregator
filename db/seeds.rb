@@ -17,9 +17,13 @@ if File.exists?("#{Rails.root}/lib/personal_feeds.txt")
 	Feed.delete_all
 	open("#{Rails.root}/lib/personal_feeds.txt") do |feed|
 		feed.read.each_line do |data|
-	  		rssurl, user_id, title = data.chomp.split("|")
-	    	Feed.create!(:rssurl => rssurl, :user_id => user_id, :title => title)
-	  	end
+	  		rssurl, title, user_id, tag_list = data.chomp.split("|")
+        begin
+	    	  Feed.create!(:rssurl => rssurl, :user_id => user_id, :title => title, :tag_list => tag_list)
+	  	  rescue Exception => exc
+          puts "#{rssurl} #{exc.message}"
+        end
+      end
 	end
 
 end
@@ -42,9 +46,9 @@ puts 'Populate Recommended Feeds table ...'
 RecommendedFeed.delete_all
 open("#{Rails.root}/lib/recommended_feeds.txt") do |recommended_feed|
 	recommended_feed.read.each_line do |data|
-  		title, image, rssurl, category_name, tag_list = data.chomp.split("|")
+  		title, image, rssurl, category_name, tag_list, language = data.chomp.split("|")
   		puts "Category found: #{category_name}"
-      category = Category.find_by_name(category_name)
+      category = Category.find_by(name: category_name, language: language)
   		image_src = "#{Rails.root}/app/assets/images/recommended_feeds/#{image}.jpg"
   		src_file = File.new(image_src)
   		recommended_feed = RecommendedFeed.create!(:title => title, :rssurl => rssurl, :logo => src_file, category_ids: category.id)

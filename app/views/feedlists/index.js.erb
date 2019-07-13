@@ -2,6 +2,5 @@ $('#feedlists').append('<%= j render @feedlists %>');
 <% if @feedlists.next_page %>
   $('.pagination').replaceWith('<%= j paginate @feedlists %>');
 <% else %>
-  $(window).off('scroll');
   $('.pagination').remove();
 <% end %>

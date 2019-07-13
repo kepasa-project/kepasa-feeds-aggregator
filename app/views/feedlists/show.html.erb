@@ -48,9 +48,9 @@
                   <%= simple_format(@feedlist.summary) if !@feedlist.summary.nil? %>
                 
                 <% else %>
-
-                  <%= sanitize @feedlist.content  %>
-
+                  <div align="justify">
+                  <%= sanitize @feedlist.content.gsub("<img ", "<img align='center'")  %>
+                  </div>
                   <font size="3"><%#= simple_format(@feedlist.content) %> </font>
 
                 <% end %>
