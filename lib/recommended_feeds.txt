@@ -1,4 +1,4 @@
-Wired|Wired|https://www.wired.com/feed/category/gear/latest/rss|Tech|tech, gear
-TechCrunch|TechCrunch|http://feeds.feedburner.com/TechCrunch/greentech|Tech|tech, green
-PcWorld|PCWorld|https://www.pcworld.com/index.rss|Tech|tech
-The Next Web RSS Feed|NextWeb|feeds.feedburner.com/thenextweb|Tech|tech
+Wired|Wired|https://www.wired.com/feed/category/gear/latest/rss|Tech|tech, gear|English
+TechCrunch|TechCrunch|http://feeds.feedburner.com/TechCrunch/greentech|Tech|tech, green|English
+PcWorld|PCWorld|https://www.pcworld.com/index.rss|Tech|tech|English
+The Next Web RSS Feed|NextWeb|feeds.feedburner.com/thenextweb|Tech|tech|English
