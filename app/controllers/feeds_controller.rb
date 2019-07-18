@@ -109,6 +109,59 @@ class FeedsController < ApplicationController
 
   end
 
+  def actualiza
+
+   Feedjira::Feed.add_common_feed_entry_element("media:thumbnail", :value => :url, :as => :media_thumbnail_url)
+   Feedjira::Feed.add_common_feed_entry_element("enclosure", :value => :url, :as => :media_thumbnail_url)
+   
+   #@user = User.find(params[:user_id])
+   @user = current_user
+   
+   @feed = Feed.find(params[:id])
+
+   #feed = Feedjira::Feed.fetch_and_parse(@feed.rssurl)
+    
+    xml = HTTParty.get(@feed.rssurl).body
+
+    begin
+     feed = Feedjira::Feed.parse xml         
+    rescue Exception => exc
+     logger.error("Message for the log file #{exc.message}")
+     xml.force_encoding("UTF-8")
+     feed = Feedjira::Feed.parse xml
+    end
+
+    feed.entries.each do |entry|  
+
+      if entry.published.nil?
+
+        @datafeedlist == Time.now()
+
+       else
+       
+       @datafeedlist = entry.published
+      
+      end
+
+      unless Feedlist.where(:feed_id => @feed.id).exists? :guid => entry.id
+
+            Feedlist.create!(
+              :rssurl       => @feed.rssurl,
+              :name         => entry.title,
+              :summary      => entry.summary,
+              :url          => entry.url,    
+              :published_at => @datafeedlist,
+              :guid         => entry.id,
+              :image        => entry.media_thumbnail_url,
+              :feed_id      => @feed.id,
+              :user_id      => @user.id
+            )
+      end
+    end 
+
+   redirect_to([@user, @feed])
+  end
+
   def destroy
     @feedlists = Feedlist.where(:feed_id => @feed.id)
     @feedlists.delete_all
