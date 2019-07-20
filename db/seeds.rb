@@ -17,8 +17,8 @@ if File.exists?("#{Rails.root}/lib/personal_feeds.txt")
 	Feed.delete_all
 	open("#{Rails.root}/lib/personal_feeds.txt") do |feed|
 		feed.read.each_line do |data|
-	  		rssurl, user_id, title = data.chomp.split("|")
-	    	Feed.create!(:rssurl => rssurl, :user_id => user_id, :title => title)
+	  		rssurl, title, user_id, tags_list  = data.chomp.split("|")
+	    	Feed.create!(:rssurl => rssurl, :user_id => user_id, :title => title, tag_list: tags_list)
 	  	end
 	end
 
