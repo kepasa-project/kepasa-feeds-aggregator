@@ -124,11 +124,11 @@ class FeedsController < ApplicationController
     xml = HTTParty.get(@feed.rssurl).body
 
     begin
-     feed = Feedjira::Feed.parse xml         
+     feed = Feedjira.parse(xml)
     rescue Exception => exc
      logger.error("Message for the log file #{exc.message}")
      xml.force_encoding("UTF-8")
-     feed = Feedjira::Feed.parse xml
+     feed = Feedjira.parse(xml)
     end
 
     feed.entries.each do |entry|  

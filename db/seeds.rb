@@ -15,7 +15,8 @@ if File.exists?("#{Rails.root}/lib/personal_feeds.txt")
 	puts 'Populate Personal Feeds table ...' 
 
 	Feed.delete_all
-	open("#{Rails.root}/lib/personal_feeds.txt") do |feed|
+	Feedlist.delete_all
+  open("#{Rails.root}/lib/personal_feeds.txt") do |feed|
 		feed.read.each_line do |data|
 	  		rssurl, title, user_id, tags_list = data.chomp.split("|")
         begin
