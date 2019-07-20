@@ -22,7 +22,19 @@ class UpdateAllFeedsWorker
 #snippet added after 
 
 	        xml = HTTParty.get(@feed.rssurl).body
-			feed = Feedjira::Feed.parse xml	        
+			
+			begin
+     		
+     			feed = Feedjira::Feed.parse xml         
+    		
+    		rescue Exception => exc
+     		
+     			logger.error("Message for the log file: #{exc.message} for the feed id: #{@feed.id}")
+     			# added follow line for ASCCI-8BIT error 
+     			xml.force_encoding("UTF-8")
+     			feed = Feedjira::Feed.parse xml
+    		
+    		end	        
 
 #end snippet
 

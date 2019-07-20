@@ -18,8 +18,11 @@ class UpdatefeedskWorker
 
         @feed = Feed.where(:user_id => user, :rssurl => rssurl.to_s).last
 
-        feed = Feedjira::Feed.fetch_and_parse(@feed.rssurl)
+        #feed = Feedjira::Feed.fetch_and_parse(@feed.rssurl)
         
+        xml = HTTParty.get(@feed.rssurl).body
+        feed = Feedjira::Feed.parse xml
+
         unless feed.is_a?(Fixnum) #HTTP fetch results is not an error (i.e. not a 200 or 3XX)
 
           feed.entries.each do |entry|  
