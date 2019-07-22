@@ -21,7 +21,7 @@ class FeedsController < ApplicationController
 
       @tag = params[:tag]
 
-      @feed_tags = Feed.tagged_with(params[:tag]).page(params[:page])
+      @feed_tags = @user.feeds.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 5)
 
     else 
 
@@ -34,19 +34,13 @@ class FeedsController < ApplicationController
   
   def index
     @user = current_user
-    @feeds = current_user.feeds.page(params[:page])
+    @feeds = current_user.feeds.paginate(page: params[:page])
   
   end
 
   def show
-    #User.find_by_username()
-    auxvar = 'ciao'
-    #@user = User.find(params[:user_id])
-    
-    @feeds = current_user.feeds
     @feed = Feed.find(params[:id])
-    @feedlists = @feed.feedlists.page(params[:page])
-
+    @feedlists = @feed.feedlists.order('published_at DESC').paginate(page: params[:page])
   end
 
   def new

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Bookmark < ActiveRecord::Base
-  paginates_per 5
+  #paginates_per 5
 
   acts_as_taggable_on :tags
 

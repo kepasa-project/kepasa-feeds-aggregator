@@ -6,7 +6,7 @@ class FeedlistsController < ApplicationController
 
   def index
 
-    @feedlists = current_user.feedlists.order("published_at DESC").page params[:page]
+    @feedlists = current_user.feedlists.order("published_at DESC").paginate(page: params[:page])
 
     respond_to do |format|
       format.html
@@ -68,8 +68,7 @@ class FeedlistsController < ApplicationController
 
     list_feed_id = current_user.feeds.tagged_with(params[:tag]).pluck(:id)
 
-    @feedlists = Feedlist.where(feed_id: list_feed_id).order("published_at DESC").page(params[:page])
-  
+    @feedlists = Feedlist.where(feed_id: list_feed_id).order("published_at DESC").paginate(page: params[:page], per_page: 5)
   end
 
   def search

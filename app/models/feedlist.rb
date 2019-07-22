@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Feedlist < ActiveRecord::Base
-  paginates_per 5
+  #paginates_per 5
 
   belongs_to :feed, touch: true
   belongs_to :user

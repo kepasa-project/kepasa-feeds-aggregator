@@ -1,8 +1,11 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
-$(document).ready ->
-  $("#feedlists .page").infinitescroll
-    navSelector: "nav.pagination" # selector for the paged navigation (it will be hidden)
-    nextSelector: "nav.pagination a[rel=next]" # selector for the NEXT link (to page 2)
-    itemSelector: "#feedlists" # selector for all items you'll retrieve
+jQuery ->
+  if $('.pagination').length
+    $(window).scroll ->
+      url = $('.pagination .next_page').attr('href')
+      if url && $(window).scrollTop() > $(document).height() - $(window).height() - 50
+        $('.pagination').text("Fetching more feedlist...")
+        $.getScript(url)
+    $(window).scroll()
