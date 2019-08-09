@@ -12,8 +12,10 @@ class FeedEntryController < ApplicationController
         @last_feeds << a 
         end
 
-    @last_feeds_paginate = Kaminari.paginate_array(@last_feeds.sort_by { |obj| obj.updated_at }.reverse).page(params[:page])
-
+    #@last_feeds_paginate = Kaminari.paginate_array(@last_feeds.sort_by { |obj| obj.updated_at }.reverse).page(params[:page])
+    #feeds_array = @last_feeds.sort_by { |obj| obj.updated_at }.reverse
+    #@last_feeds_paginate = feeds_array.paginate(:per_page => 10)
+    @last_feeds_paginate = current_user.feeds.paginate(page: params[:page])
     @users = User.all 
     
     end

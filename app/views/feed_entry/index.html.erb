@@ -46,8 +46,8 @@
 
                 <%= render 'shared/home' %>
                 
-                <%= paginate @last_feeds_paginate %>
-                
+                <%#= paginate @last_feeds_paginate %>
+                <%= will_paginate @last_feeds_paginate %>
 
             </div>
         </div> 

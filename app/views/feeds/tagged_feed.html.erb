@@ -8,9 +8,8 @@
         <div class="row">
               <div class="col-lg-12">
 
-    
 		<h3> La lista de los Feeds con Etiqueta: <u> <%= @tag %> </u> </h3> 
-        
+    <div id="feelists">        
         <% @feed_tags.order('updated_at DESC').each do |feed| %> 
         
             <p>
@@ -30,14 +29,14 @@
             </p>
 
         <% end %>
-    
+    </div>
     </div>
 </div>
 
 <div class="row">
    <div class="col-lg-12 text-center">
 
-<%= paginate @feed_tags %>
+      <%= will_paginate @feed_tags %>
     
     </div>
 </div>

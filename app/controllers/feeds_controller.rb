@@ -21,7 +21,7 @@ class FeedsController < ApplicationController
 
       @tag = params[:tag]
 
-      @feed_tags = Feed.tagged_with(params[:tag]).page(params[:page])
+      @feed_tags = @user.feeds.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 5)
 
     else 
 
@@ -34,19 +34,13 @@ class FeedsController < ApplicationController
   
   def index
     @user = current_user
-    @feeds = current_user.feeds.page(params[:page])
+    @feeds = current_user.feeds.paginate(page: params[:page])
   
   end
 
   def show
-    #User.find_by_username()
-    auxvar = 'ciao'
-    #@user = User.find(params[:user_id])
-    
-    @feeds = current_user.feeds
     @feed = Feed.find(params[:id])
-    @feedlists = @feed.feedlists.page(params[:page])
-
+    @feedlists = @feed.feedlists.order('published_at DESC').paginate(page: params[:page])
   end
 
   def new
@@ -107,6 +101,59 @@ class FeedsController < ApplicationController
     #redirect_to("/#{I18n.locale}/" + root_path)
     redirect_to root_path
 
+  end
+
+  def actualiza
+
+   Feedjira::Feed.add_common_feed_entry_element("media:thumbnail", :value => :url, :as => :media_thumbnail_url)
+   Feedjira::Feed.add_common_feed_entry_element("enclosure", :value => :url, :as => :media_thumbnail_url)
+   
+   #@user = User.find(params[:user_id])
+   @user = current_user
+   
+   @feed = Feed.find(params[:id])
+
+   #feed = Feedjira::Feed.fetch_and_parse(@feed.rssurl)
+    
+    xml = HTTParty.get(@feed.rssurl).body
+
+    begin
+     feed = Feedjira.parse(xml)
+    rescue Exception => exc
+     logger.error("Message for the log file #{exc.message}")
+     xml.force_encoding("UTF-8")
+     feed = Feedjira.parse(xml)
+    end
+
+    feed.entries.each do |entry|  
+
+      if entry.published.nil?
+
+        @datafeedlist == Time.now()
+
+       else
+       
+       @datafeedlist = entry.published
+      
+      end
+
+      unless Feedlist.where(:feed_id => @feed.id).exists? :guid => entry.id
+
+            Feedlist.create!(
+              :rssurl       => @feed.rssurl,
+              :name         => entry.title,
+              :summary      => entry.summary,
+              :url          => entry.url,    
+              :published_at => @datafeedlist,
+              :guid         => entry.id,
+              :image        => entry.media_thumbnail_url,
+              :feed_id      => @feed.id,
+              :user_id      => @user.id
+            )
+      end
+    end 
+
+   redirect_to([@user, @feed])
   end
 
   def destroy
