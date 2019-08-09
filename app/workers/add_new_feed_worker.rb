@@ -13,7 +13,18 @@ class AddNewFeedWorker
 	    Feedjira::Feed.add_common_feed_entry_element("enclosure", :value => :url, :as => :media_thumbnail_url)
 	            
 	    xml = HTTParty.get(@feed.rssurl).body
-	    feed = Feedjira::Feed.parse xml
+
+
+	    begin	
+     		feed = Feedjira.parse(xml)	
+    	rescue Exception => exc
+
+     			logger.error("Message for the log file: #{exc.message} for the feed id: #{@feed.id}")
+     			# added follow line for ASCCI-8BIT error 
+     			puts "Message for the log file: #{exc.message} for the feed id: #{@feed.id}"
+     			xml.force_encoding("UTF-8")
+     			feed = Feedjira.parse(xml)
+    	end	        
 
 	    #@user = current_user
 	    #@feed = Feed.find(params[:id])
@@ -24,7 +35,21 @@ class AddNewFeedWorker
 	        entry.published.nil? ? @datafeedlist == Time.now() : @datafeedlist = entry.published
 
 	        unless Feedlist.where(:feed_id => @feed.id).exists? :guid => entry.id
+#=begin
+	        	begin
 
+                 @object = LinkThumbnailer.generate(entry.url)
+                 @img_url = @object.images.last.to_s 
+
+                rescue Exception => exc
+
+                 logger.error("Message for the log file: #{exc.message} for the feed id: #{@feed.id}")
+                 @img_url = entry.image
+      
+    			end 
+#=end
+				sleep 2
+				
 	              Feedlist.create!(
 	                :rssurl       => @feed.rssurl,
 	                :name         => entry.title,
@@ -33,6 +58,7 @@ class AddNewFeedWorker
 	                :published_at => @datafeedlist,
 	                :guid         => entry.id,
 	                :image        => entry.media_thumbnail_url,
+	                :remote_article_picture_url => @img_url,
 	                :content      => entry.content,
 	                :feed_id      => @feed.id,
 	                :user_id      => @user.id

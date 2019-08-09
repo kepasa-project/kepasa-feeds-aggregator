@@ -139,6 +139,20 @@ class FeedsController < ApplicationController
 
       unless Feedlist.where(:feed_id => @feed.id).exists? :guid => entry.id
 
+            begin
+
+                    @object = LinkThumbnailer.generate(entry.url)
+                    @img_url = @object.images.last.to_s 
+
+            rescue Exception => exc
+
+                    logger.error("Message for the log file: #{exc.message} for the feed id: #{@feed.id}")
+                    @img_url = entry.image
+      
+            end 
+
+            sleep 2
+
             Feedlist.create!(
               :rssurl       => @feed.rssurl,
               :name         => entry.title,
@@ -147,6 +161,7 @@ class FeedsController < ApplicationController
               :published_at => @datafeedlist,
               :guid         => entry.id,
               :image        => entry.media_thumbnail_url,
+              :article_picture => @imag_url, 
               :feed_id      => @feed.id,
               :user_id      => @user.id
             )

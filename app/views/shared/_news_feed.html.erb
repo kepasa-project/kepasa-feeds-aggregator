@@ -11,12 +11,20 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-2">
-                            <%= render "shared/left_column", feedlist: feedlist %> 
+                            <%#= render "shared/left_column", feedlist: feedlist %> 
                         </div>
                         <div class="col-sm-8">
                             <h4 class="search-result-item-heading">
                     			<%= feedlist.name.nil? ? (link_to "no title", feedlist_path(feedlist.id)) : (link_to feedlist.name.html_safe, feedlist_path(feedlist.id)) %>
                     		</h4>
+                            <p align="center">
+                               <%= feedlist.inspect %>
+                               <% unless feedlist.article_picture.nil? %>
+
+                               <%= image_tag("#{feedlist.article_picture}", size: "400x250")  %>
+
+                               <% end %>
+                            </p>
                             <p class="description">
                                 <%= feedlist.summary.nil? ? "NO summary" : feedlist.summary.html_safe %> 
                             </p>
