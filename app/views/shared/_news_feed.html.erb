@@ -18,7 +18,7 @@
                     			<%= feedlist.name.nil? ? (link_to "no title", feedlist_path(feedlist.id)) : (link_to feedlist.name.html_safe, feedlist_path(feedlist.id)) %>
                     		</h4>
                             <p align="center">
-                               <%= feedlist.inspect %>
+                               <%#= feedlist.inspect %>
                                <% unless feedlist.article_picture.nil? %>
 
                                <%= image_tag("#{feedlist.article_picture}", size: "400x250")  %>
