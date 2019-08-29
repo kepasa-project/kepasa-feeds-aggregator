@@ -27,7 +27,7 @@ gem 'omniauth-facebook'
 gem 'koala'
 
 # Monitor App
-gem 'newrelic_rpm'
+# gem 'newrelic_rpm'
 
 # asynchronous jobs
 gem 'whenever', :require => false
@@ -47,7 +47,8 @@ gem 'rbtrace', git: 'https://github.com/tmm1/rbtrace', branch: 'master'
 # gem 'activeadmin'
 # gem 'rails_admin', '~> 1.3'
 #gem 'rails_admin_tag_list', git: 'https://github.com/kryzhovnik/rails_admin_tag_list.git', branch: 'master'
-gem 'kaminari'
+#gem 'kaminari'
+gem 'will_paginate'
 
 #gem "meta_search", '>= 1.1.0.pre'
 
@@ -130,7 +131,7 @@ gem 'jbuilder', '~> 2.5'
 gem "font-awesome-rails"
 gem "foreman"
 gem 'carrierwave', '~> 1.0'
-gem "mini_magick", '~> 4.8'
+gem "mini_magick", ">= 4.9.4"
 
 # fetch resources from feed
 gem 'link_thumbnailer'
@@ -140,9 +141,6 @@ gem 'metainspector'
 
 #
 gem 'rails-timeago', '~> 2.0'
-
-#
-gem "actionview", ">= 5.1.6.2"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false

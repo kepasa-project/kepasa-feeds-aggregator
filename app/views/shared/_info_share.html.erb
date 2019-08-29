@@ -1,3 +1,4 @@
+<% unless feedlist.feed.nil? %>
 <p align="left">
 	<%= I18n.t("feed.tags") %>:
 	<%  feedlist.feed.tags.each do |tag| %>
@@ -5,5 +6,5 @@
 	<% end %> | <%= link_to "<i class='fa fa-bookmark'></i>".html_safe, new_user_bookmark_path([current_user, @bookmark], url: feedlist.url, :title => feedlist.name), :title => "#{I18n.t("feedlist.add_to_bookmarks")}" %> | <%= I18n.t("feedlist.share") %>: <%= link_to "<i class='fa fa-twitter'></i>".html_safe, "#", :title => "#{I18n.t("feedlist.share_via_twitter")}" %> | <%= link_to "<i class='fa fa-facebook'></i>".html_safe, "#", :title => "#{I18n.t("feedlist.share_via_facebook")}" %> | <%= mail_to "", "<i class='fa fa-envelope'></i>".html_safe, :title => "#{I18n.t("feedlist.share_via_email")}" %>
 	<%#=  feedlist.feed.tags.pluck(:name).join(", ") %>
 </p>
-
+<% end %>
 <%#= link_to '<i class="fa fa-bookmark"></i>'.html_safe, new_user_bookmark_path([current_user, @bookmark], :url => feedlist.url, :title => feedlist.name) %> 

@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   get "/content", to: "feed_entry#content"
 
   resources :feedlists
-  get "/feeds" => "feedlists#actualiza", via: [:get, :post]
+  get "/feeds" => "feeds#actualiza", via: [:get, :post]
   get "/tagged_feedlist" => "feedlists#tagged", as: :tagged_feedlist
   get "/search_feedlist" => "feedlists#search", as: :search_feedlist
 

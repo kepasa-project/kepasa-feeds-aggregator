@@ -3,7 +3,6 @@ class UpdateAllFeedsWorker
 	include Sidekiq::Worker
   	sidekiq_options :retry => false #when fail don't repeat
 
-  
 	  def perform(user_id)
 
 	  	Feedjira::Feed.add_common_feed_entry_element("media:thumbnail", :value => :url, :as => :media_thumbnail_url)
@@ -22,7 +21,20 @@ class UpdateAllFeedsWorker
 #snippet added after 
 
 	        xml = HTTParty.get(@feed.rssurl).body
-			feed = Feedjira::Feed.parse xml	        
+			
+			begin
+     		
+     			feed = Feedjira.parse(xml)
+    		
+    		rescue Exception => exc
+     		
+     			logger.error("Message for the log file: #{exc.message} for the feed id: #{@feed.id}")
+     			# added follow line for ASCCI-8BIT error 
+     			puts "Message for the log file: #{exc.message} for the feed id: #{@feed.id}"
+     			xml.force_encoding("UTF-8")
+     			feed = Feedjira.parse(xml)
+    		
+    		end	        
 
 #end snippet
 

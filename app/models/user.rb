@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   rolify
   
-  paginates_per 5
+  #paginates_per 5
 
   #default_scope :order => 'users.created_at DESC'
 

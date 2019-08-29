@@ -1,4 +1,3 @@
-$('#feedlists').append('<%= j render "shared/feedlist_header" %>');
 $('#feedlists').append('<%= j render(@feedlists) %>');
 <% if @feedlists.next_page %>
   $('.pagination').replaceWith('<%= j will_paginate(@feedlists) %>');

@@ -28,7 +28,7 @@
                 </div> <br />
                 <p align="left">
 
-                Feed: <%= link_to feedlist.feed.title, user_feed_path(current_user, feedlist.feed) %>
+                Feed: <%= feedlist.feed.nil? ? "-" : (link_to feedlist.feed.title, user_feed_path(current_user, feedlist.feed)) %>
                 </p>
 
                 <%= render 'shared/info_share', feedlist: feedlist %>
