@@ -17,7 +17,7 @@ RSpec.describe Ability do
         expect(user.user).to eq('kimi')
      end
      it 'has to have user role ' do
-        expect(user.has_role).to eq('admin')
+        expect(user.has_role).to be_truthy
      end
  
 #     it 'has to has to be admin ' do
