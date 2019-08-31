@@ -26,19 +26,16 @@ class User < ActiveRecord::Base
   validates :email, :presence => true
  
 #TDD additional code
-def initialize(last_name, first_name, email)
-  attr_reader :last_name, :first_name, :email
+#def initialize(last_name, first_name, email)
+#  attr_reader :last_name, :first_name, :email
 
-  @last_name = last_name
-  @first_name = first_name
-  @email = email
-end
+#  @last_name = last_name
+#  @first_name = first_name
+#  @email = email
+#end
 
-validates :last_name,presence: true
-validates :first_name, :presence => true
-
-
-
+#validates :last_name,presence: true
+#validates :first_name, :presence => true
 
 #end TDD 
   has_many :bookmarks, :dependent => :destroy

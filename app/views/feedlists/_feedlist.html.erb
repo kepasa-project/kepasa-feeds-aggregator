@@ -8,7 +8,7 @@
             </div>
             <div class="col-sm-8">
                 <h4 class="search-result-item-heading">
-					<%= link_to feedlist.name, feedlist_path(feedlist.id) %>
+					<%= link_to feedlist.name.html_safe, feedlist_path(feedlist.id) %>
 			 	</h4>
 
                 <div class="container-fluid">
