@@ -37,7 +37,8 @@ class UpdatefeedskWorker
               
               end
 
-              unless Feedlist.where(:feed_id => @feed.id).exists? :guid => entry.id
+              #unless Feedlist.where(:feed_id => @feed.id).exists? :guid => entry.id
+              unless Feedlist.where(:guid => entry.id).exists?
 
                     Feedlist.create!(
                       :rssurl       => @feed.rssurl,

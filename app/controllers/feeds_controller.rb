@@ -1,8 +1,6 @@
 class FeedsController < ApplicationController
 
   before_action :set_feed, only: [:show, :edit, :update, :destroy]
-   
-  #respond_to :html, :xml, :json
   
   require 'nokogiri'
   require 'open-uri'
@@ -14,28 +12,20 @@ class FeedsController < ApplicationController
   def tagged_feed
 
     @user = current_user
-
     @feeds = Feed.all
     
     if params[:tag].present? 
-
       @tag = params[:tag]
-
       @feed_tags = @user.feeds.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 5)
-
     else 
-
       @feed_tags = Feed.all
-
     end
 
-    
   end
   
   def index
     @user = current_user
     @feeds = current_user.feeds.paginate(page: params[:page])
-  
   end
 
   def show
@@ -44,11 +34,8 @@ class FeedsController < ApplicationController
   end
 
   def new
-
     @user = current_user
     @feed = Feed.new(:user_id => @user.id, :rssurl => params[:rssurl])
-    
-    #respond_with(@feed)
   end
 
   def edit
@@ -104,71 +91,9 @@ class FeedsController < ApplicationController
   end
 
   def actualiza
-
-   Feedjira::Feed.add_common_feed_entry_element("media:thumbnail", :value => :url, :as => :media_thumbnail_url)
-   Feedjira::Feed.add_common_feed_entry_element("enclosure", :value => :url, :as => :media_thumbnail_url)
-   
-   #@user = User.find(params[:user_id])
-   @user = current_user
-   
-   @feed = Feed.find(params[:id])
-
-   #feed = Feedjira::Feed.fetch_and_parse(@feed.rssurl)
-    
-    xml = HTTParty.get(@feed.rssurl).body
-
-    begin
-     feed = Feedjira.parse(xml)
-    rescue Exception => exc
-     logger.error("Message for the log file #{exc.message}")
-     xml.force_encoding("UTF-8")
-     feed = Feedjira.parse(xml)
-    end
-
-    feed.entries.each do |entry|  
-
-      if entry.published.nil?
-
-        @datafeedlist == Time.now()
-
-       else
-       
-       @datafeedlist = entry.published
-      
-      end
-
-      unless Feedlist.where(:feed_id => @feed.id).exists? :guid => entry.id
-
-            begin
-
-                    @object = LinkThumbnailer.generate(entry.url)
-                    @img_url = @object.images.last.to_s 
-
-            rescue Exception => exc
-
-                    logger.error("Message for the log file: #{exc.message} for the feed id: #{@feed.id}")
-                    @img_url = entry.image
-      
-            end 
-
-            sleep 2
-
-            Feedlist.create!(
-              :rssurl       => @feed.rssurl,
-              :name         => entry.title,
-              :summary      => entry.summary,
-              :url          => entry.url,    
-              :published_at => @datafeedlist,
-              :guid         => entry.id,
-              :image        => entry.media_thumbnail_url,
-              :article_picture => @imag_url, 
-              :feed_id      => @feed.id,
-              :user_id      => @user.id
-            )
-      end
-    end 
-
-   redirect_to([@user, @feed])
+    @feed = Feed.find(params[:id].to_i)
+    UpdateFeedWorker.perform_async(@feed.id)
+    redirect_to([current_user, @feed])
   end
 
   def destroy
@@ -187,4 +112,5 @@ class FeedsController < ApplicationController
     def set_feed
       @feed = Feed.find(params[:id])
     end
+    
 end

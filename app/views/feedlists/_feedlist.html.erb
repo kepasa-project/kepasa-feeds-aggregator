@@ -14,21 +14,12 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
-                            <p align="center">
-                              <%#= feedlist.inspect %>
-                               <% unless feedlist.article_picture.nil? %>
 
-                               <%= image_tag("#{feedlist.article_picture}", size: "400x250")  %>
-
-                               <% end %>
-                            </p>
 
                             <p class="description">
-                                
-                                <%#= feedlist.summary.nil? ? "NO summary" : feedlist.summary.html_safe %> 
-                                
+                              <div align="justify">                                    
                                 <%= feedlist.summary.nil? ? "NO summary" : sanitize(feedlist.summary) %>
-
+                              </div>
                             </p>
 
                         </div>

@@ -34,7 +34,8 @@ class AddNewFeedWorker
 
 	        entry.published.nil? ? @datafeedlist == Time.now() : @datafeedlist = entry.published
 
-	        unless Feedlist.where(:feed_id => @feed.id).exists? :guid => entry.id
+	        #unless Feedlist.where(:feed_id => @feed.id).exists? :guid => entry.id
+	        unless Feedlist.where(:guid => entry.id).exists?
 #=begin
 	        	begin
 
