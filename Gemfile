@@ -1,67 +1,67 @@
 source 'https://rubygems.org'
 
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+  git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.1'
+  ruby '2.5.1'
 
-# Bundle edge Rails instead:
-gem 'rails', '5.2.0'
+  # Bundle edge Rails instead:
+  gem 'rails', '5.2.0'
 
-gem 'feedjira'
-gem "nokogiri", ">= 1.10.4"
-#gem 'open-uri'
+  gem 'feedjira'
+  gem "nokogiri", ">= 1.10.4"
+  #gem 'open-uri'
 
-# Gems used only for assets and not required
-# in production environments by default.
-gem 'pg', '~> 0.20'
-gem 'puma', '~> 3.11'
+  # Gems used only for assets and not required
+  # in production environments by default.
+  gem 'pg', '~> 0.20'
+  gem 'puma', '~> 3.11'
 
-# auth/authorization + avatar system
-gem 'devise'
-gem 'cancancan'
-gem 'rolify'
-gem 'gravtastic'
+  # auth/authorization + avatar system
+  gem 'devise'
+  gem 'cancancan'
+  gem 'rolify'
+  gem 'gravtastic'
 
-# integration with facebook
-# gem 'omniauth-facebook'
-# gem 'koala'
+  # integration with facebook
+  # gem 'omniauth-facebook'
+  # gem 'koala'
 
-# Monitor App
-# gem 'newrelic_rpm'
+  # Monitor App
+  # gem 'newrelic_rpm'
 
-# asynchronous jobs
-gem 'whenever', :require => false
-gem 'sidekiq'
-gem 'sinatra', require: false
-gem 'slim'
+  # asynchronous jobs
+  gem 'whenever', :require => false
+  gem 'sidekiq'
+  gem 'sinatra', require: false
+  gem 'slim'
 
-# email and passwords system
-gem 'figaro'
-gem 'gibbon'
+  # email and passwords system
+  gem 'figaro'
+  gem 'gibbon'
 
-# DEBUG RUBY
-#gem 'rbtrace'
-gem 'rbtrace', git: 'https://github.com/tmm1/rbtrace', branch: 'master'
+  # DEBUG RUBY
+  #gem 'rbtrace'
+  gem 'rbtrace', git: 'https://github.com/tmm1/rbtrace', branch: 'master'
 
-# admin control panel
-# gem 'activeadmin'
-# gem 'rails_admin', '~> 1.3'
-#gem 'rails_admin_tag_list', git: 'https://github.com/kryzhovnik/rails_admin_tag_list.git', branch: 'master'
-#gem 'kaminari'
-gem 'will_paginate'
+  # admin control panel
+  # gem 'activeadmin'
+  # gem 'rails_admin', '~> 1.3'
+  #gem 'rails_admin_tag_list', git: 'https://github.com/kryzhovnik/rails_admin_tag_list.git', branch: 'master'
+  #gem 'kaminari'
+  gem 'will_paginate'
 
-#gem "meta_search", '>= 1.1.0.pre'
+  #gem "meta_search", '>= 1.1.0.pre'
 
-#gem 'sass-rails', '~> 3.2.3'
+  #gem 'sass-rails', '~> 3.2.3'
 
-# Blog
-#gem "monologue"
+  # Blog
+  #gem "monologue"
 
  # front-end setting
   gem 'compass-rails', github: 'compass/compass-rails'
   gem 'sass-rails'
   gem 'uglifier', '>= 1.0.3'
-  gem 'bootstrap-sass', '~> 3.2.0'
+  gem "bootstrap-sass", ">= 3.4.1"
 
   # See https://github.com/rails/execjs#readme for more supported runtimes
   # gem 'mini_racer', platforms: :ruby
