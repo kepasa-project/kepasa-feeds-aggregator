@@ -8,7 +8,7 @@ ruby '2.5.1'
 gem 'rails', '5.2.0'
 
 gem 'feedjira'
-gem 'nokogiri'
+gem "nokogiri", ">= 1.10.4"
 #gem 'open-uri'
 
 # Gems used only for assets and not required
