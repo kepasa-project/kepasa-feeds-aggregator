@@ -23,8 +23,8 @@ gem 'rolify'
 gem 'gravtastic'
 
 # integration with facebook
-gem 'omniauth-facebook'
-gem 'koala'
+# gem 'omniauth-facebook'
+# gem 'koala'
 
 # Monitor App
 # gem 'newrelic_rpm'
