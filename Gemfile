@@ -43,11 +43,7 @@ gem 'gibbon'
 #gem 'rbtrace'
 gem 'rbtrace', git: 'https://github.com/tmm1/rbtrace', branch: 'master'
 
-# admin control panel
-# gem 'activeadmin'
-# gem 'rails_admin', '~> 1.3'
-#gem 'rails_admin_tag_list', git: 'https://github.com/kryzhovnik/rails_admin_tag_list.git', branch: 'master'
-#gem 'kaminari'
+#pagination
 gem 'will_paginate'
 
 #gem "meta_search", '>= 1.1.0.pre'
@@ -58,41 +54,41 @@ gem 'will_paginate'
 #gem "monologue"
 
  # front-end setting
-  gem 'compass-rails', github: 'compass/compass-rails'
-  gem 'sass-rails'
-  gem 'uglifier', '>= 1.0.3'
-  gem 'bootstrap-sass', '~> 3.2.0'
+gem 'compass-rails', github: 'compass/compass-rails'
+gem 'sass-rails'
+gem 'uglifier', '>= 1.0.3'
+gem 'bootstrap-sass', '~> 3.2.0'
 
   # See https://github.com/rails/execjs#readme for more supported runtimes
   # gem 'mini_racer', platforms: :ruby
   
   # Use CoffeeScript for .coffee assets and views
-  gem 'coffee-rails', '~> 4.2'
+gem 'coffee-rails', '~> 4.2'
   
   # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-  gem 'turbolinks', '~> 5'
-  gem 'jquery-rails'
-  gem 'jquery-ui-rails'
+gem 'turbolinks', '~> 5'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
-  #tag system
-  gem 'acts-as-taggable-on'
+#tag system
+gem 'acts-as-taggable-on'
 
-  # SEO
-  gem 'friendly_id'
+# SEO
+gem 'friendly_id'
 
-  group :development, :test do
+group :development, :test do
 
-    gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-    # Adds support for Capybara system testing and selenium driver
-    gem 'capybara', '>= 2.15', '< 4.0'
-    gem 'selenium-webdriver'
-    # Easy installation and use of chromedriver to run system tests with Chrome
-    gem 'chromedriver-helper'
-    gem 'rubocop', '~> 0.65.0', require: false
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # Adds support for Capybara system testing and selenium driver
+  gem 'capybara', '>= 2.15', '< 4.0'
+  gem 'selenium-webdriver'
+  # Easy installation and use of chromedriver to run system tests with Chrome
+  gem 'chromedriver-helper'
+  gem 'rubocop', '~> 0.65.0', require: false
 
-  end
+end
 
-  group :development do
+group :development do
 
     gem 'sqlite3', '~> 1.3.6'
     gem 'web-console', '~> 3.5.1'
@@ -109,13 +105,13 @@ gem 'will_paginate'
     gem 'capistrano-rbenv', '~> 2.1'
     gem 'capistrano-rails-db'
 
-  end
+end
 
-  group :production do
+group :production do
 
     gem 'json', '~> 1.8.1'  
 
-  end
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -142,6 +138,9 @@ gem 'rails-timeago', '~> 2.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+
+# social
+gem 'social-share-button'
 
 # Use unicorn as the app server
 #gem 'unicorn'

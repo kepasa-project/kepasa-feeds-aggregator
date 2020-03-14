@@ -43,9 +43,9 @@ class FeedsController < ApplicationController
 
   def create
 
+    feed_params.each { |key, value| value.strip! }
     @user = current_user
     @feed = Feed.new(feed_params)
-
           #if @feed.valid? && Feedjira::Feed.fetch_and_parse(@feed.rssurl) != nil
           if @feed.valid?
 

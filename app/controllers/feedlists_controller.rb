@@ -73,7 +73,7 @@ class FeedlistsController < ApplicationController
 
   def search
 
-    @feedlists = current_user.feedlists.order("published_at DESC").search(params[:term]).page(params[:page])
+    @feedlists = current_user.feedlists.order("published_at DESC").search(params[:term]).paginate(page: params[:page])
 
   end
 
