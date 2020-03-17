@@ -2,3 +2,5 @@ Wired|Wired|https://www.wired.com/feed/category/gear/latest/rss|Tech|tech, gear|
 TechCrunch|TechCrunch|http://feeds.feedburner.com/TechCrunch/greentech|Tech|tech, green|English
 PcWorld|PCWorld|https://www.pcworld.com/index.rss|Tech|tech|English
 The Next Web RSS Feed|NextWeb|feeds.feedburner.com/thenextweb|Tech|tech|English
+The Next Web RSS Feed|NextWeb|http://www.affaritaliani.it/static/rss/rssGadget.aspx?idchannel=1|Principali Testate|Italia, homepage, prima pagina|Italiano
+

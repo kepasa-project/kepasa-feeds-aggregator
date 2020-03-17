@@ -2,21 +2,20 @@ class UsersController < ApplicationController
   
 	def show
 
-		#@user = User.find(params[:id])
-		@user = current_user
-    @title = @user.username
-    @feed_items = @user.feeds
+		#@user = current_user
+    #@title = @user.username
+    #@feed_items = @user.feeds
 
     # snippet added to update current user rss feeds 
-    @feeds_current_user = @user.feeds
+    #@feeds_current_user = @user.feeds
 
-    @feeds_current_user.find_each(:batch_size => 200) do |feed|
+    #@feeds_current_user.find_each(:batch_size => 200) do |feed|
 
-        NoticiasElpaisWorker.perform_async(feed.id.to_i)
+        #NoticiasElpaisWorker.perform_async(feed.id.to_i)
 
         #sleep 5
 
-    end
+    #end
     # end snippet 
     
 	end

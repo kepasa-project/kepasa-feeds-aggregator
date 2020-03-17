@@ -1,0 +1,125 @@
+it:
+  activerecord:
+    models:
+      Bookmark: Segnalibro
+      Category: Categoria
+    attributes:
+      Bookmark:
+        url: Url
+        title: Titolo
+      Category:
+        name: Nome
+        language: Lingua
+        category_logo: Logo    
+  datetime:
+    distance_in_words:
+      less_than_x_minutes:
+        one: "meno di un minuto"
+        other: "meno di %{count} minuti"
+      x_minutes:
+        one: "1 minuto"
+        other: "%{count} minuti"
+      about_x_hours:
+        one: "circa 1 ora"
+        other: "circa %{count} ore"
+      x_days:
+        one: "1 giorno"
+        other: "%{count} giorno"
+
+  mailboxer:
+    message_mailer:
+      subject_new: "Tienes un nuevo mensaje en kepasa.co: %{subject}"
+      subject_reply: "Tienes una nueva respuesta en kepasa.co: %{subject}"
+    notification_mailer:
+      subject: "Nueva notificación en kepasa.co: %{subject}"
+
+  feed_message_error: "Non puoi inserire un feed gia' presente o inserire un feed non corretto!"
+  
+  admin:
+    welcome: "Benvenuto nel Pannello di Controllo"
+    categories: "Categorie"
+    recommended_feeds: "Feed Raccomandati"
+    new_recommended_feed: "Nuevi Feed Raccomandati"
+    language: "lingua"
+    new_category: "Nuova Categoria"
+    edit_category: "Modifica Categoria"
+    delete_category: "Elimina Categoria"
+  footer:
+    slogan: "Kepasa Ⓒ le ultime notizie su internet"
+    project: "sviluppato da "
+    download: "scarica"
+
+  header:
+    add_feed: "Aggiungi Feed"
+    news: "Mie Notizie"
+    feeds: "Miei Feeds"
+    keywords: "Parole Chiavi"
+    search: "Cerca"
+    home: "Home"
+    dashboard: "Cruscotto"
+    update: "Aggiorna"
+    hi: "Ciao"
+    profile: "Mio Profilo"
+    bookmarks: "Miei Segnalibri"
+    sign_out: "Disconnetti"
+
+  home:
+    feed_titles: "Titolo FEED"
+    tags: "Etichette"
+    updated: "Aggiornato"
+
+  feed:
+    add_your_own_feed: "Aggiungi un tuo Feed"
+    add_recommended_feed: "Aggiungi Feed Raccomandato"
+    you_are_here: "Tu sei qui"
+    show_news_of_follow_feed: "Notizie del seguente FEED"
+    rss_feeds: "Feed RSS dI "
+    feed_title: "Titolo FEED"
+    feed_follow_by: "e un FEED seguito da"
+    tags: "Etichette"
+    news: "Notizie"
+    updated: "Aggiornato"
+    edit: "Modifica Feed"
+    delete: "Elimina Feed"
+    delete_message: "Sei sicuro che vuoi eliminare questo FEED?"
+    label_form: "Vuoi aggiungere un nuovo FEED RSS?"
+    insert: "Inserisci aqui il tuo FEED RSS"
+    tags_list: "Aggiungi qui le tue etichette (separate da una virgola)"
+    insert_button: "Inserisci il tuo FEED"
+    update_button: "Aggiorna il tuo FEED"
+    create_new_feed: "Crea un nuovo FEED"
+
+  feedlist:
+    you_are_here: "Tu sei qui"
+    all_my_news: "Tutte le mie notizie"
+    searched_terms: "Termini Ricercati"
+    add_to_bookmarks: "Aggiungi i tuoi segnalibri"
+    share: "Condividi"
+    share_via_twitter: "Condividi via Twitter"
+    share_via_facebook: "Condividi via Facebook"
+    share_via_email: "Condividi via Email"
+    visited: "Visitati"
+    source: "Origine >>"
+    click: "Click"
+    here: "qui"
+    read_original_article: "leggi l'articolo origine"
+    title: "Titolo"
+
+  dashboard:
+    all_my_feeds: "Tutti i miei Feed"
+    all_my_news: "Tutte le mie notizie"
+    last_feeds: "Ultimi 5 Feed aggregati"
+    last_feedlists: "Ultime 5 Notizie scaricate"
+    all_my_bookmarks: "Tutti i miei Segnalibri"
+    last_bookmarks: "I miei ultimi 5 Segnalibri"
+    feed_title: "Titolo"
+    feed_tags: "Etichette"
+    feed_date: "Data"
+    feed_feedlist: "Feed"
+    feedlist_title: "Titolo"
+    feedlist_tags: "Etichette"
+    feedlist_date: "Data"
+
+  bookmark:
+    you_are_here: "Tu sei qui"
+    create_new_bookmark: "Crea un nuovo Segnalibro"

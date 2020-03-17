@@ -1,6 +1,8 @@
 class AddNewFeedWorker
 
   include Sidekiq::Worker
+
+  sidekiq_options :queue => :default
   sidekiq_options :retry => false #when fail don't repeat
   
   def perform(feed_id)       
@@ -13,16 +15,17 @@ class AddNewFeedWorker
 	            
     xml = HTTParty.get(@feed.rssurl).body
 
-	begin	
+	  begin	
       feed = Feedjira.parse(xml)	
     rescue Exception => exc
       logger.error("Message for the log file: #{exc.message} for the feed id: #{@feed.id}")
       # added follow line for ASCCI-8BIT error 
-      puts "Message for the log file: #{exc.message} for the feed id: #{@feed.id}"
       xml.force_encoding("UTF-8")
       feed = Feedjira.parse(xml)
     end	        
-      
+    
+    #add last 10 news
+
     feed.entries.each do |entry|  
 
       entry.published.nil? ? @datafeedlist == Time.now() : @datafeedlist = entry.published
@@ -40,7 +43,7 @@ class AddNewFeedWorker
 
         sleep 2
 				
-        Feedlist.create!(
+   @f = Feedlist.create!(
           :rssurl       => @feed.rssurl,
           :name         => entry.title,
           :summary      => entry.summary,
@@ -53,9 +56,23 @@ class AddNewFeedWorker
           :feed_id      => @feed.id,
           :user_id      => @user.id
         )
-	  
+	     
+        #store picture
+        unless @img_url.nil?
+          begin
+          a = Rails.root + "pictures/thumbnails"
+          path = "#{a}/feed-#{@feed.id}/#{@f.id}/"
+          system 'mkdir', '-p', path
+          #Dir.mkdir("#{path}") #unless File.exists?("#{path}")
+          download = open("#{@img_url}")
+          IO.copy_stream(download, "#{a}/feed-#{@feed.id}/#{@f.id}/#{download.base_uri.to_s.split('/')[-1]}")
+	        rescue Exception => exc
+            logger.error("Message for the log file: #{exc.message} to create thumbnail directory: #{@f.id}")
+          end 
+        end
+
+      end
 	  end
-	end
 
   end # end perform method
 

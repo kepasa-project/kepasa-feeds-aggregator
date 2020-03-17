@@ -8,3 +8,5 @@ Viajes|Travel|Español
 Cine|Movie|Español
 Marcadotecnia|Marketing|Español
 Ciencia|Science|Español
+Principali Testate|Prima Pagina|Italiano
+Controinformazione|politica|Italiano

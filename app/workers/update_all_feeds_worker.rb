@@ -36,7 +36,8 @@ class UpdateAllFeedsWorker
           unless Feedlist.where(:feed_id => @feed_update.id).exists? :guid => entry.id
           
             begin
-              @img_url = retrieve_image(entry.summary)
+              @object = LinkThumbnailer.generate(entry.url)
+              @img_url = @object.images.last.to_s 
             rescue Exception => exc
               logger.error("Message for the log file: #{exc.message} for the feed id: #{@feed_update.id}")
               @img_url = entry.image
@@ -64,6 +65,8 @@ class UpdateAllFeedsWorker
 	  end #end feeds loops
 
   end # end perfom method
+  
+  # method to retrieve image maybe it's better removed it
 
   def retrieve_image(summary)
     

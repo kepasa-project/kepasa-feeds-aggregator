@@ -86,7 +86,7 @@ class FeedsController < ApplicationController
     UpdateAllFeedsWorker.perform_async(current_user.id)
     #UpdateAllFeedsJob.perform_later(current_user)
     #redirect_to("/#{I18n.locale}/" + root_path)
-    redirect_to root_path
+    redirect_to user_feeds_path(current_user)
 
   end
 
@@ -97,10 +97,14 @@ class FeedsController < ApplicationController
   end
 
   def destroy
-    @feedlists = Feedlist.where(:feed_id => @feed.id)
-    @feedlists.delete_all
-    @feed.destroy
+    
     redirect_to user_feeds_path(current_user)
+    FeedDeleteWorker.perform_async(@feed.id)
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   private
