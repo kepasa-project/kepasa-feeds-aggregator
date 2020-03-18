@@ -14,7 +14,7 @@ source 'https://rubygems.org'
   # Gems used only for assets and not required
   # in production environments by default.
   gem 'pg', '~> 0.20'
-  gem 'puma', '~> 3.11'
+  gem 'puma', '~> 3.12'
 
   # auth/authorization + avatar system
   gem 'devise'
@@ -45,7 +45,6 @@ source 'https://rubygems.org'
 
 #pagination
 gem 'will_paginate'
->>>>>>> retrieve-image
 
   #gem "meta_search", '>= 1.1.0.pre'
 
