@@ -57,7 +57,7 @@ source 'https://rubygems.org'
 gem 'compass-rails', github: 'compass/compass-rails'
 gem 'sass-rails'
 gem 'uglifier', '>= 1.0.3'
-gem 'bootstrap-sass', '~> 3.2.0'
+gem 'bootstrap-sass', '~> 3.4.1'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
