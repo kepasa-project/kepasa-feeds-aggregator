@@ -20,3 +20,4 @@
 //= require landing-page/script
 //= require feedlists
 //= require rails-timeago
+//= require social-share-button

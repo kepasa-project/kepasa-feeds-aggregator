@@ -17,8 +17,14 @@
                             <h4 class="search-result-item-heading">
                     			<%= feedlist.name.nil? ? (link_to "no title", feedlist_path(feedlist.id)) : (link_to feedlist.name.html_safe, feedlist_path(feedlist.id)) %>
                     		</h4>
+                            <p>
+                                <%= feedlist.article_picture.nil? ? "-" : image_tag(feedlist.article_picture.middle.url.to_s) %>
+                            </p>
                             <p class="description">
-                                <%= feedlist.summary.nil? ? "NO summary" : feedlist.summary.html_safe %> 
+                            
+                                <%#= feedlist.summary.nil? ? "NO summary" : retrieve_image(sanitize(feedlist.summary)) %>
+                                <%= feedlist.summary.nil? ? "NO summary" : sanitize(feedlist.summary, attributes: %w(img)) %>
+                                <%#= feedlist.summary.nil? ? "NO summary" : sanitize(feedlist.summary) %> 
                             </p>
                             <p>
                                 <%= render 'shared/info_share', feedlist: feedlist %>

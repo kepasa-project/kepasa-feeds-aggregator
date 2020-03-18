@@ -18,7 +18,7 @@
                     </tr>
 
                   <% @feeds.order('updated_at DESC').each do |feed| %>
-                    <tr>
+                    <tr id="feed-<%="#{feed.id}"%>">
                       <td> <%= link_to feed.title, user_feed_path(current_user, feed) %> </td>
                       <td> 
                         <% feed.tags.each do |tag| %>
@@ -26,26 +26,11 @@
                         <% end %>             
                       </td>
                       <td> <%= feed.feedlists.count %> </td>
-                      <td> <%#= time_ago_in_words(feed.updated_at) %>
-                        <%= timeago_tag(feed.updated_at) %>
+                      <td> <%= time_ago_in_words(feed.updated_at) %>
+                        <%#= timeago_script_tag %>
                       </td>
                       <td> <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_user_feed_path(current_user, feed), title: "#{I18n.t("feed.edit")}" %> </td>
-                      <% if  @user == current_user %>
-                      <td> <%= link_to '<i class="fa fa-trash-o fa-fw"></i>'.html_safe, user_feed_path(current_user, feed), method: :delete, data: { confirm: "#{I18n.t("feed.delete_message")}" }, title: "#{I18n.t("feed.delete")}" %> </td>
-                      <% else %>
-
-                          <% unless feed.user.nil? %>
-
-                              <td> Tambien tu tienes este Feed </td>
-                          
-                          <% else %>
-
-                          <td> <%= link_to '<i class="fa fa-plus"></i> Agrega'.html_safe, new_user_feed_path(current_user, :rssurl => feed.rssurl) %> </td>
-                      
-
-                          <% end %>
-
-                      <% end %>
+                      <td> <%= link_to '<i class="fa fa-trash-o fa-fw"></i>'.html_safe, user_feed_path(current_user, feed), remote: true, method: :delete, data: { confirm: "#{I18n.t("feed.delete_message")}" }, title: "#{I18n.t("feed.delete")}" %> </td>
 
                     </tr>
                   <% end %>

@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class Feedlist < ActiveRecord::Base
-  #paginates_per 5
+  
+  mount_uploader :article_picture, CategoryLogoUploader
 
   belongs_to :feed, touch: true
   belongs_to :user
@@ -50,8 +51,10 @@ class Feedlist < ActiveRecord::Base
           url: entry.url,
           published_at: @datafeedlist,
           guid: entry.id,
+          content: entry.content,
           image: entry.media_thumbnail_url,
-          feed_id: @feed.id
+          feed_id: @feed.id,
+          user_id: curren_user.id
         )
       end
     end

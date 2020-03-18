@@ -6,7 +6,7 @@
             <li><%= I18n.t("feedlist.you_are_here") %></li>
             <li class="active"><%= I18n.t("feedlist.all_my_news") %></li>
             <li>
-                
+
                     <%= I18n.t("feedlist.searched_terms") %>: <%= params[:term] %>
                
             </li>
@@ -31,6 +31,10 @@
                                 
                                 </div>
                                 <div class="col-sm-8">
+                                    <p align="justify">
+                                <%= feedlist.article_picture.nil? ? "-" : image_tag(feedlist.article_picture.middle.url.to_s) %>
+
+                            </p>
                                     <h4 class="search-result-item-heading">
         								<%= link_to feedlist.name, feedlist_path(feedlist.id) %>
         						 	</h4>
@@ -70,7 +74,7 @@
 
  <div class="row">
    <div class="col-lg-12 text-center">
-   <%= paginate @feedlists %> 
+   <%= will_paginate @feedlists %> 
    </div>
 </div>
 </div>

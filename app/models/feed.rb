@@ -5,6 +5,7 @@ class Feed < ActiveRecord::Base
   
   belongs_to :user, required: false
   has_many :feedlists, :dependent => :destroy
+
   #has_many :relationships
   #has_many :users, through: :relationships
 
@@ -40,15 +41,6 @@ class Feed < ActiveRecord::Base
       end
 
 
-    end
-
-    # Return an SQL condition for users followed by the given user.
-    # We include the user's own id as well.
-    def self.followed_by(user)
-      following_ids = %(SELECT followed_id FROM following_relationships
-                        WHERE follower_id = :user_id)
-      where("user_id IN (#{following_ids}) OR user_id = :user_id",
-            { :user_id => user })
     end
 
 end
