@@ -5,7 +5,7 @@ source 'https://rubygems.org'
   ruby '2.5.1'
 
   # Bundle edge Rails instead:
-  gem 'rails', '5.2.0'
+  gem 'rails', '~> 5.2.4'
 
   gem 'feedjira'
   gem "nokogiri", ">= 1.10.4"
@@ -23,8 +23,8 @@ source 'https://rubygems.org'
   gem 'gravtastic'
 
   # integration with facebook
-  # gem 'omniauth-facebook'
-  # gem 'koala'
+  #gem 'omniauth-facebook'
+  #gem 'koala'
 
   # Monitor App
   # gem 'newrelic_rpm'
@@ -43,8 +43,8 @@ source 'https://rubygems.org'
   #gem 'rbtrace'
   gem 'rbtrace', git: 'https://github.com/tmm1/rbtrace', branch: 'master'
 
-#pagination
-gem 'will_paginate'
+  #pagination
+  gem 'will_paginate'
 
   #gem "meta_search", '>= 1.1.0.pre'
 
@@ -59,13 +59,13 @@ gem 'sass-rails'
 gem 'uglifier', '>= 1.0.3'
 gem 'bootstrap-sass', '~> 3.2.0'
 
-  # See https://github.com/rails/execjs#readme for more supported runtimes
-  # gem 'mini_racer', platforms: :ruby
+# See https://github.com/rails/execjs#readme for more supported runtimes
+# gem 'mini_racer', platforms: :ruby
   
-  # Use CoffeeScript for .coffee assets and views
+# Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
   
-  # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
+# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
@@ -80,10 +80,8 @@ group :development, :test do
 
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15', '< 4.0'
+  gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
-  # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'chromedriver-helper'
   gem 'rubocop', '~> 0.65.0', require: false
 
 end

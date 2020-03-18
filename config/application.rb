@@ -53,7 +53,7 @@ module Kepasa
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
 
     # facebook connection
-    Koala.config.api_version = 'v2.0'
+    # Koala.config.api_version = 'v2.0'
 
     # enforce encoding for Feedjira 
     config.encoding = "utf-8" 

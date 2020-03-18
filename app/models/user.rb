@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   #devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable, :omniauth_providers => [:facebook], :authentication_keys => [:login]
 
   # NO EMAIL IN DEV
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :omniauthable, :omniauth_providers => [:facebook], :authentication_keys => [:login]
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :authentication_keys => [:login]
 
   # Setup accessible (or protected) attributes for your model. Add also :username after add a column for the Devise Model
 
@@ -93,13 +93,13 @@ class User < ActiveRecord::Base
     end
   end
 
-  def facebook
-    @facebook ||= Koala::Facebook::API.new(oauth_token)
-    block_given? ? yield(@facebook) : @facebook
-    rescue Koala::Facebook::APIError => e
-    logger.info e.to_s
-    nil
-  end
+  #def facebook
+  #  @facebook ||= Koala::Facebook::API.new(oauth_token)
+  #  block_given? ? yield(@facebook) : @facebook
+  #  rescue Koala::Facebook::APIError => e
+  #  logger.info e.to_s
+  #  nil
+  #end
   
   def mailboxer_email(object)
     email

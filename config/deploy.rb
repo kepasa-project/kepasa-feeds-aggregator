@@ -3,6 +3,7 @@ lock "~> 3.11.0"
 
 set :application, "kepasa"
 set :repo_url, "git@github.com:kepasa-project/kepasa-feeds-aggregator.git"
+set :rbenv_ruby, '2.5.1'
 
 set :deploy_to, ENV['PRO_WEBAPP_PATH']
 

@@ -17,9 +17,3 @@
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
   <%= link_to "No recibiste instrucciones de confirmación", new_unlock_path(resource_name), :class => "link" %><br />
 <% end -%>
-
-<%#- if devise_mapping.omniauthable? %>
-  <%#- resource_class.omniauth_providers.each do |provider| %>
-    <%#= link_to "Ingresar con #{provider.to_s.titleize}", user_omniauth_authorize_path(:facebook), :class => "link" %><br />
-  <%# end -%>
-<%# end -%>
