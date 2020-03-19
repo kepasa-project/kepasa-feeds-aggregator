@@ -1,4 +1,4 @@
-# KEPASA (version ALPHA)
+# KEPASA (ALPHA version)
 
 ### A FEEDS RSS Web App Aggregator stay tuned for News, Blog
 
