@@ -22,9 +22,8 @@
                             </p>
                             <p class="description">
                             
-                                <%#= feedlist.summary.nil? ? "NO summary" : retrieve_image(sanitize(feedlist.summary)) %>
                                 <%= feedlist.summary.nil? ? "NO summary" : sanitize(feedlist.summary, attributes: %w(img)) %>
-                                <%#= feedlist.summary.nil? ? "NO summary" : sanitize(feedlist.summary) %> 
+
                             </p>
                             <p>
                                 <%= render 'shared/info_share', feedlist: feedlist %>

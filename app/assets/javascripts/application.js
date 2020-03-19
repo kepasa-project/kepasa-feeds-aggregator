@@ -11,9 +11,9 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require jquery_ujs
-//= require bootstrap
+//= require bootstrap-sprockets
 //= require jquery.infinitescroll
+//= require jquery_ujs
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks

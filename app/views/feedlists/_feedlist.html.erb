@@ -19,11 +19,10 @@
 
                             <p align="justify">
                                 <%= feedlist.article_picture.nil? ? "-" : image_tag(feedlist.article_picture.middle.url.to_s) %>
-
                             </p>
                             <p class="description">
                               <div align="justify">
-                                <%= feedlist.summary.nil? ? "NO summary" : sanitize(feedlist.summary) %>
+                                <%= feedlist.summary.nil? ? "NO summary" : sanitize(feedlist.summary, attributes: %w(img)) %>
                               </div>
                             </p>
 

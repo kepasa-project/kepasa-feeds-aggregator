@@ -1,59 +1,44 @@
 source 'https://rubygems.org'
 
-  git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-  ruby '2.5.1'
+ruby '2.5.1'
 
-  # Bundle edge Rails instead:
-  gem 'rails', '~> 5.2.4'
+# Bundle edge Rails instead:
+gem 'rails', '~> 5.2.4'
 
-  gem 'feedjira'
-  gem "nokogiri", ">= 1.10.4"
-  #gem 'open-uri'
+# handle feed
+gem 'feedjira'
+gem "nokogiri", ">= 1.10.4"
 
-  # Gems used only for assets and not required
-  # in production environments by default.
-  gem 'pg', '~> 0.20'
-  gem 'puma', '~> 3.12'
+# Gems used only for assets and not required
+# in production environments by default.
+gem 'pg', '~> 0.20'
+gem 'puma', '~> 3.12'
 
-  # auth/authorization + avatar system
-  gem 'devise'
-  gem 'cancancan'
-  gem 'rolify'
-  gem 'gravtastic'
+# auth/authorization + avatar system
+gem 'devise'
+gem 'cancancan'
+gem 'rolify'
+gem 'gravtastic'
 
-  # integration with facebook
-  #gem 'omniauth-facebook'
-  #gem 'koala'
+# asynchronous jobs
+gem 'whenever', :require => false
+gem 'sidekiq'
+gem 'sinatra', require: false
+gem 'slim'
 
-  # Monitor App
-  # gem 'newrelic_rpm'
+# email and passwords system
+gem 'figaro'
+gem 'gibbon'
 
-  # asynchronous jobs
-  gem 'whenever', :require => false
-  gem 'sidekiq'
-  gem 'sinatra', require: false
-  gem 'slim'
+# DEBUG RUBY
+gem 'rbtrace', git: 'https://github.com/tmm1/rbtrace', branch: 'master'
 
-  # email and passwords system
-  gem 'figaro'
-  gem 'gibbon'
+#pagination
+gem 'will_paginate'
 
-  # DEBUG RUBY
-  #gem 'rbtrace'
-  gem 'rbtrace', git: 'https://github.com/tmm1/rbtrace', branch: 'master'
-
-  #pagination
-  gem 'will_paginate'
-
-  #gem "meta_search", '>= 1.1.0.pre'
-
-  #gem 'sass-rails', '~> 3.2.3'
-
-  # Blog
-  #gem "monologue"
-
- # front-end setting
+# front-end setting
 gem 'compass-rails', github: 'compass/compass-rails'
 gem 'sass-rails'
 gem 'uglifier', '>= 1.0.3'
@@ -88,20 +73,20 @@ end
 
 group :development do
 
-    gem 'sqlite3', '~> 1.3.6'
-    gem 'web-console', '~> 3.5.1'
-    gem 'listen', '>= 3.0.5', '< 3.2'
-    # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-    gem 'spring'
-    gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'sqlite3', '~> 1.3.6'
+  gem 'web-console', '~> 3.5.1'
+  gem 'listen', '>= 3.0.5', '< 3.2'
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
 
-    # capistrano env gem
-    gem 'capistrano', '~> 3.7', '>= 3.7.1'
-    gem 'capistrano-figaro'
-    gem 'capistrano-rails', '~> 1.2'
-    gem 'capistrano-passenger', '~> 0.2.0'
-    gem 'capistrano-rbenv', '~> 2.1'
-    gem 'capistrano-rails-db'
+  # capistrano env gem
+  gem 'capistrano', '~> 3.7', '>= 3.7.1'
+  gem 'capistrano-figaro'
+  gem 'capistrano-rails', '~> 1.2'
+  gem 'capistrano-passenger', '~> 0.2.0'
+  gem 'capistrano-rbenv', '~> 2.1'
+  gem 'capistrano-rails-db'
 
 end
 
