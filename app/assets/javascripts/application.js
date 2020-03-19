@@ -21,4 +21,3 @@
 //= require feedlists
 //= require rails-timeago
 //= require social-share-button
-//= require_tree .
