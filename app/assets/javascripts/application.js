@@ -10,10 +10,10 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require jquery.infinitescroll
-//= require bootstrap-sprockets
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap-sprockets
+//= require jquery.infinitescroll
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
@@ -21,3 +21,4 @@
 //= require feedlists
 //= require rails-timeago
 //= require social-share-button
+//= require_tree .
