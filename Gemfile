@@ -40,9 +40,9 @@ gem 'will_paginate'
 
 # front-end setting
 gem 'compass-rails', github: 'compass/compass-rails'
-gem 'sass-rails'
-gem 'uglifier', '>= 1.0.3'
 gem "bootstrap-sass", ">= 3.4.1"
+gem 'sassc-rails', '>= 2.1.0'
+gem 'uglifier', '~> 3.0.4'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
@@ -133,3 +133,5 @@ gem 'social-share-button'
 
 # To use debugger
 # gem 'debugger'
+
+gem 'rake', '13.0.1'

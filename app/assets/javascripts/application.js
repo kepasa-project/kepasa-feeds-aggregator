@@ -11,12 +11,12 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require bootstrap-sprockets
-//= require jquery.infinitescroll
 //= require jquery_ujs
+//= require jquery.infinitescroll
 //= require rails-ujs
-//= require activestorage
 //= require turbolinks
+//= require bootstrap-sprockets
+//= require activestorage
 //= require landing-page/script
 //= require feedlists
 //= require rails-timeago
