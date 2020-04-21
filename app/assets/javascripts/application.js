@@ -12,12 +12,15 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.infinitescroll
+//= require bootstrap
 //= require rails-ujs
 //= require turbolinks
-//= require bootstrap-sprockets
 //= require activestorage
 //= require landing-page/script
 //= require feedlists
 //= require rails-timeago
 //= require social-share-button
+
+$(document).ready(function(){
+        $('.dropdown-toggle').dropdown();
+    });
