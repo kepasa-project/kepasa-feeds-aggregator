@@ -7,7 +7,6 @@ Rails.application.routes.draw do
 
   scope '(:locale)', :locale => /en|es|it|tl/ do
 
-  #maybe we have to delete the follow?
   namespace :admin do
 
     get '/dashboard', to: "dashboard#index", as: :dashboard
@@ -38,6 +37,8 @@ Rails.application.routes.draw do
   get 'tagged_feed/:tag', to: 'feeds#tagged_feed', as: :tagged_feed
   post "/update_all_feeds" => "feeds#update_all_feeds"
   
+  post 'add_feed', to: 'feeds#add_feed', as: :add_feed
+
   devise_for :users, :controllers => { sessions: "devise/sessions"}
   resources :users, :only => [:index]
 

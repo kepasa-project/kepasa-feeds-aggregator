@@ -36,7 +36,13 @@
 			<% else %>
 				<p>No Logo</p>
 			<% end %>
-			<%= link_to "<i class='fa fa-plus'></i> Add Feed".html_safe, "#" %>
+            
+            <!-- params.require(:feed).permit(:rssurl, :title, :tag_list, :user_id) -->
+
+			<%= link_to "<i class='fa fa-plus'></i> Add Feed".html_safe,add_feed_path(feed: {user_id: current_user.id, title: rf.title, tag_list: rf.tag_list.join, rssurl: rf.rssurl}, category: params[:id]), :method => :post %>
+			
+			<%#= link_to "<i class='fa fa-plus'></i> Add Feed".html_safe, "#" %>
+
 		</div>
 		<div class="col-lg-6">
 			<p><strong>feed address:</strong> <%= rf.rssurl %></p>

@@ -20,6 +20,11 @@ en:
       subject: "Nueva notificación en kepasa.co: %{subject}"
 
   feed_message_error: "You cannot insert a feed already present or put an incorrect feed!"
+  
+  home:
+    slogan: "Read and Share your FEEDS"
+    project: "The Project"
+    login: "Login"
 
   admin:
     welcome: "Welcome to Control Panel"
@@ -30,6 +35,7 @@ en:
     new_category: "New Category"
     edit_category: "Edit"
     delete_category: "Delete"
+
   footer:
     slogan: "Kepasa Ⓒ the last Feeds!"
     project: "an open source project "

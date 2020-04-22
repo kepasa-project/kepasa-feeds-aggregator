@@ -33,8 +33,8 @@
                 <td><%= recommended_feed.title %></td>
                 <td><%= recommended_feed.categories.pluck(:name).join(", ") %></td>
                 <td><%#= link_to 'Show', recommended_feed_path(recommended_feed) %></td>
-                <td><%#= link_to 'Edit', edit_recommended_feed_path(recommended_feed) %></td>
-                <td><%#= link_to 'Destroy', recommended_feed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td><%= link_to 'Edit', edit_admin_recommended_feed_path(recommended_feed) %></td>
+                <td><%= link_to 'Destroy', admin_recommended_feed_path(recommended_feed), method: :delete, data: { confirm: 'Are you sure?' } %></td>
               </tr>
             <% end %>
           </tbody>

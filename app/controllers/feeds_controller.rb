@@ -74,6 +74,17 @@ class FeedsController < ApplicationController
             end # close if @feed.valid?
         
   end
+  
+  def add_feed
+    
+    #feed_params.each { |key, value| value.strip! }
+    @feed = Feed.new(feed_params)
+    @feed.save
+    AddNewFeedWorker.perform_async(@feed.id)            
+    category = Category.find(params[:category])
+    
+    redirect_to category_path(category)
+  end
 
   def update
     @user = current_user
