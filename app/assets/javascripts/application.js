@@ -13,13 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require social-share-button
 //= require rails-ujs
 //= require turbolinks
 //= require activestorage
 //= require landing-page/script
 //= require feedlists
 //= require rails-timeago
-//= require social-share-button
 
 $(document).ready(function(){
         $('.dropdown-toggle').dropdown();
