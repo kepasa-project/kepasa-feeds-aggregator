@@ -77,7 +77,7 @@ class FeedsController < ApplicationController
   
   def add_feed
     
-    feed_params.each { |key, value| value.strip! }
+    #feed_params.each { |key, value| value.strip! }
     @feed = Feed.new(feed_params)
     @feed.save
     AddNewFeedWorker.perform_async(@feed.id)            

@@ -5,7 +5,7 @@ module CategoriesHelper
     @rf = rf
     feeds = current_user.feeds
     feed = feeds.find_by_rssurl(@rf.rssurl)
-    feed.nil? ? a = true : a = false
+    feed.nil? ? a = false : a = true
     
     return a
 
