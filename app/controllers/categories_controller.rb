@@ -9,7 +9,7 @@ class CategoriesController < ApplicationController
 	end
 
 	def show
-
+        
 		@recommended_feeds = @category.recommended_feeds
         
 	end
