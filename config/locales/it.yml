@@ -67,7 +67,10 @@ it:
     feed_titles: "Titolo FEED"
     tags: "Etichette"
     updated: "Aggiornato"
-
+  category:
+    add_feed: "Aggiungi Feed"
+    feed_added: "Feed gia Aggiunto"
+    
   feed:
     add_your_own_feed: "Aggiungi un tuo Feed"
     add_recommended_feed: "Aggiungi Feed Raccomandato"

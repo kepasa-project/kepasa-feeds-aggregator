@@ -11,7 +11,7 @@ class CategoriesController < ApplicationController
 	def show
 
 		@recommended_feeds = @category.recommended_feeds
-
+        
 	end
 
 	private
