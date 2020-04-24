@@ -27,7 +27,7 @@ class UpdateAllFeedsWorker
         @feed = Feedjira.parse(xml)
       end	        
 
-      unless @feed.is_a?(Fixnum) #HTTP fetch results is not an error (i.e. not a 200 or 3XX)
+      #unless @feed.is_a?(Fixnum) #HTTP fetch results is not an error (i.e. not a 200 or 3XX)
         
         @feed.entries.each do |entry|  
 
@@ -61,7 +61,7 @@ class UpdateAllFeedsWorker
           end
 	      
         end
-      end #end unless HTTP fetch status
+      #end #end unless HTTP fetch status
 	  end #end feeds loops
 
   end # end perfom method
