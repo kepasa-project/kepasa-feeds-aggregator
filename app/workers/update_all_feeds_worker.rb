@@ -27,7 +27,7 @@ class UpdateAllFeedsWorker
         @feed = Feedjira.parse(xml)
       end	        
 
-      #unless @feed.is_a?(Fixnum) #HTTP fetch results is not an error (i.e. not a 200 or 3XX)
+      unless @feed.is_a?(Fixnum) #HTTP fetch results is not an error (i.e. not a 200 or 3XX)
         
         @feed.entries.each do |entry|  
 
@@ -45,23 +45,23 @@ class UpdateAllFeedsWorker
     	 
     	      sleep 5
     			
-            Feedlist.create!(
-              :rssurl       => @feed_update.rssurl,
-              :name         => entry.title.to_s.force_encoding("UTF-8"),
-              :summary      => entry.summary.to_s.force_encoding("UTF-8"),
-              :url          => entry.url,    
-              :published_at => @datafeedlist,
-              :guid         => entry.id,
-              :content 		  => entry.content,
-              :image        => entry.media_thumbnail_url,
-              :remote_article_picture_url => @img_url,
-              :feed_id      => @feed_update.id,
-              :user_id      => @user.id
-            )
+            feedlist =  Feedlist.create!(
+                          :rssurl       => @feed_update.rssurl,
+                          :name         => entry.title.to_s.force_encoding("UTF-8"),
+                          :summary      => entry.summary.to_s.force_encoding("UTF-8"),
+                          :url          => entry.url,    
+                          :published_at => @datafeedlist,
+                          :guid         => entry.id,
+                          :content 		  => entry.content,
+                          :image        => entry.media_thumbnail_url,
+                          :feed_id      => @feed_update.id,
+                          :user_id      => @user.id
+                        )
+            :remote_article_picture_url => @img_url, #carrierwave method
           end
 	      
         end
-      #end #end unless HTTP fetch status
+      end #end unless HTTP fetch status
 	  end #end feeds loops
 
   end # end perfom method
