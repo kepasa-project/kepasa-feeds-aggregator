@@ -59,7 +59,7 @@ class FeedsController < ApplicationController
                       #AddNewFeedWorker.perform_async(@feed.id)            
 #########inizio
 
-    @feed = Feed.find(feed_id)
+    #@feed = Feed.find(feed_id)
     @user = @feed.user
 
     Feedjira::Feed.add_common_feed_entry_element("media:thumbnail", :value => :url, :as => :media_thumbnail_url)
