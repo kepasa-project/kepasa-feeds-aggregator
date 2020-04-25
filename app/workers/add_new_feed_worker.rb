@@ -57,7 +57,7 @@ class AddNewFeedWorker
              )
 	      
         begin
-          f.update(:remote_article_picture_url => @img_url)
+          f.update(remote_article_picture_url: @img_url)
         rescue Exception => exc
           logger.error("Message for the log file: #{exc.message} for the feed id: #{@feed.id}")
         end 
