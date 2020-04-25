@@ -45,7 +45,7 @@ class UpdateAllFeedsWorker
     	 
     	      sleep 5
     			
-            feedlist = Feedlist.create!(
+            feedlist = Feedlist.new(
                          :rssurl       => @feed_update.rssurl,
                          :name         => entry.title.to_s.force_encoding("UTF-8"),
                          :summary      => entry.summary.to_s.force_encoding("UTF-8"),
@@ -54,14 +54,13 @@ class UpdateAllFeedsWorker
                          :guid         => entry.id,
                          :content 		  => entry.content,
                          :image        => entry.media_thumbnail_url,
+                         :remote_article_picture_url => @img_url,
                          :feed_id      => @feed_update.id,
                          :user_id      => @user.id
                        )
             
-            sleep 1
-
-            feedlist.update(remote_article_picture_url: @img_url) #carrierwave method
-          
+            feedlsit.save!
+            
           end
 	      
         end
