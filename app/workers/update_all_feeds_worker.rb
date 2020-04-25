@@ -58,7 +58,9 @@ class UpdateAllFeedsWorker
                          :user_id      => @user.id
                        )
             
-            feedlist.update(:remote_article_picture_url => @img_url) #carrierwave method
+            sleep 1
+
+            feedlist.update(remote_article_picture_url: @img_url) #carrierwave method
           
           end
 	      
