@@ -43,20 +43,25 @@ class AddNewFeedWorker
 
         sleep 2
 				
-   @f = Feedlist.create!(
-          :rssurl       => @feed.rssurl,
-          :name         => entry.title,
-          :summary      => entry.summary,
-          :url          => entry.url,    
-          :published_at => @datafeedlist,
-          :guid         => entry.id,
-          :image        => entry.media_thumbnail_url,
-          :remote_article_picture_url => @img_url,
-          :content      => entry.content,
-          :feed_id      => @feed.id,
-          :user_id      => @user.id
-        )
-	     
+        f = Feedlist.create!(
+               :rssurl       => @feed.rssurl,
+               :name         => entry.title,
+               :summary      => entry.summary,
+               :url          => entry.url,    
+               :published_at => @datafeedlist,
+               :guid         => entry.id,
+               :image        => entry.media_thumbnail_url,
+               :content      => entry.content,
+               :feed_id      => @feed.id,
+               :user_id      => @user.id
+             )
+	      
+        begin
+          f.update(:remote_article_picture_url => @img_url)
+        rescue Exception => exc
+          logger.error("Message for the log file: #{exc.message} for the feed id: #{@feed.id}")
+        end 
+
         #store picture
         unless @img_url.nil?
           begin
