@@ -3,6 +3,7 @@ Encoding.default_external = Encoding::UTF_8 # added for
 Encoding.default_internal = Encoding::UTF_8 # Feedjira
 require_relative 'application'
 require 'rbtrace'
+require 'carrierwave/orm/activerecord'
 
 # Initialize the rails application
 Rails.application.initialize!
