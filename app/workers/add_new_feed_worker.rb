@@ -43,7 +43,7 @@ class AddNewFeedWorker
 
         sleep 2
 				
-        f = Feedlist.create!(
+        @f = Feedlist.create!(
                :rssurl       => @feed.rssurl,
                :name         => entry.title,
                :summary      => entry.summary,
@@ -57,8 +57,8 @@ class AddNewFeedWorker
              )
 	      
         begin
-          f.remote_article_picture_url = @img_url
-          f.save!
+          @f.remote_article_picture_url = @img_url
+          @f.save!
         rescue Exception => exc
           logger.error("Message for the log file: #{exc.message} for the feed id: #{@feed.id}")
         end 
