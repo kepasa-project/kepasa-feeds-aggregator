@@ -25,7 +25,6 @@ class AddNewFeedWorker
     end	        
     
     #add last 10 news
-
     feed.entries.each do |entry|  
 
       entry.published.nil? ? @datafeedlist == Time.now() : @datafeedlist = entry.published
@@ -33,13 +32,13 @@ class AddNewFeedWorker
       #unless Feedlist.where(:feed_id => @feed.id).exists? :guid => entry.id
       unless Feedlist.where(:guid => entry.id).exists?
 
-        begin
-          @object = LinkThumbnailer.generate(entry.url)
-          @img_url = @object.images.last.to_s 
-        rescue Exception => exc
-          logger.error("Message for the log file: #{exc.message} for the feed id: #{@feed.id}")
-          @img_url = entry.image
-        end 
+        #begin
+        #  @object = LinkThumbnailer.generate(entry.url)
+        #  @img_url = @object.images.last.to_s 
+        #rescue Exception => exc
+        #  logger.error("Message for the log file: #{exc.message} for the feed id: #{@feed.id}")
+        #  @img_url = entry.image
+        #end 
 
         sleep 2
 				
@@ -51,17 +50,13 @@ class AddNewFeedWorker
                :published_at => @datafeedlist,
                :guid         => entry.id,
                :image        => entry.media_thumbnail_url,
+               #:remote_article_picture_url => @img_url,
                :content      => entry.content,
                :feed_id      => @feed.id,
                :user_id      => @user.id
              )
 	      
-        begin
-          @f.remote_article_picture_url = @img_url
-          @f.save!
-        rescue Exception => exc
-          logger.error("Message for the log file: #{exc.message} for the feed id: #{@feed.id}")
-        end 
+        AddNewFeedPicturesWorker.new.perform(@f.id)
 
         #store picture
         unless @img_url.nil?

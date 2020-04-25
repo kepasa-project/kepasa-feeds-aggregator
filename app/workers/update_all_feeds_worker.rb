@@ -43,7 +43,7 @@ class UpdateAllFeedsWorker
               @img_url = entry.image
     	      end 
     	 
-    	      sleep 5
+    	      sleep 2
     			
             feedlist = Feedlist.new(
                          :rssurl       => @feed_update.rssurl,
