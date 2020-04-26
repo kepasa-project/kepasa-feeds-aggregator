@@ -3,11 +3,11 @@ class AddNewFeedPicturesWorker
   include Sidekiq::Worker
 
   sidekiq_options :queue => :default
-  sidekiq_options :retry => false #when fail don't repeat
+  sidekiq_options :retry => true #when fail don't repeat
   
-  def perform(feed_id)       
+  def perform(feedlist_id)       
     
-    @f = Feedlist.find(feed_id)
+    @f = Feedlist.find(feedlist_id)
 
     begin
       @object = LinkThumbnailer.generate(@f.url)
