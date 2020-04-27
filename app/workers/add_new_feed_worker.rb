@@ -50,14 +50,14 @@ class AddNewFeedWorker
                :published_at => @datafeedlist,
                :guid         => entry.id,
                :image        => entry.media_thumbnail_url,
-               #:remote_article_picture_url => @img_url,
-               :remote_picture_url_location => @img_url,
+               :remote_article_picture_url => @img_url,
+               #:remote_picture_url_location => @img_url,
                :content      => entry.content,
                :feed_id      => @feed.id,
                :user_id      => @user.id
              )
 	      
-        AddNewFeedPicturesWorker.new.perform(@f.id)
+        #AddNewFeedPicturesWorker.new.perform(@f.id)
 
         #store picture
         unless @img_url.nil?
