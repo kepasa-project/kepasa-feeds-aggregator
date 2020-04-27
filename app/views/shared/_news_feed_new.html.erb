@@ -1,0 +1,42 @@
+<div class="row">
+	<div class="col-lg-12">
+
+    	<p class="search-results-count">
+            <h4><%= @feed.title %> <%= I18n.t("feed.feed_follow_by") %> <%= link_to @feed.user.username, user_path(@feed.user) %></h4>
+        </p>
+        <div id="feedlists">
+        <% @feedlists.each do |feedlist| %>
+
+            <section class="search-result-item">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <%= render "shared/left_column", feedlist: feedlist %> 
+                        </div>
+                        <div class="col-sm-8">
+                            <h4 class="search-result-item-heading">
+                    			<%= feedlist.name.nil? ? (link_to "no title", feedlist_path(feedlist.id)) : (link_to feedlist.name.html_safe, feedlist_path(feedlist.id)) %>
+                    		</h4>
+                            <p>
+                                <%= feedlist.article_picture.nil? ? "-" : image_tag("feeds/#{feedlist.feed.id}/feedlist-#{feedlist.id}/#{feedlist.remote_picture_url_location.split('/')[-1]}") %>
+                            </p>
+                            <p class="description">
+                            
+                                <%= feedlist.summary.nil? ? "NO summary" : sanitize(feedlist.summary, attributes: %w(img)) %>
+
+                            </p>
+                            <p>
+                                <%= render 'shared/info_share', feedlist: feedlist %>
+                            </p>
+                        </div>
+                    	<div class="col-sm-2 text-align-center">                        
+                            <%= render 'shared/info_click', feedlist: feedlist %>
+                    	</div>
+                    </div>
+                 </div>
+            </section>
+        
+        <% end %>
+        </div>
+    </div>
+</div>

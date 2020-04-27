@@ -32,13 +32,13 @@ class AddNewFeedWorker
       #unless Feedlist.where(:feed_id => @feed.id).exists? :guid => entry.id
       unless Feedlist.where(:guid => entry.id).exists?
 
-        #begin
-        #  @object = LinkThumbnailer.generate(entry.url)
-        #  @img_url = @object.images.last.to_s 
-        #rescue Exception => exc
-        #  logger.error("Message for the log file: #{exc.message} for the feed id: #{@feed.id}")
-        #  @img_url = entry.image
-        #end 
+        begin
+          @object = LinkThumbnailer.generate(entry.url)
+          @img_url = @object.images.last.to_s 
+        rescue Exception => exc
+          logger.error("Message for the log file: #{exc.message} for the feed id: #{@feed.id}")
+          @img_url = entry.image
+        end 
 
         sleep 2
 				
@@ -51,6 +51,7 @@ class AddNewFeedWorker
                :guid         => entry.id,
                :image        => entry.media_thumbnail_url,
                #:remote_article_picture_url => @img_url,
+               :remote_picture_url_location => @img_url,
                :content      => entry.content,
                :feed_id      => @feed.id,
                :user_id      => @user.id

@@ -4,24 +4,23 @@ class AddNewFeedPicturesWorker
 
   sidekiq_options :queue => :default
   sidekiq_options :retry => true #when fail don't repeat
-  
+
   def perform(feedlist_id)       
     
     @f = Feedlist.find(feedlist_id)
+    @img_url = @f.remote_picture_url_location
+    @feed = @f.feed 
 
     begin
-      @object = LinkThumbnailer.generate(@f.url)
-      @img_url = @object.images.last.to_s 
+      a = Rails.root + "app/assets/images/feeds"
+      path = "#{a}/#{@feed.id}/feedlist-#{@f.id}/"
+      system 'mkdir', '-p', path
+      #Dir.mkdir("#{path}") #unless File.exists?("#{path}")
+      download = open("#{@img_url}")
+      IO.copy_stream(download, "#{a}/#{@feed.id}/feedlist-#{@f.id}/#{download.base_uri.to_s.split('/')[-1]}")
     rescue Exception => exc
-      logger.error("Message for the log file: #{exc.message} for the feed id: #{@feed.id}")
-      @img_url = @f.image
-    end
-
-    begin
-      @f.update(params.permit(:remote_article_picture_url => @img_url))
-    rescue Exception => exc
-      logger.error("Message for the log file: #{exc.message} for the feed id: #{@feed.id}")
-    end
+      logger.error("Message for the log file: #{exc.message} to create thumbnail directory: #{@f.id}")
+    end 
 
   end # end perform method
 

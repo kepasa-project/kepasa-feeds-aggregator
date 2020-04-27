@@ -54,4 +54,5 @@ Vagrantfile
 /config/master.key
 
 # Ignore pictures directory
+/app/assets/images/feeds
 /pictures
