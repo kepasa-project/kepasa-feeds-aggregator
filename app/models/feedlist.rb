@@ -2,7 +2,7 @@
 
 class Feedlist < ActiveRecord::Base
   
-  mount_uploader :article_picture, LogoUploader
+  mount_uploader :article_picture, CategoryLogoUploader
 
   belongs_to :feed, touch: true
   belongs_to :user
