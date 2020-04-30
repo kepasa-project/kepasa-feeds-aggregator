@@ -8,5 +8,7 @@ CarrierWave.configure do |config|
   # This avoids uploaded files from saving to public/ and so
   # they will not be available for public (non-authenticated) downloading
   #config.root = Rails.root
-  config.root = -> { "#{Rails.root}/public/uploads" }
+
+  #config.root = -> { "#{Rails.root}/public/uploads" }
+  config.root = -> { "/home/deploy/kepasa/shared/public/" }
 end
