@@ -1,4 +1,6 @@
 class AddNewFeedWorker
+  
+  require 'fileutils'
 
   include Sidekiq::Worker
 
