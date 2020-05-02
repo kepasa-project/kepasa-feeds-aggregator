@@ -8,9 +8,9 @@ class MoveFeedlistImagesWorker
   	@feedlist = Feedlist.find(feedlist_id)
     a = Rails.root.to_s.split("/")
     a.pop
-    #temporary email
+    #temporary image
     b = a.join("/") + "/20200327071103/public/uploads/feedlist/article_picture/@feedlist.id"
-    FileUtils.mv("#{b}", "/home/kepasa/shared/public/uploads/feedlist/article_picture")
+    FileUtils.mv("#{b}", "/home/kepasa/shared/public/uploads/feedlist/article_picture", force: true, verbose: true)
   end
 
 end
