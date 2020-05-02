@@ -56,7 +56,10 @@ class AddNewFeedWorker
                :feed_id      => @feed.id,
                :user_id      => @user.id
              )
-	      
+        
+        if Rails.env = "production"
+          MoveFeedImagesWorker.new.perform(@f.id)
+        end
         #AddNewFeedPicturesWorker.new.perform(@f.id)
 
         #store picture
