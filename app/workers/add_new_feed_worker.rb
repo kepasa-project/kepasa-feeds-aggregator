@@ -59,7 +59,7 @@ class AddNewFeedWorker
                :user_id      => @user.id
              )
         
-        sleep 10
+        #sleep 10
 
         #if Rails.env == "production"
           
