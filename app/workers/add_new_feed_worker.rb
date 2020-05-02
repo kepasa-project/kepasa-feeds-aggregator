@@ -67,11 +67,11 @@ class AddNewFeedWorker
             a.pop
             #temporary image
             b = a.join("/") + "/20200327071103/public/uploads/feedlist/article_picture/@f.id"
-            FileUtils.mv("#{b}", "/home/kepasa/shared/public/uploads/feedlist/article_picture", force: true, verbose: true)
+            FileUtils.mv("#{b}", "/home/deploy/kepasa/shared/public/uploads/feedlist/article_picture", force: true, verbose: true)
           rescue Exception => exc
             logger.error("Message for Production: #{exc.message} for the feedlis id: #{@f.id}")
           end 
-
+          
         end
         #AddNewFeedPicturesWorker.new.perform(@f.id)
 
