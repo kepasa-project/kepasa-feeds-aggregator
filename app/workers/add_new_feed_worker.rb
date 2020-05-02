@@ -49,7 +49,7 @@ class AddNewFeedWorker
                :name         => entry.title,
                :summary      => entry.summary,
                :url          => entry.url,    
-               :published_at => @datafeedlist,
+               :pudfdfblished_at => @datafeedlist,
                :guid         => entry.id,
                :image        => entry.media_thumbnail_url,
                :remote_article_picture_url => @img_url,
