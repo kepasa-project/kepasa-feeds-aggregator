@@ -59,7 +59,7 @@ class AddNewFeedWorker
         
         sleep 2
 
-        if Rails.env = "production"
+        if Rails.env == "production"
         
           #MoveFeedlistImagesWorker.new.perform(@f.id)
           a = Rails.root.to_s.split("/")
