@@ -57,6 +57,8 @@ class AddNewFeedWorker
                :user_id      => @user.id
              )
         
+        sleep 2
+
         if Rails.env = "production"
           MoveFeedlistImagesWorker.new.perform(@f.id)
         end
