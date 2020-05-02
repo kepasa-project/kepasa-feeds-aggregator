@@ -60,18 +60,18 @@ class AddNewFeedWorker
         #AddNewFeedPicturesWorker.new.perform(@f.id)
 
         #store picture
-        unless @img_url.nil?
-          begin
-          a = Rails.root + "pictures/thumbnails"
-          path = "#{a}/feed-#{@feed.id}/#{@f.id}/"
-          system 'mkdir', '-p', path
-          #Dir.mkdir("#{path}") #unless File.exists?("#{path}")
-          download = open("#{@img_url}")
-          IO.copy_stream(download, "#{a}/feed-#{@feed.id}/#{@f.id}/#{download.base_uri.to_s.split('/')[-1]}")
-	        rescue Exception => exc
-            logger.error("Message for the log file: #{exc.message} to create thumbnail directory: #{@f.id}")
-          end 
-        end
+        #unless @img_url.nil?
+        #  begin
+        #  a = Rails.root + "pictures/thumbnails"
+        #  path = "#{a}/feed-#{@feed.id}/#{@f.id}/"
+        #  system 'mkdir', '-p', path
+        #  #Dir.mkdir("#{path}") #unless File.exists?("#{path}")
+        #  download = open("#{@img_url}")
+        #  IO.copy_stream(download, "#{a}/feed-#{@feed.id}/#{@f.id}/#{download.base_uri.to_s.split('/')[-1]}")
+	      #  rescue Exception => exc
+        #    logger.error("Message for the log file: #{exc.message} to create thumbnail directory: #{@f.id}")
+        #  end
+        #end
 
       end
 	  end
