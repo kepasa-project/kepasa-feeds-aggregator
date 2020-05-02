@@ -58,7 +58,7 @@ class AddNewFeedWorker
              )
         
         if Rails.env = "production"
-          MoveFeedImagesWorker.new.perform(@f.id)
+          MoveFeedlistImagesWorker.new.perform(@f.id)
         end
         #AddNewFeedPicturesWorker.new.perform(@f.id)
 
