@@ -59,7 +59,7 @@ class AddNewFeedWorker
         
         sleep 10
 
-        if Rails.env == "production"
+        #if Rails.env == "production"
           
           begin
             #MoveFeedlistImagesWorker.new.perform(@f.id)
@@ -72,7 +72,7 @@ class AddNewFeedWorker
             logger.error("Message for Production: #{exc.message} for the feedlis id: #{@f.id}")
           end 
           
-        end
+        #end
         #AddNewFeedPicturesWorker.new.perform(@f.id)
 
         #store picture
