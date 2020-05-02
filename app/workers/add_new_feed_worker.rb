@@ -67,6 +67,7 @@ class AddNewFeedWorker
             #MoveFeedlistImagesWorker.new.perform(@f.id)
             a = Rails.root.to_s.split("/")
             a.pop
+            raise
             #temporary image
             b = a.join("/") + "/20200327071103/public/uploads/feedlist/article_picture/#{@f.id}"
             FileUtils.mv("#{b}", "/home/deploy/kepasa/shared/public/uploads/feedlist/article_picture", force: true, verbose: true)
