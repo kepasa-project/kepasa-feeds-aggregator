@@ -7,7 +7,8 @@ set :repo_url, "git@github.com:kepasa-project/kepasa-feeds-aggregator.git"
 set :deploy_to, ENV['PRO_WEBAPP_PATH']
 
 set :migration_role, :app
-set :assets_role, :app
+
+#set :assets_role, :app
 
 set :rails_env, :production
 
