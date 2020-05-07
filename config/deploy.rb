@@ -51,6 +51,20 @@ append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bund
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
+
+namespace :deploy do
+  desc "cause Passenger to initiate a restart"
+  task :restart do
+    run "touch #{current_path}/tmp/restart.txt"
+  end
+
+  desc "reload database with seed data"
+  task :seed do
+    deploy.migrations
+    run "cd #{current_path}; rake db:seed RAILS_ENV=#{rails_env}"
+  end
+end
+
 namespace :rails do
   desc "Open the rails console"
   task :console do
@@ -68,6 +82,7 @@ namespace :rails do
     end
   end
   
+  # this task doesn't work
   desc "restart sidekiq"
   task :restart_sidekiq do
     on roles(:app) do
