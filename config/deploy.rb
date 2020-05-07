@@ -67,6 +67,13 @@ namespace :rails do
       execute_interactively "$HOME/.rbenv/bin/rbenv exec bundle exec rails dbconsole #{rails_env}"
     end
   end
+  
+  desc "restart sidekiq"
+  task :restart_sidekiq do
+    on roles(:app) do
+     execute :sudo, :systemctl, :restart, :sidekiq
+    end
+  end
 
   def execute_interactively(command)
   	host = ENV['WEB_IP_ADDRESS']
