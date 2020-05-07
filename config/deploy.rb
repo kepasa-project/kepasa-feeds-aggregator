@@ -50,7 +50,6 @@ set :linked_dirs, %w{
 # Git
 #############################################################
 
-set :scm, :git
 set :repo_url, "git@github.com:kepasa-project/kepasa-feeds-aggregator.git"
 
 #append :linked_files, "config/database.yml", "config/application.yml", "config/secrets.yml"
