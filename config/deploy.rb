@@ -55,13 +55,19 @@ append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bund
 namespace :deploy do
   desc "cause Passenger to initiate a restart"
   task :restart do
-    run "touch #{current_path}/tmp/restart.txt"
+    on roles(:app) do
+      rails_env = fetch(:rails_env, 'production')
+      execute_interactively "cd #{current_path}; touch tmp/restart.txt"
+    end
   end
 
   desc "reload database with seed data"
   task :seed do
-    deploy.migrations
-    run "cd #{current_path}; rake db:seed RAILS_ENV=#{rails_env}"
+    on roles(:app) do
+      rails_env = fetch(:rails_env, 'production')
+      deploy.migrations
+      execute_interactively "cd #{current_path}; rake db:seed RAILS_ENV=#{rails_env}"
+    end
   end
 end
 
