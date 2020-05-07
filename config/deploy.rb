@@ -129,12 +129,12 @@ namespace :rails do
   end
   
   # this task doesn't work
-  desc "restart sidekiq"
-  task :restart_sidekiq do
-    on roles(:app) do
-     execute :sudo, :systemctl, :restart, :sidekiq
-    end
-  end
+  #desc "restart sidekiq"
+  #task :restart_sidekiq do
+  #  on roles(:app) do
+  #   execute :sudo, :systemctl, :restart, :sidekiq
+  #  end
+  #end
 
   def execute_interactively(command)
   	host = ENV['WEB_IP_ADDRESS']
