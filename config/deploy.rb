@@ -1,23 +1,39 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.12.1"
 
-set :application, "kepasa"
-set :repo_url, "git@github.com:kepasa-project/kepasa-feeds-aggregator.git"
+#############################################################
+# Application
+#############################################################
 
-set :deploy_to, ENV['PRO_WEBAPP_PATH']
+set :application, "kepasa"
+
+#############################################################
+# RBENV
+#############################################################
+
+set :rbenv_type, :user
+set :rbenv_ruby, '2.5.1'
+
+#############################################################
+# ENVIRONMENT
+#############################################################
 
 set :migration_role, :app
-
-#set :assets_role, :app
-
+set :assets_role, :app
 set :rails_env, :production
 
+#############################################################
+# Server
+#############################################################
+
+set :deploy_to, ENV['PRO_WEBAPP_PATH']
 set :keep_releases, 5
 set :linked_files, %w{
                       config/database.yml
                       config/application.yml
                       config/secrets.yml
                   }
+
 set :linked_dirs, %w{
                       bin
                       log
@@ -29,6 +45,13 @@ set :linked_dirs, %w{
                       tmp/sockets
                       vendor/bundle
                   }
+
+#############################################################
+# Git
+#############################################################
+
+set :scm, :git
+set :repo_url, "git@github.com:kepasa-project/kepasa-feeds-aggregator.git"
 
 #append :linked_files, "config/database.yml", "config/application.yml", "config/secrets.yml"
 #append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system", "public/uploads"
@@ -70,24 +93,24 @@ set :linked_dirs, %w{
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
 
-namespace :deploy do
-  desc "cause Passenger to initiate a restart"
-  task :restart do
-    on roles(:app) do
-      rails_env = fetch(:rails_env, 'production')
-      execute_interactively "cd #{current_path}; touch tmp/restart.txt"
-    end
-  end
-
-  desc "reload database with seed data"
-  task :seed do
-    on roles(:app) do
-      rails_env = fetch(:rails_env, 'production')
-      deploy.migrations
-      execute_interactively "cd #{current_path}; rake db:seed RAILS_ENV=#{rails_env}"
-    end
-  end
-end
+#namespace :deploy do
+#  desc "cause Passenger to initiate a restart"
+#  task :restart do
+#    on roles(:app) do
+#      rails_env = fetch(:rails_env, 'production')
+#      execute_interactively "cd #{current_path}; touch tmp/restart.txt"
+#    end
+#  end
+#
+#  desc "reload database with seed data"
+#  task :seed do
+#    on roles(:app) do
+#      rails_env = fetch(:rails_env, 'production')
+#      deploy.migrations
+#      execute_interactively "cd #{current_path}; rake db:seed RAILS_ENV=#{rails_env}"
+#    end
+#  end
+#end
 
 namespace :rails do
   desc "Open the rails console"
