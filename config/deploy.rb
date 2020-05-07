@@ -12,9 +12,27 @@ set :migration_role, :app
 
 set :rails_env, :production
 
-append :linked_files, "config/database.yml", "config/application.yml", "config/secrets.yml"
+set :keep_releases, 5
+set :linked_files, %w{
+                      config/database.yml
+                      config/application.yml
+                      config/secrets.yml
+                  }
+set :linked_dirs, %w{
+                      bin
+                      log
+                      public/assets
+                      public/system
+                      public/uploads
+                      tmp/cache
+                      tmp/pids
+                      tmp/sockets
+                      vendor/bundle
+                  }
+
+#append :linked_files, "config/database.yml", "config/application.yml", "config/secrets.yml"
 #append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system", "public/uploads"
-append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/uploads"
+#append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/uploads"
 
 #set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/uploads}
 
