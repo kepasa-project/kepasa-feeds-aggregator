@@ -4,19 +4,14 @@ lock "~> 3.12.1"
 set :application, "kepasa"
 set :repo_url, "git@github.com:kepasa-project/kepasa-feeds-aggregator.git"
 
-set :deploy_to, ENV['PRO_WEBAPP_PATH']
+#############################################################
+# RBENV
+#############################################################
 
-set :migration_role, :app
-
-#set :assets_role, :app
+set :rbenv_type, :user
+set :rbenv_ruby, '2.5.1'
 
 set :rails_env, :production
-
-append :linked_files, "config/database.yml", "config/application.yml", "config/secrets.yml"
-#append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system", "public/uploads"
-append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/uploads"
-
-#set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/uploads}
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -31,8 +26,16 @@ append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bund
 # These are the defaults.
 # set :format_options, command_output: true, log_file: "log/capistrano.log", color: :auto, truncate: :auto
 
+set :migration_role, :app
+set :assets_role, :app
+set :deploy_to, ENV['PRO_WEBAPP_PATH']
+
 # Default value for :pty is false
 set :pty, true
+
+append :linked_files, "config/database.yml", "config/application.yml", "config/secrets.yml"
+
+append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/uploads"
 
 # Default value for :linked_files is []
 # append :linked_files, "config/database.yml"
@@ -51,6 +54,7 @@ set :pty, true
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
+
 namespace :rails do
   desc "Open the rails console"
   task :console do
