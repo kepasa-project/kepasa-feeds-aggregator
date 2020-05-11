@@ -56,7 +56,7 @@ class FeedsController < ApplicationController
 
                     if @feed.save 
                     
-                      #AddNewFeedWorker.perform_async(@feed.id)            
+                      AddNewFeedWorker.perform_async(@feed.id)            
                            
                       redirect_to root_path
 
