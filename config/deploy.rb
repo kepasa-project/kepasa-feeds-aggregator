@@ -32,7 +32,7 @@ append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bund
 # set :format_options, command_output: true, log_file: "log/capistrano.log", color: :auto, truncate: :auto
 
 # Default value for :pty is false
-# set :pty, true
+set :pty, true
 
 # Default value for :linked_files is []
 # append :linked_files, "config/database.yml"
@@ -71,7 +71,15 @@ namespace :rails do
   desc "restart sidekiq"
   task :restart_sidekiq do
     on roles(:app) do
-     execute :sudo, :systemctl, :restart, :sidekiq
+     #execute :sudo, :systemctl, :restart, :sidekiq
+     execute_interactively "systemctl restart sidekiq"
+    end
+  end
+  
+  desc "restart redis"
+  task :restart_redis do
+    on roles(:app) do
+     execute_interactively "service redis_6379 restart"
     end
   end
 

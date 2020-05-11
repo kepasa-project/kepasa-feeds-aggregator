@@ -30,10 +30,7 @@ class UpdateFeedWorker
       end
 
       unless Feedlist.where(:feed_id => @feed.id).exists? :guid => entry.id
-      #unless Feedlist.where(:guid => entry.id).exists?
         begin
-          #@object = LinkThumbnailer.generate(entry.url)
-          #@img_url = @object.images.last.to_s 
           if retrieve_image(entry.summary).nil?
             @object = LinkThumbnailer.generate(entry.url)
             @img_url = @object.images.last.to_s 
@@ -75,10 +72,10 @@ class UpdateFeedWorker
 	      @attr_val = nil
 	    end
 	  end
-    end
-  
+  end
+
   return @attr_val
-  
+
   end
 
 end
