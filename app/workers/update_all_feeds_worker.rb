@@ -63,7 +63,7 @@ class UpdateAllFeedsWorker
                          :user_id      => @user.id
                        )
             
-            feedlsit.save!
+            feedlist.save!
             
           end
 	      
