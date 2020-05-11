@@ -36,12 +36,16 @@ class UpdateAllFeedsWorker
           unless Feedlist.where(:feed_id => @feed_update.id).exists? :guid => entry.id
           
             begin
-              @object = LinkThumbnailer.generate(entry.url)
-              @img_url = @object.images.last.to_s 
+              if retrieve_image(entry.summary).nil?
+                @object = LinkThumbnailer.generate(entry.url)
+                @img_url = @object.images.last.to_s 
+              else
+                @img_url = retrieve_image(entry.summary)
+              end
             rescue Exception => exc
-              logger.error("Message for the log file: #{exc.message} for the feed id: #{@feed_update.id}")
+              logger.error("Message for the log file: #{exc.message} for the feed id: #{@feed.id}")
               @img_url = entry.image
-    	      end 
+            end
     	 
     	      sleep 2
     			
