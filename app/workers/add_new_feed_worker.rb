@@ -32,15 +32,19 @@ class AddNewFeedWorker
       entry.published.nil? ? @datafeedlist == Time.now() : @datafeedlist = entry.published
 
       #unless Feedlist.where(:feed_id => @feed.id).exists? :guid => entry.id
-      unless Feedlist.where(:guid => entry.id).exists?
+      unless Feedlist.where(:guid => entry.id).exists? :guid => entry.id
 
         begin
-          @object = LinkThumbnailer.generate(entry.url)
-          @img_url = @object.images.last.to_s 
+          if retrieve_image(entry.summary).nil?
+            @object = LinkThumbnailer.generate(entry.url)
+            @img_url = @object.images.last.to_s 
+          else
+            @img_url = retrieve_image(entry.summary)
+          end
         rescue Exception => exc
           logger.error("Message for the log file: #{exc.message} for the feed id: #{@feed.id}")
           @img_url = entry.image
-        end 
+        end
 
         sleep 2
 				
@@ -96,5 +100,23 @@ class AddNewFeedWorker
 	  end
 
   end # end perform method
+  
+  def retrieve_image(summary)
+    
+  @doc = Nokogiri::HTML(summary)
+
+  @doc.css('img').each do |node|    
+    node.each do |attr,attr_val|
+      if attr == "src"
+        @attr_val = attr_val
+      else
+        @attr_val = nil
+      end
+    end
+  end
+
+  return @attr_val
+
+  end
 
 end
