@@ -18,7 +18,7 @@
                     			<%= feedlist.name.nil? ? (link_to "no title", feedlist_path(feedlist.id)) : (link_to feedlist.name.html_safe, feedlist_path(feedlist.id)) %>
                     		</h4>
                             <p>
-                                <%= feedlist.article_picture.nil? ? "-" : image_tag(feedlist.article_picture.middle.url.to_s) %>
+                                <%= feedlist.article_picture.nil? ? "-" : image_tag(feedlist.article_picture.thumb.url.to_s) %>
                             </p>
                             <p class="description">
                             

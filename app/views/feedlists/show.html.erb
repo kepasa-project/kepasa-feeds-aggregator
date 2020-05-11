@@ -18,41 +18,18 @@
           <div class="row">
             <div class="col-lg-12 text-center">
 
-              <% if @img_url.nil? %>
-
-                              <%#= image_tag('no-imagen.png') %>
-                                    
-              <% else %>
-              
-              <% if @feedlist.content.nil? %>
-
-                              <img src="<%= @img_url %>" width="300px">
-              
-              <% end %>
-
-              <% end %>
-              
-            </div>
-            </div>
-            <div class="row">
-            <div class="col-lg-12 text-center">
-
               <p>
-                <h3> <%#= I18n.t("feedlist.title")%> <%= @feedlist.name %> </h3>
+                <h3> <%= @feedlist.name %> </h3>
               </p> 
 
               <p>
 
                 <% if @feedlist.content.nil? %>
-
                   <%= simple_format(@feedlist.summary) if !@feedlist.summary.nil? %>
-                
                 <% else %>
                   <div align="justify">
                   <%= sanitize @feedlist.content.gsub("<img ", "<img align='center'")  %>
                   </div>
-                  <font size="3"><%#= simple_format(@feedlist.content) %> </font>
-
                 <% end %>
               
               </p>
@@ -64,11 +41,8 @@
 
           <p class="feedlist">
             <%= I18n.t("feedlist.click") %> <%= link_to I18n.t("feedlist.here"), @feedlist.url, target: "_blank" %> <%= I18n.t("feedlist.read_original_article") %>
-            
-             <%# unless user_signed_in? %>
-              <!-- o guarda el articulo en <u> <%#= link_to 'Kepasa.co', root_url %> </u> via <%#= link_to "#{image_tag('btn-facebook-connect-rid.png')}".html_safe, user_omniauth_authorize_path(:facebook, :id => @feedlist.id) %> <br />
-            <%# end %> <br /> -->
-            </p> 
+          
+          </p> 
   
           <p class="feedlist">
 
