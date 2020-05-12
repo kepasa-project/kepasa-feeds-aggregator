@@ -1,6 +1,4 @@
 class AddNewFeedWorker
-  
-  require 'fileutils'
 
   include Sidekiq::Worker
 
@@ -45,10 +43,8 @@ class AddNewFeedWorker
           logger.error("Message for the log file: #{exc.message} for the feed id: #{@feed.id}")
           @img_url = entry.image
         end
-
-        sleep 2
 				
-        @f = Feedlist.create!(
+        @f = Feedlist.new(
                :rssurl       => @feed.rssurl,
                :name         => entry.title,
                :summary      => entry.summary,
@@ -63,38 +59,9 @@ class AddNewFeedWorker
                :user_id      => @user.id
              )
         
-        #sleep 10
-
-        #if Rails.env == "production"
-          
-        #  begin
-        #    #MoveFeedlistImagesWorker.new.perform(@f.id)
-        #    a = Rails.root.to_s.split("/")
-        #    a.pop
-        #    
-        #    #temporary image
-        #    b = a.join("/") + "/20200327071103/public/uploads/feedlist/article_picture/#{@f.id}"
-        #    FileUtils.move("#{b}", "/home/deploy/kepasa/shared/public/uploads/feedlist/article_picture", force: true, verbose: true)
-        #  rescue Exception => exc
-        #    logger.error("Message for Production: #{exc.message} for the feedlis id: #{@f.id}")
-        #  end 
-          
-        #end
-        #AddNewFeedPicturesWorker.new.perform(@f.id)
-
-        #store picture
-        #unless @img_url.nil?
-        #  begin
-        #  a = Rails.root + "pictures/thumbnails"
-        #  path = "#{a}/feed-#{@feed.id}/#{@f.id}/"
-        #  system 'mkdir', '-p', path
-        #  #Dir.mkdir("#{path}") #unless File.exists?("#{path}")
-        #  download = open("#{@img_url}")
-        #  IO.copy_stream(download, "#{a}/feed-#{@feed.id}/#{@f.id}/#{download.base_uri.to_s.split('/')[-1]}")
-	      #  rescue Exception => exc
-        #    logger.error("Message for the log file: #{exc.message} to create thumbnail directory: #{@f.id}")
-        #  end
-        #end
+        @f.save
+        
+        sleep 2
 
       end
 	  end
