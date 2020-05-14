@@ -81,7 +81,7 @@ class FeedsController < ApplicationController
     @feed = Feed.new(feed_params)
     @feed.save
     #AddNewFeedWorker.perform_async(@feed.id)            
-    AddNewFeedWorker.perform_in(1.seconds, @feed.id)                
+    #AddNewFeedWorker.perform_in(1.seconds, @feed.id)                
     category = Category.find(params[:category])
     
     redirect_to category_path(category)
@@ -96,7 +96,8 @@ class FeedsController < ApplicationController
 
   def update_all_feeds
 
-    UpdateAllFeedsWorker.perform_in(1.seconds, current_user.id)
+    #UpdateAllFeedsWorker.perform_in(1.seconds, current_user.id)
+    UpdateAllFeedsWorker.perform_async(current_user.id)
     redirect_to user_feeds_path(current_user)
 
   end

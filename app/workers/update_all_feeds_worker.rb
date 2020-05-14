@@ -33,7 +33,7 @@ class UpdateAllFeedsWorker
 
           entry.published.nil? ? @datafeedlist = Time.now() : @datafeedlist = entry.published
           
-          unless Feedlist.where(:feed_id => @feed_update.id).exists? :guid => entry.id
+          if @feed_update.feedlists.finb_by(:guid => entry.id)
           
             begin
               if retrieve_image(entry.summary).nil?
@@ -49,7 +49,7 @@ class UpdateAllFeedsWorker
     	 
     	      sleep 2
     			
-            feedlist = Feedlist.new(
+            feedlist = Feedlist.create!(
                          :rssurl       => @feed_update.rssurl,
                          :name         => entry.title.to_s.force_encoding("UTF-8"),
                          :summary      => entry.summary.to_s.force_encoding("UTF-8"),
@@ -62,8 +62,6 @@ class UpdateAllFeedsWorker
                          :feed_id      => @feed_update.id,
                          :user_id      => @user.id
                        )
-            
-            feedlist.save!
             
           end
 	      
