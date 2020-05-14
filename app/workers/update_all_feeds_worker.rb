@@ -33,7 +33,7 @@ class UpdateAllFeedsWorker
 
           entry.published.nil? ? @datafeedlist = Time.now() : @datafeedlist = entry.published
           
-          if @feed_update.feedlists.finb_by(:guid => entry.id)
+          if @feed_update.feedlists.find_by(:guid => entry.id)
           
             begin
               if retrieve_image(entry.summary).nil?
