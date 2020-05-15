@@ -64,7 +64,10 @@ class UpdateAllFeedsWorker
                        )
             
           end
-	      
+	        
+          @img_url = nil
+          @object = nil
+          
         end
       end #end unless HTTP fetch status
 	  end #end feeds loops
