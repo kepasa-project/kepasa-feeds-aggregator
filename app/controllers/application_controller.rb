@@ -4,11 +4,6 @@ class ApplicationController < ActionController::Base
   
   APP_DOMAIN = ENV['DOMAIN']
 
-  def default_url_options(options={})
-    logger.debug "default_url_options is passed options: #{options.inspect}\n"
-    { :locale => I18n.locale }
-  end
-
   skip_before_action :verify_authenticity_token
 
   #before_action :ensure_domain
@@ -20,30 +15,24 @@ class ApplicationController < ActionController::Base
       end
   end
 
-=begin
-#begin snippet
-  # begin handle Error snippet if no Record is Found!
-  rescue_from ActiveRecord::RecordNotFound do
-    flash[:warning] = 'Resource not found.'
-    redirect_back_or root_path
-  end
-
-  def redirect_back_or(path)
-    redirect_to request.referer || path
-  end
-  # end error snippet
-#end snippet
-=end
-
   private
 
   def set_locale
-    I18n.locale = params[:locale] || I18n.default_locale
+    if user_signed_in?
+      I18n.locale = current_user.locale
+    else
+      I18n.locale = params[:locale] || I18n.default_locale
+    end
     Rails.application.routes.default_url_options[:locale]= I18n.locale
   end
 
+  def default_url_options(options={})
+    logger.debug "default_url_options is passed options: #{options.inspect}\n"
+    { :locale => I18n.locale }
+  end
+
   def configure_permitted_parameters
-      attributes = [:username, :email, :password, :password_confirmation]
+      attributes = [:username, :email, :password, :password_confirmation, :locale]
       devise_parameter_sanitizer.permit(:sign_up, keys: attributes)
       devise_parameter_sanitizer.permit(:account_update, keys: attributes)
   end

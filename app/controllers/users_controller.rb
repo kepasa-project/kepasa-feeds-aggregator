@@ -1,29 +1,11 @@
 class UsersController < ApplicationController
   
 	def show
-
-		#@user = current_user
-    #@title = @user.username
-    #@feed_items = @user.feeds
-
-    # snippet added to update current user rss feeds 
-    #@feeds_current_user = @user.feeds
-
-    #@feeds_current_user.find_each(:batch_size => 200) do |feed|
-
-        #NoticiasElpaisWorker.perform_async(feed.id.to_i)
-
-        #sleep 5
-
-    #end
-    # end snippet 
-    
 	end
 
 	def index
 
 		@users = User.order("created_at DESC").page(params[:page])
-    #@users_paginate = @users.page(params[:page])
 
 	end
 

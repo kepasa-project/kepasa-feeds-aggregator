@@ -24,8 +24,6 @@
         <% if current_user.has_role? :admin %> 
         <li> <%= link_to "Admin", admin_dashboard_path %></li>
         <% end %>
-        
-        <%= render 'layouts/languages' %>
       
         <%= url_for == "/#{I18n.locale}/dashboard" ? "<li class='active'>".html_safe : "<li>".html_safe %> <%= link_to "<i class='fa fa-dashboard'></i> #{I18n.t("header.dashboard")}".html_safe, dashboard_path, :class => "action-link" %> </li>
         <li> 
