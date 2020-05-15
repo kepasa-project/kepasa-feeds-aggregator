@@ -41,7 +41,7 @@ div.desc {
         <div class="col-lg-4 text-center">
           <div class="panel panel-default">
             <div class="panel-body">
-              <p><%= image_tag "#{category.category_logo_url(:thumb)}" if category.category_logo.present? %> </p>
+              <p><%= image_tag category.category_logo.thumb.url.to_s) if category.category_logo.present? %> </p>
               <h5> <%= link_to category.name, category_path(category) %> </h5>
             </div>
           </div>
