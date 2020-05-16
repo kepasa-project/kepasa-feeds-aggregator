@@ -57,7 +57,7 @@ class UpdateAllFeedsWorker
             end
     			  
             logger.debug "Image #{@img_url.inspect}"
-            @feedlist = Feedlist.create!(
+            @feedlist = Feedlist.new(
                          :rssurl       => @feed_update.rssurl,
                          :name         => entry.title.to_s.force_encoding("UTF-8"),
                          :summary      => entry.summary.to_s.force_encoding("UTF-8"),
@@ -71,11 +71,14 @@ class UpdateAllFeedsWorker
                          :user_id      => @user.id
                        )
             
+            next if @feedlist.save
+            
+            sleep = 2      
+          
           end
           
           logger.debug "Feedlist submitted ID: "
       
-          sleep = 2
           @object = nil
           @img_url = nil
         end
