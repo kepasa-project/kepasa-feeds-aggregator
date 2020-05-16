@@ -75,7 +75,7 @@ class UpdateAllFeedsWorker
           
           logger.debug "Feedlist submitted ID: "
       
-          sleep = 2
+          sleep = 1
           @object = nil
           @img_url = nil
         end
