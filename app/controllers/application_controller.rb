@@ -14,7 +14,25 @@ class ApplicationController < ActionController::Base
         redirect_to "http://#{APP_DOMAIN}", :status => 301
       end
   end
+  
+  def retrieve_image(summary)
+    
+  @doc = Nokogiri::HTML(summary)
 
+  @doc.css('img').each do |node|    
+    node.each do |attr,attr_val|
+      if attr == "src"
+        @attr_val = attr_val
+      else
+        @attr_val = nil
+      end
+    end
+  end
+
+  return @attr_val
+
+  end
+  
   private
 
   def set_locale

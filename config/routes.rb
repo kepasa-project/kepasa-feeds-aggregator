@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   
   # access to the jobs in the queue domainapp/sidekiq
   mount Sidekiq::Web, at:'/sidekiq'
-
+  
+  # monitoring redis
+  mount RedisDashboard::Application, at: "redis_dashboard"
+  
   scope '(:locale)', :locale => /en|es|it|tl/ do
 
   namespace :admin do

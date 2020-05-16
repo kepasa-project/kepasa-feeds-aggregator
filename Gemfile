@@ -28,6 +28,9 @@ gem 'sidekiq'
 gem 'sinatra', require: false
 gem 'slim'
 
+# monitoring redis no-sql database
+gem 'redis_dashboard'
+
 # email and passwords system
 gem 'figaro'
 gem 'gibbon'

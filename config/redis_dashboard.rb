@@ -1,0 +1,1 @@
+RedisDashboard.urls = ["redis://localhost"]

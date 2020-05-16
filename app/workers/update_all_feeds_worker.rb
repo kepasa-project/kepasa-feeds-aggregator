@@ -4,8 +4,14 @@ class UpdateAllFeedsWorker
 
   sidekiq_options :queue => :default
   sidekiq_options :retry => false #when fail don't repeat
+  
+  def logger
+    Logger.new("log/sidekiq-update-all-feeds-worker.log")
+  end
 
   def perform(user_id)
+    
+    logger.info "Perform Update All Feeds"
 
     Feedjira::Feed.add_common_feed_entry_element("media:thumbnail", :value => :url, :as => :media_thumbnail_url)
     Feedjira::Feed.add_common_feed_entry_element("enclosure", :value => :url, :as => :media_thumbnail_url)
@@ -26,15 +32,18 @@ class UpdateAllFeedsWorker
         xml.force_encoding("UTF-8")
         @feed = Feedjira.parse(xml)
       end	        
-
+      
+      logger.debug "Feed #{@feed_update.inspect}"
       unless @feed.is_a?(Fixnum) #HTTP fetch results is not an error (i.e. not a 200 or 3XX)
         
+
         @feed.entries.each do |entry|  
 
           entry.published.nil? ? @datafeedlist = Time.now() : @datafeedlist = entry.published
           
           if @feed_update.feedlists.find_by(:guid => entry.id).nil?
-          
+             
+            logger.debug "Feedlist #{entry.url}"
             begin
               if retrieve_image(entry.summary).nil?
                 @object = LinkThumbnailer.generate(entry.url)
@@ -43,13 +52,12 @@ class UpdateAllFeedsWorker
                 @img_url = retrieve_image(entry.summary)
               end
             rescue Exception => exc
-              logger.error("Message for the log file: #{exc.message} for the feed id: #{@feed.id}")
+              logger.error("Message for the log file: #{exc.message} for the feed id: #{@feed.inspect}")
               @img_url = entry.image
             end
-    	 
-    	      sleep 2
-    			
-            feedlist = Feedlist.create!(
+    			  
+            logger.debug "Image #{@img_url.inspect}"
+            @feedlist = Feedlist.create!(
                          :rssurl       => @feed_update.rssurl,
                          :name         => entry.title.to_s.force_encoding("UTF-8"),
                          :summary      => entry.summary.to_s.force_encoding("UTF-8"),
@@ -64,32 +72,34 @@ class UpdateAllFeedsWorker
                        )
             
           end
-	        
-          @img_url = nil
-          @object = nil
           
+          logger.debug "Feedlist submitted ID: "
+      
+          sleep = 2
+          @object = nil
+          @img_url = nil
         end
       end #end unless HTTP fetch status
+      
 	  end #end feeds loops
 
   end # end perfom method
   
   # method to retrieve image maybe it's better removed it
-
-  def retrieve_image(summary)
-    
-    @doc = Nokogiri::HTML(summary)
-      
-      @doc.css('img').each do |node|
-	      node.each do |attr,attr_val|
-	        if attr == "src"
-	          @attr_val = attr_val
-	        end
-	      end
-	    end
-    
-    return @attr_val
-
-  end
+  #def retrieve_image(summary)
+  #  
+  #  @doc = Nokogiri::HTML(summary)
+  #    
+  #    @doc.css('img').each do |node|
+	#      node.each do |attr,attr_val|
+	#        if attr == "src"
+	#          @attr_val = attr_val
+	#        end
+	#      end
+	#    end
+  #  
+  #  return @attr_val
+  #
+  #end
 
 end
