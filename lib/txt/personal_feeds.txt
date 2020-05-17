@@ -1,0 +1,20 @@
+https://www.criptomonete-italia.com/feed|Cripto Monete Italia|1|criptomonete, bitcoin
+http://accademiadellaliberta.blogspot.com/feeds/posts/default|Accademia della Liberta|1|confroinformazione
+https://luogocomune.net/LC/index.php?format=feed&type=rss|Luogocomune.net|1|confroinformazione
+https://www.byoblu.com/feed/|Byoblu - Il Video Blog di Claudio Messora|1|controinformazione
+https://comedonchisciotte.org/feed/|Come Don Chisciotte - Controinformazione - Informazione alternativa|1|controinformazione
+https://www.maurizioblondet.it/feed/|Maurizio Blondet|1|controinformazione
+https://www.ilprimatonazionale.it/feed/|Il Primato Nazionale|1|controinformazione
+https://www.antoniosocci.com/feed/|Antonio Socci|1|controinformazione
+http://coscienzeinrete.net/politica?format=feed|Coscienze in Rete - Politica|1|controinformazione
+https://www.ingannati.it/feed/|Blog Ingannati|1|controinformazione
+https://petalidiloto.com/feed|Petali di Loto|1|confroinformazione
+http://www.bordernights.it/feed/|Border Nights|1|controinformazione, confroinformazione
+https://www.diegofusaro.com/feed/|Diego Fusaro Filosofo|1|filosofia, politica
+https://disinformazione.it/feed/|Disinformazione|1|controinformazione
+https://www.segnidalcielo.it/feed/| Segni dal Cielo|1|ufo
+https://terraeliberazione.wordpress.com/feed/|Patrioti Siciliani|1|politica
+https://pensareliberi.com/feed|Pensare Liberi|1|blog
+http://www.salusbellatrix.it/feed/|Associazione Salus Bellatrix|1|controinformazione
+https://informarexresistere.fr/feed/|Informare X Resistere|1|controinformazione
+https://ilblogdirobertodinapoli.wordpress.com/feed|Il Blog Avv. Napoli|1|diritti

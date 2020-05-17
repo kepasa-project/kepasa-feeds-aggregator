@@ -10,13 +10,13 @@ Feed.where(rssurl: 'https://www.wired.com/feed/category/science/latest/rss', des
 
 puts 'Created the First User and the First Feed'
 
-if File.exists?("#{Rails.root}/lib/personal_feeds.txt")
+if File.exists?("#{Rails.root}/lib/txt/personal_feeds.txt")
 
 	puts 'Populate Personal Feeds table ...' 
 
 	Feed.delete_all
 	Feedlist.delete_all
-  open("#{Rails.root}/lib/personal_feeds.txt") do |feed|
+  open("#{Rails.root}/lib/txt/personal_feeds.txt") do |feed|
 		feed.read.each_line do |data|
 	  		rssurl, title, user_id, tags_list = data.chomp.split("|")
         begin
@@ -32,7 +32,7 @@ end
 puts 'Populate Categories table ...'
 
 Category.delete_all
-open("#{Rails.root}/lib/categories.txt") do |category|
+open("#{Rails.root}/lib/txt/categories.txt") do |category|
 	category.read.each_line do |data|
   		name, image, language = data.chomp.split("|")
     	image_src = "#{Rails.root}/app/assets/images/categories/#{image}.jpg"
@@ -45,7 +45,7 @@ end
 puts 'Populate Recommended Feeds table ...'
 
 RecommendedFeed.delete_all
-open("#{Rails.root}/lib/recommended_feeds.txt") do |recommended_feed|
+open("#{Rails.root}/lib/txt/recommended_feeds.txt") do |recommended_feed|
 	recommended_feed.read.each_line do |data|
   		title, image, rssurl, category_name, tag_list, language = data.chomp.split("|")
   		puts "Category found: #{category_name}"

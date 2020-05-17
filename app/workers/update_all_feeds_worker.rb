@@ -1,3 +1,5 @@
+require 'find_images'
+
 class UpdateAllFeedsWorker
 
   include Sidekiq::Worker
@@ -45,11 +47,11 @@ class UpdateAllFeedsWorker
              
             logger.debug "Feedlist #{entry.url}"
             begin
-              if retrieve_image(entry.summary).nil?
+              if FindImages.retrieve_image(entry.summary).nil?
                 @object = LinkThumbnailer.generate(entry.url)
                 @img_url = @object.images.last.to_s 
               else
-                @img_url = retrieve_image(entry.summary)
+                @img_url = FindImages.retrieve_image(entry.summary)
               end
             rescue Exception => exc
               logger.error("Message for the log file: #{exc.message} for the feed id: #{@feed.inspect}")
@@ -71,16 +73,17 @@ class UpdateAllFeedsWorker
                          :user_id      => @user.id
                        )
             
-            next if @feedlist.save
-            
-            sleep = 2      
-          
+            if @feedlist.save    
+              sleep = 2      
+              logger.debug "Feedlist submitted ID: "
+              @object = nil
+              @img_url = nil
+            else
+              next
+            end
+
           end
           
-          logger.debug "Feedlist submitted ID: "
-      
-          @object = nil
-          @img_url = nil
         end
       end #end unless HTTP fetch status
       
