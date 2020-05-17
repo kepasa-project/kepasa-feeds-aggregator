@@ -37,7 +37,6 @@ class UpdateAllFeedsWorker
       
       logger.debug "Feed #{@feed_update.inspect}"
       unless @feed.is_a?(Fixnum) #HTTP fetch results is not an error (i.e. not a 200 or 3XX)
-        
 
         @feed.entries.each do |entry|  
 
@@ -57,7 +56,7 @@ class UpdateAllFeedsWorker
               logger.error("Message for the log file: #{exc.message} for the feed id: #{@feed.inspect}")
               @img_url = entry.image
             end
-    			  
+            
             logger.debug "Image #{@img_url.inspect}"
             @feedlist = Feedlist.new(
                          :rssurl       => @feed_update.rssurl,
@@ -66,15 +65,16 @@ class UpdateAllFeedsWorker
                          :url          => entry.url,    
                          :published_at => @datafeedlist,
                          :guid         => entry.id,
-                         :content 		  => entry.content,
+                         :content       => entry.content,
                          :image        => entry.media_thumbnail_url,
-                         :remote_article_picture_url => @img_url,
                          :feed_id      => @feed_update.id,
                          :user_id      => @user.id
                        )
             
             if @feedlist.save    
-              sleep = 2      
+              sleep = 2
+              @feedlist.update(:remote_article_picture_url => @img_url)
+              sleep = 2
               logger.debug "Feedlist submitted ID: "
               @object = nil
               @img_url = nil
@@ -84,7 +84,8 @@ class UpdateAllFeedsWorker
 
           end
           
-        end
+        end # all entries
+
       end #end unless HTTP fetch status
       
 	  end #end feeds loops
