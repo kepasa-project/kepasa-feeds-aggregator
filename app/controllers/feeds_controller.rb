@@ -97,9 +97,13 @@ class FeedsController < ApplicationController
   def update_all_feeds
 
     #UpdateAllFeedsWorker.perform_in(1.seconds, current_user.id)
-    UpdateAllFeedsWorker.perform_async(current_user.id)
+    #UpdateAllFeedsWorker.perform_async(current_user.id)
+    current_user.feeds.find_each do |feed|
+      UpdateFeedWorker.perform_async(feed.id)
+    end
+    
     redirect_to user_feeds_path(current_user)
-
+    
   end
 
   def actualiza
