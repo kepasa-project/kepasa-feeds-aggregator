@@ -55,3 +55,4 @@ Vagrantfile
 
 # Ignore pictures directory
 /pictures
+/uploads
