@@ -22,7 +22,7 @@
       
       <ul class="nav navbar-nav navbar-right">
       
-        <%= render 'languages' %>
+        <%= render 'layouts/languages' %>
 
         <% if current_user.has_role? :admin %> 
         <li> <%= link_to "Admin", admin_dashboard_path %></li>
