@@ -57,3 +57,4 @@ Vagrantfile
 # Ignore pictures directory
 /app/assets/images/feeds
 /pictures
+/uploads
