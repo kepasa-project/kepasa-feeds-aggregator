@@ -27,6 +27,32 @@
 	</div>
 </div>
 
+
+<div class="row">
+    <% @recommended_feeds.each do |rf| %>
+        <div class="col-lg-4 text-center">
+          <div class="panel panel-default">
+            <div class="panel-body">
+            
+                <div class="thumbnail">
+                  <% if rf.logo_url(:thumb) %>
+				<%= image_tag rf.logo_url(:thumb) %>
+			<% else %>
+				<%= image_tag 'logo.40px.png' %>
+			<% end %>
+                  <div class="caption">
+                     <h3><%= rf.title %></h3>
+                     <p><%= rf.description %></p>
+                     <p> </p>
+                  </div>
+                </div>
+              
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+
 <% @recommended_feeds.each do |rf| %>
 <div class="container-fluid">
 	<div class="row">
@@ -34,7 +60,7 @@
 			<% if rf.logo_url(:thumb) %>
 				<p><%= image_tag rf.logo_url(:thumb) %> </p>
 			<% else %>
-				<p>No Logo</p>
+				<p><%= image_tag 'logo.40px.png' %></p>
 			<% end %>
             
             <% if check_feed(rf) %>
