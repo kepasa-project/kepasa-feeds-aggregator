@@ -4,6 +4,7 @@ class FeedsController < ApplicationController
   
   require 'nokogiri'
   require 'open-uri'
+  require 'openssl' # DO NOT USE A LOCAL CERTIFICATE
   
   def tag_cloud
     @tags = Feed.tag_counts_on(:tags)
@@ -48,10 +49,8 @@ class FeedsController < ApplicationController
     @feed = Feed.new(feed_params)
           #if @feed.valid? && Feedjira::Feed.fetch_and_parse(@feed.rssurl) != nil
           if @feed.valid?
-
           # in the following line add like User Agent Firefox to fix the error: OpenURI::HTTPError: 403 Forbidden  
-          doc = Nokogiri::XML(open(@feed.rssurl, 'User-Agent' => 'firefox')) 
-          #@feed.title = doc.at_xpath('/rss/channel/title').inner_text
+          doc = Nokogiri::XML(open(@feed.rssurl, ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE, 'User-Agent' => 'firefox')) 
           @feed.title = doc.xpath('/rss/channel/title').inner_text
 
                     if @feed.save 

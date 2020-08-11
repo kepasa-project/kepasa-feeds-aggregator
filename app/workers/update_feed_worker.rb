@@ -14,7 +14,9 @@ class UpdateFeedWorker
    
     @feed = Feed.find(feed_id)
     @user = @feed.user
-    xml = HTTParty.get(@feed.rssurl).body
+
+    # with  :verify => false HTTParty ignore SSL! 
+    xml = HTTParty.get(@feed.rssurl, :verify => false).body
 
     begin
       feed = Feedjira.parse(xml)

@@ -6,7 +6,7 @@ class AddNewFeedWorker
   sidekiq_options :retry => false #when fail don't repeat
   
   require 'find_images'
-  
+
   def perform(feed_id)       
   
     @feed = Feed.find(feed_id)
@@ -14,8 +14,9 @@ class AddNewFeedWorker
 
     Feedjira::Feed.add_common_feed_entry_element("media:thumbnail", :value => :url, :as => :media_thumbnail_url)
     Feedjira::Feed.add_common_feed_entry_element("enclosure", :value => :url, :as => :media_thumbnail_url)
-	            
-    xml = HTTParty.get(@feed.rssurl).body
+	  
+    # with  :verify => false HTTParty ignore SSL! 
+    xml = HTTParty.get(@feed.rssurl, :verify => false).body 
 
 	  begin	
       feed = Feedjira.parse(xml)	
