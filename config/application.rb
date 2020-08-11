@@ -57,6 +57,9 @@ module Kepasa
 
     # enforce encoding for Feedjira 
     config.encoding = "utf-8" 
+    
+    # to share class and methods
+    config.autoload_paths += %W(#{Rails.root}/lib) 
 
   end
 end

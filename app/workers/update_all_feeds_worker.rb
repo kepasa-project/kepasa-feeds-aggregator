@@ -7,10 +7,12 @@ class UpdateAllFeedsWorker
   sidekiq_options :queue => :default
   sidekiq_options :retry => false #when fail don't repeat
   
+  require 'find_images'
+  
   def logger
     Logger.new("log/sidekiq-update-all-feeds-worker.log")
   end
-
+  
   def perform(user_id)
     
     logger.info "Perform Update All Feeds"

@@ -45,7 +45,7 @@ class FeedlistsController < ApplicationController
 
   def create
     @feed = Feed.find(params[:user_id])
-    @feedlist = Feedlist.new(params[:feedlist])
+    @feedlist = Feedlist.new(feedlist_params)
     flash[:notice] = 'Feedlist was successfully created.' if @feedlist.save
     if current_user
     User.share_review(current_user.id, feedlist_url(@feedlist))
@@ -54,7 +54,7 @@ class FeedlistsController < ApplicationController
   end
 
   def update
-    flash[:notice] = 'Feedlist was successfully updated.' if @feedlist.update_attributes(params[:feedlist])
+    flash[:notice] = 'Feedlist was successfully updated.' if @feedlist.update_attributes(feedlist_params)
     respond_with(@feedlist)
   end
 
@@ -80,5 +80,9 @@ class FeedlistsController < ApplicationController
   private
     def set_feedlist
       @feedlist = Feedlist.find(params[:id])
+    end
+
+    def feedlist_params
+      params.require(:message).permit(:rssurl, :guid, :name, :published, :summary, :url, :image, :feed_id, :user_id, :content, :article_picture)
     end
 end

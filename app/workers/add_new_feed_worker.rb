@@ -1,9 +1,11 @@
 class AddNewFeedWorker
-
+  
   include Sidekiq::Worker
-
+  
   sidekiq_options :queue => :default
   sidekiq_options :retry => false #when fail don't repeat
+  
+  require 'find_images'
   
   def perform(feed_id)       
   
@@ -33,11 +35,11 @@ class AddNewFeedWorker
       unless Feedlist.where(:guid => entry.id).exists? :guid => entry.id
 
         begin
-          if retrieve_image(entry.summary).nil?
+          if FindImages.retrieve_image(entry.summary).nil?
             @object = LinkThumbnailer.generate(entry.url)
             @img_url = @object.images.last.to_s 
           else
-            @img_url = retrieve_image(entry.summary)
+            @img_url = FindImages.retrieve_image(entry.summary)
           end
         rescue Exception => exc
           logger.error("Message for the log file: #{exc.message} for the feed id: #{@feed.id}")
@@ -59,7 +61,16 @@ class AddNewFeedWorker
                :user_id      => @user.id
              )
         
-        @f.save
+        if @f.save    
+          sleep = 2
+          @f.update(:remote_article_picture_url => @img_url)
+          sleep = 2
+          logger.debug "Feedlist submitted ID: #{@f.id}"
+          @object = nil
+          @img_url = nil
+        else
+          next
+        end
         
         sleep 2
 

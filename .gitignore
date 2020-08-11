@@ -58,3 +58,4 @@ Vagrantfile
 /app/assets/images/feeds
 /pictures
 /uploads
+/tmp/uploads/*
