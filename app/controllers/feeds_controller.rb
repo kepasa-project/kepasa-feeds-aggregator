@@ -95,14 +95,16 @@ class FeedsController < ApplicationController
 
   def update_all_feeds
 
+    
+    UpdateAllFeedsWorker.perform_async(feed.id)
 
-    current_user.feeds.find_each do |feed|
-      
-      UpdateFeedWorker.perform_async(feed.id)
-      
-      sleep 1
-
-    end
+    #current_user.feeds.find_each do |feed|
+    #  
+    #  UpdateFeedWorker.perform_async(feed.id)
+    #  
+    #  sleep 1
+    #
+    #end
     
     redirect_to user_feeds_path(current_user)
     
