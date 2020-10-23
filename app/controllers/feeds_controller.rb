@@ -96,7 +96,7 @@ class FeedsController < ApplicationController
   def update_all_feeds
 
     
-    UpdateAllFeedsWorker.perform_async(feed.id)
+    UpdateAllFeedsWorker.perform_async(current_user.id)
 
     #current_user.feeds.find_each do |feed|
     #  
