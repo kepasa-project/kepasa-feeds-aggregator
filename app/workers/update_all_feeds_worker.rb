@@ -83,9 +83,10 @@ class UpdateAllFeedsWorker
             else
               next
             end
-
+            
           end
           
+          sleep 3
         end # all entries
 
       end #end unless HTTP fetch status
