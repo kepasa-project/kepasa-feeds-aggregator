@@ -14,7 +14,7 @@ gem "nokogiri", ">= 1.10.4"
 # Gems used only for assets and not required
 # in production environments by default.
 gem 'pg', '~> 0.20'
-gem 'puma', '~> 3.12'
+gem 'puma', '~> 4.3'
 
 # auth/authorization + avatar system
 gem 'devise'
