@@ -239,7 +239,9 @@ GEM
       nesty (~> 1.0.2)
       nokogiri (~> 1.10.7)
     method_source (1.0.0)
-    mimemagic (0.3.4)
+    mimemagic (0.3.10)
+      nokogiri (~> 1)
+      rake
     mini_magick (4.10.1)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
@@ -282,7 +284,8 @@ GEM
     powerpack (0.1.2)
     psych (3.1.0)
     public_suffix (4.0.3)
-    puma (3.12.6)
+    puma (4.3.8)
+      nio4r (~> 2.0)
     rack (2.2.2)
     rack-protection (2.0.8.1)
       rack
@@ -478,7 +481,7 @@ DEPENDENCIES
   nokogiri (>= 1.10.4)
   onebox
   pg (~> 0.20)
-  puma (~> 3.12)
+  puma (~> 4.3)
   rails (~> 5.2.4)
   rails-timeago (~> 2.0)
   rake (= 13.0.1)
